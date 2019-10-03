@@ -1,6 +1,32 @@
 <!doctype html>
 <title>{{ title }}</title>
 <h1>{{ title }}</h1>
+<br>
+<form method="get" action="/transpose">
+<input type="hidden" name="tune"  value="{{ title_encoded }}" />
+<select name="tone">
+	<option value="">--choisir la tonalité--</option>
+	<option value="A">A</option>
+	<option value="A#">A#</option>
+	<option value="Bb">Bb</option>
+	<option value="B">B</option>
+	<option value="Cb">Cb</option>
+	<option value="C">C</option>
+	<option value="C#">C#</option>
+	<option value="Db">Db</option>
+	<option value="D">D</option>
+	<option value="D#">D#</option>
+	<option value="Eb">Eb</option>
+	<option value="E">E</option>
+	<option value="F">F</option>
+	<option value="F#">F#</option>
+	<option value="Gb">Gb</option>
+	<option value="G">G</option>
+	<option value="G#">G#</option>
+	<option value="Ab">Ab</option>
+</select>
+<input type="submit" value="transposer">
+</form>
 {% for x in results %}
-<h3><pre>{{ x }}</pre></h3>
+<h3><pre>{{ x }}'</pre></h3>
 {% endfor %}

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import re
+import urllib.parse
 from flask import Flask, request, render_template
 from bs4 import BeautifulSoup
 
@@ -424,7 +425,7 @@ list_titles.append('ZING WENT THE STRINGS')
 
 app = Flask(__name__)
 
-@app.route('/title/')
+@app.route('/title')
 def search_theme():
 	search_word = request.args.get('')
 	regex = re.compile(r'.*'+search_word+'.*',re.IGNORECASE)
@@ -433,7 +434,7 @@ def search_theme():
 	for val in selectobj:
 		results.append(val)
 	return render_template('query_results.html', results=results)
-	
+
 @app.route('/view/')
 def view_theme():
 	view_word = request.args.get('')
@@ -442,8 +443,113 @@ def view_theme():
 	s = BeautifulSoup(plain, 'html.parser')
 	title = s.find('h4')
 	title = title.text
+	title_encoded = urllib.parse.quote(title)
 	results = []
 	for corpus in s.findAll('pre'):
 		results.append(corpus.text)
-	return render_template('view_theme.html', results=results, title=title)
+	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
+
+@app.route('/transpose')
+def transpose_theme():
+	
+	results = []
+	
+	tune_coded = request.args.get('tune','')
+	tune = urllib.parse.unquote(tune_coded)
+	tone = request.args.get('tone','')
+	
+	
+	
+	pitch_flat = ('A','Bb','Cb','C','Db','D','Eb','E','F','Gb','G','Ab')
+	pitch_sharp = ('A','A#','B','C','C#','D','D#','E','F','F#','G','G#')
+	
+	tone_flat = ('Bb', 'Cb','C','Db','Eb','F','Gb','Ab')
+	tone_sharp = ('A','A#','B','C#','D','D#','E','F#','G','G#')
+	
+	f = open('/home/jericho/Bureau/jmlDB/corpus-html/'+tune+'.html')
+	plain = f.read()
+	occ = plain.find('Key of ')
+	key = plain[occ+7:occ+9].strip()
+	
+	init_pitch = key
+	final_pitch = tone
+
+	#enharmonic choice
+	if final_pitch in tone_flat:
+		index_init = pitch_flat.index(init_pitch)
+		index_final = pitch_flat.index(final_pitch)
+		diff = index_final - index_init
+	if final_pitch in tone_sharp:
+		index_init = pitch_sharp.index(init_pitch)
+		index_final = pitch_sharp.index(final_pitch)
+		diff = index_final - index_init
+	
+	corpus_list = []
+	view_word = request.args.get('')
+	f = open('/home/jericho/Bureau/jmlDB/corpus-html/'+tune+'.html')
+	plain = f.read()
+	s = BeautifulSoup(plain, 'html.parser')
+	title = s.find('h4').text
+	title_encoded = urllib.parse.quote(title)
+	for corpus in s.findAll('pre'):
+		corpus_list.append(corpus.text)
+
+	chord_flat = set(re.findall(r'[BDEGA]b+', str(corpus_list)))
+	chord_sharp = set(re.findall(r'[ACDFG]#+', str(corpus_list)))
+	chord_none = set(re.findall(r'[ABCDEFG](?!b|#)+', str(corpus_list)))
+	
+	if chord_flat:
+		print('(initial)Xb=',chord_flat)
+		for x in chord_flat:
+			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
+	if chord_sharp:
+		print('(initial)X#=',chord_sharp)
+		for x in chord_sharp:
+			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
+	if chord_none:
+		print('(initial)X=',chord_none)
+		for x in chord_none:
+			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
+
+#transposition			
+	if chord_flat:
+		for x in chord_flat:
+			z = pitch_flat.index(x)
+			q = z + diff
+			pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
+			if q <= 11:
+				corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
+			else:
+				corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
+
+	if chord_sharp:
+		for x in chord_sharp:
+			z = pitch_sharp.index(x)
+			q = z + diff
+			pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
+			if q <= 11:
+				corpus_list = [re.sub(pattern,pitch_sharp[q],y) for y in corpus_list]
+			else:
+				corpus_list = [re.sub(pattern,pitch_sharp[q-12],y) for y in corpus_list]
+				
+	if chord_none:
+		for x in chord_none:
+			z = pitch_sharp.index(x)
+			q = z + diff
+			pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
+			if final_pitch in tone_flat:
+				if q <= 11:
+					corpus_list = [re.sub(pattern_none,pitch_flat[q],y) for y in corpus_list]
+				else:
+					corpus_list = [re.sub(pattern_none,pitch_flat[q-12],y) for y in corpus_list]
+			if final_pitch in tone_sharp:
+				if q <= 11:
+					corpus_list = [re.sub(pattern_none,pitch_sharp[q],y) for y in corpus_list]
+				else:
+					corpus_list = [re.sub(pattern_none,pitch_sharp[q-12],y) for y in corpus_list]
+
+	for text_in_corpus in corpus_list:
+		results.append(text_in_corpus)
+	
+	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
 
