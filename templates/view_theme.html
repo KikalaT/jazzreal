@@ -1,7 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<p align="left"><a href='/'>[home]</a></p>
 <title>{{ title }}</title>
 <h1>{{ title }}</h1>
 <br>
+<p>
+<h2>Grille:</h2>
 <form method="get" action="/transpose">
 <input type="hidden" name="tune"  value="{{ title_encoded }}" />
 <select name="tone">
@@ -27,6 +31,31 @@
 </select>
 <input type="submit" value="transposer">
 </form>
-{% for x in results %}
-<h3><pre>{{ x }}'</pre></h3>
+
+{% if list_name %}
+<h3>
+<pre>
+List :
+{{ list_name }}
+</pre>
+</p>
+</h3>
+{% endif %}
+
+<p>
+{% if span_chords %}
+{% for x in span_chords %}
+<h4>
+<pre>
+<span style="background-color: #FFFF00">Extract: {{ x }}</span>
+</pre>
+</h4>
 {% endfor %}
+{% endif %}
+</p>
+<p>
+{% for x in results %}
+<h3><pre>{{ x }}</pre></h3>
+{% endfor %}
+</p>
+</html>

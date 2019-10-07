@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<p align="left"><a href='/'>[home]</a></p>
+<h2>Résultats</h2>
+<p>
+<p>
+<h3>
+List: {{ list_name }}
+</h3>
+</p>
+<h3>
+{% for x in cad_list %}
+{{ x }}
+{% endfor %}
+</h3>
+</p>
+{% if title_list %}
+<p>
+<h3>
+{% for x,y in title_list %}
+<br><a href='/view_list/?={{ y }}'>{{ x }}</a></br>
+{% endfor %}
+</h3>
+</p>
+
+{% else %}
+<p><h4>No results.</h4></p>
+{% endif %}
+</html>
