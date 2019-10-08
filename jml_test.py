@@ -4,7 +4,7 @@ import re
 import urllib.parse
 from flask import Flask, request, render_template
 from bs4 import BeautifulSoup
-
+from versionsDB import versions_search
 
 
 lists = []
@@ -779,6 +779,19 @@ def search():
 			results_title.append(val)
 	else: 
 		results_title = []
+		
+#rechercher les versions d\'un standard
+	search_versions = request.args.get('versions','')
+	s = versions_search()
+	s.init_versionsDB()
+	if search_versions:
+		results_versions = []
+		regex = re.compile(r'.*'+search_versions+'.*',re.IGNORECASE)
+		selectobj = filter(regex.search, s.DB.keys())
+		for val in selectobj:
+			results_versions.append(val)
+	else: 
+		results_versions = []
 
 #rechercher une cadence
 	search_cadence = request.args.get('cadence','')
@@ -803,7 +816,7 @@ def search():
 	else:
 		results_bridge = []
 
-	return render_template('query_results.html', results_title=results_title, results_cadence=results_cadence, results_bridge=results_bridge)
+	return render_template('query_results.html', results_title=results_title, results_cadence=results_cadence, results_bridge=results_bridge, results_versions=results_versions)
 
 @app.route('/list')
 def view_list():
@@ -860,7 +873,15 @@ def list_display():
 	
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded, span_chords=span_chords, list_name=list_name)
 
-
+@app.route('/versions')
+def versions():
+	versions_query = str(request.args.get(''))
+	s = versions_search()
+	s.init_versionsDB()
+	results_versions = s.DB.get(versions_query)
+	
+	return render_template('view_versions.html',results_versions=results_versions)
+	
 @app.route('/transpose')
 def transpose_theme():
 	

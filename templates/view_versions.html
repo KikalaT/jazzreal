@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<p align="left"><a href='/'>[home]</a></p>
+<h3>Résultats</h3>
+{% if results_versions %}
+<p>
+<h4>Versions:</h4>
+<h3>
+{% for x in results_versions %}
+<br><a href='https://www.discogs.com/search/?q={{ x }}&type=all{{ x }}'>{{ x }}</a></br>
+{% endfor %}
+
+{% else %}
+<h4>No results</h4>
+{% endif %}
+</h3>

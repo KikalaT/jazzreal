@@ -33,6 +33,15 @@
 </h3>
 </p>
 
+{% elif results_versions %}
+<p>
+<h4>Versions:</h4>
+<h3>
+{% for x in results_versions %}
+<a href='/versions?={{ x }}'</a>{{ x }}</br>
+{% endfor %}
+</h3>
+</p>
 {% else %}
 <p><h4>No results.</h4></p>
 {% endif %}
