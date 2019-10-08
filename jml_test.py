@@ -4,6 +4,7 @@ import re
 import urllib.parse
 from flask import Flask, request, render_template
 from bs4 import BeautifulSoup
+
 from versionsDB import versions_search
 
 
@@ -769,7 +770,7 @@ def home_page():
 
 @app.route('/search')
 def search():
-#rechercher un standard
+#rechercher la grille d'un standard
 	search_title = request.args.get('title','')
 	if search_title:
 		regex = re.compile(r'.*'+search_title+'.*',re.IGNORECASE)
@@ -875,11 +876,12 @@ def list_display():
 
 @app.route('/versions')
 def versions():
-	versions_query = str(request.args.get(''))
+	versions_query = (request.args.get(''))
 	s = versions_search()
 	s.init_versionsDB()
-	results_versions = s.DB.get(versions_query)
-	
+	rvtmp1 = s.DB.get(versions_query)
+	rvtmp2 = [x.replace('•','+') for x in rvtmp1]
+	results_versions = zip(rvtmp1,rvtmp2)
 	return render_template('view_versions.html',results_versions=results_versions)
 	
 @app.route('/transpose')

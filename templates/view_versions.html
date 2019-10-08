@@ -6,8 +6,8 @@
 <p>
 <h4>Versions:</h4>
 <h3>
-{% for x in results_versions %}
-<br><a href='https://www.discogs.com/search/?q={{ x }}&type=all{{ x }}'>{{ x }}</a></br>
+{% for x,y in results_versions %}
+<br><a href='https://www.discogs.com/search/?q={{ y }}&type=all'>{{ x }}</a></br>
 {% endfor %}
 
 {% else %}
