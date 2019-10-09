@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html>
-<p align="left"><a href='/'>[home]</a></p>
+{% extends 'base.html' %}
+
+{% block content %}
 <title>{{ title }}</title>
 <h1>{{ title }}</h1>
 <br>
@@ -58,4 +58,4 @@ List :
 <h3><pre>{{ x }}</pre></h3>
 {% endfor %}
 </p>
-</html>
+{% endblock %}

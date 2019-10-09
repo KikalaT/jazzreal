@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
-<p align="left"><a href='/'>[home]</a></p>
-<h3>Résultats</h3>
+{% extends 'base.html' %}
 
+{% block content %}
+<h3>Résultats</h3>
 {% if results_title %}
 <p>
 <h4>Standard:</h4>
@@ -12,7 +12,6 @@
 {% endfor %}
 </h3>
 </p>
-
 {% elif results_cadence %}
 <p>
 <h4>Cadences:</h4>
@@ -22,7 +21,6 @@
 {% endfor %}
 </h3>
 </p>
-
 {% elif results_bridge %}
 <p>
 <h4>Pont:</h4>
@@ -45,4 +43,4 @@
 {% else %}
 <p><h4>No results.</h4></p>
 {% endif %}
-</html>
+{% endblock %}

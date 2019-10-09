@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html>
-<p align="left"><a href='/'>[home]</a></p>
+{% extends 'base.html' %}
+
+{% block content %}
 <h3>Résultats</h3>
 {% if results_versions %}
 <p>
 <h4>Versions:</h4>
 <h3>
 {% for x,y in results_versions %}
-<br><a href='https://www.discogs.com/search/?q={{ y }}&type=all'>{{ x }}</a></br>
+<br><a target="_blank" rel="noopener noreferrer" href='https://www.discogs.com/search/?q={{ y }}&type=all'>{{ x }}</a></br>
 {% endfor %}
 
 {% else %}
 <h4>No results</h4>
 {% endif %}
 </h3>
+{% endblock %}

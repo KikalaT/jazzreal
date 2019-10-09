@@ -995,7 +995,10 @@ def transpose_theme():
 	if chord_none:
 		for x in chord_none:
 			if final_pitch in tone_flat:
-				z = pitch_flat.index(x)
+				try:
+					z = pitch_flat.index(x)
+				except ValueError:
+					z = pitch_sharp.index(x)
 				q = z + diff
 				pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
 				if q <= 11:

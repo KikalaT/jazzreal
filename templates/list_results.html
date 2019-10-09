@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html>
-<p align="left"><a href='/'>[home]</a></p>
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Résultats</h2>
 <p>
 <p>
@@ -22,8 +22,7 @@ List: {{ list_name }}
 {% endfor %}
 </h3>
 </p>
-
 {% else %}
 <p><h4>No results.</h4></p>
 {% endif %}
-</html>
+{% endblock %]

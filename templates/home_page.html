@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html>
-<body>
-<form action="/search" align="left">
-Rechercher les versions d'un standard: <input type="text" name="versions">
-<input type="submit" value="Submit">
-</form>
-</p>
-<p>
-<form action="/search" align="left">
-Rechercher la grille d'un standard: <input type="text" name="title">
-<input type="submit" value="Submit">
-</form>
-</p>
-<p>
-<p>
-<form action="/search" align="left">
-Rechercher une cadence dans un standard: <input type="text" name="cadence">
-<input type="submit" value="Submit">
-</form>
-</p>
-<p>
-<form action="/search" align="left">
-Rechercher un pont dans un standard: <input type="text" name="bridge">
-<input type="submit" value="Submit">
-</form>
-</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+<h3>
+<pre>
+Jazz standards DB :
+
+- Search by title to get suggested discography of "versions"
+- Search by title to get "chords" with "transposition" tool
+- Search by chords in "cadence". Example "IIm7-V7" or "Imaj7-IV"
+- Search by chords in "bridge". Example "bIII"
+
+Please do not hesitate to provide feedback.
+</pre>
+</h3>
+</div>
+
+{% endblock %}
