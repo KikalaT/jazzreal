@@ -37,6 +37,14 @@
 {% for x in results_versions %}
 <a href='/versions?={{ x }}'</a>{{ x }}</br>
 {% endfor %}
+</p>
+</h4>
+{% elif results_artist %}
+<p><h4>Artist:</h4>
+<h4>
+{% for x in results_artist %}
+<a href='/artist?={{ x }}'<a/>{{ x }}</br>
+{% endfor %}
 </h4>
 </p>
 {% else %}

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <script src="https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/js/d3-mitch-tree.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/css/d3-mitch-tree.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/deltoss/d3-mitch-tree@1.0.2/dist/css/d3-mitch-tree-theme-default.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 * {box-sizing: border-box;}
 
@@ -78,12 +85,11 @@ body {
   }
 }
 </style>
-</head>
-<body>
-
+    </head>
+    <body>
 <div class="topnav">
   <a class="active" href="/">Home</a>
-  <div class="search-container">
+	<div class="search-container">
      <form action="/search">
       <input type="text" placeholder="Artist.." name="artist">
       <button type="submit"><i class="fa fa-search"></i></button>
@@ -115,11 +121,30 @@ body {
     </form>
 	</div>
 </div>
+        <section id="visualisation">
+        </section>
 
-<div style="padding-left:16px">
+        <script>
 {% block content %}{% endblock %}
-</div>
-</body>
+            var treePlugin = new d3.mitchTree.boxedTree()
+                .setIsFlatData(true)
+                .setData(data)
+                .setElement(document.getElementById("visualisation"))
+                .setIdAccessor(function(data) {
+                    return data.id;
+                })
+                .setParentIdAccessor(function(data) {
+                    return data.parentId;
+                })
+                .setBodyDisplayTextAccessor(function(data) {
+                    return data.description;
+                })
+                .setTitleDisplayTextAccessor(function(data) {
+                    return data.name;
+                })
+                .initialize();
+        </script>
+    </body>
 <footer align="right">
 <p><a href="mailto:jericho@jazzmusiclab.org">jericho@jazzmusiclab.org</a></p>
 <p>(c) published under CC0 Licence.</p>
