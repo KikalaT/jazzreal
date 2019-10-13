@@ -5,13 +5,13 @@
 {% if results_versions %}
 <p>
 <h4>Versions:</h4>
-<h3>
+<h4>
 {% for x,y in results_versions %}
 <br><a target="_blank" rel="noopener noreferrer" href='https://www.discogs.com/search/?q={{ y }}&type=all'>{{ x }}</a></br>
 {% endfor %}
-
+</h4>
 {% else %}
-<h4>No results</h4>
+<h4>No results
 {% endif %}
-</h3>
+</h4>
 {% endblock %}

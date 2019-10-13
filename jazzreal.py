@@ -904,6 +904,7 @@ def transpose_theme():
 	plain = f.read()
 	occ = plain.find('Key of ')
 	key = plain[occ+7:occ+9].strip()
+	key = key.strip('m')
 	
 	init_pitch = key
 	final_pitch = tone
@@ -955,43 +956,24 @@ def transpose_theme():
 #transposition			
 	if chord_flat:
 		for x in chord_flat:
-			if final_pitch in tone_flat:
-				z = pitch_flat.index(x)
-				q = z + diff
-				pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
-				if q <= 11:
-					corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
-				else:
-					corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
-			elif final_pitch in tone_sharp:
-				for x in chord_flat:
-					z = pitch_flat.index(x)
-					q = z + diff
-					pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
-					if q <= 11:
-						corpus_list = [re.sub(pattern,pitch_sharp[q],y) for y in corpus_list]
-					else:
-						corpus_list = [re.sub(pattern,pitch_sharp[q-12],y) for y in corpus_list]
+			z = pitch_flat.index(x)
+			q = z + diff
+			pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
+			if q <= 11:
+				corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
+			else:
+				corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
 
 	if chord_sharp:
 		for x in chord_sharp:
-			if final_pitch in tone_flat:
-				z = pitch_sharp.index(x)
-				q = z + diff
-				pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
-				if q <= 11:
-					corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
-				else:
-					corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
-			elif final_pitch in tone_sharp:
-				z = pitch_sharp.index(x)
-				q = z + diff
-				pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
-				if q <= 11:
-					corpus_list = [re.sub(pattern,pitch_sharp[q],y) for y in corpus_list]
-				else:
-					corpus_list = [re.sub(pattern,pitch_sharp[q-12],y) for y in corpus_list]
-				
+			z = pitch_sharp.index(x)
+			q = z + diff
+			pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
+			if q <= 11:
+				corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
+			else:
+				corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
+
 	if chord_none:
 		for x in chord_none:
 			if final_pitch in tone_flat:
@@ -1006,7 +988,10 @@ def transpose_theme():
 				else:
 					corpus_list = [re.sub(pattern_none,pitch_flat[q-12],y) for y in corpus_list]
 			elif final_pitch in tone_sharp:
-				z = pitch_sharp.index(x)
+				try:
+					z = pitch_sharp.index(x)
+				except ValueError:
+					z = pitch_flat.index(x)
 				q = z + diff
 				pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
 				if q <= 11:

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
 
 {% block content %}
@@ -6,41 +5,42 @@
 {% if results_title %}
 <p>
 <h4>Standard:</h4>
-<h3>
+<h4>
 {% for x in results_title %}
 <br><a href='/view/?={{ x }}'>{{ x }}</a></br>
 {% endfor %}
-</h3>
+</h4>
 </p>
 {% elif results_cadence %}
 <p>
 <h4>Cadences:</h4>
-<h3>
+<h4>
 {% for x,y in results_cadence %}
 <a href='/list?={{ y }}'</a>{{ x }}</br>
 {% endfor %}
-</h3>
+</h4>
 </p>
 {% elif results_bridge %}
 <p>
 <h4>Pont:</h4>
-<h3>
+<h4>
 {% for x,y in results_bridge %}
 <a href='/list?={{ y }}'</a>{{ x }}</br>
 {% endfor %}
-</h3>
+</h4>
 </p>
 
 {% elif results_versions %}
 <p>
 <h4>Versions:</h4>
-<h3>
+<h4>
 {% for x in results_versions %}
 <a href='/versions?={{ x }}'</a>{{ x }}</br>
 {% endfor %}
-</h3>
+</h4>
 </p>
 {% else %}
 <p><h4>No results.</h4></p>
 {% endif %}
+
 {% endblock %}

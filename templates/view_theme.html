@@ -5,8 +5,8 @@
 <h1>{{ title }}</h1>
 <br>
 <p>
-<h2>Grille:</h2>
-<form method="get" action="/transpose">
+<h3>Grille:</h3>
+<form target="_blank" rel="noopener noreferrer" method="get" action="/transpose">
 <input type="hidden" name="tune"  value="{{ title_encoded }}" />
 <select name="tone">
 	<option value="">--choisir la tonalité--</option>
@@ -58,4 +58,5 @@ List :
 <h3><pre>{{ x }}</pre></h3>
 {% endfor %}
 </p>
+
 {% endblock %}
