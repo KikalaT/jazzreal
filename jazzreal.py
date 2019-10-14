@@ -1086,13 +1086,41 @@ def search():
 @app.route('/artist')
 def artist_search():
 	search_artist = request.args.get('')
+	
 	alb = album()
 	bio = biography()
 	grp = groups()
+	
 	alb.init_albumDB()
 	bio.init_biographyDB()
 	grp.init_groupsDB()
-	var_data = 'var data = [{"id":"1","name":"Artist","description":"'+search_artist+'"}];'
+	
+	bio_val = bio.DB[search_artist]
+	grp_val = grp.DB[search_artist]
+	alb_val = alb.DB[search_artist]
+	
+	#tree:root
+	var_data = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
+	
+	#tree:level1
+	var_data += '{"id": 2,"parentId": 1,"name": "Biography","description": "'+bio_val+'"},'
+	var_data += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
+	var_data += '{"id": 4,"parentId": 1,"name":" Discography","description": "--expand--"},'
+	
+	
+	#tree:level2->Groups
+	i = 5
+	for val in alb_val:
+		var_data += '{"id": '+str(i)+',"parentId": 3,"name":"Group","description": "'+val+'"},'
+		i += 1
+	
+	#tree:level2->Discography
+	for val in alb_val:
+		var_data += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
+		i += 1
+	
+	var_data += '];'
+	
 	return render_template('artist_results.html', var_data=var_data)
 
 	
