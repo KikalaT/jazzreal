@@ -6,7 +6,7 @@ groups_dict = {\
 ('this is group1 of Charlie Parker','this is group2 of Charlie Parker','this is group3 of Charlie Parker'),\
 
 'Sonny Stitt':\
-('this is group1 of Charlie Parker','this is group2 of Charlie Parker','this is group3 of Charlie Parker'),\
+('this is group1 of Sonny Stitt','this is group2 of Sonny Stitt','this is group3 of Sonny Stitt'),\
 
 }
 

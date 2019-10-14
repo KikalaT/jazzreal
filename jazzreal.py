@@ -986,7 +986,6 @@ artist_list.append('Shelly Manne')
 artist_list.append('Slam Stewart')
 artist_list.append('Sonny Rollins')
 artist_list.append('Sonny Stitt')
-artist_list.append('Sonny Stitt')
 artist_list.append('Stan Getz')
 artist_list.append('Stan Levy')
 artist_list.append('Stanley Clarke')
@@ -1103,14 +1102,14 @@ def artist_search():
 	var_data = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 	
 	#tree:level1
-	var_data += '{"id": 2,"parentId": 1,"name": "Biography","description": "'+bio_val+'"},'
+	var_data += '{"id": 2,"parentId": 1,"type": "bio", "name": "Biography","description": "'+bio_val+'"},'
 	var_data += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
-	var_data += '{"id": 4,"parentId": 1,"name":" Discography","description": "--expand--"},'
+	var_data += '{"id": 4,"parentId": 1,"name":" Discography (Top 7)","description": "--expand--"},'
 	
 	
 	#tree:level2->Groups
 	i = 5
-	for val in alb_val:
+	for val in grp_val:
 		var_data += '{"id": '+str(i)+',"parentId": 3,"name":"Group","description": "'+val+'"},'
 		i += 1
 	
