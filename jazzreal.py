@@ -1101,9 +1101,9 @@ def artist_search():
 	var_data = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 	
 	#tree:level1
-	var_data += '{"id": 2,"parentId": 1,"type": "bio", "name": "Biography","description": "'+bio_val+'"},'
+	var_data += '{"id": 2,"parentId": 1, "name": "Biography","description": "'+bio_val+'"},'
 	var_data += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
-	var_data += '{"id": 4,"parentId": 1,"name":" Discography (Top 7)","description": "--expand--"},'
+	var_data += '{"id": 4,"parentId": 1,"name":" Discography","description": "--expand--"},'
 	
 	
 	#tree:level2->Groups

@@ -161,7 +161,7 @@ Jazz Impressions Of The U.S.A.--Columbia--1957','\
 At Wilshire-Ebell--Fantasy--1957','\
 Jazz At Storyville--Vogue--1959','\
 Poll Winners Jazz--Fontana--1960','\
-"First Place Again" Playboy--Warner Bros. Records--1960','\
+First Place Again Playboy--Warner Bros. Records--1960','\
 Gerry Mulligan - Paul Desmond Quartet--Verve Records--1957','\
  The Trolley Song /  Crazy Chris --Fantasy--1962','\
 Two Of A Mind--RCA Victor--1962','\
@@ -199,7 +199,7 @@ New Soil--Blue Note--1959','\
 Jackie\'s Bag--Blue Note--1960','\
 Makin\' The Changes--New Jazz--1960','\
 Capuchin Swing--Blue Note--1960','\
-The Music From "The Connection"--Blue Note--1960','\
+The Music From The Connection--Blue Note--1960','\
 Swing, Swang, Swingin\'--Blue Note--1960','\
 A Fickle Sonance--Blue Note--1961','\
 Bluesnik--Blue Note--1961','\
@@ -235,9 +235,9 @@ New Wine In Old Bottles--East Wind--1978','\
 Hipnosis--Blue Note--1978','\
 A Midnight Session With The Jazz Messengers--Elektra--1957'),'\
 Cannonball Adderley':('\
-Presenting "Cannon Ball"--Savoy Records--1955','\
+Presenting Cannon Ball--Savoy Records--1955','\
 Bohemia After Dark--Savoy Records--1955','\
-Julian "Cannonball" Adderley--EmArcy--1955','\
+Julian Cannonball Adderley--EmArcy--1955','\
 And Strings--Mercury--1955','\
 Introducing Nat Adderley--Wing Records--1955','\
 In The Land Of Hi-Fi--EmArcy--1956','\
@@ -467,7 +467,7 @@ Herbie Harper Featuring Bud Shank And Bob Gordon--Liberty--1956','\
 Laurindo Almeida Quartet Featuring Bud Shank--Vogue--1956','\
 Lotus Bud--Vogue Productions--1956','\
 Gary Crosby--World Pacific Records--1957','\
-Theme Music From "The James Dean Story"--World Pacific Records--1957','\
+Theme Music From The James Dean Story--World Pacific Records--1957','\
 Flute \'N Oboe--Pacific Jazz--1957','\
 I\'ll Take Romance--World Pacific Records--1958','\
 Bud Shank In Africa--Pacific Jazz--1958','\
@@ -502,11 +502,11 @@ Keeper Of The Flame--Muse Records--1979','\
 Hollywood Madness--Muse Records--1980','\
 Side By Side--Muse Records--1981','\
 Waitin For Waits --Muse Records--1980','\
-Cool "C"--Seven Seas--1981','\
+Cool C--Seven Seas--1981','\
 Return To Alto Acres--Palo Alto Records--1982','\
 Alive! At The Village Vanguard--Muse Records--1982','\
 The 3 R\'s--Muse Records--1982','\
-"The Wildman" Meets "The Madman"--GNP Crescendo--1982','\
+The Wildman Meets The Madman--GNP Crescendo--1982','\
 Yakety Madness!--Palo Alto Records--1983','\
 Alto Annie\'s Theme--Palo Alto Records--1983','\
 Bossa Nova Eyes--Palo Alto Records--1985','\
@@ -988,7 +988,7 @@ Carol Kaye':('\
 Anitra\'s Twist--GNP Crescendo--1962','\
 Picking Up On The E-String--Groove Attack Productions--1995','\
 Better Days--Gwyn--1971','\
-Deuces, "T\'s," Roadsters & Drums--RCA Victor--1963','\
+Deuces, T\'s, Roadsters & Drums--RCA Victor--1963','\
 ...Presenting The Fabulous Ronettes Featuring Veronica--Philles Records--1964','\
 From Sea To Ski--Mercury--1964','\
 Back To Back--Philles Records--1965','\
@@ -1234,7 +1234,7 @@ The Modern Jazz Sextet--Norgran Records--1956','\
 Thelonious Monk / Sonny Rollins--Prestige--1956','\
 The Bop Session--Sonet--1975','\
 Marchin\' On!--Strata-East--1976','\
-"First Place Again" Playboy--Warner Bros. Records--1960','\
+First Place Again Playboy--Warner Bros. Records--1960','\
 Los Grandes Del Jazz 5--Sarpe--1980','\
 Volume 2--Blue Note--1956','\
 Trio / Quintet--Signal (3)--1955','\
@@ -1343,7 +1343,7 @@ Some Other Stuff--Blue Note--1964','\
 ...Now Is The Time For All Good Jazz...--Columbia Special Products--1965','\
 The New Wave In Jazz--Impulse!--1966','\
 It\'s Time!--Blue Note--1965','\
-"In" Jazz For The Culture Set--Impulse!--1965','\
+In Jazz For The Culture Set--Impulse!--1965','\
 Dream Weaver--Atlantic--1966','\
 Action--Blue Note--1967','\
 Compulsion--Blue Note--1967','\
@@ -1360,7 +1360,7 @@ Jimmy Blanton':('\
 Blues / Plucked Again--Columbia--1939','\
 Body And Soul / Mr. J. B. Blues--Victor--1940','\
 Sophisticated Lady / Pitter Panther Patter--no label--0','\
-Rex Stewart And His Orchestra --"X"--1954','\
+Rex Stewart And His Orchestra --X--1954','\
 Duo--RCA Victor--1955','\
 Solitude / Mood Indigo--Columbia--1940','\
 Jack The Bear / Morning Glory--Victor--1940','\
@@ -1518,7 +1518,7 @@ Jazz Street--Timeless Records (3)--1989','\
 PDB--DIW--1989','\
 Last Flight--DIW--1989','\
 Standards Zone--Global Pacific Records--1991','\
-"Honestly" Solo Live--Jazzpoint Records--1991','\
+Honestly Solo Live--Jazzpoint Records--1991','\
 Live In Italy--Flavour of Sound--1997','\
 Blackbird--Alfa Jazz--1991','\
 Heavy\'N Jazz--Jazzpoint Records--1992','\
@@ -1872,7 +1872,7 @@ Harlem Jazz 1930--Brunswick--1950','\
 Ellington Uptown--Columbia--1951','\
 John Kirby And His Orchestra--Columbia--1951','\
 Masterpieces By Ellington--Columbia Masterworks--1951','\
-Perdido / Take The "A" Train--Columbia--1952','\
+Perdido / Take The A Train--Columbia--1952','\
 Seattle Concert--RCA Victor--1954','\
 Ellington \'55 (Part 1)--Capitol Records--1955','\
 Jazz For People Who Hate Jazz--RCA Victor--1954','\
@@ -1884,7 +1884,7 @@ Flow Gently, Sweet Rhythm--Jazztone (2)--0','\
 Duke Ellington Presents...--Bethlehem Records--1956'),'\
 Connie Kay':('\
 Pure Desmond--CTI Records--1975','\
-"First Place Again" Playboy--Warner Bros. Records--1960','\
+First Place Again Playboy--Warner Bros. Records--1960','\
 Los Grandes Del Jazz 5--Sarpe--1980','\
 European Windows--RCA Victor--1958','\
 Tenderly / New D. B. Blues--Mercury--1953','\
@@ -1945,7 +1945,7 @@ Drum Night At Birdland--Vogue--1974','\
 Live At The Village Vanguard--Enja Records--1974','\
 The Impulse Years--Impulse!--1974','\
 The Wide Point--MPS Records--1975','\
-Is "On The Mountain"--PM--1975','\
+Is On The Mountain--PM--1975','\
 New Agenda--Vanguard--1975','\
 Live--PM--1975','\
 Ballads--Impulse!--1963','\
@@ -2109,7 +2109,7 @@ The Charles Mingus Quintet + Max Roach--Fantasy--1964','\
 Plus 4--Prestige--1956','\
 Taste Of Drums--Time Records (3)--1964','\
 With Strings--EmArcy--1955','\
-Stan "The Man" Turrentine--Time Records (3)--0','\
+Stan The Man Turrentine--Time Records (3)--0','\
 Drums Unlimited--Atlantic--1966','\
 Members, Don\'t Git Weary--Atlantic--1968','\
 Five Greatest Drummers--Atlantic--1968','\
@@ -2145,7 +2145,7 @@ Jazz Sur Seine--Philips--1958','\
 Jazz Olympus Series--Philips--1958','\
 Au Club St. Germain Vol. 3--RCA--1959','\
 The Essen Jazz Festival All Stars--Debut Records (3)--1960','\
-Jazz Sound-Track (From The Schmidhauser -Film Production "Mental Cruelty")--Decca--1960','\
+Jazz Sound-Track (From The Schmidhauser -Film Production Mental Cruelty)--Decca--1960','\
 Jazz Pictures At An Exhibition--Philips--1961','\
 Internacionalni Jazz Oktet Duška Gojkovića Sa Keni Klarkom--PGP RTB--1961','\
 Jazz At The Blue Note--Fontana--1961','\
@@ -2176,7 +2176,7 @@ Soul Time--Riverside Records--1960','\
 Art Blakey\'s Jazz Messengers With Thelonious Monk--Metronome--1958','\
 Blakey In Paris--Epic--1961','\
 Gretsch Drum Night At Birdland Vol. 2--Roulette--1961','\
-Selections From "Golden Boy"--Colpix Records--1963','\
+Selections From Golden Boy--Colpix Records--1963','\
 Au Club St. Germain Vol. 2--RCA--1959','\
 Olympia Concert--Fontana--1959','\
 Soul Finger--Limelight--1965','\
@@ -2424,7 +2424,7 @@ Diskophrenia Remixes--Svek--1998','\
 Live At Robert Johnson--Live At Robert Johnson--2010','\
 Sun Trip - Fifth--Playdoe--1998'),'\
 Ed Blackwell':('\
-"Mu" First Part--BYG Records--1969','\
+Mu First Part--BYG Records--1969','\
 Old And New Dreams--Black Saint--1977','\
 Just Play (1976)--Quark Records & Books--1979','\
 Old And New Dreams--ECM Records--1979','\
@@ -2438,7 +2438,7 @@ Transit--Black Saint--1987','\
 Eric Dolphy & Booker Little Remembered Live At Sweet Basil Vol. II--Paddle Wheel--1987','\
 Eric Dolphy & Booker Little Remembered Live At Sweet Basil--King Records--1987','\
 The Montreal Tapes--Verve Records--1994','\
-"Mu" Second Part--BYG Records--0','\
+Mu Second Part--BYG Records--0','\
 The Key Of Life--Vineyard Record Company--2009','\
 At The Five Spot, Volume 1.--Prestige--1961','\
 Free Jazz--Atlantic--1961','\
@@ -2455,7 +2455,7 @@ From Now On--ESP Disk--1967','\
 The Magic Of Ju-Ju--Impulse!--1967','\
 Symphony For Improvisers--Blue Note--1967','\
 The ESP Sampler--ESP Disk--1967','\
-"Mu" First Part--BYG Records--1969','\
+Mu First Part--BYG Records--1969','\
 Man On The Moon / Growing Up--Stateside--1969','\
 Where Is Brooklyn?--Blue Note--1969','\
 The Best Of Ornette Coleman--Atlantic--1970','\
@@ -2557,7 +2557,7 @@ Shelly Manne':('\
 New Directions 3--Prestige--1953','\
 Shelly Manne Vol. 2--Contemporary Records--1954','\
 Shorty Rogers And The Lighthouse All Stars--Tampa Records--0','\
-Shelly Manne Vol. 3: "The Three"--Contemporary Records--1955','\
+Shelly Manne Vol. 3: The Three--Contemporary Records--1955','\
 Shelly Manne & Russ Freeman--Contemporary Records--1955','\
 West Coast Jazz--Norgran Records--1955','\
 Jazz Composers Workshop--Savoy Records--1955','\
@@ -2567,10 +2567,10 @@ Lighthouse At Laguna--Contemporary Records--1956','\
 Evolution--Prestige--1957','\
 Hot Skins--Interlude (2)--1959','\
 The Poll Winners--Contemporary Records--1957','\
-The Jazz Combo From "I Want To Live!"--United Artists Records--1958','\
+The Jazz Combo From I Want To Live!--United Artists Records--1958','\
 Four!--Contemporary Records--1959','\
 Poll Winners Three!--Contemporary Records--1960','\
-"The Three" & "The Two"--Contemporary Records--1960','\
+The Three & The Two--Contemporary Records--1960','\
 Empathy--Verve Records--1962','\
 2-3-4--Impulse!--1962','\
 Sounds Unheard Of!--Contemporary Records--1962','\
@@ -2858,7 +2858,7 @@ Two For The Blues--Pablo Records--1984','\
 I Hear Ya Talkin\'--SJ Records, Inc.--1984','\
 Opus De Blues--Savoy Jazz--1984','\
 Frankly Speaking--Concord Jazz--1985','\
-Wishing Peace From "Liberty Suite"--Ascent Records (2)--1986','\
+Wishing Peace From Liberty Suite--Ascent Records (2)--1986','\
 Giants Of The Tenor Sax--Commodore--1988','\
 Live At The Concord Jazz Festival Third Set--Concord Jazz--1991','\
 Live At The 1990 Concord Jazz Festival; Second Set--Concord Jazz--1991','\
@@ -3008,7 +3008,7 @@ The Genius Of The Electric Guitar--Columbia--1987','\
 1939-41--CBS--1989','\
 Genius Of Electric Guitar--Giants Of Jazz--1990','\
 Solo Flight--Vintage Jazz Classics--1991','\
-Charlie Christian / Lester Young "Together 1940"--Jazz Archives--0','\
+Charlie Christian / Lester Young Together 1940--Jazz Archives--0','\
 Seven Come Eleven --Ediciones Del Prado--1995'),'\
 Django Reinhardt':('\
 Dinah / Lady Be Good--Ultraphone U--1934','\
@@ -3022,7 +3022,7 @@ Three Little Words / Appel Indirect--Decca--1938','\
 Honeysuckle Rose/ Souvenirs--Decca--1938','\
 I\'ve Got My Love To Keep My Warm / Improvisation--Decca--1938','\
 The Quintet Of The Hot Club Of France - Volume 2--Decca--1943'),'\
-Wes Mongomery':('\
+Wes Montgomery':('\
 Stockholm By Night--Svek--1997','\
 City Of Islands--Svek--1998','\
 Pleasure--Svek--1998','\
@@ -3068,7 +3068,7 @@ Freight Trane--Prestige--1963','\
 Don\'t Cry Baby / Drum Boogie--Prestige--1963','\
 Here\'s Love--Argo (6)--1963','\
 !!! More !!! (Theme From Mondo Cane)--Verve Records--1963','\
-Theme From "Any Number Can Win"--Verve Records--1963','\
+Theme From Any Number Can Win--Verve Records--1963','\
 All Day Long--Prestige--1957','\
 Confessin\' The Blues--Riverside Records--1963','\
 Bluesey Burrell--Moodsville--1963','\
@@ -3158,7 +3158,7 @@ Virtuoso #2--Pablo Records--1977','\
 Virtuoso #3--Pablo Records--1978','\
 Tudo Bem!--Pablo Records--1978','\
 I Remember Charlie Parker--Pablo Today--1979','\
-"Chops"--Pablo Records--1979','\
+Chops--Pablo Records--1979','\
 Fine And Mellow--Pablo Records--1979','\
 Quadrant--Pablo Records--1979','\
 The Paris Concert: Salle Pleyel, 1978--Pablo Live--1979','\
@@ -3181,7 +3181,7 @@ Undercurrent--United Artists Records--1962','\
 Jazz Guitar--Pacific Jazz--1957','\
 Interaction--Atlantic--1963','\
 To Sweden With Love--Atlantic--1964','\
-"Live" At The Half-Note--Atlantic--1964','\
+Live At The Half-Note--Atlantic--1964','\
 Bossa Antigua--RCA Victor--1965','\
 Intermodulation--Verve Records--1966','\
 The Jimmy Giuffre 3--Atlantic--1957','\
@@ -3192,7 +3192,7 @@ Jim Hall Live!--A&M Records--1975','\
 Concierto--CTI Records--1975','\
 Commitment--Horizon (3)--1976','\
 Easy Living--RCA Victor--1966','\
-"First Place Again" Playboy--Warner Bros. Records--1960','\
+First Place Again Playboy--Warner Bros. Records--1960','\
 Jazz Impressions Of Japan--Paddle Wheel--1980','\
 Jim Hall / Red Mitchell--Artists House--1978','\
 Big Blues--CTI Records--1979','\
@@ -3402,7 +3402,7 @@ Meeting Of The Spirits Live At The Royal Albert Hall, 1979--Alpha Centauri Enter
 Passion, Grace & Fire--Philips--1983','\
 Adventures In Radioland--Sound Service--1987','\
 Greatest Hits--CBS--1990','\
-"Mediterranean" Concerto--CBS--1990','\
+Mediterranean Concerto--CBS--1990','\
 The Collection--Castle Communications--1991','\
 Time Remembered--Verve Records--1993','\
 John McLaughlin--Verve Records--1993','\
@@ -3488,7 +3488,7 @@ Summertime--CBS--1977','\
 The Greatest Love Of All / Ali\'s Theme--Arista--1977','\
 The World Is A Ghetto--Warner Bros. Records--1977','\
 Everything Must Change / The Wind And I--Warner Bros. Records--1977','\
-Muhammad Ali In "The Greatest" (Original Soundtrack)--Arista--1977'),'\
+Muhammad Ali In The Greatest (Original Soundtrack)--Arista--1977'),'\
 Jerry Hahn':('\
 Moses--Fantasy--1973','\
 Ara-Be-In--Changes (2)--1967','\
@@ -3570,9 +3570,9 @@ Raney\'81--Criss Cross Jazz--1981'),'\
 Jimmy Smith':('\
 At The Organ, Volume 3--Blue Note--1956','\
 The Champ--Blue Note--1956','\
-At Club "Baby Grand" Wilmington, Delaware, Volume 2--Blue Note--1956','\
+At Club Baby Grand Wilmington, Delaware, Volume 2--Blue Note--1956','\
 A New Star - A New Sound, Vol. 1--Blue Note--1956','\
-At Club "Baby Grand" Wilmington, Delaware, Volume 1--Blue Note--1956','\
+At Club Baby Grand Wilmington, Delaware, Volume 1--Blue Note--1956','\
 I Cover The Waterfront--Blue Note--1956','\
 A New Star - A New Sound (Volume 2)--Blue Note--1958','\
 How High The Moon--Blue Note--1957','\
@@ -3720,7 +3720,7 @@ The Natural Soul--Blue Note--1963','\
 Where Were You (On Our Wedding Day)? / Is It Really Love?--ABC-Paramount--1959','\
 Where Were You (On Are Wedding Day)--Embassy--1959','\
 The Exciting Lloyd Price--ABC-Paramount--1959','\
-"Mr Personality\'s" 15 Hits--ABC-Paramount--1960','\
+Mr Personality\'s 15 Hits--ABC-Paramount--1960','\
 Big John / Twenty-One--Scepter Records--1961','\
 Voice Of Experience / I Wantcha\' To Be Sure--Wand--1962','\
 Sylvie--RCA Victor--1962','\
@@ -3869,7 +3869,7 @@ Live At The Jazz Showcase In Chicago Volume Two--Enja Records--1989','\
 At Montreux--Jas Records--1976','\
 Bird Song--Original Jazz Classics--1999'),'\
 Roland Hanna':('\
-Roland Hanna Plays Harold Rome\'s "Destry Rides Again"--ATCO Records--1959','\
+Roland Hanna Plays Harold Rome\'s Destry Rides Again--ATCO Records--1959','\
 Easy To Love--ATCO Records--1960','\
 Sir Elf:--Choice (7)--1973','\
 1 X 1--Toho Records--1974','\
@@ -3986,7 +3986,7 @@ Conversations With Myself--Verve Records--0','\
 On Broadway / 55 Days At Peking--Verve Records--0','\
 The Gary McFarland Orchestra--Verve Records--1963','\
 Waltz For Debby / Who Cares?--Riverside Records--1963','\
-"Theme From The V.I.P.s" And Other Great Songs--MGM Records--1963','\
+Theme From The V.I.P.s And Other Great Songs--MGM Records--1963','\
 Waltz For Debby--Philips--1964','\
 Dig It!--Fontana--1964','\
 Trio 64--Verve Records--1964','\
@@ -4231,7 +4231,7 @@ Interpretations By The Wynton Kelly Quartet--Vee Jay Records--1977','\
 In Person, Friday Night At The Blackhawk, San Francisco, Volume I--Columbia--1961','\
 In Person, Saturday Night At The Blackhawk, San Francisco, Volume II--Columbia--1961','\
 A Sure Thing--Riverside Records--1962','\
-Carnegie Hall, May 19, 1961 Miles Davis & Gil Evans "Concierto De Aranjuez" --Giants Of Jazz--1997'),'\
+Carnegie Hall, May 19, 1961 Miles Davis & Gil Evans Concierto De Aranjuez --Giants Of Jazz--1997'),'\
 Red Garland':('\
 Red Garland\'s Piano--Prestige--1957','\
 All Kinds Of Weather--Prestige--1958','\
@@ -4278,13 +4278,13 @@ Circle--Contemporary Records--1985','\
 Dynamics--Concord Jazz--1985','\
 The Big Jazz Trio--Eastworld--1985','\
 Double Image--Contemporary Records--1987','\
-California Meeting - Live "On Broadway"--Soul Note--1987','\
+California Meeting - Live On Broadway--Soul Note--1987','\
 By George: George Cables Plays The Music Of George Gershwin--Contemporary Records--1987','\
 Dance Of The Sun--Timeless Muse--1978','\
 Night And Day--DIW--1991','\
 Looking For The Light--MuseFX Records--2003','\
 Electrifying Sounds Of The Paul Jeffrey Quintet--Savoy Records--1968','\
-At The Lighthouse "If You\'re Not Part Of The Solution, You\'re Part Of The Problem"--Milestone (4)--1970','\
+At The Lighthouse If You\'re Not Part Of The Solution, You\'re Part Of The Problem--Milestone (4)--1970','\
 Blackstone Legacy--Contemporary Records--1971','\
 In Pursuit Of Blackness--Milestone (4)--1971','\
 Lift Every Voice And Sing--Atlantic--1971','\
@@ -4417,7 +4417,7 @@ I Love A Piano--Roulette--1960','\
 Piano Portraits By Phineas Newborn--Roulette--1959','\
 Down Home Reunion--United Artists Records--1959','\
 Blues Groove--Fontana--1963','\
-"The Most" - Volume 1--Roulette--1961','\
+The Most - Volume 1--Roulette--1961','\
 Together Again!--Contemporary Records--1961','\
 Love Moods--Contemporary Records--1962','\
 The Newborn Touch--Contemporary Records--1966','\
@@ -4624,7 +4624,7 @@ Lonely Wine / Carioca--Decca--1952','\
 Amber / Lost In A Fog--Decca--1952','\
 Classics In Jazz--Capitol Records--1952','\
 The Bean--EmArcy--1954','\
-The "Hawk" Talks--Decca--1955'),'\
+The Hawk Talks--Decca--1955'),'\
 Stan Getz':('\
 Stan Getz Volume Two--New Jazz--1950','\
 Long Island Sound / Mar-Cia--New Jazz--1949','\
@@ -4712,7 +4712,7 @@ The Sound Of Sonny--Riverside Records--1957','\
 Way Out West--Contemporary Records--1957','\
 Saxophone Colossus--Metronome--1957','\
 Decision--Blue Note--1957','\
-A Night At The "Village Vanguard"--Blue Note--1957','\
+A Night At The Village Vanguard--Blue Note--1957','\
 Duets--Verve Records--1958','\
 Thelonious Monk--Prestige--1956','\
 Tour De Force--Prestige--1958','\
@@ -4976,7 +4976,7 @@ Way Out East - Vol. 2--Red Record--1984','\
 Synergy--Red Record--1986','\
 Love Is The Thing--Red Record--1986','\
 Katonah--DIW--1986','\
-"Live" At The Someday Volume 1--Someday Of Mugen Music--1990','\
+Live At The Someday Volume 1--Someday Of Mugen Music--1990','\
 Live At Café Praga--Timeless Records (3)--1991','\
 Do It--Dreyfus Jazz--1991','\
 In New York--Dreyfus Jazz--1992','\
@@ -4986,7 +4986,7 @@ Soirée--Unison (8)--1979','\
 Tvé Vlasy Kvetou / I Písničky Stárnou / Pro Dědečka / Hutnická--Supraphon--1961','\
 Miles Davis At Fillmore--Columbia--1970','\
 Alone Together--Takt Jazz Series--1970','\
-Hino\'s "Journey To Air"--Love Records (27)--1970','\
+Hino\'s Journey To Air--Love Records (27)--1970','\
 The Sun--Express--1971','\
 Jack Johnson (Original Soundtrack Recording)--Columbia Masterworks--1971','\
 Live-Evil--Columbia--1971','\
@@ -5101,9 +5101,9 @@ Ben Webster':('\
 The Sheik Of Araby / Conversing In Blue--Blue Note--1945','\
 Tenor Sax Stylings - Vol. 2--Brunswick--1952','\
 Music With Feeling--Norgran Records--1954','\
-Rex Stewart And His Orchestra --"X"--1954','\
+Rex Stewart And His Orchestra --X--1954','\
 The Consummate Artistry of Ben Webster--Norgran Records--1954','\
-"The Kid" And "The Brute"--Clef Records--1993','\
+The Kid And The Brute--Clef Records--1993','\
 The Big Sounds Of Coleman Hawkins And Ben Webster--Brunswick--1956','\
 The Jazz Greats - Volume III - Giants Of Jazz - Reeds - Part II--EmArcy--1955','\
 Coleman Hawkins Encounters Ben Webster--Verve Records--0','\
@@ -5530,7 +5530,7 @@ Modern Jazz Perspective--Columbia--1957','\
 I Giganti Del Jazz Vol. 35--Curcio--1981','\
 My Fair Lady Loves Jazz--ABC-Paramount--1957','\
 Complete Recordings--Lone Hill Jazz--2006','\
-They Met At The Continental Divide ("It Wasn\'t Exactly A Battle...")--Warner Bros. Records--1959','\
+They Met At The Continental Divide (It Wasn\'t Exactly A Battle...)--Warner Bros. Records--1959','\
 Introducing Jimmy Cleveland And His All Stars--EmArcy--1956','\
 Lionel Hampton--Vogue Productions--1953','\
 Vol. 1--Metronome--1953','\
@@ -5541,9 +5541,9 @@ Vol. 2--Metronome--1953','\
 Hamp\'s Boogie Woogie--Brunswick--1953','\
 Mau Mau--Prestige--1954','\
 George Wallington Showcase--Blue Note--1954','\
-"Jazz Time Paris" Vol. 10--Vogue Productions--0','\
+Jazz Time Paris Vol. 10--Vogue Productions--0','\
 For Those In Love--Emarcy--1955','\
-Julian "Cannonball" Adderley--EmArcy--1955','\
+Julian Cannonball Adderley--EmArcy--1955','\
 Jazz Recital--Norgran Records--1955','\
 Clark Terry--EmArcy--1955','\
 Basically Duke--Bethlehem Records--1955','\
@@ -5625,7 +5625,7 @@ Dec. 3, 1954--Prestige--1955','\
 Bags\' Groove / Don\'t Argue--Prestige--1955','\
 The Eminent Jay Jay Johnson Vol. 2--Blue Note--1955','\
 The Eminent Jay Jay Johnson Volume 1--Blue Note--1955','\
-An Afternoon At Birdland--"X"--1956','\
+An Afternoon At Birdland--X--1956','\
 Debut Records\' Jazz Workshop, Volume 2: Trombone Rapport--Debut Records--1955','\
 K + J.J.--Bethlehem Records--1955','\
 The Eminent Jay Jay Johnson, Volume 3--Blue Note--1955','\
@@ -5651,7 +5651,7 @@ Jay And Kai--Columbia--1957','\
 Brass In Modern Jazz--Philips--1957','\
 At The Opera House--Karusell--1958','\
 Blue Trombone--Columbia--1959','\
-Misterioso - "Poll Winners Jazz"--Fontana--1960','\
+Misterioso - Poll Winners Jazz--Fontana--1960','\
 Trombone And Voices--Columbia--1960'),'\
 Kai Winding':('\
 Modern Jazz Trombones--Prestige--1951','\
@@ -5660,7 +5660,7 @@ Vol. 1--Savoy Records--1954','\
 Jay & Kai--Savoy Records--1954','\
 Bags\' Groove / Don\'t Argue--Prestige--1955','\
 Dec. 3, 1954--Prestige--1955','\
-An Afternoon At Birdland--"X"--1956','\
+An Afternoon At Birdland--X--1956','\
 Jay & Kai--Savoy Records--1955','\
 Kai Winding All Stars--Royal Roost--1952','\
 K + J.J.--Bethlehem Records--1955','\
@@ -5701,7 +5701,7 @@ Free For All--Specialty--1986','\
 Zoot Sims / Frank Rosolino--Vogue--1986','\
 Jay Jay Johnson - Frank Rosolino--Editions Atlas--1991','\
 Four Horns And A Lush Life--Bethlehem Records--2000','\
-They Met At The Continental Divide ("It Wasn\'t Exactly A Battle...")--Warner Bros. Records--1959','\
+They Met At The Continental Divide (It Wasn\'t Exactly A Battle...)--Warner Bros. Records--1959','\
 Frank Talks!--Storyville--1998','\
 Jazz Concerto--RAI Radiotelevisione Italiana--1973','\
 Four Horns And A Lush Life--Bethlehem Records--1956','\
@@ -5780,10 +5780,10 @@ Gems Of Jazz,Volume 1--Decca--1949','\
 Gems Of Jazz, Volume 2--Decca--1949','\
 A Billie Holiday Memorial--Philips--1959','\
 Her Greatest Performances 1929-1946--Columbia--1962','\
-"The Golden Years" Volume II--Columbia--1966','\
+The Golden Years Volume II--Columbia--1966','\
 Kings Of Swing--Regal--1966','\
 The Golden Years--Columbia--1962','\
-"Gabbin\' Blues" And Other Big Hits--Epic--1968','\
+Gabbin\' Blues And Other Big Hits--Epic--1968','\
 Billie\'s Blues - The Original Recordings By Billie Holiday--Harmony (4)--1973','\
 The Billie Holiday Story Volume II--Columbia--1973','\
 The Billie Holiday Story Volume III--Columbia--1973','\
@@ -5985,7 +5985,7 @@ Roy Eldridge':('\
 After You\'ve Gone / Dark Eyes--Columbia--1948','\
 Hot Trumpet Ensembles--Mercury--1950','\
 Roy Eldridge And His Band--Metronome--1951','\
-And His "Little Jazz"--Vogue Productions--1951','\
+And His Little Jazz--Vogue Productions--1951','\
 Collates--Mercury--1952','\
 Jazz Off The Air (WNEW - 1947), Vol. 1--Esoteric (2)--1952','\
 Jam Session #5--Clef Records--1955','\
@@ -6033,7 +6033,7 @@ Bird And Diz--Mercury--1952','\
 The Modern Idiom--Capitol Records--1952','\
 Hot Versus Cool--MGM Records--1953','\
 Dizzy Gillespie--Dee Gee--1952','\
-Swing Low, Sweet Chariot / Interlude In "C"--Discovery Records--1952','\
+Swing Low, Sweet Chariot / Interlude In C--Discovery Records--1952','\
 Originators Of Modern Jazz--Vogue Productions--1952'),'\
 BOOKER LITTLE':('\
 Booker Little--Time Records (3)--1960','\
@@ -6087,13 +6087,13 @@ New York Eye And Ear Control--ESP Disk--1966','\
 Complete Communion--Blue Note--1966','\
 Togetherness--Durium--1966','\
 Symphony For Improvisers--Blue Note--1967','\
-"Mu" First Part--BYG Records--1969','\
+Mu First Part--BYG Records--1969','\
 Eternal Rhythm--MPS Records--1969','\
 Where Is Brooklyn?--Blue Note--1969','\
 Human Music--Flying Dutchman--1970','\
 Actions--Philips--1971','\
-"Mu" Second Part--BYG Records--0','\
-"Mu" First Part / "Mu" Second Part--BYG Records--1971','\
+Mu Second Part--BYG Records--0','\
+Mu First Part / Mu Second Part--BYG Records--1971','\
 At Beethoven Hall--BASF--1973','\
 Free Jazz--Atlantic--1961','\
 Orient--BYG Records--1973','\
@@ -6111,7 +6111,7 @@ Old And New Dreams--Black Saint--1977','\
 Mandingo Griot Society--Flying Fish (2)--1978','\
 Live In Ankara--Sonet--1978','\
 Old And New Dreams--ECM Records--1979','\
-Session In Paris, Vol. 1 "Song Of Soil"--Paddle Wheel--1979','\
+Session In Paris, Vol. 1 Song Of Soil--Paddle Wheel--1979','\
 I Giganti Del Jazz Vol. 6--Curcio--1980','\
 El Corazón--ECM Records--1982','\
 Music / Sangam--Europa Records--1982','\
@@ -6293,7 +6293,7 @@ Live At Robert Johnson--Live At Robert Johnson--2010','\
 Sun Trip - Fifth--Playdoe--1998'),'\
 JABBO SMITH':('\
 The Trumpet Ace Of The Twenties - Volume One--Melodeon--0','\
-The Ace Of Rhythm "1929" --MCA Records--1982','\
+The Ace Of Rhythm 1929 --MCA Records--1982','\
 Jabbo Smith, 1929-1938--Retrieval--1996','\
 Volume Two--Melodeon--0','\
 Got Butter On It / Ready Hokum--Brunswick--1929','\
@@ -6399,7 +6399,7 @@ Farmer\'s Market--Prestige--1958','\
 Portrait Of Art Farmer--Contemporary Records--1958','\
 Modern Art--United Artists Records--1958','\
 Alabama Concerto--Riverside Records--1959','\
-The Jazz Combo From "I Want To Live!"--United Artists Records--1958','\
+The Jazz Combo From I Want To Live!--United Artists Records--1958','\
 Brass Shout--United Artists Records--1959','\
 Eddie Costa Quintet--Mode Records--1957','\
 Art--Argo (6)--1960','\
@@ -6493,7 +6493,7 @@ At The Black Hawk, Vol. 4--Contemporary Records--1960','\
 West Coast Blues!--JAZZLAND--1960','\
 Do-Re-Mi (A Modern Interpretation Of The Hit Broadway Musical)--Capitol Records--1961','\
 The Proper Time--Contemporary Records--1961','\
-The Happy "Bird"--Charlie Parker Records--1961','\
+The Happy Bird--Charlie Parker Records--1961','\
 Swingin\' With Humes--Contemporary Records--1961','\
 The Soul Of Jazz - 1961--Riverside Records--1961','\
 The Compositions of Charlie Parker--Riverside Records--1962','\
@@ -6648,7 +6648,7 @@ Blue\'s Moods--Riverside Records--1960','\
 Junior\'s Cookin\'--Jazzland--1961','\
 A Jazz Version Of Kean--Riverside Records--1961','\
 Smooth As The Wind--Riverside Records--1961','\
-Les McCann Ltd. In New York (Recorded "Live" At The Village Gate)--Pacific Jazz--1962','\
+Les McCann Ltd. In New York (Recorded Live At The Village Gate)--Pacific Jazz--1962','\
 Images--Jazzland--1962','\
 A Sure Thing--Riverside Records--1962','\
 The Cup Bearers--Riverside Records--1963','\
@@ -6822,7 +6822,7 @@ Chet Baker And His Quintet With Bobby Jaspar--Barclay--1956','\
 Big Band--Pacific Jazz--1957','\
 Chet Baker - Gerry Mulligan - Buddy DeFranco--GNP--1957','\
 Playboys--World Pacific Records--1957','\
-Theme Music From "The James Dean Story"--World Pacific Records--1957','\
+Theme Music From The James Dean Story--World Pacific Records--1957','\
 Stan Meets Chet--Verve Records--1958','\
 Pretty/Groovy--World Pacific Records--1958','\
 It Could Happen To You - Chet Baker Sings--Riverside Records--1958','\
@@ -6875,7 +6875,7 @@ Cliff Brown + Art Farmer With The Swedish All Stars (Vol. 1)--Metronome--1953','
 New Star On The Horizon--Blue Note--1953','\
 New Faces – New Sounds--Blue Note--1953','\
 Cliff Brown + Art Farmer With The Swedish All Stars (Vol. 2)--Metronome--1954','\
-"Jazz Time Paris" Vol. 10--Vogue Productions--0','\
+Jazz Time Paris Vol. 10--Vogue Productions--0','\
 With Strings--EmArcy--1955','\
 Memorial Album--Blue Note--1956','\
 Memorial--Prestige--1956','\
@@ -7022,7 +7022,7 @@ Terry Pollard--Bethlehem Records--1955','\
 That Sound Of Renown--Coral--1956','\
 Mel Tormé Sings Fred Astaire--Bethlehem Records--1956','\
 Martians Come Back--Atlantic--1956','\
-Mel Tormé And The Marty Paich "Dek-tette"--London Records--1956','\
+Mel Tormé And The Marty Paich Dek-tette--London Records--1956','\
 Hello, We\'re The Axidentals!--ABC-Paramount--1956','\
 Jazz Goes Dancing (Prom To Prom)--RCA Victor--1956'),'\
 RUBY BRAFF':('\
@@ -7044,7 +7044,7 @@ Swings--Bethlehem Records--0','\
 Pocket Full Of Dreams--Vanguard--1957','\
 Easy Now--RCA Victor--1959','\
 You\'re Getting To Be A Habit With Me--Stere-O-Craft--1959','\
-Ruby Braff Goes "Girl Crazy"--Warner Bros. Records Inc.--1959','\
+Ruby Braff Goes Girl Crazy--Warner Bros. Records Inc.--1959','\
 Blowing Around The World--United Artists Records--1959','\
 On Sunnie\'s Side Of The Street--The Blue Angel Jazz Club--1968','\
 The Ruby Braff Special--Vanguard--1970','\
@@ -7261,7 +7261,7 @@ Swinging For The King - An Album Of Jazz Greats--Mercury--1952','\
 Just A Mood--Columbia--1952','\
 Memorable Sessions in Jazz--Blue Note--1953','\
 Modern American Musicians--Remington--1953','\
-Red\'s Rose Room (Vol. 1)--"X"--0','\
+Red\'s Rose Room (Vol. 1)--X--0','\
 Improvisations--Mercury--0','\
 Vibe-Rations--London Records--1956','\
 Red Norvo With Strings--Fantasy--1956','\
@@ -7514,7 +7514,7 @@ Mood Ellington--Columbia--1949','\
 Duke Ellington\'s Liberian Suite--Columbia--1949','\
 Ellington Uptown--Columbia--1951','\
 Masterpieces By Ellington--Columbia Masterworks--1951','\
-Perdido / Take The "A" Train--Columbia--1952','\
+Perdido / Take The A Train--Columbia--1952','\
 Johnny Hodges And His Alto Sax--RCA Victor--1952','\
 Duke Ellington\'s Greatest--RCA Victor--1954','\
 The Vulture Song / Rock-Skippin\' At The Blue Note--Philips--0'),'\
@@ -7703,7 +7703,7 @@ Easy Living--Wiiija Records--1999','\
 Morning Sun--Nuphonic--2001','\
 Satan--Cadet--1974','\
 In A Soulful Mood--United Artists Records--1974','\
-"Live" On Tour In Europe--Atlantic--1976','\
+Live On Tour In Europe--Atlantic--1976','\
 Yesterday\'s Dreams--Epic--1976','\
 Soul Mate--Private Stock--1977','\
 Mr. Gone--ARC (3)--1978'),'\
