@@ -10,7 +10,7 @@ from albumDB import album
 from biographyDB import biography
 from groupsDB import groups
 from tracksDB import tracks
-
+from nbenies_articlesDB import articles
 
 lists = []
 lists.append('I-#Idim-IIm7-#IIdim-IIIm7')
@@ -1551,7 +1551,25 @@ def search():
 	else:
 		results_bridge = []
 
-	return render_template('query_results.html', results_transcript=results_transcript, results_artist=results_artist, results_title=results_title, results_cadence=results_cadence, results_bridge=results_bridge, results_versions=results_versions)
+#rechercher un article
+	search_article = request.args.get('article','')
+	if search_article:
+		art = articles()
+		art.init_articlesDB()
+		results_article = []
+		input_file = open('static/nbeniesDB.dict','r')
+		read_file = input_file.read()
+		regex = re.compile(r'{[^}]*'+search_article+'[^}]+}', re.IGNORECASE)
+		result = re.findall(regex,read_file)
+		regex2 = re.compile(r'\'titre\':([^\]]+\])')
+		for i in result:
+			result2 = re.findall(regex2,str(i))
+		for i in result2:
+			results_article += [(i,art.DB[i])]
+		input_file.close()
+	else:
+		results_article = []
+	return render_template('query_results.html', results_article=results_article, results_transcript=results_transcript, results_artist=results_artist, results_title=results_title, results_cadence=results_cadence, results_bridge=results_bridge, results_versions=results_versions)
 
 @app.route('/artist')
 def artist_search():

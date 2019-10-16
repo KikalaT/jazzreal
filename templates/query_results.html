@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <h3>Résultats</h3>
+
 {% if results_title %}
 <p>
 <h4>Standard:</h4>
@@ -11,6 +13,7 @@
 {% endfor %}
 </h4>
 </p>
+
 {% elif results_cadence %}
 <p>
 <h4>Cadences:</h4>
@@ -20,6 +23,7 @@
 {% endfor %}
 </h4>
 </p>
+
 {% elif results_bridge %}
 <p>
 <h4>Pont:</h4>
@@ -39,6 +43,7 @@
 {% endfor %}
 </p>
 </h4>
+
 {% elif results_artist %}
 <p>
 <h4>Artist:</h4>
@@ -48,6 +53,7 @@
 {% endfor %}
 </h4>
 </p>
+
 {% elif results_transcript %}
 <p><h4>Transcripts:</h4>
 <h4>
@@ -56,6 +62,16 @@
 {% endfor %}
 </h4>
 </p>
+
+{% elif results_article %}
+<p><h4>Articles:</h4>
+<h4>
+{% for x,y in results_article %}
+<a href='{{ y }}'<a/>{{ x }}</br>
+{% endfor %}
+</h4>
+</p>
+
 {% else %}
 <p><h4>No results.</h4></p>
 {% endif %}
