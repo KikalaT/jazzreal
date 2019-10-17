@@ -1605,16 +1605,20 @@ def artist_search():
 		i += 1
 	
 	j = i
+
 	#tree:level2->Discography
 	for val in alb_val:
 		i = j
 		i += 1
 		j = i+1
 		var_data += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
-		for val2 in trk.DB[val]:
-			var_data += '{"id": '+str(j)+',"parentId": '+str(i)+',"name":"Tracks","description": "'+val2+'"},'
-			j += 1
-
+		try:
+			for val2 in trk.DB[val]:
+				var_data += '{"id": '+str(j)+',"parentId": '+str(i)+',"name":"Tracks","description": "'+val2+'"},'
+				j += 1
+		except KeyError:
+			pass
+			
 	var_data += '];'
 	
 	return render_template('artist_results.html', var_data=var_data)

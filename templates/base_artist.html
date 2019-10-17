@@ -141,6 +141,9 @@ body {
             var treePlugin = new d3.mitchTree.boxedTree()
                 .setIsFlatData(true)
                 .setData(data)
+                .setMinScale(0.5)
+                .setMaxScale(1)
+                .setHeightWithoutMargin(1100)
                 .setElement(document.getElementById("visualisation"))
                 .setIdAccessor(function(data) {
                     return data.id;

@@ -235,9 +235,9 @@ New Wine In Old Bottles--East Wind--1978','\
 Hipnosis--Blue Note--1978','\
 A Midnight Session With The Jazz Messengers--Elektra--1957'),'\
 Cannonball Adderley':('\
-Presenting Cannon Ball--Savoy Records--1955','\
+Presenting \'Cannon Ball\'--Savoy Records--1955','\
 Bohemia After Dark--Savoy Records--1955','\
-Julian Cannonball Adderley--EmArcy--1955','\
+Julian \'Cannonball\' Adderley--EmArcy--1955','\
 And Strings--Mercury--1955','\
 Introducing Nat Adderley--Wing Records--1955','\
 In The Land Of Hi-Fi--EmArcy--1956','\
@@ -1469,7 +1469,6 @@ It Could Happen To You - Chet Baker Sings--Riverside Records--1958','\
 Portrait Of Cannonball--Riverside Records--1958','\
 Jazz Horizons: Down Beat Jazz Concert--Dot Records--1958','\
 Somethin\' Else--Blue Note--1958','\
-Out There With Betty Carter--no label--1958','\
 It\'s Magic--Riverside Records--1958'),'\
 Israel Crosby':('\
 Jangled Nerves / I\'ll Always Be In Love With You--no label--1936','\
@@ -8237,7 +8236,6 @@ Live At Robert Johnson--Live At Robert Johnson--2010','\
 Sun Trip - Fifth--Playdoe--1998'),'\
 Betty Carter':('\
 Meet Betty Carter And Ray Bryant--Epic--1955','\
-Out There With Betty Carter--no label--1958','\
 The Modern Sound Of Betty Carter--ABC-Paramount--1960','\
 Ray Charles And Betty Carter--ABC-Paramount--1961','\
 Baby It\'s Cold Outside--no label--1961','\
