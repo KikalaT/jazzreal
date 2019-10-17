@@ -91,7 +91,7 @@ body {
   <a class="active" href="/">Home</a>
 	<div class="search-container">
      <form action="/search">
-      <input type="text" placeholder="Artist.." name="artist">
+      <input type="text" placeholder="Pont.." name="bridge">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
    </div>
@@ -109,7 +109,7 @@ body {
    </div>
   <div class="search-container">
     <form action="/search">
-      <input type="text" placeholder="Pont.." name="bridge">
+      <input type="text" placeholder="Artist.." name="artist">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
    </div>
@@ -143,7 +143,7 @@ body {
                 .setData(data)
                 .setMinScale(0.5)
                 .setMaxScale(1)
-                .setHeightWithoutMargin(1100)
+                .setHeightWithoutMargin(900)
                 .setElement(document.getElementById("visualisation"))
                 .setIdAccessor(function(data) {
                     return data.id;

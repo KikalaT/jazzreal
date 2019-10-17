@@ -10,6 +10,7 @@ from albumDB import album
 from biographyDB import biography
 from groupsDB import groups
 from tracksDB import tracks
+from membersDB import members
 from nbenies_articlesDB import articles
 
 lists = []
@@ -1579,11 +1580,13 @@ def artist_search():
 	bio = biography()
 	grp = groups()
 	trk = tracks()
+	mb = members()
 	
 	alb.init_albumDB()
 	bio.init_biographyDB()
 	grp.init_groupsDB()
 	trk.init_tracksDB()
+	mb.init_membersDB()
 	
 	bio_val = bio.DB[search_artist]
 	grp_val = grp.DB[search_artist]
@@ -1597,13 +1600,25 @@ def artist_search():
 	var_data += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
 	var_data += '{"id": 4,"parentId": 1,"name": "Discography","description": "--expand--"},'
 	
+	#counter
+	i = 4
+	j = 4
 	
 	#tree:level2->Groups
-	i = 5
 	for val in grp_val:
-		var_data += '{"id": '+str(i)+',"parentId": 3,"name":"Group","description": "'+val+'"},'
+		i = j
 		i += 1
+		j = i+1
+		var_data += '{"id": '+str(i)+',"parentId": 3,"name":"Group","description": "'+val+'"},'
+		#tree:level3->group members
+		try:
+			for val2 in mb.DB[val]:
+				var_data += '{"id": '+str(j)+',"parentId": '+str(i)+',"name":"Group Members","description": "'+val2+'"},'
+				j += 1
+		except KeyError:
+			pass
 	
+	#counter
 	j = i
 
 	#tree:level2->Discography
@@ -1612,6 +1627,7 @@ def artist_search():
 		i += 1
 		j = i+1
 		var_data += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
+		#tree:level3->Tracks
 		try:
 			for val2 in trk.DB[val]:
 				var_data += '{"id": '+str(j)+',"parentId": '+str(i)+',"name":"Tracks","description": "'+val2+'"},'
