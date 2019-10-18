@@ -1610,13 +1610,6 @@ def artist_search():
 		i += 1
 		j = i+1
 		var_data += '{"id": '+str(i)+',"parentId": 3,"name":"Group","description": "'+val+'"},'
-		#tree:level3->group members
-		try:
-			for val2 in mb.DB[val]:
-				var_data += '{"id": '+str(j)+',"parentId": '+str(i)+',"name":"Group Members","description": "'+val2+'"},'
-				j += 1
-		except KeyError:
-			pass
 	
 	#counter
 	j = i
