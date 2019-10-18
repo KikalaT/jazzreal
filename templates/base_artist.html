@@ -139,6 +139,7 @@ body {
         <script>
 {% block content %}{% endblock %}
             var treePlugin = new d3.mitchTree.boxedTree()
+                .getNodeSettings().setSizingMode('nodeSize').back()
                 .setIsFlatData(true)
                 .setData(data)
                 .setMinScale(0.5)
