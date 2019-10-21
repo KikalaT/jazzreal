@@ -5,14 +5,14 @@ import urllib.parse
 from flask import Flask, request, render_template
 from bs4 import BeautifulSoup
 
-from versionsDB import versions_search
-from albumDB import album
-from biographyDB import biography
-from groupsDB import groups
-from tracksDB import tracks
-from membersDB import members
-from nbenies_articlesDB import articles
-from creditsDB import credits_db
+from jazzreal.versionsDB import versions_search
+from jazzreal.albumDB import album
+from jazzreal.biographyDB import biography
+from jazzreal.groupsDB import groups
+from jazzreal.tracksDB import tracks
+from jazzreal.membersDB import members
+from jazzreal.nbenies_articlesDB import articles
+from jazzreal.creditsDB import credits_db
 
 lists = []
 lists.append('I-#Idim-IIm7-#IIdim-IIIm7')
