@@ -5,14 +5,14 @@ import urllib.parse
 from flask import Flask, request, render_template
 from bs4 import BeautifulSoup
 
-from versionsDB import versions_search
-from albumDB import album
-from biographyDB import biography
-from groupsDB import groups
-from tracksDB import tracks
-from membersDB import members
-from nbenies_articlesDB import articles
-from creditsDB import credits_db
+from jazzreal.versionsDB import versions_search
+from jazzreal.albumDB import album
+from jazzreal.biographyDB import biography
+from jazzreal.groupsDB import groups
+from jazzreal.tracksDB import tracks
+from jazzreal.membersDB import members
+from jazzreal.nbenies_articlesDB import articles
+from jazzreal.creditsDB import credits_db
 
 lists = []
 lists.append('I-#Idim-IIm7-#IIdim-IIIm7')
@@ -1491,9 +1491,9 @@ def search():
 		selectobj = filter(regex.search, list_titles)
 		for val in selectobj:
 			results_title.append(val)
-	else: 
+	else:
 		results_title = []
-		
+
 #rechercher un artiste
 	search_artist = request.args.get('artist','')
 	if search_artist:
@@ -1504,7 +1504,7 @@ def search():
 			results_artist.append(val)
 	else:
 		results_artist = []
-			
+
 #rechercher un relevé
 	search_transcript = request.args.get('transcript','')
 	if search_transcript:
@@ -1513,9 +1513,9 @@ def search():
 		selectobj = filter(regex.search, list_transcript)
 		for val in selectobj:
 			results_transcript.append(val)
-	else: 
+	else:
 		results_transcript = []
-		
+
 #rechercher les versions d\'un standard
 	search_versions = request.args.get('versions','')
 	s = versions_search()
@@ -1526,7 +1526,7 @@ def search():
 		selectobj = filter(regex.search, s.DB.keys())
 		for val in selectobj:
 			results_versions.append(val)
-	else: 
+	else:
 		results_versions = []
 
 #rechercher une cadence
@@ -1540,7 +1540,7 @@ def search():
 				list_name = lists[list_cadence.index(x)+1]
 	else:
 		results_cadence = []
-	
+
 #rechercher un pont
 	search_bridge = request.args.get('bridge','')
 	if search_bridge:
@@ -1575,44 +1575,44 @@ def search():
 @app.route('/artist')
 def artist_search():
 	search_artist = request.args.get('')
-	
+
 	alb = album()
 	bio = biography()
 	grp = groups()
 	trk = tracks()
 	mb = members()
 	cred = credits_db()
-	
+
 	alb.init_albumDB()
 	bio.init_biographyDB()
 	grp.init_groupsDB()
 	trk.init_tracksDB()
 	mb.init_membersDB()
 	cred.init_credits_db()
-	
+
 	bio_val = bio.DB[search_artist]
 	grp_val = sorted(grp.DB[search_artist])
 	alb_val = sorted(alb.DB[search_artist])
-	
+
 	#tree:root
 	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
-	
+
 	#tree:level1
 	script += '{"id": 2,"parentId": 1,"name": "Biography","description": "'+bio_val+'"},'
 	script += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
 	script += '{"id": 4,"parentId": 1,"name": "Discography","description": "--expand--"},'
-	
+
 	#counter
 	i = 4
 	j = 4
-	
+
 	#tree:level2->Groups
 	for val in grp_val:
 		i = j
 		i += 1
 		j = i+1
 		script += '{"id": '+str(i)+',"parentId": 3,"name":"Group", "type":"link_group","description": "'+val+'"},'
-	
+
 	#counter
 	j = i
 
@@ -1631,7 +1631,7 @@ def artist_search():
 				j += 1
 		except KeyError:
 			pass
-			
+
 		#tree:level3->Credits
 		try:
 			for val3 in cred.DB[val]:
@@ -1639,9 +1639,9 @@ def artist_search():
 				j += 1
 		except KeyError:
 			pass
-			
+
 	script += '];'
-	
+
 	#script:end
 	script += """
 				var treePlugin = new d3.mitchTree.boxedTree()
@@ -1664,7 +1664,7 @@ def artist_search():
 				.setTitleDisplayTextAccessor(function(data) {
 					return data.name;
 				})
-				
+
 				.on("nodeClick", function(event) {
 					console.log(event);
 					if (event.data.type == "link_group")
@@ -1673,10 +1673,10 @@ def artist_search():
 				.initialize();
 			"""
 
-	
+
 	return render_template('artist_results.html', script=script)
 
-	
+
 @app.route('/list')
 def view_list():
 	list_number = request.args.get('')
@@ -1691,14 +1691,14 @@ def view_list():
 		title = t.find('h4')
 		if title:
 			title_list += [(title.text,y['href'])]
-			
+
 	list_name=lists[int(re.findall(r'(\d+)',list_number)[0])-1]
-	
+
 	return render_template('list_results.html', title_list=title_list, list_name=list_name)
-				
+
 @app.route('/view/')
 def view_theme():
-	
+
 #afficher la grille
 	view_word = request.args.get('')
 	f = open('static/corpus-html/'+view_word+'.html')
@@ -1711,7 +1711,7 @@ def view_theme():
 		results.append(corpus.text)
 
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
-	
+
 @app.route('/view_list/')
 def list_display():
 	view_link = request.args.get('')
@@ -1722,14 +1722,14 @@ def list_display():
 	title_encoded = urllib.parse.quote(title)
 	results = []
 	span_chords = []
-	
+
 	for corpus in s.findAll('pre'):
 		results.append(corpus.text)
-		
+
 	span_chords = s.findAll('span')[0]
-	
+
 	list_name=lists[int(re.findall(r'(\d+)',view_link)[0])-1]
-	
+
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded, span_chords=span_chords, list_name=list_name)
 
 @app.route('/versions')
@@ -1752,29 +1752,29 @@ def group_members():
 	except TypeError:
 		results_group_members = ['No results']
 	return render_template('view_group_members.html', results_group_members = results_group_members)
-	
+
 @app.route('/transpose')
 def transpose_theme():
-	
+
 	results = []
-	
+
 	tune_coded = request.args.get('tune','')
 	tune = urllib.parse.unquote(tune_coded)
 	tone = request.args.get('tone','')
-	
-	
+
+
 	pitch_flat = ('A','Bb','Cb','C','Db','D','Eb','E','F','Gb','G','Ab')
 	pitch_sharp = ('A','A#','B','C','C#','D','D#','E','F','F#','G','G#')
-	
+
 	tone_flat = ('C','F','Bb','Eb','Ab','Db','Gb','Cb')
 	tone_sharp = ('A#','D#','G#','C#','F#','B','E','A','D','G')
-	
+
 	f = open('static/corpus-html/'+tune+'.html')
 	plain = f.read()
 	occ = plain.find('Key of ')
 	key = plain[occ+7:occ+9].strip()
 	key = key.strip('m')
-	
+
 	init_pitch = key
 	final_pitch = tone
 
@@ -1797,7 +1797,7 @@ def transpose_theme():
 			index_init = pitch_sharp.index(init_pitch)
 			index_final = pitch_sharp.index(final_pitch)
 			diff = index_final - index_init
-	
+
 	corpus_list = []
 	view_word = request.args.get('')
 	f = open('static/corpus-html/'+tune+'.html')
@@ -1811,7 +1811,7 @@ def transpose_theme():
 	chord_flat = set(re.findall(r'[ABCDEFG]b+', str(corpus_list)))
 	chord_sharp = set(re.findall(r'[ABCDEFG]#+', str(corpus_list)))
 	chord_none = set(re.findall(r'[ABCDEFG](?!b|#)+', str(corpus_list)))
-	
+
 	if chord_flat:
 		for x in chord_flat:
 			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
@@ -1822,7 +1822,7 @@ def transpose_theme():
 		for x in chord_none:
 			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
 
-#transposition			
+#transposition
 	if chord_flat:
 		for x in chord_flat:
 			z = pitch_flat.index(x)
@@ -1870,5 +1870,8 @@ def transpose_theme():
 
 	for text_in_corpus in corpus_list:
 		results.append(text_in_corpus)
-	
+
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
+
+if __name__ == "__main__":
+    app.run()
