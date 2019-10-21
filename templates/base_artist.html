@@ -137,33 +137,9 @@ body {
         </section>
 
         <script>
+			
 {% block content %}{% endblock %}
-            var treePlugin = new d3.mitchTree.boxedTree()
-                .getNodeSettings().setSizingMode('nodeSize').back()
-                .setIsFlatData(true)
-                .setData(data)
-                .setMinScale(0.5)
-                .setMaxScale(1)
-                .setHeightWithoutMargin(900)
-                .setElement(document.getElementById("visualisation"))
-                .setIdAccessor(function(data) {
-                    return data.id;
-                })
-                .setParentIdAccessor(function(data) {
-                    return data.parentId;
-                })
-                .setBodyDisplayTextAccessor(function(data) {
-                    return data.description;
-                })
-                .setTitleDisplayTextAccessor(function(data) {
-                    return data.name;
-                })
-                //.on("nodeClick", function(event) {
-					//console.log(event);
-					//if (event.data.type == "bio")
-						//window.location = "/";
-				//})
-                .initialize();
+
         </script>
     </body>
 <footer align="right">

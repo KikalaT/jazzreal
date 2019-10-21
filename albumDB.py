@@ -9,6 +9,8 @@ Bongo Bop / Embraceable You--Dial Records (3)--1948','\
 Bird Blows The Blues--Dial Records (3)--1949','\
 Stella By Starlight--Mercury--1952','\
 Bird And Diz--Mercury--1952'),'\
+Tom Harrell':('\
+'),'\
 Sonny Stitt':('\
 All God\'s Children (Got Rhythm) / Sunset--Prestige--1949','\
 Blues Up And Down / You Can Depend On Me--Prestige--1950','\
@@ -4054,7 +4056,7 @@ Tale Spinnin\'--Columbia--1975','\
 Black Market--Columbia--1976','\
 Heavy Weather--Columbia--1977','\
 Birdland--CBS--1977'),'\
-Chich Corea':('\
+Chick Corea':('\
 Stockholm By Night--Svek--1997','\
 City Of Islands--Svek--1998','\
 Pleasure--Svek--1998','\
@@ -4912,7 +4914,7 @@ Brown And Roach Incorporated--Emarcy--1955','\
 Dinah Jams--Emarcy--1955','\
 Study In Brown--EmArcy--1955','\
 In Concert--Gene Norman Presents--1955'),'\
-Azar Lwarence':('\
+Azar Lawrence':('\
 Stockholm By Night--Svek--1997','\
 City Of Islands--Svek--1998','\
 Pleasure--Svek--1998','\
@@ -6019,6 +6021,7 @@ Somethin\' For You /  Empty Bed Blues--Manor--1946','\
 I Can\'t Get Started / Good Bait--Manor--1946','\
 Dizzy Gillespie Plays & Johnny Richards Conducts--Discovery Records--1950','\
 The Champ--Dee Gee--1951','\
+Sonny Side Up--Verve--1957','\
 O-Sho-Be-Do-Be / Sunny Side Of The Street--Dee Gee--1951','\
 School Days / I\'ll Get You Yet--Dee Gee--1951','\
 Tin Tin Daeo / Birks Works--Dee Gee--1951','\

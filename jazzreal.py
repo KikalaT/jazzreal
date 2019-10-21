@@ -12,6 +12,7 @@ from groupsDB import groups
 from tracksDB import tracks
 from membersDB import members
 from nbenies_articlesDB import articles
+from creditsDB import credits_db
 
 lists = []
 lists.append('I-#Idim-IIm7-#IIdim-IIIm7')
@@ -179,7 +180,8 @@ lists.append('IIm7-V7_down_whole_steps')
 lists.append('IIm7b5-V7_down_whole_steps')
 
 list_titles = []
-list_titles.append('A PORTRAIT OF JENNIE')
+list_titles.append('A FINE ROMANCE')
+list_titles.append('A PORTRAIT OF JENNY')
 list_titles.append('A FOGGY DAY')
 list_titles.append('AFTER YOU\'VE GONE')
 list_titles.append('AIN\'T MISBEHAVIN')
@@ -221,9 +223,9 @@ list_titles.append('BLACK AND BLUE')
 list_titles.append('BLACK COFFEE')
 list_titles.append('BLUE BOSSA')
 list_titles.append('BLUE LOU')
-list_titles.append('BLUE MONK ')
+list_titles.append('BLUE MONK')
 list_titles.append('BLUE MOON')
-list_titles.append('BLUE ROOM (THE)')
+list_titles.append('BLUE ROOM')
 list_titles.append('BLUESETTE')
 list_titles.append('BLUE SKIES')
 list_titles.append('BODY AND SOUL')
@@ -239,7 +241,7 @@ list_titles.append('CAN\'T GET OUT OF THIS MOOD')
 list_titles.append('CAN\'T HELP LOVIN DAT MAN')
 list_titles.append('CAN\'T WE BE FRIENDS')
 list_titles.append('CARAVAN')
-list_titles.append('CARNIVAL (BLACK ORPHEUS)')
+list_titles.append('CARNIVAL')
 list_titles.append('CHEEK TO CHEEK')
 list_titles.append('CHELSEA BRIDGE')
 list_titles.append('CHEROKEE')
@@ -264,7 +266,7 @@ list_titles.append('DAYS OF WINE AND ROSES')
 list_titles.append('DEARLY BELOVED')
 list_titles.append('DEED I DO')
 list_titles.append('DEEP PURPLE')
-list_titles.append('DESAFINADA')
+list_titles.append('DESAFINADO')
 list_titles.append('DJANGO')
 list_titles.append('DO NOTHIN TILL YOU HEAR FROM ME')
 list_titles.append('DON\'T BLAME ME')
@@ -283,9 +285,7 @@ list_titles.append('EXACTLY LIKE YOU')
 list_titles.append('FALLING IN LOVE WITH LOVE')
 list_titles.append('FASCINATING RHYTHM')
 list_titles.append('FINE AND DANDY')
-list_titles.append('FINE ROMANCE (A)')
 list_titles.append('FLY ME TO THE MOON')
-list_titles.append('FOLKS WHO LIVE ON THE HILL')
 list_titles.append('FOOLS RUSH IN')
 list_titles.append('FOR ALL WE KNOW')
 list_titles.append('FOUR')
@@ -333,7 +333,7 @@ list_titles.append('I FOUND A NEW BABY')
 list_titles.append('IF THERE IS SOMEONE LOVELIER')
 list_titles.append('IF YOU COULD SEE ME NOW')
 list_titles.append('I GET A KICK OUT OF YOU')
-list_titles.append('I GOT IT BAD')
+list_titles.append('I GOT IT BAD AND THAT AIN\'T GOOD')
 list_titles.append('I GOT RHYTHM')
 list_titles.append('I HADN\'T ANYONE \'TIL YOU')
 list_titles.append('I HEAR A RHAPSODY')
@@ -415,7 +415,7 @@ list_titles.append('LOOK FOR THE SILVER LINING')
 list_titles.append('LOOKING FOR A BOY')
 list_titles.append('LOVE FOR SALE')
 list_titles.append('LOVE ME OR LEAVE ME')
-list_titles.append('LOVE NEST (THE)')
+list_titles.append('LOVE NEST')
 list_titles.append('LOVER COME BACK TO ME')
 list_titles.append('LOVER')
 list_titles.append('LOVER MAN')
@@ -448,7 +448,7 @@ list_titles.append('MY ROMANCE')
 list_titles.append('MY SHINING HOUR')
 list_titles.append('MY SHIP')
 list_titles.append('MY SILENT LOVE')
-list_titles.append('NEARNESS OF YOU (THE)')
+list_titles.append('NEARNESS OF YOU')
 list_titles.append('NICE WORK IF YOU CAN GET IT')
 list_titles.append('NIGHT AND DAY')
 list_titles.append('NIGHT IN TUNISIA')
@@ -474,7 +474,7 @@ list_titles.append('PICK YOURSELF UP')
 list_titles.append('POLKA DOTS AND MOONBEAMS')
 list_titles.append('POOR BUTTERFLY')
 list_titles.append('PRELUDE TO A KISS')
-list_titles.append('QUIET NIGHTS OF QUIET STARS')
+list_titles.append('QUIET NIGHTS AND QUIET STARS')
 list_titles.append('RECORDAME')
 list_titles.append('ROSE ROOM')
 list_titles.append('ROSETTA')
@@ -550,14 +550,14 @@ list_titles.append('THOU SWELL')
 list_titles.append('THREE LITTLE WORDS')
 list_titles.append('TIME AFTER TIME')
 list_titles.append('TOO MARVELOUS FOR WORDS')
-list_titles.append('TOUCH OF YOUR LIPS (THE)')
+list_titles.append('THE TOUCH OF YOUR LIPS')
 list_titles.append('TRY A LITTLE TENDERNESS')
 list_titles.append('TUNE UP')
 list_titles.append('TWO SLEEPY PEOPLE')
 list_titles.append('UNDECIDED')
 list_titles.append('UNTIL THE REAL THING COMES ALONG')
 list_titles.append('UP A LAZY RIVER')
-list_titles.append('VERY THOUGHT OF YOUTHE')
+list_titles.append('THE VERY THOUGHT OF YOU')
 list_titles.append('WAIT TILL YOU SEE HER')
 list_titles.append('WAVE')
 list_titles.append('WELL YOU NEEDN\'T')
@@ -777,7 +777,7 @@ artist_list.append('Artie Shaw')
 artist_list.append('Art Pepper')
 artist_list.append('Art Tatum')
 artist_list.append('Attila Zoller')
-artist_list.append('Azar Lwarence')
+artist_list.append('Azar Lawrence')
 artist_list.append('Barney Kessel')
 artist_list.append('Benny Golson')
 artist_list.append('Benny Goodman')
@@ -815,7 +815,7 @@ artist_list.append('Charlie Christian')
 artist_list.append('Charlie Mariano')
 artist_list.append('Charlie Parker')
 artist_list.append('Chet Baker')
-artist_list.append('Chich Corea')
+artist_list.append('Chick Corea')
 artist_list.append('Chris Connors')
 artist_list.append('Chuck Rainey')
 artist_list.append('Clark Terry')
@@ -1581,24 +1581,26 @@ def artist_search():
 	grp = groups()
 	trk = tracks()
 	mb = members()
+	cred = credits_db()
 	
 	alb.init_albumDB()
 	bio.init_biographyDB()
 	grp.init_groupsDB()
 	trk.init_tracksDB()
 	mb.init_membersDB()
+	cred.init_credits_db()
 	
 	bio_val = bio.DB[search_artist]
-	grp_val = grp.DB[search_artist]
-	alb_val = alb.DB[search_artist]
+	grp_val = sorted(grp.DB[search_artist])
+	alb_val = sorted(alb.DB[search_artist])
 	
 	#tree:root
-	var_data = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
+	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 	
 	#tree:level1
-	var_data += '{"id": 2,"parentId": 1,"name": "Biography","description": "'+bio_val+'"},'
-	var_data += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
-	var_data += '{"id": 4,"parentId": 1,"name": "Discography","description": "--expand--"},'
+	script += '{"id": 2,"parentId": 1,"name": "Biography","description": "'+bio_val+'"},'
+	script += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
+	script += '{"id": 4,"parentId": 1,"name": "Discography","description": "--expand--"},'
 	
 	#counter
 	i = 4
@@ -1609,7 +1611,7 @@ def artist_search():
 		i = j
 		i += 1
 		j = i+1
-		var_data += '{"id": '+str(i)+',"parentId": 3,"name":"Group","description": "'+val+'"},'
+		script += '{"id": '+str(i)+',"parentId": 3,"name":"Group", "type":"link_group","description": "'+val+'"},'
 	
 	#counter
 	j = i
@@ -1618,19 +1620,61 @@ def artist_search():
 	for val in alb_val:
 		i = j
 		i += 1
-		j = i+1
-		var_data += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
+		script += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
+		script += '{"id": '+str(i+1)+',"parentId": '+str(i)+',"name":"Tracks","description": "--expand--"},'
+		script += '{"id": '+str(i+2)+',"parentId": '+str(i)+',"name":"Credits","description": "--expand--"},'
+		j = i + 3
 		#tree:level3->Tracks
 		try:
 			for val2 in trk.DB[val]:
-				var_data += '{"id": '+str(j)+',"parentId": '+str(i)+',"name":"Tracks","description": "'+val2+'"},'
+				script += '{"id": '+str(j)+',"parentId": '+str(i+1)+',"name":"Tracks","description": "'+val2+'"},'
 				j += 1
 		except KeyError:
 			pass
 			
-	var_data += '];'
+		#tree:level3->Credits
+		try:
+			for val3 in cred.DB[val]:
+				script += '{"id": '+str(j)+',"parentId": '+str(i+2)+',"name":"Credits","description": "'+val3+'"},'
+				j += 1
+		except KeyError:
+			pass
+			
+	script += '];'
 	
-	return render_template('artist_results.html', var_data=var_data)
+	#script:end
+	script += """
+				var treePlugin = new d3.mitchTree.boxedTree()
+				.getNodeSettings().setSizingMode('nodeSize').back()
+				.setIsFlatData(true)
+				.setData(data)
+				.setMinScale(0.5)
+				.setMaxScale(1)
+				.setHeightWithoutMargin(900)
+				.setElement(document.getElementById("visualisation"))
+				.setIdAccessor(function(data) {
+					return data.id;
+				})
+				.setParentIdAccessor(function(data) {
+					return data.parentId;
+				})
+				.setBodyDisplayTextAccessor(function(data) {
+					return data.description;
+				})
+				.setTitleDisplayTextAccessor(function(data) {
+					return data.name;
+				})
+				
+				.on("nodeClick", function(event) {
+					console.log(event);
+					if (event.data.type == "link_group")
+						window.location = "/group?="+event.data.description
+				})
+				.initialize();
+			"""
+
+	
+	return render_template('artist_results.html', script=script)
 
 	
 @app.route('/list')
@@ -1697,6 +1741,17 @@ def versions():
 	rvtmp2 = [x.replace('•','+') for x in rvtmp1]
 	results_versions = zip(rvtmp1,rvtmp2)
 	return render_template('view_versions.html',results_versions=results_versions)
+
+@app.route('/group')
+def group_members():
+	group_query = request.args.get('')
+	mb = members()
+	mb.init_membersDB()
+	try:
+		results_group_members = sorted(mb.DB.get(group_query))
+	except TypeError:
+		results_group_members = ['No results']
+	return render_template('view_group_members.html', results_group_members = results_group_members)
 	
 @app.route('/transpose')
 def transpose_theme():
@@ -1817,4 +1872,3 @@ def transpose_theme():
 		results.append(text_in_corpus)
 	
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
-

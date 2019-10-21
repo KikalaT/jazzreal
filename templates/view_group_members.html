@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Résultats</h3>
+{% if results_group_members %}
+<p>
+<h4>Group(Members):</h4>
+<h4>
+{% for x in results_group_members %}
+<br><a href='/search?artist={{ x }}'>{{ x }}</a></br>
+{% endfor %}
+</h4>
+{% else %}
+<h4>No results
+{% endif %}
+</h4>
+{% endblock %}

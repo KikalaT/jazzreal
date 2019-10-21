@@ -243,7 +243,7 @@ groups_dict = {
 'Attila Zoller Quartet',
 'Attila Zoller - Lee Konitz Quartet'\
 ),
-'Azar Lwarence':\
+'Azar Lawrence':\
 (
 ''),
 'Barney Kessel':\
@@ -1180,7 +1180,7 @@ groups_dict = {
 'Chet Baker / René Thomas Quintet',
 'Chet Baker & Dick Twardzik Quartet'\
 ),
-'Chich Corea':\
+'Chick Corea':\
 (
 ''),
 'Chris Connors':\

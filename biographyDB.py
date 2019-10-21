@@ -307,7 +307,7 @@ Not to be confused with the violinist, [a=Charles Parker]. \
 He began his career in the early 1950\'s and played together with [a75617] and [a37733]. From 1957 on, he had several comebacks with such musicians as [a298943], [a252017], and  Gerry Mulligan with whom he had already recorded. From the 1980\'s until he died, he did a lot of his recordings in Europe.\
 \
 ',\
-'Chich Corea':\
+'Chick Corea':\
 'real name:Armando Anthony Corea--American jazz keyboardist, born June 12, 1941, Chelsea, Massachusetts. ',\
 'Chris Connors':'',
 'Chuck Rainey':\
