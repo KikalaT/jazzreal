@@ -1558,7 +1558,7 @@ def search():
 		art = articles()
 		art.init_articlesDB()
 		results_article = []
-		input_file = open('static/nbeniesDB.dict','r')
+		input_file = open('jazzreal/static/nbeniesDB.dict','r')
 		read_file = input_file.read()
 		regex = re.compile(r'{[^}]*'+search_article+'[^}]+}', re.IGNORECASE)
 		result = re.findall(regex,read_file)
@@ -1680,12 +1680,12 @@ def artist_search():
 @app.route('/list')
 def view_list():
 	list_number = request.args.get('')
-	f = open('static/lists/list'+list_number+'.html', encoding='ISO 8859-1')
+	f = open('jazzreal/static/lists/list'+list_number+'.html', encoding='ISO 8859-1')
 	content = f.read()
 	s = BeautifulSoup(content,'html.parser')
 	title_list = []
 	for y in s.findAll('a', href=True):
-		g = open('static/corpus-list/'+y['href'], encoding='ISO 8859-1')
+		g = open('jazzreal/static/corpus-list/'+y['href'], encoding='ISO 8859-1')
 		content2 = g.read()
 		t = BeautifulSoup(content2, 'html.parser')
 		title = t.find('h4')
@@ -1701,7 +1701,7 @@ def view_theme():
 	
 #afficher la grille
 	view_word = request.args.get('')
-	f = open('static/corpus-html/'+view_word+'.html')
+	f = open('jazzreal/static/corpus-html/'+view_word+'.html')
 	plain = f.read()
 	s = BeautifulSoup(plain, 'html.parser')
 	title = s.find('h4').text
@@ -1715,7 +1715,7 @@ def view_theme():
 @app.route('/view_list/')
 def list_display():
 	view_link = request.args.get('')
-	f = open('static/corpus-list/'+view_link)
+	f = open('jazzreal/static/corpus-list/'+view_link)
 	plain = f.read()
 	s = BeautifulSoup(plain, 'html.parser')
 	title = s.find('h4').text
@@ -1769,7 +1769,7 @@ def transpose_theme():
 	tone_flat = ('C','F','Bb','Eb','Ab','Db','Gb','Cb')
 	tone_sharp = ('A#','D#','G#','C#','F#','B','E','A','D','G')
 	
-	f = open('static/corpus-html/'+tune+'.html')
+	f = open('jazzreal/static/corpus-html/'+tune+'.html')
 	plain = f.read()
 	occ = plain.find('Key of ')
 	key = plain[occ+7:occ+9].strip()
@@ -1800,7 +1800,7 @@ def transpose_theme():
 	
 	corpus_list = []
 	view_word = request.args.get('')
-	f = open('static/corpus-html/'+tune+'.html')
+	f = open('jazzreal/static/corpus-html/'+tune+'.html')
 	plain = f.read()
 	s = BeautifulSoup(plain, 'html.parser')
 	title = s.find('h4').text
