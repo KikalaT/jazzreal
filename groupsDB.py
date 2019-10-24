@@ -5066,7 +5066,7 @@ groups_dict = {
 'Michel Camilo Big Band',
 'Dameronia'\
 ),
-'Warn Marsh':\
+'Wayne Marsh':\
 (
 ''),
 'Wayne Shorter':\

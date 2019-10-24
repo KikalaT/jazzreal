@@ -1462,7 +1462,7 @@ In 2015, Tony Scott has been diagnosed with Multiple Sclerosis. On February 15th
 ',\
 'Tony Williams':'',\
 'Virgil Jones':'',\
-'Warn Marsh':'',\
+'Wayne Marsh':'',\
 'Wayne Shorter':\
 'real name: Wayne Shorter--American jazz saxophonist & composer, born August 25, 1933 in Newark, New Jersey, USA.\
 \
