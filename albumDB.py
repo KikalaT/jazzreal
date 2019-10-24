@@ -5199,7 +5199,7 @@ The Montmartre Collection Vol. 1--Black Lion Records--1971','\
 The Foremost!--Onyx Records (3)--1972','\
 Parisian Concert--Futura Records (2)--1973','\
 Battle Of Tenor Saxes--IAJRC--1973'),'\
-Warn Marsh':('\
+Wayne Marsh':('\
 Stockholm By Night--Svek--1997','\
 City Of Islands--Svek--1998','\
 Pleasure--Svek--1998','\
