@@ -1768,13 +1768,10 @@ def transpose_theme():
 
 	tone_flat = ('C','F','Bb','Eb','Ab','Db','Gb','Cb')
 	tone_sharp = ('A#','D#','G#','C#','F#','B','E','A','D','G')
-<<<<<<< HEAD
 
-	f = open('static/corpus-html/'+tune+'.html')
-=======
-	
 	f = open('jazzreal/static/corpus-html/'+tune+'.html')
->>>>>>> 09deac8808e8ec2f3acf3eee96c94bcb9cc4ae41
+
+	f = open('jazzreal/static/corpus-html/'+tune+'.html')
 	plain = f.read()
 	occ = plain.find('Key of ')
 	key = plain[occ+7:occ+9].strip()
