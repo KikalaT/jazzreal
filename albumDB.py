@@ -11,7 +11,34 @@ Stella By Starlight--Mercury--1952','\
 Bird And Diz--Mercury--1952'),'\
 Tom Harrell':('\
 '),'\
-Sonny Stitt':('\
+Louis Armstrong':('\
+If We Never Meet Again / Dipper Mouth--Decca--1936','\
+Wild Man Blues / Melancholy Blues--Parlophone--0','\
+The Skeleton In The Closet / Hurdy Gurdy Man--Decca--1936','\
+Hawaiian Hospitality / On A Little Bamboo Bridge--Decca--1937','\
+Darling Nelly Gray / Carry Me Back To Old Virginny--Decca--0','\
+In The Shade Of The Old Apple Tree / The Old Folks At Home--Decca--1937','\
+The Flat Foot Floogee / Caravan--Decca--0','\
+Goin\' To Shout All Over God\'s Heaven / Nobody Knows De Trouble I\'ve Seen--Decca--0','\
+Shadrack/ Jonah And The Whale--Decca--1938','\
+Boog-It / Cherry--Decca--1940','\
+Boog-It / How Did She Look?--Brunswick--1940','\
+Swing That Music / Wolverine Blues--Decca--0','\
+Weather Bird / Muggles --Parlophone--1942','\
+Jazz Classics--Brunswick--1944','\
+Cherry / Marie--Decca--1945','\
+Sweet Georgia Brown / Shiek Of Araby / Back O\' Town Blues--V Disc--1945','\
+You Won\'t Be Satisfied / The Frim Fram Sauce--Decca--1946','\
+Blueberry Hill / That Lucky Old Sun--Decca--1949','\
+You Can\'t Lose A Broken Heart / My Sweet Hunk O\' Trash--Decca--1949','\
+Riverside Blues / Mabel\'s Dream--Claxtonola--1924','\
+Life Is So Peculiar--Decca--1950','\
+Classics: New Orleans To New York--Decca--1950','\
+La Vie En Rose--Decca--1950','\
+Can Anyone Explain? / Dream A Little Dream Of Me--Decca--1950','\
+Blueberry Hill / Baby, Won\'t You Say You Love Me--Decca--0','\
+C\'est Si Bon / Blueberry Hill--Brunswick--1953'),
+'Sonny Stitt':('\
 All God\'s Children (Got Rhythm) / Sunset--Prestige--1949','\
 Blues Up And Down / You Can Depend On Me--Prestige--1950','\
 Sonny Stitt And Bud Powell Quartet--New Jazz--1951','\

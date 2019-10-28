@@ -971,6 +971,13 @@ Died: 31 August 2002 in New York City, USA. \
 ',\
 'Lou Donaldson':'American jazz saxophonist, composer, band leader.\
 Born November 1, 1926 in Badin, North Carolina, United States.',
+'Louis Armstrong':\
+'real name\: Louis Daniel Armstrong--American jazz trumpeter, singer and bandleader, nicknamed \'Satchmo\' or \'Pops\'. \
+Born 4 August 1901 in New Orleans, Louisiana, USA (often also noted as 4 July 1900, based on erroneous information from Armstrong himself). \
+Died 6 July 1971 in New York City, New York, USA.\
+Along with [a=Fletcher Henderson] he was the instigator of the second wave of jazz, Swing. \
+Inducted into the Rock And Roll Hall Of Fame in 1990 (Early Influence). ',
+
 'Louis Bellson':\
 'real name: Luigi Paulino Alfredo Francesco Antonio Balassoni--Italian-American jazz drummer, composer, arranger, bandleader, and jazz educator. \
 \
