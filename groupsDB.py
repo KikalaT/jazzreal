@@ -3308,6 +3308,33 @@ groups_dict = {
 'Lou Donaldson Sextet',
 'Milton Jackson And His New Group'\
 ),
+'Louis Armstrong':\
+(
+'Louis Armstrong & His Hot Five',
+'Louis Armstrong And His Sebastian New Cotton Orchestra',
+'Esquire All Stars',
+'The Red Onion Jazz Babies',
+'Louis Armstrong & His Hot Seven',
+'Louis Armstrong And His Orchestra',
+'Fletcher Henderson And His Orchestra',
+'Louis Armstrong And His All-Stars',
+'Louis Armstrong And His Dixieland Seven',
+'Louis Armstrong And His Savoy Ballroom Five',
+'Louis Armstrong Orchestra & Chorus',
+'Perry Bradford Jazz Phools',
+'Louis Armstrong And His Hot Four',
+'Louis Armstrong And His Hot Six',
+'Louis Armstrong And His Band',
+'Louis Armstrong And His Stompers',
+'Louis Armstrong And His Friends',
+'Louis Armstrong & his Rainbow of Rhythm',
+'Carroll Dickerson And His Orchestra',
+'Louis Armstrong Newport International Jazz Band',
+'Louis Armstrong And His Concert Group',
+'Louis Armstrong And His Sensational Big Band',
+'Fats Waller And Friends',
+),
+
 'Louis Bellson':\
 (
 'Count Basie Orchestra',

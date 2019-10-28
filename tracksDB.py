@@ -2,6 +2,99 @@
 
 tracks_dict = {
 
+'If We Never Meet Again / Dipper Mouth--Decca--1936':(\
+'\'A\' \'If We Never Meet Again\'',
+'\'B\' \'Dipper Mouth\'',
+),
+'The Skeleton In The Closet / Hurdy Gurdy Man--Decca--1936':(\
+'\'A\' \'The Skeleton In The Closet\'',
+'\'B\' \'Hurdy Gurdy Man\'',
+),
+'Hawaiian Hospitality / On A Little Bamboo Bridge--Decca--1937':(\
+'\'A\' \'Hawaiian Hospitality\'',
+'\'B\' \'On A Little Bamboo Bridge\'',
+),
+'In The Shade Of The Old Apple Tree / The Old Folks At Home--Decca--1937':(\
+'\'A\' \'In The Shade Of The Old Apple Tree\'',
+'\'B\' \'The Old Folks At Home (Swanee Ribber)\'',
+),
+'Shadrack/ Jonah And The Whale--Decca--1938':(\
+'\'A\' \'Shadrack\'',
+'\'B\' \'Jonah And The Whale\'',
+),
+'Boog-It / Cherry--Decca--1940':(\
+'\'A\' \'Boog-It\'',
+'\'B\' \'Cherry\'',
+),
+'Boog-It / How Did She Look?--Brunswick--1940':(\
+'\'A\' \'Boog-It\'',
+'\'B\' \'How Did She Look?\'',
+),
+'Weather Bird / Muggles --Parlophone--1942':(\
+'\'A\' \'Weather Bird\'',
+'\'B\' \'Muggles \'',
+),
+'Jazz Classics--Brunswick--1944':(\
+'\'A\' \'Wild Man Blues\'',
+'\'B\' \'Melancholy\'',
+'\'C\' \'Georgia Bo Bo\'',
+'\'D\' \'Drop That Sack\'',
+'\'E\' \'Static Strut\'',
+'\'F\' \'Stomp Off, Let\'s Go!\'',
+'\'G\' \'Terrible Blues\'',
+'\'H\' \'Santa Claus Blues\'',
+),
+'Cherry / Marie--Decca--1945':(\
+'\'A\' \'Cherry\'',
+'\'B\' \'Marie\'',
+),
+'Sweet Georgia Brown / Shiek Of Araby / Back O\' Town Blues--V Disc--1945':(\
+'\'A1\' \'Sweet Georgia Brown\'',
+'\'A2\' \'Shiek Of Araby\'',
+'\'B\' \'Back O\' Town Blues\'',
+),
+'You Won\'t Be Satisfied / The Frim Fram Sauce--Decca--1946':(\
+'\'A\' \'You Won\'t Be Satisfied (Until You Break My Heart)\'',
+'\'B\' \'The Frim Fram Sauce\'',
+),
+'Blueberry Hill / That Lucky Old Sun--Decca--1949':(\
+'\'A\' \'Blueberry Hill\'',
+'\'B\' \'That Lucky Old Sun (Just Rolls Around Heaven All Day)\'',
+),
+'You Can\'t Lose A Broken Heart / My Sweet Hunk O\' Trash--Decca--1949':(\
+'\'A\' \'You Can\'t Lose A Broken Heart\'',
+'\'B\' \'My Sweet Hunk O\' Trash\'',
+),
+'Riverside Blues / Mabel\'s Dream--Claxtonola--1924':(\
+'\'A\' \'Riverside Blues\'',
+'\'B\' \'Mabel\'s Dream\'',
+),
+'Life Is So Peculiar--Decca--1950':(\
+'\'A\' \'Life Is So Peculiar\'',
+'\'B\' \'(I\'ll Be Glad When You\'re Dead) You Rascal You\'',
+),
+'Classics: New Orleans To New York--Decca--1950':(\
+'\'A1\' \'When The Saints Go Marching In\'',
+'\'A2\' \'Bye And Bye\'',
+'\'A3\' \'West End Blues\'',
+'\'A4\' \'Mahogny Hall Stomp\'',
+'\'B1\' \'Dipper Mouth Blues\'',
+'\'B2\' \'Save It Pretty Mama\'',
+'\'B3\' \'(I\'ll Be Glad When You\'re Dead) You Rascal You\'',
+'\'B4\' \'When It\'s Sleepy Time Down South\'',
+),
+'La Vie En Rose--Decca--1950':(\
+'\'A\' \'La Vie En Rose\'',
+'\'B\' \'C\'est Si Bon\'',
+),
+'Can Anyone Explain? / Dream A Little Dream Of Me--Decca--1950':(\
+'\'A\' \'Can Anyone Explain? (No, No, No!)\'',
+'\'B\' \'Dream A Little Dream Of Me\'',
+),
+'C\'est Si Bon / Blueberry Hill--Brunswick--1953':(\
+'\'A\' \'C\'est Si Bon\'',
+'\'B\' \'Blueberry Hill\'',
+),
 'Clarinet Magic With The Big Band And Strings. Volume 1--Musicraft--1978':(\
 '\'A1\' \'Let\'s Walk\'',
 '\'A2\' \'Love Of My Life\'',
