@@ -1534,7 +1534,8 @@ def search():
 	if search_cadence:
 		results_cadence = []
 		for x in list_cadence:
-			y = re.findall('\\b'+search_cadence, x)
+			regex = re.compile(r'\b'+search_cadence,re.IGNORECASE)
+			y = re.findall(regex, x)
 			if y != []:
 				results_cadence += [(x,list_cadence.index(x)+1)]
 				list_name = lists[list_cadence.index(x)+1]
@@ -1546,7 +1547,8 @@ def search():
 	if search_bridge:
 		results_bridge = []
 		for x in list_bridge:
-			y = re.findall('\\b'+search_bridge, x)
+			regex = re.compile(r'\b'+search_bridge,re.IGNORECASE)
+			y = re.findall(regex, x)
 			if y != []:
 				results_bridge += [(x,list_bridge.index(x)+121)]
 	else:
