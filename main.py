@@ -3,6 +3,7 @@
 import re
 import urllib.parse
 from flask import Flask, request, render_template
+from flask_mail import Mail, Message
 from bs4 import BeautifulSoup
 
 from jazzreal.versionsDB import versions_search
@@ -1477,10 +1478,35 @@ list_transcript.append('Zoot Sims_Night And Day-2')
 ###########################################
 
 app = Flask(__name__)
+mail=Mail(app)
+
+app.config['MAIL_SERVER']='ns0.ovh.net'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'feedback@jazzreal.org'
+app.config['MAIL_PASSWORD'] = 'mIrlaPixQ1fp2h0iCrpH'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = False
+mail = Mail(app)
+
+###########################################
 
 @app.route('/')
 def home_page():
 	return render_template('home_page.html')
+
+@app.route('/contribute/', methods=['POST'])
+def contribute():
+	#sending email
+	msg = Message('[Jazz Real]', sender = 'feedback@jazzreal.org', recipients = ['feedback@jazzreal.org'])
+	msg.body = 'Last Name : '+request.form['FirstName']+'\n'
+	msg.body += 'First Name : '+request.form['LastName']+'\n'
+	msg.body += 'Email : '+request.form['Email']+'\n'
+	msg.body += 'Subject : '+request.form['Subject']+'\n'
+	msg.body += 'Message : '+request.form['Message']+'\n'
+	fp = request.files['file_upload']
+	msg.attach(fp.filename,'application/octect-stream',fp.read())
+	mail.send(msg)
+	return render_template('contribute.html')
 
 @app.route('/search')
 def search():
