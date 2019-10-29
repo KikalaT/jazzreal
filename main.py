@@ -1505,10 +1505,17 @@ def contribute():
 	msg.body += 'Message : '+request.form['Message']+'\n'
 	fp = request.files['file_upload']
 	if fp:
+<<<<<<< HEAD
         msg.attach(fp.filename,'application/octect-stream',fp.read())
         mail.send(msg)
     else:
         mail.send(msg)
+=======
+		msg.attach(fp.filename,'application/octect-stream',fp.read())
+		mail.send(msg)
+	else:
+		mail.send(msg)
+>>>>>>> d41ba26bec9968e341a4d40c3c8a2716eceb98e2
 	return render_template('contribute.html')
 
 @app.route('/search')
