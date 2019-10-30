@@ -1480,12 +1480,12 @@ list_transcript.append('Zoot Sims_Night And Day-2')
 app = Flask(__name__)
 mail=Mail(app)
 
-app.config['MAIL_SERVER']='ssl0.ovh.net'
-app.config['MAIL_PORT'] = 465
+app.config['MAIL_SERVER']='ns0.ovh.net'
+app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = 'feedback@jazzreal.org'
 app.config['MAIL_PASSWORD'] = 'mIrlaPixQ1fp2h0iCrpH'
 app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
 
 ###########################################
@@ -1505,17 +1505,10 @@ def contribute():
 	msg.body += 'Message : '+request.form['Message']+'\n'
 	fp = request.files['file_upload']
 	if fp:
-<<<<<<< HEAD
-        msg.attach(fp.filename,'application/octect-stream',fp.read())
-        mail.send(msg)
-    else:
-        mail.send(msg)
-=======
 		msg.attach(fp.filename,'application/octect-stream',fp.read())
 		mail.send(msg)
 	else:
 		mail.send(msg)
->>>>>>> d41ba26bec9968e341a4d40c3c8a2716eceb98e2
 	return render_template('contribute.html')
 
 @app.route('/search')
