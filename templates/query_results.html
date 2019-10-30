@@ -46,7 +46,7 @@
 
 {% elif results_artist %}
 <p>
-<h4>Artist:</h4>
+<h4>Artiste:</h4>
 <h4>
 {% for x in results_artist %}
 <a href='/artist?={{ x }}'>{{ x }}</a></br>
@@ -73,7 +73,7 @@
 </p>
 
 {% else %}
-<p><h4>No results.</h4></p>
+<p><h4>Pas de résultats.</h4></p>
 {% endif %}
 
 <style type="text/css">
@@ -163,27 +163,27 @@ select{
 <br><br>
 <hr>
 <form action="/contribute/" method="post" enctype="multipart/form-data">
-<h3>Contribute to Jazz Real:</h3>
+<h3>Apportez votre contribution à Jazz Real:</h3>
 <ul class="form-style-1">
-    <li><label>Full Name <span class="required">*</span></label><input type="text" name="FirstName" class="field-divided" placeholder="First" /> <input type="text" name="LastName" class="field-divided" placeholder="Last" /></li>
+    <li><label>Nom complet <span class="required">*</span></label><input type="text" name="FirstName" class="field-divided" placeholder="Prénom" /> <input type="text" name="LastName" class="field-divided" placeholder="Nom" /></li>
     <li>
         <label>Email <span class="required">*</span></label>
         <input type="email" name="Email" class="field-long" />
     </li>
     <li>
-        <label>Subject</label>
+        <label>Sujet</label>
         <select name="Subject" class="field-select">
-		<option value="Error">Report bugs/Errors</option>
-        <option value="Chord Grid">Submit tune with chord grid</option>
-        <option value="Transcript">Submit transcript</option>
-        <option value="Artist">Submit artist infos</option>        
+		<option value="Error Report">Signaler une erreur</option>
+        <option value="Chord Grid Submit">Proposer une grille d'accord</option>
+        <option value="Transcript Submit">Proposer un relevé</option>
+        <option value="Artist Infos Submit">Proposer des informations sur un artiste</option>        
         </select>
     </li>
     <li>
-        <label>Your Message <span class="required">*</span></label>
+        <label>Votre message <span class="required">*</span></label>
         <textarea name="Message" id="field5" class="field-long field-textarea"></textarea>
     </li>
-		<label>File Upload (pdf / xml)</label>
+		<label>Attacher un fichier (pdf ou xml)</label>
 		<input name="file_upload" type="file" id="field6" class="field-long" accept=".pdf,.xml" />
     <li>
         <input type="submit" value="Submit" />

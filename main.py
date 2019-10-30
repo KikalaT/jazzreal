@@ -1497,17 +1497,17 @@ def home_page():
 @app.route('/contribute/', methods=['POST'])
 def contribute():
 	#sending email
-	msg = Message('[Jazz Real]', sender = 'feedback@jazzreal.org', recipients = ['feedback@jazzreal.org'])
-	msg.body = 'Last Name : '+request.form['FirstName']+'\n'
-	msg.body += 'First Name : '+request.form['LastName']+'\n'
-	msg.body += 'Email : '+request.form['Email']+'\n'
-	msg.body += 'Subject : '+request.form['Subject']+'\n'
-	msg.body += 'Message : '+request.form['Message']+'\n'
-	fp = request.files['file_upload']
+	msg = Message('[Jazz Real] : '+request.form.get('Subject'), sender = 'feedback@jazzreal.org', recipients = ['feedback@jazzreal.org'])
+	msg.body = 'Last Name : '+request.form.get('FirstName')+'\n'
+	msg.body += 'First Name : '+request.form.get('LastName')+'\n'
+	msg.body += 'Email : '+request.form.get('Email')+'\n'
+	#msg.body += 'Subject : '+request.form.get('Subject')+'\n'
+	msg.body += 'Message : '+request.form.get('Message')+'\n'
+	fp = request.files.get('file_upload')
 	if fp:
 		msg.attach(fp.filename,'application/octect-stream',fp.read())
 		mail.send(msg)
-	else:
+	else: 
 		mail.send(msg)
 	return render_template('contribute.html')
 
