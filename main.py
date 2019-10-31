@@ -7558,7 +7558,7 @@ artist_list = [
 'Robert Scott (4)',
 'Robert Seastrom',
 'Robert Swisshelm',
-'Robert Thomas Jr.'	
+'Robert Thomas Jr.'
 'Robert Trowers',
 'Robert Yance',
 'Rob Franken',
@@ -8740,7 +8740,7 @@ artist_list = [
 'Wade Legge',
 'Wade Marcus',
 'Waldemar Erbe',
-'Walfredo De Los Reyes Jr.'	
+'Walfredo De Los Reyes Jr.'
 'Wallace Bishop',
 'Wallace Davenport',
 'Wallace Jones',
@@ -9598,26 +9598,24 @@ def artist_search():
 	trk.init_tracksDB()
 	mb.init_membersDB()
 	cred.init_credits_db()
-<<<<<<< HEAD
 
 	bio_val = bio.DB[search_artist]
 	grp_val = sorted(grp.DB[search_artist])
 	alb_val = sorted(alb.DB[search_artist])
 
-=======
-	
+
 	bio_val = bio.DB.get(search_artist)
-	
+
 	if grp.DB.get(search_artist):
 		grp_val = sorted(grp.DB.get(search_artist))
 	else:
 		grp_val = []
-		
+
 	if alb.DB.get(search_artist):
 		alb_val = sorted(alb.DB.get(search_artist))
 	else:
 		alb_val = []
-	
+
 >>>>>>> f7e4a7331270c55f705197cb4afcfe16a2da397c
 	#tree:root
 	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
