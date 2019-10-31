@@ -7205,7 +7205,9 @@ Born : 7 June 1917 in Maryland\
 Died : 15 January 1994 in New York City\
 \
 ',
-'\'Philly\' Joe Jones':'',
+'\'Philly\' Joe Jones':\
+'real name: Joseph Rudolph Jones. --American jazz drummer, born 15 July 1923 in Philadelphia, Pennsylvania, USA and died 30 August 1985 in Philadelphia, Pennsylvania, USA.\
+Not to be confused with [a=Jo Jones]',
 'Jack Hansen':'',
 'Bob Moore':\
 'real name: Bob Loyce Moore.--American country bassist, conductor and session musician. Born : November 30, 1932 in Nashville, Tennessee.\
