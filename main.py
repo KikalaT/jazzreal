@@ -1478,13 +1478,12 @@ list_transcript.append('Zoot Sims_Night And Day-2')
 ###########################################
 
 app = Flask(__name__)
-mail=Mail(app)
 
 app.config['MAIL_SERVER']='ns0.ovh.net'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = 'feedback@jazzreal.org'
 app.config['MAIL_PASSWORD'] = 'mIrlaPixQ1fp2h0iCrpH'
-app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
 
