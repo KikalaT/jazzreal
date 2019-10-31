@@ -9599,11 +9599,6 @@ def artist_search():
 	mb.init_membersDB()
 	cred.init_credits_db()
 
-	bio_val = bio.DB[search_artist]
-	grp_val = sorted(grp.DB[search_artist])
-	alb_val = sorted(alb.DB[search_artist])
-
-
 	bio_val = bio.DB.get(search_artist)
 
 	if grp.DB.get(search_artist):
@@ -9616,7 +9611,6 @@ def artist_search():
 	else:
 		alb_val = []
 
->>>>>>> f7e4a7331270c55f705197cb4afcfe16a2da397c
 	#tree:root
 	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 
