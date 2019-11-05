@@ -181,6 +181,7 @@ lists.append('IIm7-V7_down_whole_steps')
 lists.append('IIm7b5-V7_down_whole_steps')
 
 list_titles = []
+list_titles.append('52ND STREET THEME')
 list_titles.append('A FINE ROMANCE')
 list_titles.append('A PORTRAIT OF JENNY')
 list_titles.append('A FOGGY DAY')
