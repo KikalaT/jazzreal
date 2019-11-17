@@ -492,7 +492,7 @@ groups_dict = {
 'Lars Gullin Octet',
 'Gösta Theselius And All Stars',
 'The Quincy Jones Big Band',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Bengt Hallberg And His Swedish All Stars',
 'Åke Persson And His Combo',
 'Arne Domnérus Dixiesix',
@@ -589,7 +589,7 @@ groups_dict = {
 'Woody Herman And The Thundering Herd',
 'The Pete Christlieb Quartet',
 'Vic Lewis West Coast All-Stars',
-'The John "Terry" Tirabasso Orchestra',
+'The John \'Terry\' Tirabasso Orchestra',
 ),
 'Alan Dawson':\
 (
@@ -688,7 +688,7 @@ groups_dict = {
 'The Pond Life Orchestra',
 'Bob Brookmeyer And His Orchestra',
 'Gerry Mulligan And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Alan Read (3)':\
 (
@@ -953,7 +953,7 @@ groups_dict = {
 'Albert Nicholas Quartet',
 'Bechet / Nicholas Blue Five',
 'Rex Stewart And His Dixieland Jazz Band',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Baby Dodds Trio',
 'Albert Nicholas And His Orchestra',
 'Albert Nicholas Quintet',
@@ -1160,7 +1160,7 @@ groups_dict = {
 'Bob Wilber And The Bechet Legacy',
 'Dick Collins And His Orchestra',
 'Bob Brookmeyer And His Orchestra',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'John Benson Brooks Ensemble',
 'Gerry Mulligan And The Sax Section',
 'Zoot Sims - Bob Brookmeyer Octet',
@@ -1583,7 +1583,7 @@ groups_dict = {
 (
 'Jazz In The Classroom',
 'Alf Clausen Jazz Orchestra',
-'The John "Terry" Tirabasso Orchestra',
+'The John \'Terry\' Tirabasso Orchestra',
 ),
 'Alfie Evans':\
 (
@@ -1912,7 +1912,7 @@ groups_dict = {
 (
 'Alix Combelle Et Son Orchestre',
 'Coleman Hawkins And His All Star Jam Band',
-'Philippe Brun "Jam Band"',
+'Philippe Brun \'Jam Band\'',
 'Ray Ventura Et Ses Collégiens',
 'Michel Warlop Et Son Orchestre',
 'Wal-Berg Et Son Jazz Français',
@@ -2874,7 +2874,7 @@ groups_dict = {
 'Andrew White Quartet',
 'David Bond Quintet',
 'Beaver Harris Quartet',
-'The "JFK" Quintet',
+'The \'JFK\' Quintet',
 ),
 'Andrzej Cudzich':\
 (
@@ -3955,7 +3955,7 @@ groups_dict = {
 'The Inculcation Band',
 'The Mighty Men',
 'South Central Avenue Municipal Blues Band',
-'"Originals" Of Sight & Sounds',
+'\'Originals\' Of Sight & Sounds',
 ),
 'Arthur \'Babe\' Campbell':\
 (
@@ -4015,9 +4015,9 @@ groups_dict = {
 (
 'The Prestige All Stars',
 'Mal Waldron Quintet',
-'Eddie "Lockjaw" Davis Trio',
+'Eddie \'Lockjaw\' Davis Trio',
 'Eddie Lockjaw Davis Quartet',
-'The Eddie "Lockjaw" Davis Quintet',
+'The Eddie \'Lockjaw\' Davis Quintet',
 ),
 'Arthur Gleghorn':\
 (
@@ -4837,7 +4837,7 @@ groups_dict = {
 'Barney Kessel Quintet',
 'The Buddy DeFranco Septette',
 'The All Stars (7)',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Bobby Troup And His Stars Of Jazz',
 'The Paul Desmond Quintet',
 'Red Norvo Septet',
@@ -5050,7 +5050,7 @@ groups_dict = {
 'Barry Maur':\
 (
 'Lee Konitz Big Band',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Barry Morgan':\
 (
@@ -5095,7 +5095,7 @@ groups_dict = {
 'Dreams (4)',
 'Mike Mainieri & Friends',
 'Orquesta Palenque',
-'Eddie Palmieri And His Conjunto "La Perfecta"',
+'Eddie Palmieri And His Conjunto \'La Perfecta\'',
 'Joe Quijano Y Su Orquesta',
 ),
 'Barry Ross':\
@@ -5104,7 +5104,7 @@ groups_dict = {
 'The Glenn Miller Orchestra',
 'Horst Jankowski Und Sein RIAS Tanzorchester',
 'Klaus Weiss Orchestra',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 ),
 'Barry Smith (5)':\
 (
@@ -5951,11 +5951,11 @@ groups_dict = {
 'Coleman Hawkins And His Orchestra',
 'Mezz Mezzrow And His Orchestra',
 'Sidney Bechet And His New Orleans Feetwarmers',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Henry Allen-Coleman Hawkins And Their Orchestra',
 'Bernard Addison All Stars',
 'Bernard Addison And His Rhythm',
-'Willie "The Lion" Smith & His Orchestra',
+'Willie \'The Lion\' Smith & His Orchestra',
 ),
 'Bernard Anderson':\
 (
@@ -6674,7 +6674,7 @@ groups_dict = {
 'Elliot Lawrence And His Orchestra',
 'Bill Russo And His Orchestra',
 'Bob Brookmeyer And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Bill English':\
 (
@@ -7395,7 +7395,7 @@ groups_dict = {
 'Flip Phillips Fliptet',
 'Flip Phillips Boptet',
 'Woody Herman And The Fourth Herd',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'Flip Phillips And His Orchestra',
 'Jazz Renaissance Quintet',
 'Bill Harris Septet',
@@ -7490,7 +7490,7 @@ groups_dict = {
 'Martial Solal Big Band',
 'Dick Collins And His Orchestra',
 'Bob Brookmeyer And His Orchestra',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'The Billy Byers-Joe Newman Sextet',
 'Ruby Braff Sextet',
 'The Jim Chapin Sextet',
@@ -8169,7 +8169,7 @@ groups_dict = {
 ),
 'Blanche Calloway':\
 (
-'Reuben "River" Reeves & His River Boys',
+'Reuben \'River\' Reeves & His River Boys',
 'Blanche Calloway And Her Joy Boys',
 ),
 'Blossom Dearie':\
@@ -9104,7 +9104,7 @@ groups_dict = {
 'The John Graas Nonet',
 'Jimmy Rowles Septet',
 'Bud Shank And Three Trombones',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Bobby Troup And His Stars Of Jazz',
 'Don Fagerquist Octet',
 'Bobby Troup Quintet',
@@ -10137,7 +10137,7 @@ groups_dict = {
 'Big Band RTS',
 'Ansambl Vasilija Beloševića',
 'Trio Stanimira Radojčića',
-'Lala Kovačev "Trumpets & Rhythm Unit"',
+'Lala Kovačev \'Trumpets & Rhythm Unit\'',
 'Sound By Grischa Batanoff',
 'European Jazz Consensus',
 'Yugoslav Export Jazz Stars',
@@ -10568,7 +10568,7 @@ groups_dict = {
 'Benny Carter & His Chocolate Dandies',
 'The Jimmy Rushing All Stars',
 'Buck Clayton And His Swing Band',
-'Willie "The Lion" Smith Quartet',
+'Willie \'The Lion\' Smith Quartet',
 'Festival All-Stars',
 'Buck Clayton Sextet',
 'Buck Clayton And His Rhythm',
@@ -10860,7 +10860,7 @@ groups_dict = {
 'Artie Shaw And His Orchestra',
 'Bob Crosby And His Orchestra',
 'Buddy Morrow And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 'Amanda Randolph And Her Orchestra',
 ),
 'Buddy Motsinger':\
@@ -11100,7 +11100,7 @@ groups_dict = {
 'The Bud Shank-Bob Cooper Orchestra',
 'Bud Shank And Bill Perkins Quintet',
 'Milt Bernhart And His Orchestra',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Bobby Troup And His Stars Of Jazz',
 'Laurindo Almeida Quartet',
 'Bud Shank With Strings',
@@ -11249,7 +11249,7 @@ groups_dict = {
 'Mildred Bailey And Her Orchestra',
 'Sidney Bechet & His Circle Seven',
 'Perry Bradford Jazz Phools',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Bessie Smith And Her Band',
 'Bessie Smith And Her Blue Boys',
 'The Saints & Sinners',
@@ -11274,7 +11274,7 @@ groups_dict = {
 'Buster Johnson':\
 (
 'Paul Whiteman And His Orchestra',
-'Frisco "Jass" Band',
+'Frisco \'Jass\' Band',
 ),
 'Buster Moten':\
 (
@@ -11326,7 +11326,7 @@ groups_dict = {
 'Butch Ballard':\
 (
 'Count Basie Orchestra',
-'Eddie "Lockjaw" Davis Trio',
+'Eddie \'Lockjaw\' Davis Trio',
 'Lee Lovett Quartet',
 'The Clark Terry Spacemen',
 ),
@@ -11713,7 +11713,7 @@ groups_dict = {
 'The Big Aces',
 'Yank Lawson And His Orchestra',
 'The Charleston Chasers',
-'Jimmy Dorsey And His Original "Dorseyland" Jazz Band',
+'Jimmy Dorsey And His Original \'Dorseyland\' Jazz Band',
 'The Carl Kress Sextet',
 'Adrian’s Ramblers',
 ),
@@ -11917,7 +11917,7 @@ groups_dict = {
 'SFB Big Band',
 'The Red Mitchell - Harold Land Quintet',
 'Jimmy Woods Sextet',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Steve Miller K.C. Big Band',
 'Carmell Jones Quartet',
 ),
@@ -12092,7 +12092,7 @@ groups_dict = {
 'The Grachan Moncur Quartet',
 'Michael White Quartet',
 'Yosuke Yamashita New York Trio',
-'s "In" Crowd',
+'s \'In\' Crowd',
 'Wynton Kelly Trio',
 'The Bob Thiele Collective',
 'The 360 Degree Music Experience',
@@ -12146,7 +12146,7 @@ groups_dict = {
 (
 'Teddy Wilson And His Orchestra',
 'Clarence Williams And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Alabama Jug Band',
 'Clara Smith And Her Jazz Trio',
 'Hokum Trio',
@@ -12550,7 +12550,7 @@ groups_dict = {
 'Klaus Weiss Orchestra',
 'The Jean-Claude Naude Big Band',
 'Charingo',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Charles Orieux Et Son Orchestre',
 ),
 'Charles Owens':\
@@ -12790,7 +12790,7 @@ groups_dict = {
 'King Oliver & His Orchestra',
 'Luis Russell And His Orchestra',
 'Fats Waller And His Buddies',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Mills Blue Rhythm Band',
 'The Harlem Blues & Jazz Band',
 'Putney Dandridge And His Orchestra',
@@ -12844,7 +12844,7 @@ groups_dict = {
 'A Touch Of Grass',
 'Charlie Lewis Trio',
 'Buck Clayton Sextet',
-'Trio "Big Boy"',
+'Trio \'Big Boy\'',
 ),
 'Charlie Lodice':\
 (
@@ -13103,7 +13103,7 @@ groups_dict = {
 (
 'Harry James And His Orchestra',
 'Vic Schoen And His All Star Band',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Charlie Smith (2)':\
 (
@@ -13125,7 +13125,7 @@ groups_dict = {
 'Bob Crosby And His Orchestra',
 'Benny Goodman And His Orchestra',
 'Jerry Gray And His Orchestra',
-'Jimmy Dorsey And His Original "Dorseyland" Jazz Band',
+'Jimmy Dorsey And His Original \'Dorseyland\' Jazz Band',
 'Eddie Lang-Joe Venuti And Their All Star Orchestra',
 ),
 'Charlie Ventura':\
@@ -13246,7 +13246,7 @@ groups_dict = {
 'Peanuts Hucko And His Orchestra',
 'Joe Newman And His Orchestra',
 'Vic Schoen And His All Star Band',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Chelsea Quealey':\
 (
@@ -15458,7 +15458,7 @@ groups_dict = {
 'Leonard Feather All Stars',
 'Blanche Calloway And Her Joy Boys',
 'Cozy Cole Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Joe Marsala And His Delta Six',
 'Sam Price And His Kaycee Stompers',
 'Don Byas All Stars',
@@ -15470,7 +15470,7 @@ groups_dict = {
 'Barney Bigard Quintet',
 'The Cozy Cole Septet',
 'Putney Dandridge And His Orchestra',
-'"Little Jazz" And His Trumpet Ensemble',
+'\'Little Jazz\' And His Trumpet Ensemble',
 'Dick Porter And His Orchestra',
 'Cozy Cole And His Hit-Paraders',
 'John Hardee Quintet',
@@ -15604,7 +15604,7 @@ groups_dict = {
 'The Curtis Counce Group',
 'Harold Land All-Stars',
 'Milt Bernhart And His Orchestra',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Teddy Charles Quintet',
 'The Curtis Counce Quintet',
 'The Claude Williamson Trio',
@@ -15721,7 +15721,7 @@ groups_dict = {
 'Lawson-Haggart Jazz Band',
 'The Dixieland All Stars',
 'The Rampart Street Paraders',
-'Jimmy Dorsey And His Original "Dorseyland" Jazz Band',
+'Jimmy Dorsey And His Original \'Dorseyland\' Jazz Band',
 ),
 'Cy Baker':\
 (
@@ -16094,7 +16094,7 @@ groups_dict = {
 'Horace Parlan Trio',
 'Mal Waldron Quartet',
 'Dannie Richmond Quintet',
-'s "In" Crowd',
+'s \'In\' Crowd',
 'Jimmy Knepper Quintet',
 'Booker Ervin Quintet',
 'Herbie Nichols Trio',
@@ -16157,7 +16157,7 @@ groups_dict = {
 'Sir Charles And His All Stars',
 'Sam Price Trio',
 'Dan Burley And His Skiffle Boys',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Billy Kyle And His Swing Club Band',
 'Jimmy Rushing And His Orchestra',
 'Bunk Johnson & His Band',
@@ -16480,7 +16480,7 @@ groups_dict = {
 'George Russell Orchestra',
 'Howard Johnson & Gravity',
 'The Lucifers',
-'The "New Lucifers"',
+'The \'New Lucifers\'',
 'The Carla Bley Big Band',
 'Super Trombone',
 'Michel Camilo Big Band',
@@ -16716,7 +16716,7 @@ groups_dict = {
 'Barney Bigard And His Orchestra',
 'The Phil Norman Tentet',
 'John Tirabasso Jazz All Stars',
-'The John "Terry" Tirabasso Orchestra',
+'The John \'Terry\' Tirabasso Orchestra',
 ),
 'Dave LaLama':\
 (
@@ -18022,7 +18022,7 @@ groups_dict = {
 'Barney Bigard And His Orchestra',
 'Eddie Condon And His All-Stars',
 'The Jack Lesberg Sextet',
-'Jimmy Dorsey And His Original "Dorseyland" Jazz Band',
+'Jimmy Dorsey And His Original \'Dorseyland\' Jazz Band',
 'Bobby Hackett And His Jazz Band',
 'Lou McGarity Quintet',
 'Jack Teagarden Band',
@@ -18181,14 +18181,14 @@ groups_dict = {
 'Buck Clayton With His All-Stars',
 'The Buddy Tate Celebrity Club Orchestra',
 'Dickie Wells And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Henry Allen-Coleman Hawkins And Their Orchestra',
 'Jimmy Rushing And His Orchestra',
 'Andy Gibson And His Orchestra',
 'Emmett Berry Sextet',
 'The Fletcher Henderson All Stars',
 'The Jimmy Rushing All Stars',
-'Earl "Fatha" Hines And His New Sounds',
+'Earl \'Fatha\' Hines And His New Sounds',
 'The Hines Varieties',
 ),
 'Dick Johnson (8)':\
@@ -18520,7 +18520,7 @@ groups_dict = {
 'Dieter Reith Quintett',
 'Orchester Dieter Reith',
 'Das Toni Stricker Star Ensemble',
-'"Hot Fingers" Jackson And His Soul Organ-Isation',
+'\'Hot Fingers\' Jackson And His Soul Organ-Isation',
 'DIETER REITH COMBO',
 'Dieter Reith-Quartett',
 'The Dieter Reith-Powerplant',
@@ -18662,7 +18662,7 @@ groups_dict = {
 'Grappelli-Reinhardt Combo',
 'Django Et Compagnie',
 'Coleman Hawkins And His All Star Jam Band',
-'Philippe Brun "Jam Band"',
+'Philippe Brun \'Jam Band\'',
 'Philippe Brun And His Swing Band',
 'Bill Coleman & His Orchestra',
 'Stéphane Grappelli And His Hot Four',
@@ -19540,7 +19540,7 @@ groups_dict = {
 'Roberta Piket Quintet',
 'Maria Schneider Orchestra',
 'Torben Waldorff Quartet',
-'The "Three Great Tenors"',
+'The \'Three Great Tenors\'',
 'Berklee Ensemble',
 'Gil Evans Project',
 'Enrico Pieranunzi Quartet',
@@ -20240,7 +20240,7 @@ groups_dict = {
 'Earle Warren Orchestra',
 'Jimmy Rushing And His Orchestra',
 'Allstars (11)',
-'"Hot Lips" Page Sextet',
+'\'Hot Lips\' Page Sextet',
 'Earl Warren Sextet',
 'Jam Session At The Riverside',
 ),
@@ -20294,7 +20294,7 @@ groups_dict = {
 'Earl Hines Quintet',
 'Earl Hines And His Band',
 'The Benny Carter Quartet',
-'Earl "Fatha" Hines And His New Sounds',
+'Earl \'Fatha\' Hines And His New Sounds',
 ),
 'Earl Klugh':\
 (
@@ -20328,7 +20328,7 @@ groups_dict = {
 'Thad Jones / Mel Lewis Orchestra',
 'Mingus Big Band',
 'Howard Johnson & Gravity',
-'The "New Lucifers"',
+'The \'New Lucifers\'',
 'Thad Jones & Mel Lewis',
 ),
 'Earl Miller':\
@@ -20576,7 +20576,7 @@ groups_dict = {
 'The Elliot Lawrence Band',
 'New Pulse Jazz Band',
 'Woody Herman And His Third Herd',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'Gil Mellé Quintet',
 'The Eddie Bert Sextet',
 'Sal Salvador Sextet',
@@ -20587,7 +20587,7 @@ groups_dict = {
 'Eddie Bert Quartet',
 'Stewart - Williams & Co.',
 'Eddie Bert Duo',
-'s Greatest"',
+'s Greatest\'',
 'George Gee Big Band',
 'Loren Schoenberg And His Jazz Orchestra',
 'The Band That Plays The Blues',
@@ -21026,7 +21026,7 @@ groups_dict = {
 'Harlem River Drive',
 'Eddie Palmieri And His Orchestra',
 'Eddie Palmieri And Friends',
-'Eddie Palmieri And His Conjunto "La Perfecta"',
+'Eddie Palmieri And His Conjunto \'La Perfecta\'',
 'The Brian Lynch/Eddie Palmieri Project',
 ),
 'Eddie Pazant':\
@@ -21186,7 +21186,7 @@ groups_dict = {
 ),
 'Edgar Hayes':\
 (
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Mills Blue Rhythm Band',
 'Edgar Hayes And His Orchestra',
 'Edgar Hayes & His Stardusters',
@@ -21814,7 +21814,7 @@ groups_dict = {
 ),
 'Elliott Washington':\
 (
-'Reuben "River" Reeves & His River Boys',
+'Reuben \'River\' Reeves & His River Boys',
 'Tiny Parham And His Musicians',
 'Clarence M. Jones Wonder Orchestra',
 ),
@@ -21870,7 +21870,7 @@ groups_dict = {
 'Fletcher Henderson And His Orchestra',
 'Tommy Ladnier And His Orchestra',
 'Mezz Mezzrow And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Ladnier-Mezzrow All-Stars',
 ),
 'Elmer Smithers':\
@@ -21993,7 +21993,7 @@ groups_dict = {
 'Elvin Jones/Jimmy Garrison Sextet',
 'Joe Henderson Quartet',
 'The Great Quartet',
-'The Harry "Sweets" Edison Quintet',
+'The Harry \'Sweets\' Edison Quintet',
 'John Coltrane Orchestra',
 'Herb Geller & His All Stars',
 'The Secret 7',
@@ -22166,7 +22166,7 @@ groups_dict = {
 'Emmett Berry Sextet',
 'Emmett Berry And His Orchestra',
 'The Fletcher Henderson All Stars',
-'"Little Jazz" And His Trumpet Ensemble',
+'\'Little Jazz\' And His Trumpet Ensemble',
 'The Emmett Berry Five',
 ),
 'Emmett Carls':\
@@ -22257,7 +22257,7 @@ groups_dict = {
 'Eric Alexander Quartet',
 'Eric Alexander Quintet',
 'The Anniversary Quartet',
-'The Atro "Wade" Mikkola Quartet',
+'The Atro \'Wade\' Mikkola Quartet',
 'John Swana Sextet',
 'Steve Davis Sextet',
 'Steve Davis Quintet',
@@ -23803,7 +23803,7 @@ groups_dict = {
 'Jacques Denjean Et Son Orchestre',
 'Jacques Hélian Et Son Orchestre',
 'François Guin Et Les Swingers',
-'François "Frick" Guin Et Son Orchestre',
+'François \'Frick\' Guin Et Son Orchestre',
 'Les Petits Français',
 ),
 'François Jeanneau':\
@@ -23837,7 +23837,7 @@ groups_dict = {
 'Antoine Hervé Big Band',
 'Eric Le Lann Quartet',
 'Celea-Couturier Group',
-'Claus Stötter´s "Nevertheless"',
+'Claus Stötter´s \'Nevertheless\'',
 'Simon Spang-Hanssen Quartet',
 'Claude Bernard Sextet',
 'Paga Group',
@@ -24144,7 +24144,7 @@ groups_dict = {
 'Frank Humphries':\
 (
 'Lucky Millinder And His Orchestra',
-'Frank "Fat Man " Humphries & His Orch',
+'Frank \'Fat Man \' Humphries & His Orch',
 ),
 'Frankie Dunlop':\
 (
@@ -24327,7 +24327,7 @@ groups_dict = {
 (
 'Les Hite And His Orchestra',
 'Joe Liggins & His Honeydrippers',
-'Joe Darensbourg And His "Flat Out" Five',
+'Joe Darensbourg And His \'Flat Out\' Five',
 ),
 'Frank Patchen':\
 (
@@ -25326,7 +25326,7 @@ groups_dict = {
 'The String Summit',
 'Der Grosse Bär',
 'Urumchi',
-'Trio "Brüninghaus - Stockhausen - Studer"',
+'Trio \'Brüninghaus - Stockhausen - Studer\'',
 ),
 'Freeman Lee':\
 (
@@ -25920,7 +25920,7 @@ groups_dict = {
 'The Carla Bley Band',
 'Ed Schuller & Band',
 'Joe Lovano Wind Ensemble',
-'The "New Lucifers"',
+'The \'New Lucifers\'',
 'Joe Lovano Street Band',
 'Mat Maneri Quintet',
 'The Carla Bley Big Band',
@@ -26325,7 +26325,7 @@ groups_dict = {
 'Phil Woods Septet',
 'Gene Quill And His Quintet',
 'Bob Brookmeyer And His Orchestra',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'Phil Woods/Gene Quill Quintet',
 'Oscar Pettiford & His All Stars',
 'The Billy Byers-Joe Newman Sextet',
@@ -26353,7 +26353,7 @@ groups_dict = {
 'Lou Donaldson Quartet',
 'Duke Jordan Trio',
 'The Birdlanders',
-'"Stick" McGhee & His Buddies',
+'\'Stick\' McGhee & His Buddies',
 'Lester Young And His Orchestra',
 'The Lester Young-Teddy Wilson Quartet',
 'John Hardee Sextet',
@@ -26369,7 +26369,7 @@ groups_dict = {
 (
 'Earl Bostic And His Orchestra',
 'Gene Redd And The Globe Trotters',
-'Earl "Fatha" Hines And His New Sounds',
+'Earl \'Fatha\' Hines And His New Sounds',
 'The Hines Varieties',
 ),
 'Gene Rodgers':\
@@ -26836,7 +26836,7 @@ groups_dict = {
 'Billy Taylor Quartet',
 'The Harry Edison Quartet',
 'Derek Smith Trio',
-'Eddie "Lockjaw" Davis Trio',
+'Eddie \'Lockjaw\' Davis Trio',
 'Eddie Lockjaw Davis Quartet',
 'The Vic Dickenson Quintet',
 'Herbie Nichols Trio',
@@ -26853,7 +26853,7 @@ groups_dict = {
 'Al Caiola And The Nile River Boys',
 'Hal Mitchell Four',
 'Claude Hopkins All Stars',
-'The Eddie "Lockjaw" Davis Quintet',
+'The Eddie \'Lockjaw\' Davis Quintet',
 'Carmen Leggio Quartet',
 'Phil Bodner & Company',
 'Chuck Wayne Quintet',
@@ -26956,7 +26956,7 @@ groups_dict = {
 'Teddy Stewart Orchestra',
 'The Sun Ra Arkestra',
 'Alphonso Trent And His Orchestra',
-'George Hudson And His "Modern" Music',
+'George Hudson And His \'Modern\' Music',
 ),
 'George Hunt':\
 (
@@ -27493,7 +27493,7 @@ groups_dict = {
 'Leonard Feather All Stars',
 'Sidney Bechet & His Circle Seven',
 'Eddie Condon And His All-Stars',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Cellar Boys',
 'Jimmy McPartland And His Orchestra',
 'Varsity Seven',
@@ -27709,7 +27709,7 @@ groups_dict = {
 'The Buddy Collette Big Band',
 'Four Trombone Band',
 'Buddy Rich Nonet',
-'Joe Darensbourg And His "Flat Out" Five',
+'Joe Darensbourg And His \'Flat Out\' Five',
 ),
 'Gerald Wilson':\
 (
@@ -27830,7 +27830,7 @@ groups_dict = {
 (
 'Sissies (3)',
 'Boy Edgar Big Band',
-'Original Dutch "42nd Street" Cast',
+'Original Dutch \'42nd Street\' Cast',
 ),
 'Gerry Brown':\
 (
@@ -28648,7 +28648,7 @@ groups_dict = {
 'James Moody & His Swedish Crowns',
 'Charlie Parker And His Swedish All Stars',
 'Jimmy Raney All Stars',
-'Lord "Tesses" Band',
+'Lord \'Tesses\' Band',
 'Johan Adolfssons Sextett',
 'Reinhold Svenssons Orkester',
 ),
@@ -28984,7 +28984,7 @@ groups_dict = {
 ''),
 'Guido Mozzato':\
 (
-'Virtuosi Di Roma "Collegium Musicum Italicum"',
+'Virtuosi Di Roma \'Collegium Musicum Italicum\'',
 'Quintetto Boccherini',
 'Giorgio Gaslini Ensemble',
 ),
@@ -29385,7 +29385,7 @@ groups_dict = {
 'Michael Naura Quintett',
 'Horst Jankowski Und Sein RIAS Tanzorchester',
 'Helmut Brandt Orchestra',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 ),
 'Håkan Nyqvist':\
 (
@@ -29482,7 +29482,7 @@ groups_dict = {
 'The Elliot Lawrence Band',
 'George Williams And His Orchestra',
 'Hal McKusick Quartet',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'The Hal McKusick Octet',
 'Urbie Green And His Big Band',
 'The Tom Talbert Jazz Orchestra',
@@ -29715,7 +29715,7 @@ groups_dict = {
 'The Flip Phillips-Howard McGhee Boptet',
 'Don Redman All Stars',
 'Jerome Richardson Sextet',
-'"Hot Lips" Page Sextet',
+'\'Hot Lips\' Page Sextet',
 'The Buddy Rich Trio',
 'JATP All Stars',
 'Eddie Bert Quintet',
@@ -30415,7 +30415,7 @@ groups_dict = {
 'Doc Severinsen And His Orchestra',
 'Bobby Byrne And His Orchestra',
 'George Williams And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Harry Edison':\
 (
@@ -30445,7 +30445,7 @@ groups_dict = {
 'Cy Touff Octet',
 'Zoot Sims - Bob Brookmeyer Octet',
 'The Hampton Hawes All-Stars',
-'The Harry "Sweets" Edison Quintet',
+'The Harry \'Sweets\' Edison Quintet',
 'Flip Phillips And His Orchestra',
 'Red Callender Sextet',
 'Alphonso Trent And His Orchestra',
@@ -30458,7 +30458,7 @@ groups_dict = {
 'Paul Quinichette And His Swingtette',
 'JATP All Stars',
 'Ben Webster Septet',
-'Spike Robinson / "Sweets" Edison Quintet',
+'Spike Robinson / \'Sweets\' Edison Quintet',
 'The Louis Bellson Octet',
 'Buddy Rich Nonet',
 'Harry Edison Quintet',
@@ -30829,7 +30829,7 @@ groups_dict = {
 'Hayes Pillars':\
 (
 'Alphonso Trent And His Orchestra',
-'Jeter-Pillars "Club Plantation" Orchestra',
+'Jeter-Pillars \'Club Plantation\' Orchestra',
 ),
 'Haywood Henry':\
 (
@@ -30984,7 +30984,7 @@ groups_dict = {
 'Horst Jankowski Und Sein RIAS Tanzorchester',
 'Günter-Noris-Quintett',
 'Helmut Brandt Orchestra',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 ),
 'Heinz Pohle':\
 (
@@ -31137,7 +31137,7 @@ groups_dict = {
 'Jef Gilson Septet',
 'Soñjal Septet',
 'Azur Trio',
-'Henri Texier "Azur" Quartet',
+'Henri Texier \'Azur\' Quartet',
 'Henri Texier Azur Quintet',
 'Henri Texier Quartet',
 'Catherine Ribeiro + Alpes',
@@ -31804,7 +31804,7 @@ groups_dict = {
 'George Shearing Quintet + Amigos',
 'Heribert Thusek Und Seine Steinberger Musikanten',
 'Bert Loska Mit Seinem Sternen-Sex-Tett',
-'Das Bert Loska "Sex"-tett',
+'Das Bert Loska \'Sex\'-tett',
 'Willi Fruth Und Seine Solisten',
 'Orchester Heribert Thusek',
 'Orchestra Romain-Domani',
@@ -31942,7 +31942,7 @@ groups_dict = {
 'Ella Fitzgerald And Her Savoy Eight',
 'Ella Fitzgerald And Her Famous Orchestra',
 'Jay McShann And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Henry Allen-Coleman Hawkins And Their Orchestra',
 'Andy Gibson And His Orchestra',
 'Duke Ellington Alumni All Stars',
@@ -32052,7 +32052,7 @@ groups_dict = {
 'Horace Henderson And His Orchestra',
 'Don Redman And His Orchestra',
 'The Henderson Twins',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Henry Allen-Coleman Hawkins And Their Orchestra',
 'Al Casey And His Sextet',
 ),
@@ -32157,7 +32157,7 @@ groups_dict = {
 'Albert Ammons And His Rhythm Kings',
 'Pete Johnson & His Boogie Woogie Boys',
 'Hot Lips Page Trio',
-'"Hot Lips" Page Sextet',
+'\'Hot Lips\' Page Sextet',
 'Hot Lips Page And His Band',
 'Oran Lips page And His All Stars',
 'Chu Berry And His Jazz Ensemble',
@@ -33103,7 +33103,7 @@ groups_dict = {
 'Gene Krupa And His Chicagoans',
 'The Ahmad Jamal Quintet',
 'Auld-Hawkins-Webster Saxtet',
-'"Little Jazz" And His Trumpet Ensemble',
+'\'Little Jazz\' And His Trumpet Ensemble',
 'Sam Jones & Co.',
 'Jimmie Noone And His New Orleans Band',
 'Herb Ellis And The All-Stars',
@@ -33169,7 +33169,7 @@ groups_dict = {
 'Thomas Morris And His Seven Hot Babies',
 'Lloyd Smith And His Gut Bucket-Teers',
 'Jabbo Smith And His Rhythm Aces',
-'"Banjo" Ikey Robinson And His Band',
+'\'Banjo\' Ikey Robinson And His Band',
 'Jabbo Smith And His Orchestra',
 ),
 'Jac Assunto':\
@@ -34187,7 +34187,7 @@ groups_dict = {
 'Mingus Big Band',
 'Maynard Ferguson & His Orchestra',
 'Jaki Byard And The Apollo Stompers',
-'s "In" Crowd',
+'s \'In\' Crowd',
 'The Herb Pomeroy Orchestra',
 'Jaki Byard Trio',
 'The Booker Ervin Sextet',
@@ -34739,7 +34739,7 @@ groups_dict = {
 'Studio 5 (2)',
 'Studiový Orchestr Čs. Rozhlasu',
 'Woody Herman And The Thundering Herd',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Jan Konopásek Se Svou Skupinou',
 ),
 'Jan Oosthof':\
@@ -35104,7 +35104,7 @@ groups_dict = {
 'The Little Chocolate Dandies',
 'J.C. Higginbotham And His Six Hicks',
 'Jay McShann And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Jack Purvis And His Orchestra',
 'Port Of Harlem Jazzmen',
 'J.C. Higginbotham Quintet',
@@ -35312,7 +35312,7 @@ groups_dict = {
 'Wolfgang Dauner-Septett',
 'Giorgio Gaslini Ensemble',
 'European Jazz All Stars',
-'Jean-Luc Ponty "Experience"',
+'Jean-Luc Ponty \'Experience\'',
 'Trio HLP',
 'George Gruntz Sextett',
 'AndersonPonty Band',
@@ -35921,7 +35921,7 @@ groups_dict = {
 'The Clifford Jordan Big Band',
 'Charlie Shavers Octet',
 'Cannonball Adderley All Stars',
-'Earl "Fatha" Hines And His New Sounds',
+'Earl \'Fatha\' Hines And His New Sounds',
 'The Hines Varieties',
 ),
 'Jerry Bergonzi':\
@@ -36401,7 +36401,7 @@ groups_dict = {
 'Giorgio Gaslini Ensemble Internazionale',
 'Joachim Kühn / Daniel Humair / J.-F. Jenny-Clark',
 'Mudai Trio',
-'Jean-Luc Ponty "Experience"',
+'Jean-Luc Ponty \'Experience\'',
 'Quintet  René Urtreger',
 ),
 'Jie-Bing Chen':\
@@ -36694,7 +36694,7 @@ groups_dict = {
 'Dave McKenna Quartet',
 'The Gene Harris Trio',
 'The Barney Kessel Trio',
-'Eddie "Lockjaw" Davis 4',
+'Eddie \'Lockjaw\' Davis 4',
 'The Concord All Stars',
 'Terry Gibbs & His West Coast Friends',
 'The Larry Young Trio',
@@ -36878,7 +36878,7 @@ groups_dict = {
 'Jimmy Cleveland Octet',
 'Jimmy Cleveland Septet',
 'Jim Timmens And His Swinging Brass',
-'s Greatest"',
+'s Greatest\'',
 'Art Farmer Tentet',
 'Friedrich Gulda And His Sextet',
 ),
@@ -37004,7 +37004,7 @@ groups_dict = {
 'Red McKenzie And The Celestial Beings',
 'Jimmy Dorsey And His Jammers',
 'The Charleston Chasers',
-'Jimmy Dorsey And His Original "Dorseyland" Jazz Band',
+'Jimmy Dorsey And His Original \'Dorseyland\' Jazz Band',
 'Joe Venuti And His New Yorkers',
 'The Dorsey Brothers',
 'The Dorsey Brothers And Their New Dynamiks',
@@ -37021,7 +37021,7 @@ groups_dict = {
 'The Jimmy Forrest Quintet',
 'The Al Grey-Jimmy Forrest Quintet',
 'The Mainstream Sextet',
-'The Harry "Sweets" Edison Quintet',
+'The Harry \'Sweets\' Edison Quintet',
 'The Prestige Blues-Swingers',
 'Al Grey Jazz All Stars',
 'Al Grey / Jimmy Forrest',
@@ -37077,7 +37077,7 @@ groups_dict = {
 'The Pete Jolly Sextet',
 'The Jack Millman Sextet',
 'Milt Bernhart And His Orchestra',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Red Norvo Septet',
 'Shelly Manne Septet',
 'Teddy Charles Quintet',
@@ -37473,7 +37473,7 @@ groups_dict = {
 ),
 'Jimmy Prince':\
 (
-'Reuben "River" Reeves & His River Boys',
+'Reuben \'River\' Reeves & His River Boys',
 'Royal Rhythm Boys',
 ),
 'Jimmy Pupa':\
@@ -37939,7 +37939,7 @@ groups_dict = {
 'Esquire All American Award Winners',
 'Howard McGhee All Stars',
 'J.J. Johnson All Stars',
-'s Greatest"',
+'s Greatest\'',
 'Cannonball Adderley All Stars',
 'Stan Getz Septet',
 ),
@@ -37972,7 +37972,7 @@ groups_dict = {
 'Joachim Kühn / Daniel Humair / J.-F. Jenny-Clark',
 'Barney Wilen And His Amazing Free Rock Band',
 'The Kühn Brothers & The Mad Rockers',
-'Jean-Luc Ponty "Experience"',
+'Jean-Luc Ponty \'Experience\'',
 'European Free Jazz Orchestra Des Art Ensembles Of Chicago',
 'Rolf Kühn Quartett',
 'The New Joachim Kühn-Eje Thelin Group',
@@ -38284,7 +38284,7 @@ groups_dict = {
 'Joe Darensbourg And His Dixie Flyers',
 'Teddy Buckner And His Dixieland Band',
 'The Legends Of Jazz',
-'Joe Darensbourg And His "Flat Out" Five',
+'Joe Darensbourg And His \'Flat Out\' Five',
 'The Gin Bottle 4',
 ),
 'Joe Denton':\
@@ -38353,7 +38353,7 @@ groups_dict = {
 'Reeds And Deeds',
 'Eric Alexander Quartet',
 'The Anniversary Quartet',
-'The Atro "Wade" Mikkola Quartet',
+'The Atro \'Wade\' Mikkola Quartet',
 'Francesco Cafiso New York Quartet',
 'Vincent Herring Quartet',
 'David Hazeltine Quartet',
@@ -38449,7 +38449,7 @@ groups_dict = {
 ),
 'Joe Garland':\
 (
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Edgar Hayes And His Orchestra',
 ),
 'Joe Gayles':\
@@ -38960,7 +38960,7 @@ groups_dict = {
 'Joe Newman & The Combo',
 'Lionel Hampton & His Giants Of Jazz',
 'Bob Brookmeyer And His Orchestra',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'The Billy Byers-Joe Newman Sextet',
 'Joe Newman Quintet',
 'Joe Newman And His Orchestra',
@@ -40119,7 +40119,7 @@ groups_dict = {
 'The Mike Barone Big Band',
 'Andreas Pettersson Quintet',
 'Bob Cooper Quintet',
-'"The Bird" Memorial Quintet',
+'\'The Bird\' Memorial Quintet',
 ),
 'John Guerriere':\
 (
@@ -40343,7 +40343,7 @@ groups_dict = {
 'John Kirby And His Onyx Club Boys',
 'The Capitol International Jazzmen',
 'Mildred Bailey And Her Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Henry Allen-Coleman Hawkins And Their Orchestra',
 'Putney Dandridge And His Swing Band',
 'Johnny Dodds And His Chicago Boys',
@@ -40846,7 +40846,7 @@ groups_dict = {
 'Johnny Guarnieri Quartet',
 'Barney Bigard Quintet',
 'Tony Mottola Four',
-'"Little Jazz" And His Trumpet Ensemble',
+'\'Little Jazz\' And His Trumpet Ensemble',
 'Johnny Guarnieri And His Orchestra',
 'Johnny Guarnieri And His Group',
 'The Buddy Tate All Stars',
@@ -42723,7 +42723,7 @@ groups_dict = {
 'Pierre Favre Ensemble',
 'Asian Journal',
 'The Group (13)',
-'Jean-Luc Ponty "Experience"',
+'Jean-Luc Ponty \'Experience\'',
 'Ekundayo (2)',
 ),
 'J. W. Alexander':\
@@ -42805,7 +42805,7 @@ groups_dict = {
 'The Giants Of Jazz (2)',
 'Kai Winding All Stars',
 'Kai Winding And His Birdland All-Stars',
-'s Greatest"',
+'s Greatest\'',
 'Terry Gibbs And His Orchestra (2)',
 'Kai Winding Con Su Conjunto',
 ),
@@ -44226,7 +44226,7 @@ groups_dict = {
 'Kid Ory And His Orchestra',
 'Chicago Footwarmers',
 'New Orleans Bootblacks',
-'Tiny Parham And His "Forty" Five',
+'Tiny Parham And His \'Forty\' Five',
 'Kid Ory And His Dixieland Band',
 ),
 'Kieran Overs':\
@@ -44907,7 +44907,7 @@ groups_dict = {
 'Henry Mancini And His Orchestra',
 'The Mike Post Coalition',
 'Kip Tyler & The Flips',
-'Duane Eddy & His "Twangy" Guitar And The Rebels',
+'Duane Eddy & His \'Twangy\' Guitar And The Rebels',
 'The Ceyleib People',
 'Jerry Cole And His Spacemen',
 ),
@@ -45001,7 +45001,7 @@ groups_dict = {
 'Shivananda',
 'The Richard Sussman Quintet',
 'Joe Locke Quintet',
-'The "Three Great Tenors"',
+'The \'Three Great Tenors\'',
 'Jim McNeely Quintet',
 'Larry Schneider Quartet',
 'Mike Richmond Quartet',
@@ -45315,7 +45315,7 @@ groups_dict = {
 'Billie Holiday And Her Orchestra',
 'Fletcher Henderson And His Orchestra',
 'Spike Hughes And His Negro Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Harlem Blues & Jazz Band',
 'Putney Dandridge And His Swing Band',
 'Pete Johnson & His Boogie Woogie Boys',
@@ -45590,7 +45590,7 @@ groups_dict = {
 'The Lennie Niehaus Octet',
 'Lennie Niehaus Quintet',
 'Lennie Niehaus Quintet + One',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Jack Sheldon And His Exciting All-Star Big-Band',
 ),
 'Lennie Tristano':\
@@ -45996,7 +45996,7 @@ groups_dict = {
 'Ted Heath And His Music',
 'Gloria Coleman Quartet',
 'Orchestra U.S.A.',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'The Leo Wright Group',
 ),
 'Leo Zorn':\
@@ -46024,7 +46024,7 @@ groups_dict = {
 'Leroy Harris':\
 (
 'Earl Hines And His Orchestra',
-'Earl "Fatha" Hines And His New Sounds',
+'Earl \'Fatha\' Hines And His New Sounds',
 'The Hines Varieties',
 ),
 'Leroy Harris (2)':\
@@ -46280,7 +46280,7 @@ groups_dict = {
 'Paul Barbarin And His Orchestra',
 'Paul Barbarin And His Jazz Band',
 'Thomas Jefferson And His Creole Jazz Band',
-'Waldren "Frog" Joseph And His New Orleans Jazz Band',
+'Waldren \'Frog\' Joseph And His New Orleans Jazz Band',
 'Louis Cottrell And His New Orleans Jazz Band',
 'Chief John Brunious And His Mahogany Hall Stompers',
 ),
@@ -46839,8 +46839,8 @@ groups_dict = {
 (
 'Lou Busch & His Orchestra',
 'Hal Kemp And His Orchestra',
-'Joe "Fingers" Carr And His Ragtime Band',
-'Joe "Fingers" Carr His Piano & Orchestra',
+'Joe \'Fingers\' Carr And His Ragtime Band',
+'Joe \'Fingers\' Carr His Piano & Orchestra',
 ' String Band',
 'Chuck Thomas And His Dixieland Band',
 ),
@@ -47119,7 +47119,7 @@ groups_dict = {
 'Louis Prima Jazz Band',
 'Prima And Boys',
 'Louis Prima And His Whipper-Doodles',
-'"The Jungle Book" Original Cast',
+'\'The Jungle Book\' Original Cast',
 ),
 'Louis Richardet':\
 (
@@ -47252,7 +47252,7 @@ groups_dict = {
 'Allstars (11)',
 'The Lou McGarity Big Eight',
 'Edgar Sampson And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 'Jam Session At The Riverside',
 ),
 'Lou Mecca':\
@@ -47357,7 +47357,7 @@ groups_dict = {
 'Little Feat',
 'The Mothers',
 'The Factory (7)',
-'The "Howdy-Cracker Vocal Revue"',
+'The \'Howdy-Cracker Vocal Revue\'',
 ),
 'Lowell Martin':\
 (
@@ -47404,7 +47404,7 @@ groups_dict = {
 'Hubert Rostaing Et Son Sextette',
 'Guérino Et Son Orchestre Musette De La Boite À Matelots',
 'Jo Bouillon Et Son Orchestre',
-'Jean "Matelot" Ferret & Son Ensemble Guitare-Boogie',
+'Jean \'Matelot\' Ferret & Son Ensemble Guitare-Boogie',
 ),
 'Lucien Jeunesse':\
 (
@@ -47510,7 +47510,7 @@ groups_dict = {
 'The Skatalites',
 'The George Gruntz Concert Jazz Band',
 'Brass Ecstasy',
-'The "New Lucifers"',
+'The \'New Lucifers\'',
 'The Vanguard Jazz Orchestra',
 'The Matt Catingub Big Band',
 'Ken Schaphorst Big Band',
@@ -47538,7 +47538,7 @@ groups_dict = {
 'Louis Armstrong And His Savoy Ballroom Five',
 'King Oliver & His Orchestra',
 'Luis Russell And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Jungle Town Stompers',
 'Luis Russell And His Burning Eight',
 'Lou & His Gingersnaps',
@@ -47580,7 +47580,7 @@ groups_dict = {
 'Lyle Murphy':\
 (
 'Charlie Barnet And His Orchestra',
-'Lyle "Spud" Murphy And His Orchestra',
+'Lyle \'Spud\' Murphy And His Orchestra',
 ),
 'Lyle Ritz':\
 (
@@ -49257,7 +49257,7 @@ groups_dict = {
 'Masahiko Togashi Quartet',
 'Loco Takayanagi Y Les Pobres',
 'Masayuki Takayanagi Quintet',
-'"Jojo" Takayanagi Second Concept',
+'\'Jojo\' Takayanagi Second Concept',
 'Hideto Kanai Group',
 'New Direction Unit',
 'New Directions',
@@ -49583,7 +49583,7 @@ groups_dict = {
 'Maurice Chaillou':\
 (
 'Alix Combelle Et Son Orchestre',
-'Philippe Brun "Jam Band"',
+'Philippe Brun \'Jam Band\'',
 'Philippe Brun And His Swing Band',
 'Michel Warlop Et Son Orchestre',
 'Wal-Berg Et Son Jazz Français',
@@ -50850,7 +50850,7 @@ groups_dict = {
 'Quintette Du Hot Club De France',
 'South-Grappelli-Reinhardt Combo',
 'Django Et Compagnie',
-'Philippe Brun "Jam Band"',
+'Philippe Brun \'Jam Band\'',
 'Stéphane Grappelli And His Hot Four',
 'Raymond Legrand Et Son Orchestre',
 'Michel Warlop Et Son Orchestre',
@@ -51311,7 +51311,7 @@ groups_dict = {
 'Stan Kenton And His Orchestra',
 'Buddy Rich Big Band',
 'Jazz In The Classroom',
-'The John "Terry" Tirabasso Orchestra',
+'The John \'Terry\' Tirabasso Orchestra',
 ),
 'Mike Reznikoff':\
 (
@@ -51455,7 +51455,7 @@ groups_dict = {
 'Shelly Manne Quartet',
 'Mike Wofford/Holly Hofmann Quintet',
 'Bobby Shew Quartet',
-'"The Bird" Memorial Quintet',
+'\'The Bird\' Memorial Quintet',
 ),
 'Mike Zwerin':\
 (
@@ -51611,7 +51611,7 @@ groups_dict = {
 'Francy Boland And Orchestra',
 'SFB Big Band',
 'Ansambl Spase Milutinovića',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 ),
 'Milt Bernhart':\
 (
@@ -51635,7 +51635,7 @@ groups_dict = {
 'The Los Angeles Neophonic Orchestra',
 'Shorty Rogers Big Band',
 'Milt Bernhart And His Orchestra',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Bobby Troup And His Stars Of Jazz',
 'The Bob Bain Brass Ensemble',
 'Maynard Ferguson Octet',
@@ -51713,7 +51713,7 @@ groups_dict = {
 'Tiny Parham And His Musicians',
 'Jonah Jones And His Cats',
 'Billy Byers And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Ike Quebec Quintet',
 'Ruby Braff All-Stars',
 'Ralph Burns And His Orchestra',
@@ -51739,8 +51739,8 @@ groups_dict = {
 'Alex Kallao Trio',
 'Hal McKusick Quartet',
 'Tony Scott Tentet',
-'Shorty Rogers And His Augmented "Giants"',
-'s Tavern" Ensemble',
+'Shorty Rogers And His Augmented \'Giants\'',
+'s Tavern\' Ensemble',
 'The Hal McKusick Octet',
 'Jimmy Rushing And His Orchestra',
 'Mel Powell & His All-Stars',
@@ -52182,7 +52182,7 @@ groups_dict = {
 'Soprano Summit',
 'The Vince Guaraldi - Conte Candoli Quartet',
 'The Conte Candoli Quartet',
-'Spike Robinson / "Sweets" Edison Quintet',
+'Spike Robinson / \'Sweets\' Edison Quintet',
 'Stan Levey Quintet',
 'Woody Herman And His Octet',
 'Hank De Mano Quartet',
@@ -53792,7 +53792,7 @@ groups_dict = {
 'Steve Lacy Five',
 'TOK (3)',
 'Hal Singer Quartet',
-'Jean-Luc Ponty "Experience"',
+'Jean-Luc Ponty \'Experience\'',
 'François Chassagnite Quartet',
 'The Hal Singer Jazz Quartet',
 'Daniele Cavallanti Double Trio',
@@ -53810,7 +53810,7 @@ groups_dict = {
 'Lem Winchester Sextet',
 'The Oliver Nelson Sextet',
 'Cannonball Adderley And His Orchestra',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Joe Newman Quintet',
 'Oliver Nelson Quintet',
 'Oliver Nelson Septet',
@@ -53837,7 +53837,7 @@ groups_dict = {
 'int. mto-jazz-quartett',
 'Gary Smulyan Quartet',
 'Klezmer Nova',
-'Charles "Lolo" Bellonzi Quartet',
+'Charles \'Lolo\' Bellonzi Quartet',
 'Olivier Hutman Quartet',
 ),
 'Olle Holmqvist':\
@@ -53911,7 +53911,7 @@ groups_dict = {
 'King Oliver & His Orchestra',
 'Wilbur De Paris & His Rampart Street Paraders',
 'Wilbur De Paris And His New New Orleans Jazz',
-'Reuben "River" Reeves & His River Boys',
+'Reuben \'River\' Reeves & His River Boys',
 'Omer Simeon Trio',
 'Richard Jones And His Jazz Wizards',
 'Harry Dial And His Blusicians',
@@ -54012,7 +54012,7 @@ groups_dict = {
 'Brass Fever',
 'Hubert Laws Group',
 'Teddy Edwards Brasstring Ensemble',
-'"The Bird" Memorial Quintet',
+'\'The Bird\' Memorial Quintet',
 ),
 'Oscar Dennard':\
 (
@@ -54085,7 +54085,7 @@ groups_dict = {
 'The Flip Phillips Quintet',
 'Flip Phillips And His Orchestra',
 'Roy Eldridge 4',
-'Eddie "Lockjaw" Davis 4',
+'Eddie \'Lockjaw\' Davis 4',
 'The Oscar Peterson Big 4',
 'Harry Edison Sextet',
 'Oscar Peterson Duo',
@@ -54199,7 +54199,7 @@ groups_dict = {
 'Gene Quill And His Quintet',
 'Bob Brookmeyer And His Orchestra',
 'Tony Scott Tentet',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'John Benson Brooks Ensemble',
 'Oscar Pettiford Orchestra',
 'Jimmy Rushing And His Orchestra',
@@ -54478,7 +54478,7 @@ groups_dict = {
 (
 'Tiny Parham And His Musicians',
 'The Paramount All Stars',
-'Tiny Parham And His "Forty" Five',
+'Tiny Parham And His \'Forty\' Five',
 'Yazoo All Stars',
 ),
 'Papo Lucca':\
@@ -54688,9 +54688,9 @@ groups_dict = {
 'Paul Barbarin And His Jazz Band',
 'King Oliver & His Orchestra',
 'Luis Russell And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Thomas Jefferson And His Creole Jazz Band',
-'Waldren "Frog" Joseph And His New Orleans Jazz Band',
+'Waldren \'Frog\' Joseph And His New Orleans Jazz Band',
 'Louis Cottrell And His New Orleans Jazz Band',
 'New Orleans Red Beans',
 ),
@@ -54801,7 +54801,7 @@ groups_dict = {
 'Bill Russo And His Orchestra',
 'All Star Big Band',
 'The Brassmates',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Paul Ferrara':\
 (
@@ -54921,7 +54921,7 @@ groups_dict = {
 'Ron Escheté Trio',
 'Paul Humphrey Sextet',
 'South Central Avenue Municipal Blues Band',
-'Spike Robinson / "Sweets" Edison Quintet',
+'Spike Robinson / \'Sweets\' Edison Quintet',
 'Soul Food Cafe (3)',
 ),
 'Paul Ingraham':\
@@ -55360,13 +55360,13 @@ groups_dict = {
 (
 'The San Francisco Symphony Orchestra',
 'Paul Whiteman And His Orchestra',
-'Paul Whiteman And His "New" Palais Royale Orchestra',
+'Paul Whiteman And His \'New\' Palais Royale Orchestra',
 'Paul Whiteman And His Orchestra And Chorus',
 'Paul Whiteman & His Concert Orchestra',
 'Paul Whiteman & His Concert Orchestra And Chorus',
 'Paul Whiteman And His All American Band',
 'Paul Whiteman And His Ambassador Orchestra',
-'Paul Whiteman And The "New" Ambassador Hotel Orchestra',
+'Paul Whiteman And The \'New\' Ambassador Hotel Orchestra',
 ),
 'Paul Winter':\
 (
@@ -55916,7 +55916,7 @@ groups_dict = {
 'Pete Jolly & His West Coast Friends',
 'The Five (5)',
 'Milt Bernhart And His Orchestra',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Marty Paich And His Jazz Piano Quartet',
 'Jack Sheldon And His Exciting All-Star Big-Band',
 'Gerry Mulligan And The Jazz Combo',
@@ -56658,7 +56658,7 @@ groups_dict = {
 'The Commanders',
 'Buddy Morrow And His Orchestra',
 'Jerry Gray And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 'Ben Homer & His Orchestra',
 ),
 'Phil Gilbert':\
@@ -56714,8 +56714,8 @@ groups_dict = {
 'Philippe Brun':\
 (
 'Jack Hylton And His Orchestra',
-'Orchestre Musette "Swing Royal"',
-'Philippe Brun "Jam Band"',
+'Orchestre Musette \'Swing Royal\'',
+'Philippe Brun \'Jam Band\'',
 'Philippe Brun And His Swing Band',
 'Ray Ventura Et Ses Collégiens',
 'Philippe Brun Et Son Orchestre',
@@ -57184,7 +57184,7 @@ groups_dict = {
 'Guérino Et Son Orchestre Musette De La Boite À Matelots',
 'Sarane Ferret Et Le Swing Quintette De Paris',
 'Le Trio Ferret',
-'Pierre "Baro" Ferret & Son Ensemble',
+'Pierre \'Baro\' Ferret & Son Ensemble',
 ),
 'Pierre Fouad':\
 (
@@ -57400,7 +57400,7 @@ groups_dict = {
 'Bechet / Nicholas Blue Five',
 'Sidney Bechet Quartet',
 'Bunk Johnson - Sidney Bechet And Their Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Joe Sullivan Jazz Quartet',
 'Sidney Bechet’s Blue Note Quartet',
 'Jonah Jones Band',
@@ -57623,7 +57623,7 @@ groups_dict = {
 'Manfred Schoof Orchester',
 'Four Plus Six',
 'Rainer Brüninghaus & Friends',
-'Trio "Brüninghaus - Stockhausen - Studer"',
+'Trio \'Brüninghaus - Stockhausen - Studer\'',
 ),
 'Rainer Grimm':\
 (
@@ -58286,7 +58286,7 @@ groups_dict = {
 'Ray Bauduc-Nappy Lemare And Their Dixieland Band',
 'Fred Rich And His Hotel Astor Orchestra',
 'Bunny Berigan And His Blue Boys',
-'Jimmy Dorsey And His Original "Dorseyland" Jazz Band',
+'Jimmy Dorsey And His Original \'Dorseyland\' Jazz Band',
 'Whoopee Makers',
 'Jack Teagarden Band',
 'Louis Prima Jazz Band',
@@ -58376,7 +58376,7 @@ groups_dict = {
 'Flip Phillips And His Orchestra',
 'The Claude Williamson Trio',
 'The Clark Terry Five',
-'Eddie "Lockjaw" Davis 4',
+'Eddie \'Lockjaw\' Davis 4',
 'The Oscar Peterson Big 4',
 'The Jack Sheldon Quartet',
 'Concord Jazz All Stars',
@@ -59362,7 +59362,7 @@ groups_dict = {
 'Giessen-Köln-Nonett',
 'Ekkehard Jost Ensemble',
 'Ohrkiste',
-'Ulla Oster "Beyond Janis"',
+'Ulla Oster \'Beyond Janis\'',
 ),
 'Reinhard Schwartz':\
 (
@@ -59565,7 +59565,7 @@ groups_dict = {
 (
 'Duke Ellington And His Orchestra',
 'Metronome All Stars',
-'s "Hot Club Berlin" Session',
+'s \'Hot Club Berlin\' Session',
 'Fletcher Henderson And His Orchestra',
 'The Chocolate Dandies',
 'Thomas Morris And His Seven Hot Babies',
@@ -59747,7 +59747,7 @@ groups_dict = {
 'The Kai Winding Orchestra',
 'Orizaba And His Orchestra',
 'Jim Timmens And His Swinging Brass',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Richard Hurwitz':\
 (
@@ -59909,7 +59909,7 @@ groups_dict = {
 'Richie Cole With Brass',
 'Richie Cole Quintet',
 'Richie Cole Group',
-'"The Bird" Memorial Quintet',
+'\'The Bird\' Memorial Quintet',
 ),
 'Richie Crabtree':\
 (
@@ -60960,7 +60960,7 @@ groups_dict = {
 'Woody Herman And The Thundering Herd',
 'The Phil Norman Tentet',
 'Bill Tole And His Orchestra',
-'The John "Terry" Tirabasso Orchestra',
+'The John \'Terry\' Tirabasso Orchestra',
 ),
 'Roger Newman':\
 (
@@ -61746,7 +61746,7 @@ groups_dict = {
 (
 'Peter Herbolzheimer Rhythm Combination & Brass',
 'The Galactic Light Orchestra',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Jazz Workshop, Ruhr Festival 1962',
 'Time Travellers (5)',
 ),
@@ -61861,7 +61861,7 @@ groups_dict = {
 'Herb Ellis Quartet',
 'The Jack Sheldon Quartet',
 'The Bob Cooper - Conte Candoli Quintet',
-'Spike Robinson / "Sweets" Edison Quintet',
+'Spike Robinson / \'Sweets\' Edison Quintet',
 'Art Farmer/Lee Konitz Quintet',
 'The Los Angeles Jazz Orchestra',
 'Bob Cooper Quintet',
@@ -61975,13 +61975,13 @@ groups_dict = {
 'Tatum - Eldridge - Stoller - Simmons Quartet',
 'The Roy Eldridge Quintet',
 'Elmer Snowden Sextet',
-'Roy "King David" Eldridge & His Little Jazz',
+'Roy \'King David\' Eldridge & His Little Jazz',
 'Roy Eldridge & His Central Plaza Dixielanders',
 'Roy Eldridge 4',
 'Putney Dandridge And His Orchestra',
-'"Little Jazz" And His Trumpet Ensemble',
+'\'Little Jazz\' And His Trumpet Ensemble',
 'Roy Eldridge Sextet',
-'The Roy "Little Jazz" Eldridge Quartet',
+'The Roy \'Little Jazz\' Eldridge Quartet',
 'The Uptown Swing All Stars',
 'All Star Big Band',
 'Delta Four',
@@ -61990,7 +61990,7 @@ groups_dict = {
 'Roy Eldridge - Richie Kamuca Quintet',
 'Eddie Locke Sextet',
 'Roy Eldridge And His Little Jazz Five',
-'"King David" And His Little Jazz Four',
+'\'King David\' And His Little Jazz Four',
 'Roy Eldridge-Chu Berry Jazz Ensemble',
 ),
 'Roy Estrada':\
@@ -62375,7 +62375,7 @@ groups_dict = {
 'Andy Kirk And His Clouds Of Joy',
 'Lucky Millinder And His Orchestra',
 'Jonah Jones And His Cats',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'The Saints & Sinners',
 'Edgar Hayes And His Orchestra',
 'Jimmy Rushing And His Orchestra',
@@ -63426,7 +63426,7 @@ groups_dict = {
 (
 'Don Byas And His Quartet',
 'Johnny Smith Quintet',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 ),
 'Sangoma Everett':\
 (
@@ -64090,7 +64090,7 @@ groups_dict = {
 'The Prestige All Stars',
 'The Al Grey-Jimmy Forrest Quintet',
 'Eddie Lockjaw Davis Quartet',
-'The Eddie "Lockjaw" Davis Quintet',
+'The Eddie \'Lockjaw\' Davis Quintet',
 'Al Grey Jazz All Stars',
 'Shirley Scott Quartet',
 ),
@@ -64140,7 +64140,7 @@ groups_dict = {
 'The Capes & Masks',
 'The Pete Jolly Sextet',
 'Milt Bernhart And His Orchestra',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'Bobby Troup And His Stars Of Jazz',
 'Shelly Manne Septet',
 'Teddy Charles Quintet',
@@ -64201,7 +64201,7 @@ groups_dict = {
 (
 'Jack Teagarden And His Orchestra',
 'Sid Feller And Orchestra',
-'Sid Feller And His "Friends".......[And Enemies]',
+'Sid Feller And His \'Friends\'.......[And Enemies]',
 'Sid Feller And His Music',
 ),
 'Sid Harris (3)':\
@@ -64303,7 +64303,7 @@ groups_dict = {
 'Sid Catlett All Stars',
 'Putney Dandridge And His Orchestra',
 'Benny Carter & His Chocolate Dandies',
-'"Hot Lips" Page Sextet',
+'\'Hot Lips\' Page Sextet',
 'Sid Catlett Trio',
 ),
 'Sidney De Paris':\
@@ -64319,7 +64319,7 @@ groups_dict = {
 'Wilbur De Paris And His New New Orleans Jazz',
 'Sidney Bechet & His All Star Band',
 'Charlie Johnson & His Paradise Band',
-'Willie "The Lion" Smith & His Orchestra',
+'Willie \'The Lion\' Smith & His Orchestra',
 ),
 'Sidney Edwards':\
 (
@@ -64572,7 +64572,7 @@ groups_dict = {
 'The All Stars (7)',
 'New York New York (2)',
 'The Don Byas - Slam Stewart Duo',
-'"Hot Lips" Page Sextet',
+'\'Hot Lips\' Page Sextet',
 'The Newport Jazz Festival All-Stars',
 'Royal Rhythm Boys',
 ),
@@ -64600,7 +64600,7 @@ groups_dict = {
 'Reggie Workman First',
 'Slide Hampton - Joe Haider Orchestra',
 'The Woody Shaw Concert Ensemble',
-'Oliver Nelson And The "Berlin Dreamband"',
+'Oliver Nelson And The \'Berlin Dreamband\'',
 'Slide Hampton Quartet',
 'Dizzy Gillespie All-Star Big Band',
 'Slide Hampton Quintet',
@@ -64704,7 +64704,7 @@ groups_dict = {
 'Zoot Sims And His Orchestra',
 'George Williams And His Orchestra',
 'Bob Brookmeyer And His Orchestra',
-'s Tavern" Ensemble',
+'s Tavern\' Ensemble',
 'Louie Bellson And His Jazz Orchestra',
 'Hal Schaefer And His Orchestra',
 'Urbie Green And His Big Band',
@@ -64904,7 +64904,7 @@ groups_dict = {
 'Don Redman All Stars',
 'Jim Timmens And His Swinging Brass',
 'Stewart - Williams & Co.',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Sonny Sharrock':\
 (
@@ -65591,7 +65591,7 @@ groups_dict = {
 'South-Grappelli-Reinhardt Combo',
 'Grappelli-Reinhardt Combo',
 'Coleman Hawkins And His All Star Jam Band',
-'Philippe Brun "Jam Band"',
+'Philippe Brun \'Jam Band\'',
 'Philippe Brun And His Swing Band',
 'Bill Coleman & His Orchestra',
 'Stéphane Grappelli And His Hot Four',
@@ -66770,7 +66770,7 @@ groups_dict = {
 'Lucky Millinder And His Orchestra',
 'Tab Smith Orchestra',
 'Frank Newton And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Coleman Hawkins And His Sax Ensemble',
 'Billy Kyle And His Swing Club Band',
 'Tab Smith Septette',
@@ -67025,7 +67025,7 @@ groups_dict = {
 'Teddy Buckner And His Dixieland Band',
 'Chuck Thomas & His All Stars',
 'Teddy Buckner And The All Stars',
-'Joe Darensbourg And His "Flat Out" Five',
+'Joe Darensbourg And His \'Flat Out\' Five',
 'Teddy Buckner And His Trad. Jazz Band',
 ),
 'Teddy Charles':\
@@ -67078,7 +67078,7 @@ groups_dict = {
 'Louis Armstrong And His Savoy Ballroom Five',
 'King Oliver & His Orchestra',
 'Luis Russell And His Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Teddy Hill Orchestra',
 'Teddy Hill And His Big Band',
 'Teddy Hill And His NBC Orchestra',
@@ -67136,7 +67136,7 @@ groups_dict = {
 'The New Orleans Feetwarmers',
 'Clara Smith And Her Jazz Band',
 'Fletcher Henderson And His Club Alabam Orchestra',
-'s "Chicago Waddlers"',
+'s \'Chicago Waddlers\'',
 'Julia Moody And Her Dixie Wobblers',
 ),
 'Teddy Pendergrass':\
@@ -67849,7 +67849,7 @@ groups_dict = {
 'Joe Newman And His Orchestra',
 'Michel Legrand Big Band',
 'Vic Schoen And His All Star Band',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Thomas Morgan (4)':\
 (
@@ -67903,7 +67903,7 @@ groups_dict = {
 'Johnny Farmers Orkester',
 'Thore Jederbys Septett',
 'Folke Anderssons Kvartett',
-'Thore Jederbys "Jamgrupp"',
+'Thore Jederbys \'Jamgrupp\'',
 'Roy Eldridge Sextet',
 'Charlie Parker And His Swedish All Stars',
 'Thore Jederby Dixie Seven',
@@ -68183,7 +68183,7 @@ groups_dict = {
 (
 'Tiny Parham And His Musicians',
 'Parham-Pickett Apollo Syncopators',
-'Tiny Parham And His "Forty" Five',
+'Tiny Parham And His \'Forty\' Five',
 ),
 'Tiny Timbrell':\
 (
@@ -68693,7 +68693,7 @@ groups_dict = {
 'Oscar Pettiford Orchestra',
 'Tommy Flanagan Quartet',
 'Charlie Shoemake Sextet',
-'The Harry "Sweets" Edison Quintet',
+'The Harry \'Sweets\' Edison Quintet',
 'Wilbur Harden-Tommy Flanagan Quintet',
 'Wilbur Harden Sextet',
 'The Super Jazz Trio',
@@ -68894,7 +68894,7 @@ groups_dict = {
 'Bennie Green And His Orchestra',
 'Oscar Pettiford Sextet',
 'The Cecil Payne Quartet',
-'The Harry "Sweets" Edison Quintet',
+'The Harry \'Sweets\' Edison Quintet',
 'Bennie Green Septet',
 'Oscar Pettiford Octet',
 'Al Cohn-Richie Kamuca Sextet',
@@ -69322,7 +69322,7 @@ groups_dict = {
 'George Cables Trio',
 'The Milcho Leviev Quartet',
 'Jack Sheldon & His West Coast Friends',
-'"The Bird" Memorial Quintet',
+'\'The Bird\' Memorial Quintet',
 ),
 'Tony Duran':\
 (
@@ -69716,7 +69716,7 @@ groups_dict = {
 'Oliver Nelson And His Orchestra',
 'The Kai Winding Trombones',
 'Al Caiola And The Nile River Boys',
-'s Greatest"',
+'s Greatest\'',
 ),
 'Tony Visconti':\
 (
@@ -69949,7 +69949,7 @@ groups_dict = {
 'Trummy Young & Trio',
 'Jim Mundy And His Swing Club Seven',
 'Trummy Young And His Special Servers',
-'"Trummy" Young And Orchestra',
+'\'Trummy\' Young And Orchestra',
 'Trummy Young And His Lucky Seven',
 ),
 'Tsutomu Okada':\
@@ -70020,7 +70020,7 @@ groups_dict = {
 'Jim Timmens And His Jazz All-Stars',
 'Don Redman And His Orchestra',
 'Jonah Jones And His Cats',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Tyree Glenn & His Orchestra',
 'George Wein And The Storyville Sextet',
 'Duke Ellington Alumni All Stars',
@@ -70224,7 +70224,7 @@ groups_dict = {
 'The Brassmates',
 'Jim Timmens And His Swinging Brass',
 'Stewart - Williams & Co.',
-'s Greatest"',
+'s Greatest\'',
 'The Urbie Green Quintet',
 'Jam Session At The Riverside',
 'Rusty Dedrick And The Ten Man Band',
@@ -71230,7 +71230,7 @@ groups_dict = {
 'Ronnie Mathews Trio',
 'Walter Booker Quintet',
 'Rahn Burton Trio',
-'The "JFK" Quintet',
+'The \'JFK\' Quintet',
 'Bertha Hope Trio',
 'Kenny Barron - John Hicks Quartet',
 ),
@@ -71272,7 +71272,7 @@ groups_dict = {
 'Fletcher Henderson And His Orchestra',
 'Coleman Hawkins And His Orchestra',
 'Tab Smith Orchestra',
-'Henry "Red" Allen And His Orchestra',
+'Henry \'Red\' Allen And His Orchestra',
 'Putney Dandridge And His Swing Band',
 'Putney Dandridge And His Orchestra',
 'Tab Smith Septette',
@@ -71335,7 +71335,7 @@ groups_dict = {
 'The Count Basie Quartet',
 'Timme Rosenkrantz And His Barrelhouse Barons',
 'Count Basie And His All-American Rhythm Section',
-'Willie "The Lion" Smith Quartet',
+'Willie \'The Lion\' Smith Quartet',
 ),
 'Walter Perkins':\
 (
@@ -71604,7 +71604,7 @@ groups_dict = {
 'Woody Herman And The Fourth Herd',
 'George Williams And His Orchestra',
 'Bob Brookmeyer And His Orchestra',
-'s Greatest"',
+'s Greatest\'',
 'Art Farmer Tentet',
 ),
 'Wayne Bergeron':\
@@ -72105,7 +72105,7 @@ groups_dict = {
 'Woody Herman And The Fourth Herd',
 'Jimmy Dorsey, His Orchestra & Chorus',
 'Jimmy Lytell And His All Star Seven',
-'s Greatest"',
+'s Greatest\'',
 'Ben Homer & His Orchestra',
 'Will Bradley and HIs Jazz Octet',
 ),
@@ -72172,7 +72172,7 @@ groups_dict = {
 'Paris All Stars (2)',
 'Gigi Gryce Octet',
 'Lionel Hampton And His French New Sound',
-'William Boucaya And His "New-Sound" Quartet',
+'William Boucaya And His \'New-Sound\' Quartet',
 ),
 'William Brown (38)':\
 (
@@ -72474,7 +72474,7 @@ groups_dict = {
 'Willie & Gil',
 'Legal Alien',
 'Willie Colon Y Su Orquesta',
-'Willie Colón & His Conjunto "La Dynamica"',
+'Willie Colón & His Conjunto \'La Dynamica\'',
 ),
 'Willie Cook':\
 (
@@ -73329,7 +73329,7 @@ groups_dict = {
 'George Williams And His Orchestra',
 'The Zoot Sims Quintet',
 'Sims-Brookmeyer Quintet',
-'Shorty Rogers And His Augmented "Giants"',
+'Shorty Rogers And His Augmented \'Giants\'',
 'John Benson Brooks Ensemble',
 'Gerry Mulligan And The Sax Section',
 'Zoot Sims - Bob Brookmeyer Octet',

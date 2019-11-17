@@ -9719,7 +9719,7 @@ def view_theme():
 	
 #afficher la grille
 	view_word = request.args.get('')
-	f = open('jazzreal/static/corpus-html/'+view_word+'.html')
+	f = open('static/corpus-html/'+view_word+'.html')
 	plain = f.read()
 	s = BeautifulSoup(plain, 'html.parser')
 	title = s.find('h4').text
@@ -9787,7 +9787,7 @@ def transpose_theme():
 	tone_flat = ('C','F','Bb','Eb','Ab','Db','Gb','Cb')
 	tone_sharp = ('A#','D#','G#','C#','F#','B','E','A','D','G')
 	
-	f = open('jazzreal/static/corpus-html/'+tune+'.html')
+	f = open('static/corpus-html/'+tune+'.html')
 	plain = f.read()
 	occ = plain.find('Key of ')
 	key = plain[occ+7:occ+9].strip()
@@ -9818,7 +9818,7 @@ def transpose_theme():
 	
 	corpus_list = []
 	view_word = request.args.get('')
-	f = open('jazzreal/static/corpus-html/'+tune+'.html')
+	f = open('static/corpus-html/'+tune+'.html')
 	plain = f.read()
 	s = BeautifulSoup(plain, 'html.parser')
 	title = s.find('h4').text
