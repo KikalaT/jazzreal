@@ -9150,7 +9150,6 @@ list_transcript.append('Eric Dolphy_245')
 list_transcript.append('Eric Dolphy_Aisha')
 list_transcript.append('Eric Dolphy_Dahomey Dance')
 list_transcript.append('Eric Dolphy_Les')
-list_transcript.append('Eric Dolphy_On Green Dolphin Street')
 list_transcript.append('Eric Dolphy_Serene')
 list_transcript.append('Fats Navarro_Anthropology_No1')
 list_transcript.append('Fats Navarro_Double Talk')
@@ -9617,7 +9616,7 @@ def artist_search():
 	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 
 	#tree:level1
-	script += '{"id": 2,"parentId": 1,"name": "Biography","description": "'+bio_val+'"},'
+	script += '{"id": 2,"parentId": 1,"name": "Biography", "type": "link_biography","description": "'+bio_val+'"},'
 	script += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
 	script += '{"id": 4,"parentId": 1,"name": "Discography","description": "--expand--"},'
 
@@ -9688,6 +9687,8 @@ def artist_search():
 					console.log(event);
 					if (event.data.type == "link_group")
 						window.location = "/group?="+event.data.description
+					if (event.data.type == "link_biography")
+						window.location = "/bio?="+event.data.description
 				})
 				.initialize();
 			"""
@@ -9761,6 +9762,11 @@ def versions():
 	results_versions = zip(rvtmp1,rvtmp2)
 	return render_template('view_versions.html',results_versions=results_versions)
 
+@app.route('/bio')
+def view_bio():
+	bio_query = request.args.get('')
+	
+	return render_template('view_bio.html', bio_query=bio_query)
 @app.route('/group')
 def group_members():
 	group_query = request.args.get('')
