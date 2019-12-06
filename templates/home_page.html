@@ -5,13 +5,13 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="jazzreal/static/dist/jquery.convform.css">
+      <link rel="stylesheet" type="text/css" href="jazzreal/jazzreal/static/dist/jquery.convform.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="jazzreal/static/demo.css">
+      <link rel="stylesheet" type="text/css" href="jazzreal/jazzreal/static/demo.css">
    </head>
    <body>
       <section id="demo">
-         <img src="jazzreal/static/portraitbenies.jpg" height="300" width="400">
+         <img src="jazzreal/jazzreal/static/portraitbenies.jpg" height="300" width="400">
          <div class="vertical-align">
          <div class="container">
          <div class="row">
@@ -74,7 +74,7 @@
                      <option value="autre_pont">un pont</option>
                   </select>
                   <div data-conv-fork="autre_autre">
-				
+
                      <div data-conv-case="autre_cadence">
                         <input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle de cadence" data-no-answer="true">
                         <input type="text" data-conv-question="Par exemple, IIm7 retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
@@ -89,7 +89,7 @@
                 </div>
                 </div>
                   <div data-conv-case="culture">
-                     <input type="text" data-conv-question="Mon cher {prenom}:0, voilà 25 ans que je publie des articles sur le jazz dans mon blog (www.soufflebleu.fr)" data-no-answer="true"> 
+                     <input type="text" data-conv-question="Mon cher {prenom}:0, voilà 25 ans que je publie des articles sur le jazz dans mon blog (www.soufflebleu.fr)" data-no-answer="true">
                      <input type="text" data-conv-question="Le jazz, le polar et l'économie : beau programme !" data-no-answer="true">
                      <input type="text" data-conv-question="Vous avez la possibilité d'effectuer une recherche par mot-clé dans cette base d'articles" data-no-answer="true">
                      <input type="text" name="choix_article" data-callback="search_article" data-conv-question="C'est à vous !">
@@ -102,9 +102,9 @@
                   </select>
          </form>
       </section>
-      <script type="text/javascript" src="jazzreal/static/jquery-1.12.3.min.js"></script>
-      <script type="text/javascript" src="jazzreal/static/dist/autosize.min.js"></script>
-      <script type="text/javascript" src="jazzreal/static/dist/jquery.convform.js"></script>
+      <script type="text/javascript" src="jazzreal/jazzreal/static/jquery-1.12.3.min.js"></script>
+      <script type="text/javascript" src="jazzreal/jazzreal/static/dist/autosize.min.js"></script>
+      <script type="text/javascript" src="jazzreal/jazzreal/static/dist/jquery.convform.js"></script>
       <script>
          function search_artiste(stateWrapper, ready) {
          window.open("http://www.jazzreal.org/search?artist="+rollbackToAll.answers.choix_artiste.value);
@@ -134,15 +134,15 @@
          window.open("http://www.jazzreal.org/search?article="+rollbackToAll.answers.choix_article.value);
          ready();
          }
-         
+
          var rollbackTo = false;
          var rollbackToAll = false;
          var originalState = false;
-         
+
          function storeState(stateWrapper, ready) {
          rollbackTo = stateWrapper.current;
          rollbackToAll = stateWrapper;
-         console.log("storeState called: ",rollbackTo);         
+         console.log("storeState called: ",rollbackTo);
          ready();
          }
          function rollback(stateWrapper, ready) {
