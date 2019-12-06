@@ -6,102 +6,109 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       
-      <link rel="stylesheet" type="text/css" src="{{ url_for('static', filename='jquery.convform.css') }}">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" src="{{ url_for('static', filename='demo.css') }}">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery.convform.css') }}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='demo.css') }}">
    </head>
    <body>
-      <section id="demo">
+            <section id="demo">
          <img src="{{ url_for('static', filename='portraitbenies.jpg') }}" height="300" width="400">
          <div class="vertical-align">
-         <div class="container">
-         <div class="row">
-         <div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
-         <div class="card no-border">
-         <div id="chat" class="conv-form-wrapper">
-         <form action="" method="GET" class="hidden">
-            <input data-conv-question="Bonjour, je suis Nicolas Béniès ; auteur et critique de Jazz. Bienvenue sur Jazz Real !" data-no-answer="true">
-            <input type="text" name="prenom" data-conv-question="Comment vous appelez-vous ? | Quel est votre nom ?">
-            <input type="text" data-conv-question="Hé bien cher.e {prenom}:0, c'est un plaisir de vous rencontrer" data-no-answer="true">
-            <input type="text" data-conv-question="Pour vous parler un peu de moi, j'ai consacré la majeure partie de ma vie à écouter, commenter, et étudier le Jazz !" data-no-answer="true">
-            <input type="text" data-conv-question="Je suis également économiste, collaborateur du Monde Diplomatique, directeur de publication de la revue de l’École Émancipée, et producteur d’émissions de radio." data-no-answer="true">
-            <input type="text" data-conv-question="Jazz Real est une base de données consacrée au Jazz." data-no-answer="true">
-            <select name="musicien_melomane" data-conv-question="{prenom}:0, êtes-vous musicien ?">
-               <option value="musicien">Je suis musicien</option>
-               <option value="melomane">Je suis mélomane</option>
-            </select>
-            <div data-conv-fork="musicien_melomane">
-               <div data-conv-case="musicien">
-                  <input type="text" name="instrument" data-conv-question="Quel est votre instrument principal?">
-               </div>
-               <div data-conv-case="melomane">
-                  <input type="text" name="style" data-conv-question="Quel genre de jazz aimez-vous écouter, {prenom}:0 ?">
-               </div>
-            </div>
-            <input type="text" data-conv-question="Parfait {prenom}:0 ! Sur Jazz Real, vous avez la possibilité d'effectuer des recherches." data-no-answer="true">
-            <select name="choix_recherche" data-callback="storeState" data-conv-question="Quel type d'infos recherchez-vous ?">
-               <option value="artiste">artiste</option>
-               <option value="standard">standard</option>
-               <option value="culture">culture</option>
-            </select>
-            <div data-conv-fork="choix_recherche">
-            <div data-conv-case="artiste">
-               <input type="text" name="choix_artiste" data-callback="search_artiste" data-conv-question="et quel est son nom ?">
-            </div>
-            <div data-conv-case="standard">
-               <input type="text" data-conv-question="Ok, {prenom}:0!" data-no-answer="true">
-               <select name="choix_standard" data-conv-question="et plus précisément ?">
-                  <option value="releve">un relevé</option>
-                  <option value="grille">une grille d'accords</option>
-                  <option value="versions">une version</option>
-                  <option value="autre">autre</option>
-               </select>
-            </div>
-            <div data-conv-fork="choix_standard">
-               <div data-conv-case="releve">
-                  <input type="text" name="choix_releve" data-callback="search_releve" data-conv-question="Quel est le nom de l'artiste / thème ?">
-               </div>
-               <div data-conv-case="grille">
-                  <input type="text" name="choix_grille" data-callback="search_grille" data-conv-question="Quel est le nom du standard ?">
-               </div>
-               <div data-conv-case="versions">
-                  <input type="text" data-conv-question="{prenom}:0, vous avez la possibilité de rechercher différentes versions notables d'un standard" data-no-answer="true">
-                  <input type="text" data-conv-question="Idéal, lorsque vous souhaitez découvrir qui a joué tel ou tel standard" data-no-answer="true">
-                  <input type="text" name="choix_versions" data-callback="search_versions" data-conv-question="C'est à vous !">
-               </div>
-               <div data-conv-case="autre">
-                  <select name="autre_autre" data-conv-question="creusons un peu l'harmonie...:-)">
-                     <option value="autre_cadence">une cadence</option>
-                     <option value="autre_pont">un pont</option>
-                  </select>
-                  <div data-conv-fork="autre_autre">
-				
-                     <div data-conv-case="autre_cadence">
-                        <input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle de cadence" data-no-answer="true">
-                        <input type="text" data-conv-question="Par exemple, IIm7 retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
-                        <input type="text" name="choix_cadence" data-callback="search_cadence" data-conv-question="C'est à vous !">
-                     </div>
-                     <div data-conv-case="autre_pont">
-                        <input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle dans pont de standard" data-no-answer="true">
-                        <input type="text" data-conv-question="Par exemple, II retournera l'ensemble des pont de standards modulat sur le second degré" data-no-answer="true">
-                        <input type="text" name="choix_pont" data-callback="search_pont" data-conv-question="C'est à vous !">
-                     </div>
-				  </div>
-                </div>
-                </div>
-                  <div data-conv-case="culture">
-                     <input type="text" data-conv-question="Mon cher {prenom}:0, voilà 25 ans que je publie des articles sur le jazz dans mon blog (www.soufflebleu.fr)" data-no-answer="true"> 
-                     <input type="text" data-conv-question="Le jazz, le polar et l'économie : beau programme !" data-no-answer="true">
-                     <input type="text" data-conv-question="Vous avez la possibilité d'effectuer une recherche par mot-clé dans cette base d'articles" data-no-answer="true">
-                     <input type="text" name="choix_article" data-callback="search_article" data-conv-question="C'est à vous !">
-                  </div>
-                  </div>
-                  <input type="text" data-conv-question="Je viens d'ouvrir une nouvelle fenêtre pour les résultats de votre recherche :-)" data-no-answer="true">
-                  <select name="callbackTest" data-conv-question="Souhaitez-vous effectuer une nouvelle recherche?">
-                     <option value="oui" data-callback="rollback">Oui</option>
-                     <option value="non" data-callback="restore">Non</option>
-                  </select>
-         </form>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 col-xs-offset-0">
+						<div class="card no-border">
+							<div id="chat" class="conv-form-wrapper">
+								<form action="" method="GET" class="hidden">
+									<input data-conv-question="Bonjour, je suis Nicolas Béniès ; auteur et critique de Jazz. Bienvenue sur Jazz Real !" data-no-answer="true">
+									<input type="text" name="prenom" data-conv-question="Comment vous appelez-vous ? | Quel est votre nom ?">
+									<input type="text" data-conv-question="Hé bien cher.e {prenom}:0, c'est un plaisir de vous rencontrer" data-no-answer="true">
+									<input type="text" data-conv-question="Pour vous parler un peu de moi, j'ai consacré la majeure partie de ma vie à écouter, commenter, et étudier le Jazz !" data-no-answer="true">
+									<input type="text" data-conv-question="Je suis également économiste, collaborateur du Monde Diplomatique, directeur de publication de la revue de l’École Émancipée, et producteur d’émissions de radio." data-no-answer="true">
+									<input type="text" data-conv-question="Jazz Real est une base de données consacrée au Jazz." data-no-answer="true">
+									<select name="musicien_melomane" data-conv-question="{prenom}:0, êtes-vous musicien ?">
+										<option value="musicien">Je suis musicien</option>
+										<option value="melomane">Je suis mélomane</option>
+									</select>
+									<div data-conv-fork="musicien_melomane">
+										<div data-conv-case="musicien">
+											<input type="text" name="instrument" data-conv-question="Quel est votre instrument principal?">
+										</div>
+										<div data-conv-case="melomane">
+											<input type="text" name="style" data-conv-question="Quel genre de jazz aimez-vous écouter, {prenom}:0 ?">
+										</div>
+									</div>
+									<input type="text" data-conv-question="Parfait {prenom}:0 ! Sur Jazz Real, vous avez la possibilité d'effectuer des recherches." data-no-answer="true">
+										<select name="choix_recherche" data-callback="storeState" data-conv-question="Quel type d'infos recherchez-vous ?">
+											<option value="artiste">artiste</option>
+											<option value="standard">standard</option>
+											<option value="culture">culture</option>
+										</select>
+									<div data-conv-fork="choix_recherche">
+										<div data-conv-case="artiste">
+											<input type="text" name="choix_artiste" data-callback="search_artiste" data-conv-question="et quel est son nom ?">
+										</div>
+										<div data-conv-case="standard">
+											<input type="text" data-conv-question="Ok, {prenom}:0!" data-no-answer="true">
+											<select name="choix_standard" data-conv-question="et plus précisément ?">
+												<option value="releve">un relevé</option>
+												<option value="grille">une grille d'accords</option>
+												<option value="versions">une version</option>
+												<option value="autre">autre</option>
+											</select>
+										</div>
+											<div data-conv-fork="choix_standard">
+												<div data-conv-case="releve">
+													<input type="text" name="choix_releve" data-callback="search_releve" data-conv-question="Quel est le nom de l'artiste / thème ?">
+												</div>
+												<div data-conv-case="grille">
+													<input type="text" name="choix_grille" data-callback="search_grille" data-conv-question="Quel est le nom du standard ?">
+												</div>
+												<div data-conv-case="versions">
+													<input type="text" data-conv-question="{prenom}:0, vous avez la possibilité de rechercher différentes versions notables d'un standard" data-no-answer="true">
+													<input type="text" data-conv-question="Idéal, lorsque vous souhaitez découvrir qui a joué tel ou tel standard" data-no-answer="true">
+													<input type="text" name="choix_versions" data-callback="search_versions" data-conv-question="C'est à vous !">
+												</div>
+												<div data-conv-case="autre">
+													<select name="autre_autre" data-conv-question="creusons un peu l'harmonie...:-)">
+														<option value="autre_cadence">une cadence</option>
+														<option value="autre_pont">un pont</option>
+													</select>
+												</div>
+												<div data-conv-fork="autre_autre">
+													<div data-conv-case="autre_cadence">
+														<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle de cadence" data-no-answer="true">
+														<input type="text" data-conv-question="Par exemple, IIm7 retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
+														<input type="text" name="choix_cadence" data-callback="search_cadence" data-conv-question="C'est à vous !">
+													</div>
+													<div data-conv-case="autre_pont">
+														<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle dans pont de standard" data-no-answer="true">
+														<input type="text" data-conv-question="Par exemple, II retournera l'ensemble des pont de standards modulat sur le second degré" data-no-answer="true">
+														<input type="text" name="choix_pont" data-callback="search_pont" data-conv-question="C'est à vous !">
+													</div>
+												</div>
+											</div>
+										<div data-conv-case="culture">
+											<input type="text" data-conv-question="Mon cher {prenom}:0, voilà 25 ans que je publie des articles sur le jazz dans mon blog (www.soufflebleu.fr)" data-no-answer="true"> 
+											<input type="text" data-conv-question="Le jazz, le polar et l'économie : beau programme !" data-no-answer="true">
+											<input type="text" data-conv-question="Vous avez la possibilité d'effectuer une recherche par mot-clé dans cette base d'articles" data-no-answer="true">
+											<input type="text" name="choix_article" data-callback="search_article" data-conv-question="C'est à vous !">
+										</div>
+									</div>
+								</div>
+									<input type="text" data-conv-question="Je viens d'ouvrir une nouvelle fenêtre pour les résultats de votre recherche :-)" data-no-answer="true">
+										<select name="callbackTest" data-conv-question="Souhaitez-vous effectuer une nouvelle recherche?">
+											<option value="oui" data-callback="rollback">Oui</option>
+											<option value="non" data-callback="restore">Non</option>
+										</select>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
       </section>
       <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.12.3.min.js') }}"></script>
       <script type="text/javascript" src="{{ url_for('static', filename='autosize.min.js') }}"></script>
