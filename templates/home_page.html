@@ -5,6 +5,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<<<<<<< HEAD
       <link rel="stylesheet" type="text/css" href="jazzreal/jazzreal/static/dist/jquery.convform.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="jazzreal/jazzreal/static/demo.css">
@@ -12,6 +13,16 @@
    <body>
       <section id="demo">
          <img src="jazzreal/jazzreal/static/portraitbenies.jpg" height="300" width="400">
+=======
+      
+      <link rel="stylesheet" type="text/css" src="{{ url_for('static', filename='jquery.convform.css') }}">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" src="{{ url_for('static', filename='demo.css') }}">
+   </head>
+   <body>
+      <section id="demo">
+         <img src="{{ url_for('static', filename='portraitbenies.jpg') }}" height="300" width="400">
+>>>>>>> 13cfca478c4d8be9effbedfcfb4727f3938b69a9
          <div class="vertical-align">
          <div class="container">
          <div class="row">
@@ -102,9 +113,15 @@
                   </select>
          </form>
       </section>
+<<<<<<< HEAD
       <script type="text/javascript" src="jazzreal/jazzreal/static/jquery-1.12.3.min.js"></script>
       <script type="text/javascript" src="jazzreal/jazzreal/static/dist/autosize.min.js"></script>
       <script type="text/javascript" src="jazzreal/jazzreal/static/dist/jquery.convform.js"></script>
+=======
+      <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.12.3.min.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='autosize.min.js') }}"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='jquery.convform.js') }}"></script>
+>>>>>>> 13cfca478c4d8be9effbedfcfb4727f3938b69a9
       <script>
          function search_artiste(stateWrapper, ready) {
          window.open("http://www.jazzreal.org/search?artist="+rollbackToAll.answers.choix_artiste.value);
