@@ -11,7 +11,7 @@
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='demo.css') }}">
    </head>
    <body>
-            <section id="demo">
+      <section id="demo">
          <img src="{{ url_for('static', filename='portraitbenies.jpg') }}" height="300" width="400">
          <div class="vertical-align">
 			<div class="container">
@@ -95,20 +95,17 @@
 											<input type="text" name="choix_article" data-callback="search_article" data-conv-question="C'est à vous !">
 										</div>
 									</div>
-								</div>
 									<input type="text" data-conv-question="Je viens d'ouvrir une nouvelle fenêtre pour les résultats de votre recherche :-)" data-no-answer="true">
 										<select name="callbackTest" data-conv-question="Souhaitez-vous effectuer une nouvelle recherche?">
 											<option value="oui" data-callback="rollback">Oui</option>
 											<option value="non" data-callback="restore">Non</option>
 										</select>
-									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
       </section>
       <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.12.3.min.js') }}"></script>
       <script type="text/javascript" src="{{ url_for('static', filename='autosize.min.js') }}"></script>
