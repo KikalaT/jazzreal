@@ -54,7 +54,7 @@
 												<option value="releve">un relevé</option>
 												<option value="grille">une grille d'accords</option>
 												<option value="versions">une version</option>
-												<option value="autre">autre</option>
+												<option value="harmonie">harmonie</option>
 											</select>
 										</div>
 											<div data-conv-fork="choix_standard">
@@ -69,21 +69,21 @@
 													<input type="text" data-conv-question="Idéal, lorsque vous souhaitez découvrir qui a joué tel ou tel standard" data-no-answer="true">
 													<input type="text" name="choix_versions" data-callback="search_versions" data-conv-question="C'est à vous !">
 												</div>
-												<div data-conv-case="autre">
-													<select name="autre_autre" data-conv-question="creusons un peu l'harmonie...:-)">
+												<div data-conv-case="harmonie">
+													<select name="harmonie_autre" data-conv-question="creusons un peu l'harmonie...:-)">
 														<option value="autre_cadence">une cadence</option>
 														<option value="autre_pont">un pont</option>
 													</select>
 												</div>
-												<div data-conv-fork="autre_autre">
+												<div data-conv-fork="harmonie_autre">
 													<div data-conv-case="autre_cadence">
 														<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle de cadence" data-no-answer="true">
-														<input type="text" data-conv-question="Par exemple, IIm7 retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
+														<input type="text" data-conv-question="Par exemple, 'IIm7' retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
 														<input type="text" name="choix_cadence" data-callback="search_cadence" data-conv-question="C'est à vous !">
 													</div>
 													<div data-conv-case="autre_pont">
 														<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle dans pont de standard" data-no-answer="true">
-														<input type="text" data-conv-question="Par exemple, II retournera l'ensemble des pont de standards modulat sur le second degré" data-no-answer="true">
+														<input type="text" data-conv-question="Par exemple, 'V' retournera l'ensemble des pont de standards modulat sur le cinquième degré" data-no-answer="true">
 														<input type="text" name="choix_pont" data-callback="search_pont" data-conv-question="C'est à vous !">
 													</div>
 												</div>
