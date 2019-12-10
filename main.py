@@ -10365,7 +10365,10 @@ def artist_search():
 	mb.init_membersDB()
 	cred.init_credits_db()
 	
-	bio_val = bio.DB.get(search_artist)
+	if bio.DB.get(search_artist):
+		bio_val = bio.DB.get(search_artist)
+	else:
+		bio_val = []
 	
 	if grp.DB.get(search_artist):
 		grp_val = sorted(grp.DB.get(search_artist))
@@ -10380,10 +10383,10 @@ def artist_search():
 	#tree:root
 	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 	
-	#tree:level1
-	script += '{"id": 2,"parentId": 1,"name": "Biography", "type": "link_biography","description": "'+bio_val+'"},'
-	script += '{"id": 3,"parentId": 1,"name": "Groups","description": "--expand--"},'
-	script += '{"id": 4,"parentId": 1,"name": "Discography","description": "--expand--"},'
+	#tree:level1 (biography + groups(root) + discography(root)
+	script += '{"id": 2,"parentId": 1,"name": "Biographie", "type": "link_biography","description": "'+bio_val+'"},'
+	script += '{"id": 3,"parentId": 1,"name": "Groupes","description": "--ouvrir--"},'
+	script += '{"id": 4,"parentId": 1,"name": "Discographie","description": "--ouvrir--"},'
 	
 	#counter
 	i = 4
@@ -10394,7 +10397,7 @@ def artist_search():
 		i = j
 		i += 1
 		j = i+1
-		script += '{"id": '+str(i)+',"parentId": 3,"name":"Group", "type":"link_group","description": "'+val+'"},'
+		script += '{"id": '+str(i)+',"parentId": 3,"name":"Groupe", "type":"link_group","description": "'+val+'"},'
 	
 	#counter
 	j = i
@@ -10404,13 +10407,13 @@ def artist_search():
 		i = j
 		i += 1
 		script += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
-		script += '{"id": '+str(i+1)+',"parentId": '+str(i)+',"name":"Tracks","description": "--expand--"},'
-		script += '{"id": '+str(i+2)+',"parentId": '+str(i)+',"name":"Credits","description": "--expand--"},'
+		script += '{"id": '+str(i+1)+',"parentId": '+str(i)+',"name":"Pistes","description": "--ouvrir--"},'
+		script += '{"id": '+str(i+2)+',"parentId": '+str(i)+',"name":"Crédits","description": "--ouvrir--"},'
 		j = i + 3
 		#tree:level3->Tracks
 		try:
 			for val2 in trk.DB[val]:
-				script += '{"id": '+str(j)+',"parentId": '+str(i+1)+',"name":"Tracks","description": "'+val2+'"},'
+				script += '{"id": '+str(j)+',"parentId": '+str(i+1)+',"name":"Pistes","description": "'+val2+'"},'
 				j += 1
 		except KeyError:
 			pass
@@ -10418,7 +10421,7 @@ def artist_search():
 		#tree:level3->Credits
 		try:
 			for val3 in cred.DB[val]:
-				script += '{"id": '+str(j)+',"parentId": '+str(i+2)+',"name":"Credits","description": "'+val3+'"},'
+				script += '{"id": '+str(j)+',"parentId": '+str(i+2)+',"name":"Crédits","description": "'+val3+'"},'
 				j += 1
 		except KeyError:
 			pass
