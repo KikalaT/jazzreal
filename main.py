@@ -10241,9 +10241,9 @@ def home_page():
 def contribute():
 	#sending email
 	msg = Message('[Jazz Real] : '+request.form.get('Subject'), sender = 'feedback@jazzreal.org', recipients = ['feedback@jazzreal.org'])
-	msg.body = 'Last Name : '+request.form.get('FirstName')+'\n'
-	msg.body += 'First Name : '+request.form.get('LastName')+'\n'
-	msg.body += 'Email : '+request.form.get('Email')+'\n'
+	#msg.body = 'Last Name : '+request.form.get('FirstName')+'\n'
+	#msg.body += 'First Name : '+request.form.get('LastName')+'\n'
+	#msg.body += 'Email : '+request.form.get('Email')+'\n'
 	#msg.body += 'Subject : '+request.form.get('Subject')+'\n'
 	msg.body += 'Message : '+request.form.get('Message')+'\n'
 	fp = request.files.get('file_upload')
