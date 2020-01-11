@@ -1187,7 +1187,7 @@ list_titles.append('TAKING A CHANCE ON LOVE')
 list_titles.append('TANGERINE')
 list_titles.append('TASTE OF HONEY')
 list_titles.append('TEACH ME TONIGHT')
-list_titles.append('TEAFORTWO')
+list_titles.append('TEA FOR TWO')
 list_titles.append('TELL ME A BEDTIME STORY')
 list_titles.append('TEMPUS FUGIT')
 list_titles.append('TENDERLY')
@@ -10245,7 +10245,7 @@ def contribute():
 	#msg.body += 'First Name : '+request.form.get('LastName')+'\n'
 	#msg.body += 'Email : '+request.form.get('Email')+'\n'
 	#msg.body += 'Subject : '+request.form.get('Subject')+'\n'
-	msg.body += 'Message : '+request.form.get('Message')+'\n'
+	msg.body = 'Message : '+request.form.get('Message')+'\n'
 	fp = request.files.get('file_upload')
 	if fp:
 		msg.attach(fp.filename,'application/octect-stream',fp.read())
