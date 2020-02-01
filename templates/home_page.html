@@ -42,6 +42,7 @@
 											<option value="artiste">artiste</option>
 											<option value="standard">standard</option>
 											<option value="culture">culture</option>
+											<option value="harmonie">harmonie</option>
 										</select>
 									<div data-conv-fork="choix_recherche">
 										<div data-conv-case="artiste">
@@ -53,7 +54,6 @@
 												<option value="releve">un relevé</option>
 												<option value="grille">une grille d'accords</option>
 												<option value="versions">une version</option>
-												<option value="harmonie">harmonie</option>
 											</select>
 										</div>
 											<div data-conv-fork="choix_standard">
@@ -68,24 +68,6 @@
 													<input type="text" data-conv-question="Idéal, lorsque vous souhaitez découvrir qui a joué tel ou tel standard" data-no-answer="true">
 													<input type="text" name="choix_versions" data-callback="search_versions" data-conv-question="C'est à vous !">
 												</div>
-												<div data-conv-case="harmonie">
-													<select name="harmonie_autre" data-conv-question="creusons un peu l'harmonie...:-)">
-														<option value="autre_cadence">une cadence</option>
-														<option value="autre_pont">un pont</option>
-													</select>
-												</div>
-												<div data-conv-fork="harmonie_autre">
-													<div data-conv-case="autre_cadence">
-														<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle de cadence" data-no-answer="true">
-														<input type="text" data-conv-question="Par exemple, 'IIm7' retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
-														<input type="text" name="choix_cadence" data-callback="search_cadence" data-conv-question="C'est à vous !">
-													</div>
-													<div data-conv-case="autre_pont">
-														<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle dans pont de standard" data-no-answer="true">
-														<input type="text" data-conv-question="Par exemple, 'V' retournera l'ensemble des pont de standards modulat sur le cinquième degré" data-no-answer="true">
-														<input type="text" name="choix_pont" data-callback="search_pont" data-conv-question="C'est à vous !">
-													</div>
-												</div>
 											</div>
 										<div data-conv-case="culture">
 											<input type="text" data-conv-question="Mon cher {prenom}:0, voilà 25 ans que je publie des articles sur le jazz dans mon blog (www.soufflebleu.fr)" data-no-answer="true">
@@ -93,7 +75,31 @@
 											<input type="text" data-conv-question="Vous avez la possibilité d'effectuer une recherche par mot-clé dans cette base d'articles" data-no-answer="true">
 											<input type="text" name="choix_article" data-callback="search_article" data-conv-question="C'est à vous !">
 										</div>
-									</div>
+										<div data-conv-case="harmonie">
+											<select name="harmonie_autre" data-conv-question="creusons un peu l'harmonie...:-)">
+												<option value="autre_cadence">une cadence</option>
+												<option value="autre_pont">un pont</option>
+												<option value="voiceGen">voiceGen</option>
+											</select>
+										</div>
+											<div data-conv-fork="harmonie_autre">
+												<div data-conv-case="autre_cadence">
+													<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle de cadence" data-no-answer="true">
+													<input type="text" data-conv-question="Par exemple, 'IIm7' retournera l'ensemble des standards ayant un second degré mineur septième dans la grille." data-no-answer="true">
+													<input type="text" name="choix_cadence" data-callback="search_cadence" data-conv-question="C'est à vous !">
+												</div>
+												<div data-conv-case="autre_pont">
+													<input type="text" data-conv-question="{prenom}:0, il s'agit d'une recherche fonctionnelle dans pont de standard" data-no-answer="true">
+													<input type="text" data-conv-question="Par exemple, 'V' retournera l'ensemble des pont de standards modulat sur le cinquième degré" data-no-answer="true">
+													<input type="text" name="choix_pont" data-callback="search_pont" data-conv-question="C'est à vous !">
+												</div>
+												<div data-conv-case="voiceGen">
+													<input type="text" data-conv-question="{prenom}:0, bienvenue dans l'outil voiceGen : un générateur de voicings jazz !" data-no-answer="true">
+													<input type="text" data-conv-question="Vous aurez la possibilité de générer des voicings sympas à partir d'une succession d'accords (ex: Cm7 F7 BbM7)" data-no-answer="true">
+													<input type="text" name="choix_voiceGen" data-callback="search_voiceGen" data-conv-question="Entrez 'voiceGen' afin de lancer l'application">
+												</div>
+											</div>
+										</div>
 									<input type="text" data-conv-question="Je viens d'ouvrir une nouvelle fenêtre pour les résultats de votre recherche :-)" data-no-answer="true">
 										<select name="callbackTest" data-conv-question="Souhaitez-vous effectuer une nouvelle recherche?">
 											<option value="oui" data-callback="rollback">Oui</option>
@@ -136,6 +142,11 @@
          }
          function search_article(stateWrapper, ready) {
          window.open("http://www.jazzreal.org/search?article="+rollbackToAll.answers.choix_article.value);
+         ready();
+         }
+
+         function search_voiceGen(stateWrapper, ready) {
+         window.open("http://www.jazzreal.org/voiceGen");
          ready();
          }
 
