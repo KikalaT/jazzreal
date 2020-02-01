@@ -10699,7 +10699,7 @@ C['M7'] = [
 	['C3','B3','E4','G4'],
 	['C3','G3','B3','E4'],
 	['C3','G3','E4','B4'],
-	['C3','E3','B3','E4'],
+	['C3','E3','B3','G4'],
 	['E3','B3','C4','G4'],
 	['E3','C4','G4','B4'],
 	['E3','G3','C4','B4'],
@@ -10955,3 +10955,5 @@ def voiceGen():
 	
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 	
+if __name__ == "__main__":
+    app.run()
