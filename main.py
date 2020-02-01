@@ -10672,17 +10672,12 @@ def transpose_theme():
 
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
 
-<<<<<<< HEAD
-if __name__ == "__main__":
-    app.run()
-=======
-
 #voiceGen#
 
 #building chord base
 tone_flat = ['C','F','Bb','Eb','Ab','Db','Gb','Cb']
 tone_sharp = ['G','D','A','E','B','F_','C_']
-pitch_flat = ['Ab','A','Bb','Cb','C','Db','D','Eb','E','F','Gb','G']   
+pitch_flat = ['Ab','A','Bb','Cb','C','Db','D','Eb','E','F','Gb','G']
 pitch_sharp = ['G_','A','A_','B','C','C_','D','D_','E','F','F_','G']
 chord_type = ['6','7','M7','dim7','m6','m7','m7b5','mM7']
 
@@ -10825,31 +10820,31 @@ C['7'] = [
 	['Bb3','C4','G4','C5'],
 	['Bb2','G3','E4','C4'],
 ]
-	
+
 def transpose(chord,initkey,finalkey):
 
 	note_to_midi_flat = {
 	'A0':'21','Bb0':'22','B0':'23','C1':'24','Db1':'25','D1':'26','Eb1':'27','E1':'28','F1':'29','Gb1':'30','G1':'31','Ab1':'32','A1':'33','Bb1':'34','B1':'35','C2':'36','Db2':'37','D2':'38','Eb2':'39','E2':'40','F2':'41','Gb2':'42','G2':'43','Ab2':'44','A2':'45','Bb2':'46','B2':'47','C3':'48','Db3':'49','D3':'50','Eb3':'51','E3':'52','F3':'53','Gb3':'54','G3':'55','Ab3':'56','A3':'57','Bb3':'58','B3':'59','C4':'60','Db4':'61','D4':'62','Eb4':'63','E4':'64','F4':'65','Gb4':'66','G4':'67','Ab4':'68','A4':'69','Bb4':'70','B4':'71','C5':'72','Db5':'73','D5':'74','Eb5':'75','E5':'76','F5':'77','Gb5':'78','G5':'79','Ab5':'80','A5':'81','Bb5':'82','B5':'83','C6':'84','Db6':'85','D6':'86','Eb6':'87','E6':'88','F6':'89','Gb6':'90','G6':'91','Ab6':'92','A6':'93','Bb6':'94','B6':'95','C7':'96','Db7':'97','D7':'98','Eb7':'99','E7':'100','F7':'101','Gb7':'102','G7':'103','Ab7':'104','A7':'105','Bb7':'106','B7':'107','C8':'108',
 	}
 	midi_to_note_flat = {v:k for k,v in note_to_midi_flat.items()}
-	
+
 	note_to_midi_sharp = {
 	'A0':'21','A#0':'22','B0':'23','C1':'24','C#1':'25','D1':'26','D#1':'27','E1':'28','F1':'29','F#1':'30','G1':'31','G#1':'32','A1':'33','A#1':'34','B1':'35','C2':'36','C#2':'37','D2':'38','D#2':'39','E2':'40','F2':'41','F#2':'42','G2':'43','G#2':'44','A2':'45','A#2':'46','B2':'47','C3':'48','C#3':'49','D3':'50','D#3':'51','E3':'52','F3':'53','F#3':'54','G3':'55','G#3':'56','A3':'57','A#3':'58','B3':'59','C4':'60','C#4':'61','D4':'62','D#4':'63','E4':'64','F4':'65','F#4':'66','G4':'67','G#4':'68','A4':'69','A#4':'70','B4':'71','C5':'72','C#5':'73','D5':'74','D#5':'75','E5':'76','F5':'77','F#5':'78','G5':'79','G#5':'80','A5':'81','A#5':'82','B5':'83','C6':'84','C#6':'85','D6':'86','D#6':'87','E6':'88','F6':'89','F#6':'90','G6':'91','G#6':'92','A6':'93','A#6':'94','B6':'95','C7':'96','C#7':'97','D7':'98','D#7':'99','E7':'100','F7':'101','F#7':'102','G7':'103','G#7':'104','A7':'105','A#7':'106','B7':'107','C8':'108',
 	}
 	midi_to_note_sharp = {v:k for k,v in note_to_midi_sharp.items()}
-	
+
 	if initkey in tone_flat:
 		init = pitch_flat.index(initkey)
-	else: 
-		init = pitch_sharp.index(initkey)	
-	
+	else:
+		init = pitch_sharp.index(initkey)
+
 	if finalkey in tone_flat:
 		final = pitch_flat.index(finalkey)
 	else:
 		final = pitch_sharp.index(finalkey)
 
 	diff = final - init
-	
+
 	try:
 		if finalkey in tone_flat:
 			chord_index = note_to_midi_flat[chord]
@@ -10857,9 +10852,9 @@ def transpose(chord,initkey,finalkey):
 			chord_index = note_to_midi_sharp[chord]
 	except KeyError:
 		chord_index = note_to_midi_flat[chord]
-	
+
 	chord_transposed_index = int(chord_index) + diff
-	
+
 	if finalkey in tone_flat:
 		chord_transposed = midi_to_note_flat[str(chord_transposed_index)]
 	else:
@@ -10874,7 +10869,7 @@ for i,j in itertools.product(tone_flat,chord_type):
 	i = {j:''}
 	i[j] = [[transpose(x,'C',k) for x in chord] for chord in C[j]]
 	exec(k+'[\''+j+'\']'+'='+str(i[j]))
-	
+
 for i,j in itertools.product(tone_sharp,chord_type):
 	k = i
 	i = {j:''}
@@ -10883,23 +10878,23 @@ for i,j in itertools.product(tone_sharp,chord_type):
 
 @app.route('/voiceGen')
 def voiceGen():
-	
+
 	voiceGen_results = ''
-	
+
 	chord_i = []
 	chords = []
 	chord_progressions = []
 
-	
+
 	query = request.args.get('query','')
-	
+
 	#build reusults
 	voiceGen_results += '<h4>'
 	voiceGen_results += '<pre>'
 
 	query = re.sub('#','_',query)
 	query = re.findall(r'(C|F|Bb|Eb|Ab|Db|Gb|Cb|G|D|A|E|B|F_|C_)(6|7|M7|dim7|m6|m7\b|m7b5|mM7)',query)
-	
+
 	voiceGen_results += 'nb d\'accords ('+str(len(query))+'):'
 	voiceGen_results += '<br>'
 
@@ -10907,21 +10902,21 @@ def voiceGen():
 		chords.append(eval(query[i][0]+'[\''+query[i][1]+'\']'))
 
 	if len(query) <= 4:
-		
+
 		#make cartesian product of list(chords)
 		chord_progressions = list(itertools.product(*chords))
-		
+
 		voiceGen_results += 'nb de progressions ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
 		voiceGen_results += '<br>'
-		
+
 		for j in chord_progressions:
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\'] '
-				
+
 			voiceGen_results += '<br>'
 			voiceGen_results += str(j)
-			
+
 			k = str(j)
 			k = k.replace(' ','')
 			k = k.replace('(','')
@@ -10960,7 +10955,8 @@ def voiceGen():
 		voiceGen_results += 'maximum = 4 accords'
 		pass
 	voiceGen_results += '</pre></h4>'
-	
+
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
-	
->>>>>>> 28eac687e39cf204acd06f8da6d37928c69575db
+
+if __name__ == "__main__":
+    app.run()
