@@ -10531,6 +10531,10 @@ def versions():
 	results_versions = zip(rvtmp1,rvtmp2)
 	return render_template('view_versions.html',results_versions=results_versions)
 
+@app.route('/gaia')
+def gaia():
+	return render_template('gaia.html')
+
 @app.route('/bio')
 def view_bio():
 	bio_query = request.args.get('')
@@ -10954,6 +10958,6 @@ def voiceGen():
 	voiceGen_results += '</pre></h4>'
 	
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
-	
+
 if __name__ == "__main__":
     app.run()
