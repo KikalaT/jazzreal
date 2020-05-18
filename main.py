@@ -10532,7 +10532,7 @@ def versions():
 	return render_template('view_versions.html',results_versions=results_versions)
 
 @app.route('/gaia')
-def gaia():
+def gaia_app():
 	return render_template('gaia.html')
 
 @app.route('/bio')
