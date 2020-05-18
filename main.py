@@ -10533,6 +10533,10 @@ def versions():
 	results_versions = zip(rvtmp1,rvtmp2)
 	return render_template('view_versions.html',results_versions=results_versions)
 
+@app.route('/gaia')
+def gaia_app():
+	return render_template('gaia.html')
+
 @app.route('/bio')
 def view_bio():
 	bio_query = request.args.get('')
