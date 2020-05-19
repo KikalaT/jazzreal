@@ -10915,8 +10915,9 @@ def voiceGen():
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\'] '
 				
-			voiceGen_results += '<br>'
+			voiceGen_results += '<details><summary>'
 			voiceGen_results += str(j)
+			voiceGen_results += '</summary>'
 			
 			k = str(j)
 			k = k.replace(' ','')
@@ -10928,6 +10929,8 @@ def voiceGen():
 			k = k.replace('\'','')
 			k = k.replace('#','_')
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
+			voiceGen_results += '</details>'
+			voiceGen_results += '<br>'
 			voiceGen_results += '<script>'
 			voiceGen_results += """const VF_"""+k+""" = Vex.Flow;
 					var vf = new VF_"""+k+""".Factory({renderer: {elementId: '"""+k+"""', height: 300}});
