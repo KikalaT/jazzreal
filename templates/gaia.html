@@ -3,6 +3,17 @@
 
 <head>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-73558830-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-73558830-1', { 'anonymize_ip': true });
+	</script>
+
+
 	<meta charset="utf-8">
 	<title>Gaïa v1.0</title>
 
@@ -18,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gaia/styles/editor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gaia/styles/viewer.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='gaia/styles/pane_resizer.css') }}">
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.minicolors/2.0.4/jquery.minicolors.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js"></script>
@@ -38,7 +49,7 @@
         var user = "";
     </script>
     <script type="text/javascript" src="{{ url_for('static', filename='gaia/script/old/mindmap.min.js') }}"></script>
-    
+
     <script type="text/javascript" src="{{ url_for('static', filename='gaia/script/unsaved_changes.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='gaia/script/settings.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='gaia/script/document_title.js') }}"></script>
