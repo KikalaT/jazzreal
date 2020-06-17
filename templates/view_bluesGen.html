@@ -1,5 +1,4 @@
 <html>
-<head><script src='https://unpkg.com/vexflow/releases/vexflow-debug.js'></script></head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 * {box-sizing: border-box;}
@@ -80,24 +79,25 @@ body {
 <div class="topnav">
   <a class="active" href="/">Accueil</a>
   <div class="search-container">
-     <form action="/voiceGen">
-      <input type="text" placeholder="Entrez une suite d'accords..." name="query">
+     <form action="/bluesGen">
+      <input type="text" placeholder="Entrez une tonalité..." name="tone">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
    </div>
 </div>
 
-<h4>
-<pre>
-<li>choix de l'accord parmi {XM7, X7, Xm7, XmM7, Xm7b5, X6, Xm6, Xdim7}</li>
-<li>'X' pouvant prendre une valeur parmi {A,B,C,D,E,F,G}</li>
-</pre>
-</h4>
-
+<h2><pre>Générateur de grille aléatoire de Blues-Jazz</pre></h2>
+<ul>
+<li>(tapez F5 pour générer une autre grille dans cette tonalité)
+<li>(barre de recherche en haut à droite pour changer de tonalité)
+</ul>
 <br>
 <br>
 
-{{ voiceGen_results | safe}}
+{{ bluesGen_results | safe}}
+
+<br>
+<br>
 
 <footer align="right">
 <p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
