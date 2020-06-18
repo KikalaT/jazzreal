@@ -10974,15 +10974,15 @@ blues_db = {
 	'C7 Bb7 C7 C7 Bb7 Eb7 C7 A7 Ab7 G7 C7 Ab7/G7 ',
 	'C7 Bb7 C7 Gm7/C7 Bb7 Eb7 C7/Em7 A7 Dm7 G7 Em7/A7 Dm7/G7 ',
 	'C7 Bb7 C7 Gm7/C7 Bb7 Eb7 Em7 A7 Dm7 G7 Em7/A7 Dm7/G7 ',
-	'C7 Gbb7 C7 Gm7/C7 Gbb7 Gbm7/Cb7 C7/A7 Cbb7/A7 Dm7 G7/Gbb7 Em7/A7 Dm7/G7 ',
-	'CM7 Cbm7/E7 Am7/D7 Gm7/C7 Gbb7 Gb°7 Em7/A7 EbM7/Ab7 Dm7 Abm7/Db7 C7/A7 Dm7/G7 ',
-	'CM7 CbM7/Cbbm7 Am7/Abm7 Gm7/Gb7 BbM7 Bbm7 Em7 Ebm7 Dm7 G7 Em7/E°7 Dm7/Db ',
-	'CM7 BbM7 Em7/Dm7 Dbm7/Cb7 BbM7 Bbm7 Em7 Ebm7 Dm7 Db7 CM7/Ebm7 Dm7/Db ',
+	'C7 F7 C7 Gm7/C7 F7 Gbm7/Cb7 C7/A7 Bb7/A7 Dm7 G7/F7 Em7/A7 Dm7/G7 ',
+	'CM7 Cbm7/E7 Am7/D7 Gm7/C7 F7 Gbdim7 Em7/A7 EbM7/Ab7 Dm7 Abm7/Db7 C7/A7 Dm7/G7 ',
+	'CM7 CbM7/Bbm7 Am7/Abm7 Gm7/Gb7 BbM7 Bbm7 Em7 Ebm7 Dm7 G7 Em7/Edim7 Dm7/Db6 ',
+	'CM7 BbM7 Em7/Dm7 Dbm7/Cb7 BbM7 Bbm7 Em7 Ebm7 Dm7 Db7 CM7/Ebm7 Dm7/Db6 ',
 	'CM7 BbM7 Em7/Dm7 Dbm7/Gb7 BbM7 BbM7/Eb7 EbM7 EbM7/Ab7 DbM7 Dm7/G7 Em7/A7 Dm7/G7 ',
-	'CM7 Cbm7/E7 Am7/D7 DbM7/Gb7 BbM7 BbM7/Cbb7 Em7 Ebm7/Ab7 Dm7 G7 Em7/A7 Dm7/G7 ',
-	'CM7 Cbm7/E7 Am7/D7 DbM7/Gb7 GbbM7 Gbm7/Cb7 Em7 Ebm7/Ab7 Dm7 G7/Gbb7 Em7/A7 Dm7/G7 ',
-	'C#m7/Gb7 Cbm7/E7 Am7/D7 Gm7/C7 GbbM7 Gbbm7/Cbb7 EbM7 Ebm7/Ab7 DbM7 Dm7/G7 Em7/A7 Dm7/G7 ',
-	'CM7 C#m7/Gb7 CbM7 CbbM7/AbM7 GbbM7 Gbm7/Cb7 EM7 Em7/A7 DM7 DbM7 CM7/EbM7 DM7/Db '
+	'CM7 Cbm7/E7 Am7/D7 DbM7/Gb7 BbM7 BbM7/Bb7 Em7 Ebm7/Ab7 Dm7 G7 Em7/A7 Dm7/G7 ',
+	'CM7 Cbm7/E7 Am7/D7 DbM7/Gb7 FM7 Gbm7/Cb7 Em7 Ebm7/Ab7 Dm7 G7/F7 Em7/A7 Dm7/G7 ',
+	'Dbm7/Gb7 Cbm7/E7 Am7/D7 Gm7/C7 FM7 Fm7/Bb7 EbM7 Ebm7/Ab7 DbM7 Dm7/G7 Em7/A7 Dm7/G7 ',
+	'CM7 Dbm7/Gb7 CbM7 BbM7/AbM7 FM7 Gbm7/Cb7 EM7 Em7/A7 DM7 DbM7 CM7/EbM7 DM7/Db6 '
 	],
 
 	'C#':[
@@ -10991,18 +10991,18 @@ blues_db = {
 	'C#7 Bb7 C#7 C#7 Bb7 Bb7 C#7 C#7 D#7 G#7 C#7 G#7 ',
 	'C#7 Bb7 C#7 C#7 Bb7 Bb7 C#7 A#7 D#7 G#7 C#7 G#7 ',
 	'C#7 Bb7 C#7 C#7 Bb7 Bb7 C#7 A#7 D#m7 G#7 C#7 D#m7/G#7 ',
-	'C#7 Bb7 C#7 C#7 Bb7 Eb7 C#7 A#7 A#b7 G#7 C#7 A#b7/G#7 ',
+	'C#7 Bb7 C#7 C#7 Bb7 Eb7 C#7 A#7 A7 G#7 C#7 A7/G#7 ',
 	'C#7 Bb7 C#7 G#m7/C#7 Bb7 Eb7 C#7/Fm7 A#7 D#m7 G#7 Fm7/A#7 D#m7/G#7 ',
 	'C#7 Bb7 C#7 G#m7/C#7 Bb7 Eb7 Fm7 A#7 D#m7 G#7 Fm7/A#7 D#m7/G#7 ',
 	'C#7 Gb7 C#7 G#m7/C#7 Gb7 Gm7/C7 C#7/A#7 Cb7/A#7 D#m7 G#7/Gb7 Fm7/A#7 D#m7/G#7 ',
-	'C#M7 Cm7/F7 A#m7/D#7 G#m7/C#7 Gb7 G°7 Fm7/A#7 FbM7/A#b7 D#m7 A#bm7/D#b7 C#7/A#7 D#m7/G#7 ',
-	'C#M7 CM7/Cbm7 A#m7/A#bm7 G#m7/G#b7 BbM7 Bbm7 Fm7 Fbm7 D#m7 G#7 Fm7/F°7 D#m7/D#b ',
-	'C#M7 BbM7 Fm7/D#m7 D#bm7/Cb7 BbM7 Bbm7 Fm7 Fbm7 D#m7 D#b7 C#M7/Fbm7 D#m7/D#b ',
-	'C#M7 BbM7 Fm7/D#m7 D#bm7/G#b7 BbM7 BbM7/Eb7 FbM7 FbM7/A#b7 D#bM7 D#m7/G#7 Fm7/A#7 D#m7/G#7 ',
-	'C#M7 Cm7/F7 A#m7/D#7 D#bM7/G#b7 BbM7 BbM7/Cb7 Fm7 Fbm7/A#b7 D#m7 G#7 Fm7/A#7 D#m7/G#7 ',
-	'C#M7 Cm7/F7 A#m7/D#7 D#bM7/G#b7 GbM7 Gm7/C7 Fm7 Fbm7/A#b7 D#m7 G#7/Gb7 Fm7/A#7 D#m7/G#7 ',
-	'C##m7/G7 Cm7/F7 A#m7/D#7 G#m7/C#7 GbM7 Gbm7/Cb7 FbM7 Fbm7/A#b7 D#bM7 D#m7/G#7 Fm7/A#7 D#m7/G#7 ',
-	'C#M7 C##m7/G7 CM7 CbM7/A#bM7 GbM7 Gm7/C7 FM7 Fm7/A#7 D#M7 D#bM7 C#M7/FbM7 D#M7/D#b '
+	'C#M7 Cm7/F7 A#m7/D#7 G#m7/C#7 Gb7 Gdim7 Fm7/A#7 FbM7/A7 D#m7 Am7/D7 C#7/A#7 D#m7/G#7 ',
+	'C#M7 CM7/Cbm7 A#m7/Am7 G#m7/G7 BbM7 Bbm7 Fm7 Fbm7 D#m7 G#7 Fm7/Fdim7 D#m7/D6 ',
+	'C#M7 BbM7 Fm7/D#m7 Dm7/Cb7 BbM7 Bbm7 Fm7 Fbm7 D#m7 D7 C#M7/Fbm7 D#m7/D6 ',
+	'C#M7 BbM7 Fm7/D#m7 Dm7/G7 BbM7 BbM7/Eb7 FbM7 FbM7/A7 DM7 D#m7/G#7 Fm7/A#7 D#m7/G#7 ',
+	'C#M7 Cm7/F7 A#m7/D#7 DM7/G7 BbM7 BbM7/Cb7 Fm7 Fbm7/A7 D#m7 G#7 Fm7/A#7 D#m7/G#7 ',
+	'C#M7 Cm7/F7 A#m7/D#7 DM7/G7 GbM7 Gm7/C7 Fm7 Fbm7/A7 D#m7 G#7/Gb7 Fm7/A#7 D#m7/G#7 ',
+	'Dm7/G7 Cm7/F7 A#m7/D#7 G#m7/C#7 GbM7 Gbm7/Cb7 FbM7 Fbm7/A7 DM7 D#m7/G#7 Fm7/A#7 D#m7/G#7 ',
+	'C#M7 Dm7/G7 CM7 CbM7/AM7 GbM7 Gm7/C7 FM7 Fm7/A#7 D#M7 DM7 C#M7/FbM7 D#M7/D6 '
 	],
 
 	'Db':[
@@ -11011,18 +11011,18 @@ blues_db = {
 	'Db7 Bb7 Db7 Db7 Bb7 Bb7 Db7 Db7 Eb7 Ab7 Db7 Ab7 ',
 	'Db7 Bb7 Db7 Db7 Bb7 Bb7 Db7 Bb7 Eb7 Ab7 Db7 Ab7 ',
 	'Db7 Bb7 Db7 Db7 Bb7 Bb7 Db7 Bb7 Ebm7 Ab7 Db7 Ebm7/Ab7 ',
-	'Db7 Bb7 Db7 Db7 Bb7 Eb7 Db7 Bb7 Bbb7 Ab7 Db7 Bbb7/Ab7 ',
+	'Db7 Bb7 Db7 Db7 Bb7 Eb7 Db7 Bb7 A7 Ab7 Db7 A7/Ab7 ',
 	'Db7 Bb7 Db7 Abm7/Db7 Bb7 Eb7 Db7/Fm7 Bb7 Ebm7 Ab7 Fm7/Bb7 Ebm7/Ab7 ',
 	'Db7 Bb7 Db7 Abm7/Db7 Bb7 Eb7 Fm7 Bb7 Ebm7 Ab7 Fm7/Bb7 Ebm7/Ab7 ',
 	'Db7 Gb7 Db7 Abm7/Db7 Gb7 Gm7/C7 Db7/Bb7 Cb7/Bb7 Ebm7 Ab7/Gb7 Fm7/Bb7 Ebm7/Ab7 ',
-	'DbM7 Cm7/F7 Bbm7/Eb7 Abm7/Db7 Gb7 G°7 Fm7/Bb7 FbM7/Bbb7 Ebm7 Bbbm7/Ebb7 Db7/Bb7 Ebm7/Ab7 ',
-	'DbM7 CM7/Cbm7 Bbm7/Bbbm7 Abm7/Abb7 BbM7 Bbm7 Fm7 Fbm7 Ebm7 Ab7 Fm7/F°7 Ebm7/Ebb ',
-	'DbM7 BbM7 Fm7/Ebm7 Ebbm7/Cb7 BbM7 Bbm7 Fm7 Fbm7 Ebm7 Ebb7 DbM7/Fbm7 Ebm7/Ebb ',
-	'DbM7 BbM7 Fm7/Ebm7 Ebbm7/Abb7 BbM7 BbM7/Eb7 FbM7 FbM7/Bbb7 EbbM7 Ebm7/Ab7 Fm7/Bb7 Ebm7/Ab7 ',
-	'DbM7 Cm7/F7 Bbm7/Eb7 EbbM7/Abb7 BbM7 BbM7/Cb7 Fm7 Fbm7/Bbb7 Ebm7 Ab7 Fm7/Bb7 Ebm7/Ab7 ',
-	'DbM7 Cm7/F7 Bbm7/Eb7 EbbM7/Abb7 GbM7 Gm7/C7 Fm7 Fbm7/Bbb7 Ebm7 Ab7/Gb7 Fm7/Bb7 Ebm7/Ab7 ',
-	'Db#m7/G7 Cm7/F7 Bbm7/Eb7 Abm7/Db7 GbM7 Gbm7/Cb7 FbM7 Fbm7/Bbb7 EbbM7 Ebm7/Ab7 Fm7/Bb7 Ebm7/Ab7 ',
-	'DbM7 Db#m7/G7 CM7 CbM7/BbbM7 GbM7 Gm7/C7 FM7 Fm7/Bb7 EbM7 EbbM7 DbM7/FbM7 EbM7/Ebb '
+	'DbM7 Cm7/F7 Bbm7/Eb7 Abm7/Db7 Gb7 Gdim7 Fm7/Bb7 FbM7/A7 Ebm7 Am7/D7 Db7/Bb7 Ebm7/Ab7 ',
+	'DbM7 CM7/Cbm7 Bbm7/Am7 Abm7/G7 BbM7 Bbm7 Fm7 Fbm7 Ebm7 Ab7 Fm7/Fdim7 Ebm7/D6 ',
+	'DbM7 BbM7 Fm7/Ebm7 Dm7/Cb7 BbM7 Bbm7 Fm7 Fbm7 Ebm7 D7 DbM7/Fbm7 Ebm7/D6 ',
+	'DbM7 BbM7 Fm7/Ebm7 Dm7/G7 BbM7 BbM7/Eb7 FbM7 FbM7/A7 DM7 Ebm7/Ab7 Fm7/Bb7 Ebm7/Ab7 ',
+	'DbM7 Cm7/F7 Bbm7/Eb7 DM7/G7 BbM7 BbM7/Cb7 Fm7 Fbm7/A7 Ebm7 Ab7 Fm7/Bb7 Ebm7/Ab7 ',
+	'DbM7 Cm7/F7 Bbm7/Eb7 DM7/G7 GbM7 Gm7/C7 Fm7 Fbm7/A7 Ebm7 Ab7/Gb7 Fm7/Bb7 Ebm7/Ab7 ',
+	'Dm7/G7 Cm7/F7 Bbm7/Eb7 Abm7/Db7 GbM7 Gbm7/Cb7 FbM7 Fbm7/A7 DM7 Ebm7/Ab7 Fm7/Bb7 Ebm7/Ab7 ',
+	'DbM7 Dm7/G7 CM7 CbM7/AM7 GbM7 Gm7/C7 FM7 Fm7/Bb7 EbM7 DM7 DbM7/FbM7 EbM7/D6 '
 	],
 
 	'D':[
@@ -11034,15 +11034,15 @@ blues_db = {
 	'D7 Bb7 D7 D7 Bb7 Eb7 D7 B7 Bb7 A7 D7 Bb7/A7 ',
 	'D7 Bb7 D7 Am7/D7 Bb7 Eb7 D7/F#m7 B7 Em7 A7 F#m7/B7 Em7/A7 ',
 	'D7 Bb7 D7 Am7/D7 Bb7 Eb7 F#m7 B7 Em7 A7 F#m7/B7 Em7/A7 ',
-	'D7 G#b7 D7 Am7/D7 G#b7 G#m7/C#7 D7/B7 C#b7/B7 Em7 A7/G#b7 F#m7/B7 Em7/A7 ',
-	'DM7 C#m7/F#7 Bm7/E7 Am7/D7 G#b7 G#°7 F#m7/B7 F#bM7/Bb7 Em7 Bbm7/Eb7 D7/B7 Em7/A7 ',
-	'DM7 C#M7/C#bm7 Bm7/Bbm7 Am7/Ab7 BbM7 Bbm7 F#m7 F#bm7 Em7 A7 F#m7/F#°7 Em7/Eb ',
-	'DM7 BbM7 F#m7/Em7 Ebm7/Cb7 BbM7 Bbm7 F#m7 F#bm7 Em7 Eb7 DM7/F#bm7 Em7/Eb ',
-	'DM7 BbM7 F#m7/Em7 Ebm7/Ab7 BbM7 BbM7/Eb7 F#bM7 F#bM7/Bb7 EbM7 Em7/A7 F#m7/B7 Em7/A7 ',
-	'DM7 C#m7/F#7 Bm7/E7 EbM7/Ab7 BbM7 BbM7/C#b7 F#m7 F#bm7/Bb7 Em7 A7 F#m7/B7 Em7/A7 ',
-	'DM7 C#m7/F#7 Bm7/E7 EbM7/Ab7 G#bM7 G#m7/C#7 F#m7 F#bm7/Bb7 Em7 A7/G#b7 F#m7/B7 Em7/A7 ',
-	'D#m7/G#7 C#m7/F#7 Bm7/E7 Am7/D7 G#bM7 G#bm7/C#b7 F#bM7 F#bm7/Bb7 EbM7 Em7/A7 F#m7/B7 Em7/A7 ',
-	'DM7 D#m7/G#7 C#M7 C#bM7/BbM7 G#bM7 G#m7/C#7 F#M7 F#m7/B7 EM7 EbM7 DM7/F#bM7 EM7/Eb '
+	'D7 G7 D7 Am7/D7 G7 G#m7/C#7 D7/B7 C7/B7 Em7 A7/G7 F#m7/B7 Em7/A7 ',
+	'DM7 C#m7/F#7 Bm7/E7 Am7/D7 G7 G#dim7 F#m7/B7 FM7/Bb7 Em7 Bbm7/Eb7 D7/B7 Em7/A7 ',
+	'DM7 C#M7/Cm7 Bm7/Bbm7 Am7/Ab7 BbM7 Bbm7 F#m7 Fm7 Em7 A7 F#m7/F#dim7 Em7/Eb6 ',
+	'DM7 BbM7 F#m7/Em7 Ebm7/Cb7 BbM7 Bbm7 F#m7 Fm7 Em7 Eb7 DM7/Fm7 Em7/Eb6 ',
+	'DM7 BbM7 F#m7/Em7 Ebm7/Ab7 BbM7 BbM7/Eb7 FM7 FM7/Bb7 EbM7 Em7/A7 F#m7/B7 Em7/A7 ',
+	'DM7 C#m7/F#7 Bm7/E7 EbM7/Ab7 BbM7 BbM7/C7 F#m7 Fm7/Bb7 Em7 A7 F#m7/B7 Em7/A7 ',
+	'DM7 C#m7/F#7 Bm7/E7 EbM7/Ab7 GM7 G#m7/C#7 F#m7 Fm7/Bb7 Em7 A7/G7 F#m7/B7 Em7/A7 ',
+	'D#m7/G#7 C#m7/F#7 Bm7/E7 Am7/D7 GM7 Gm7/C7 FM7 Fm7/Bb7 EbM7 Em7/A7 F#m7/B7 Em7/A7 ',
+	'DM7 D#m7/G#7 C#M7 CM7/BbM7 GM7 G#m7/C#7 F#M7 F#m7/B7 EM7 EbM7 DM7/FM7 EM7/Eb6 '
 	],
 
 	'D#':[
@@ -11055,14 +11055,14 @@ blues_db = {
 	'D#7 Bb7 D#7 A#m7/D#7 Bb7 Eb7 D#7/Gm7 C7 Fm7 A#7 Gm7/C7 Fm7/A#7 ',
 	'D#7 Bb7 D#7 A#m7/D#7 Bb7 Eb7 Gm7 C7 Fm7 A#7 Gm7/C7 Fm7/A#7 ',
 	'D#7 Ab7 D#7 A#m7/D#7 Ab7 Am7/D7 D#7/C7 Db7/C7 Fm7 A#7/Ab7 Gm7/C7 Fm7/A#7 ',
-	'D#M7 Dm7/G7 Cm7/F7 A#m7/D#7 Ab7 A°7 Gm7/C7 GbM7/Cb7 Fm7 Cbm7/Fb7 D#7/C7 Fm7/A#7 ',
-	'D#M7 DM7/Dbm7 Cm7/Cbm7 A#m7/A#b7 BbM7 Bbm7 Gm7 Gbm7 Fm7 A#7 Gm7/G°7 Fm7/Fb ',
-	'D#M7 BbM7 Gm7/Fm7 Fbm7/Cb7 BbM7 Bbm7 Gm7 Gbm7 Fm7 Fb7 D#M7/Gbm7 Fm7/Fb ',
-	'D#M7 BbM7 Gm7/Fm7 Fbm7/A#b7 BbM7 BbM7/Eb7 GbM7 GbM7/Cb7 FbM7 Fm7/A#7 Gm7/C7 Fm7/A#7 ',
-	'D#M7 Dm7/G7 Cm7/F7 FbM7/A#b7 BbM7 BbM7/Db7 Gm7 Gbm7/Cb7 Fm7 A#7 Gm7/C7 Fm7/A#7 ',
-	'D#M7 Dm7/G7 Cm7/F7 FbM7/A#b7 AbM7 Am7/D7 Gm7 Gbm7/Cb7 Fm7 A#7/Ab7 Gm7/C7 Fm7/A#7 ',
-	'D##m7/A7 Dm7/G7 Cm7/F7 A#m7/D#7 AbM7 Abm7/Db7 GbM7 Gbm7/Cb7 FbM7 Fm7/A#7 Gm7/C7 Fm7/A#7 ',
-	'D#M7 D##m7/A7 DM7 DbM7/CbM7 AbM7 Am7/D7 GM7 Gm7/C7 FM7 FbM7 D#M7/GbM7 FM7/Fb '
+	'D#M7 Dm7/G7 Cm7/F7 A#m7/D#7 Ab7 Adim7 Gm7/C7 GbM7/Cb7 Fm7 Cbm7/Fb7 D#7/C7 Fm7/A#7 ',
+	'D#M7 DM7/Dbm7 Cm7/Cbm7 A#m7/A7 BbM7 Bbm7 Gm7 Gbm7 Fm7 A#7 Gm7/Gdim7 Fm7/E6 ',
+	'D#M7 BbM7 Gm7/Fm7 Fbm7/Cb7 BbM7 Bbm7 Gm7 Gbm7 Fm7 Fb7 D#M7/Gbm7 Fm7/E6 ',
+	'D#M7 BbM7 Gm7/Fm7 Fbm7/A7 BbM7 BbM7/Eb7 GbM7 GbM7/Cb7 FbM7 Fm7/A#7 Gm7/C7 Fm7/A#7 ',
+	'D#M7 Dm7/G7 Cm7/F7 FbM7/A7 BbM7 BbM7/Db7 Gm7 Gbm7/Cb7 Fm7 A#7 Gm7/C7 Fm7/A#7 ',
+	'D#M7 Dm7/G7 Cm7/F7 FbM7/A7 AbM7 Am7/D7 Gm7 Gbm7/Cb7 Fm7 A#7/Ab7 Gm7/C7 Fm7/A#7 ',
+	'Em7/A7 Dm7/G7 Cm7/F7 A#m7/D#7 AbM7 Abm7/Db7 GbM7 Gbm7/Cb7 FbM7 Fm7/A#7 Gm7/C7 Fm7/A#7 ',
+	'D#M7 Em7/A7 DM7 DbM7/CbM7 AbM7 Am7/D7 GM7 Gm7/C7 FM7 FbM7 D#M7/GbM7 FM7/E6 '
 	],
 
 	'Eb':[
@@ -11075,14 +11075,14 @@ blues_db = {
 	'Eb7 Bb7 Eb7 Bbm7/Eb7 Bb7 Eb7 Eb7/Gm7 C7 Fm7 Bb7 Gm7/C7 Fm7/Bb7 ',
 	'Eb7 Bb7 Eb7 Bbm7/Eb7 Bb7 Eb7 Gm7 C7 Fm7 Bb7 Gm7/C7 Fm7/Bb7 ',
 	'Eb7 Ab7 Eb7 Bbm7/Eb7 Ab7 Am7/D7 Eb7/C7 Db7/C7 Fm7 Bb7/Ab7 Gm7/C7 Fm7/Bb7 ',
-	'EbM7 Dm7/G7 Cm7/F7 Bbm7/Eb7 Ab7 A°7 Gm7/C7 GbM7/Cb7 Fm7 Cbm7/Fb7 Eb7/C7 Fm7/Bb7 ',
-	'EbM7 DM7/Dbm7 Cm7/Cbm7 Bbm7/Bbb7 BbM7 Bbm7 Gm7 Gbm7 Fm7 Bb7 Gm7/G°7 Fm7/Fb ',
-	'EbM7 BbM7 Gm7/Fm7 Fbm7/Cb7 BbM7 Bbm7 Gm7 Gbm7 Fm7 Fb7 EbM7/Gbm7 Fm7/Fb ',
-	'EbM7 BbM7 Gm7/Fm7 Fbm7/Bbb7 BbM7 BbM7/Eb7 GbM7 GbM7/Cb7 FbM7 Fm7/Bb7 Gm7/C7 Fm7/Bb7 ',
-	'EbM7 Dm7/G7 Cm7/F7 FbM7/Bbb7 BbM7 BbM7/Db7 Gm7 Gbm7/Cb7 Fm7 Bb7 Gm7/C7 Fm7/Bb7 ',
-	'EbM7 Dm7/G7 Cm7/F7 FbM7/Bbb7 AbM7 Am7/D7 Gm7 Gbm7/Cb7 Fm7 Bb7/Ab7 Gm7/C7 Fm7/Bb7 ',
-	'Eb#m7/A7 Dm7/G7 Cm7/F7 Bbm7/Eb7 AbM7 Abm7/Db7 GbM7 Gbm7/Cb7 FbM7 Fm7/Bb7 Gm7/C7 Fm7/Bb7 ',
-	'EbM7 Eb#m7/A7 DM7 DbM7/CbM7 AbM7 Am7/D7 GM7 Gm7/C7 FM7 FbM7 EbM7/GbM7 FM7/Fb '
+	'EbM7 Dm7/G7 Cm7/F7 Bbm7/Eb7 Ab7 Adim7 Gm7/C7 GbM7/Cb7 Fm7 Cbm7/Fb7 Eb7/C7 Fm7/Bb7 ',
+	'EbM7 DM7/Dbm7 Cm7/Cbm7 Bbm7/A7 BbM7 Bbm7 Gm7 Gbm7 Fm7 Bb7 Gm7/Gdim7 Fm7/E6 ',
+	'EbM7 BbM7 Gm7/Fm7 Fbm7/Cb7 BbM7 Bbm7 Gm7 Gbm7 Fm7 Fb7 EbM7/Gbm7 Fm7/E6 ',
+	'EbM7 BbM7 Gm7/Fm7 Fbm7/A7 BbM7 BbM7/Eb7 GbM7 GbM7/Cb7 FbM7 Fm7/Bb7 Gm7/C7 Fm7/Bb7 ',
+	'EbM7 Dm7/G7 Cm7/F7 FbM7/A7 BbM7 BbM7/Db7 Gm7 Gbm7/Cb7 Fm7 Bb7 Gm7/C7 Fm7/Bb7 ',
+	'EbM7 Dm7/G7 Cm7/F7 FbM7/A7 AbM7 Am7/D7 Gm7 Gbm7/Cb7 Fm7 Bb7/Ab7 Gm7/C7 Fm7/Bb7 ',
+	'Em7/A7 Dm7/G7 Cm7/F7 Bbm7/Eb7 AbM7 Abm7/Db7 GbM7 Gbm7/Cb7 FbM7 Fm7/Bb7 Gm7/C7 Fm7/Bb7 ',
+	'EbM7 Em7/A7 DM7 DbM7/CbM7 AbM7 Am7/D7 GM7 Gm7/C7 FM7 FbM7 EbM7/GbM7 FM7/E6 '
 	],
 
 	'E':[
@@ -11091,18 +11091,18 @@ blues_db = {
 	'E7 Bb7 E7 E7 Bb7 Bb7 E7 E7 F#7 B7 E7 B7 ',
 	'E7 Bb7 E7 E7 Bb7 Bb7 E7 C#7 F#7 B7 E7 B7 ',
 	'E7 Bb7 E7 E7 Bb7 Bb7 E7 C#7 F#m7 B7 E7 F#m7/B7 ',
-	'E7 Bb7 E7 E7 Bb7 Eb7 E7 C#7 C#b7 B7 E7 C#b7/B7 ',
+	'E7 Bb7 E7 E7 Bb7 Eb7 E7 C#7 C7 B7 E7 C7/B7 ',
 	'E7 Bb7 E7 Bm7/E7 Bb7 Eb7 E7/G#m7 C#7 F#m7 B7 G#m7/C#7 F#m7/B7 ',
 	'E7 Bb7 E7 Bm7/E7 Bb7 Eb7 G#m7 C#7 F#m7 B7 G#m7/C#7 F#m7/B7 ',
-	'E7 A#b7 E7 Bm7/E7 A#b7 A#m7/D#7 E7/C#7 D#b7/C#7 F#m7 B7/A#b7 G#m7/C#7 F#m7/B7 ',
-	'EM7 D#m7/G#7 C#m7/F#7 Bm7/E7 A#b7 A#°7 G#m7/C#7 G#bM7/C#b7 F#m7 C#bm7/F#b7 E7/C#7 F#m7/B7 ',
-	'EM7 D#M7/D#bm7 C#m7/C#bm7 Bm7/Bb7 BbM7 Bbm7 G#m7 G#bm7 F#m7 B7 G#m7/G#°7 F#m7/F#b ',
-	'EM7 BbM7 G#m7/F#m7 F#bm7/Cb7 BbM7 Bbm7 G#m7 G#bm7 F#m7 F#b7 EM7/G#bm7 F#m7/F#b ',
-	'EM7 BbM7 G#m7/F#m7 F#bm7/Bb7 BbM7 BbM7/Eb7 G#bM7 G#bM7/C#b7 F#bM7 F#m7/B7 G#m7/C#7 F#m7/B7 ',
-	'EM7 D#m7/G#7 C#m7/F#7 F#bM7/Bb7 BbM7 BbM7/D#b7 G#m7 G#bm7/C#b7 F#m7 B7 G#m7/C#7 F#m7/B7 ',
-	'EM7 D#m7/G#7 C#m7/F#7 F#bM7/Bb7 A#bM7 A#m7/D#7 G#m7 G#bm7/C#b7 F#m7 B7/A#b7 G#m7/C#7 F#m7/B7 ',
-	'E#m7/A#7 D#m7/G#7 C#m7/F#7 Bm7/E7 A#bM7 A#bm7/D#b7 G#bM7 G#bm7/C#b7 F#bM7 F#m7/B7 G#m7/C#7 F#m7/B7 ',
-	'EM7 E#m7/A#7 D#M7 D#bM7/C#bM7 A#bM7 A#m7/D#7 G#M7 G#m7/C#7 F#M7 F#bM7 EM7/G#bM7 F#M7/F#b '
+	'E7 A7 E7 Bm7/E7 A7 A#m7/D#7 E7/C#7 D7/C#7 F#m7 B7/A7 G#m7/C#7 F#m7/B7 ',
+	'EM7 D#m7/G#7 C#m7/F#7 Bm7/E7 A7 A#dim7 G#m7/C#7 GM7/C7 F#m7 Cm7/F7 E7/C#7 F#m7/B7 ',
+	'EM7 D#M7/Dm7 C#m7/Cm7 Bm7/Bb7 BbM7 Bbm7 G#m7 Gm7 F#m7 B7 G#m7/G#dim7 F#m7/F6 ',
+	'EM7 BbM7 G#m7/F#m7 Fm7/Cb7 BbM7 Bbm7 G#m7 Gm7 F#m7 F7 EM7/Gm7 F#m7/F6 ',
+	'EM7 BbM7 G#m7/F#m7 Fm7/Bb7 BbM7 BbM7/Eb7 GM7 GM7/C7 FM7 F#m7/B7 G#m7/C#7 F#m7/B7 ',
+	'EM7 D#m7/G#7 C#m7/F#7 FM7/Bb7 BbM7 BbM7/D7 G#m7 Gm7/C7 F#m7 B7 G#m7/C#7 F#m7/B7 ',
+	'EM7 D#m7/G#7 C#m7/F#7 FM7/Bb7 AM7 A#m7/D#7 G#m7 Gm7/C7 F#m7 B7/A7 G#m7/C#7 F#m7/B7 ',
+	'E#m7/A#7 D#m7/G#7 C#m7/F#7 Bm7/E7 AM7 Am7/D7 GM7 Gm7/C7 FM7 F#m7/B7 G#m7/C#7 F#m7/B7 ',
+	'EM7 E#m7/A#7 D#M7 DM7/CM7 AM7 A#m7/D#7 G#M7 G#m7/C#7 F#M7 FM7 EM7/GM7 F#M7/F6 '
 	],
 
 	'F':[
@@ -11114,15 +11114,15 @@ blues_db = {
 	'F7 Bb7 F7 F7 Bb7 Eb7 F7 D7 Db7 C7 F7 Db7/C7 ',
 	'F7 Bb7 F7 Cm7/F7 Bb7 Eb7 F7/Am7 D7 Gm7 C7 Am7/D7 Gm7/C7 ',
 	'F7 Bb7 F7 Cm7/F7 Bb7 Eb7 Am7 D7 Gm7 C7 Am7/D7 Gm7/C7 ',
-	'F7 Cbb7 F7 Cm7/F7 Cbb7 Cbm7/E7 F7/D7 Eb7/D7 Gm7 C7/Cbb7 Am7/D7 Gm7/C7 ',
-	'FM7 Em7/A7 Dm7/G7 Cm7/F7 Cbb7 Cb°7 Am7/D7 AbM7/Db7 Gm7 Dbm7/Gb7 F7/D7 Gm7/C7 ',
-	'FM7 EM7/Ebm7 Dm7/Dbm7 Cm7/Cb7 BbM7 Bbm7 Am7 Abm7 Gm7 C7 Am7/A°7 Gm7/Gb ',
-	'FM7 BbM7 Am7/Gm7 Gbm7/Cb7 BbM7 Bbm7 Am7 Abm7 Gm7 Gb7 FM7/Abm7 Gm7/Gb ',
+	'F7 Bb7 F7 Cm7/F7 Bb7 Cbm7/E7 F7/D7 Eb7/D7 Gm7 C7/Bb7 Am7/D7 Gm7/C7 ',
+	'FM7 Em7/A7 Dm7/G7 Cm7/F7 Bb7 Cbdim7 Am7/D7 AbM7/Db7 Gm7 Dbm7/Gb7 F7/D7 Gm7/C7 ',
+	'FM7 EM7/Ebm7 Dm7/Dbm7 Cm7/Cb7 BbM7 Bbm7 Am7 Abm7 Gm7 C7 Am7/Adim7 Gm7/Gb6 ',
+	'FM7 BbM7 Am7/Gm7 Gbm7/Cb7 BbM7 Bbm7 Am7 Abm7 Gm7 Gb7 FM7/Abm7 Gm7/Gb6 ',
 	'FM7 BbM7 Am7/Gm7 Gbm7/Cb7 BbM7 BbM7/Eb7 AbM7 AbM7/Db7 GbM7 Gm7/C7 Am7/D7 Gm7/C7 ',
 	'FM7 Em7/A7 Dm7/G7 GbM7/Cb7 BbM7 BbM7/Eb7 Am7 Abm7/Db7 Gm7 C7 Am7/D7 Gm7/C7 ',
-	'FM7 Em7/A7 Dm7/G7 GbM7/Cb7 CbbM7 Cbm7/E7 Am7 Abm7/Db7 Gm7 C7/Cbb7 Am7/D7 Gm7/C7 ',
-	'F#m7/Cb7 Em7/A7 Dm7/G7 Cm7/F7 CbbM7 Cbbm7/Eb7 AbM7 Abm7/Db7 GbM7 Gm7/C7 Am7/D7 Gm7/C7 ',
-	'FM7 F#m7/Cb7 EM7 EbM7/DbM7 CbbM7 Cbm7/E7 AM7 Am7/D7 GM7 GbM7 FM7/AbM7 GM7/Gb '
+	'FM7 Em7/A7 Dm7/G7 GbM7/Cb7 BbM7 Cbm7/E7 Am7 Abm7/Db7 Gm7 C7/Bb7 Am7/D7 Gm7/C7 ',
+	'F#m7/Cb7 Em7/A7 Dm7/G7 Cm7/F7 BbM7 Bbm7/Eb7 AbM7 Abm7/Db7 GbM7 Gm7/C7 Am7/D7 Gm7/C7 ',
+	'FM7 F#m7/Cb7 EM7 EbM7/DbM7 BbM7 Cbm7/E7 AM7 Am7/D7 GM7 GbM7 FM7/AbM7 GM7/Gb6 '
 	],
 
 	'F#':[
@@ -11131,18 +11131,18 @@ blues_db = {
 	'F#7 Bb7 F#7 F#7 Bb7 Bb7 F#7 F#7 G#7 C#7 F#7 C#7 ',
 	'F#7 Bb7 F#7 F#7 Bb7 Bb7 F#7 D#7 G#7 C#7 F#7 C#7 ',
 	'F#7 Bb7 F#7 F#7 Bb7 Bb7 F#7 D#7 G#m7 C#7 F#7 G#m7/C#7 ',
-	'F#7 Bb7 F#7 F#7 Bb7 Eb7 F#7 D#7 D#b7 C#7 F#7 D#b7/C#7 ',
+	'F#7 Bb7 F#7 F#7 Bb7 Eb7 F#7 D#7 D7 C#7 F#7 D7/C#7 ',
 	'F#7 Bb7 F#7 C#m7/F#7 Bb7 Eb7 F#7/A#m7 D#7 G#m7 C#7 A#m7/D#7 G#m7/C#7 ',
 	'F#7 Bb7 F#7 C#m7/F#7 Bb7 Eb7 A#m7 D#7 G#m7 C#7 A#m7/D#7 G#m7/C#7 ',
 	'F#7 Cb7 F#7 C#m7/F#7 Cb7 Cm7/F7 F#7/D#7 Fb7/D#7 G#m7 C#7/Cb7 A#m7/D#7 G#m7/C#7 ',
-	'F#M7 Fm7/A#7 D#m7/G#7 C#m7/F#7 Cb7 C°7 A#m7/D#7 A#bM7/D#b7 G#m7 D#bm7/G#b7 F#7/D#7 G#m7/C#7 ',
-	'F#M7 FM7/Fbm7 D#m7/D#bm7 C#m7/C#b7 BbM7 Bbm7 A#m7 A#bm7 G#m7 C#7 A#m7/A#°7 G#m7/G#b ',
-	'F#M7 BbM7 A#m7/G#m7 G#bm7/Cb7 BbM7 Bbm7 A#m7 A#bm7 G#m7 G#b7 F#M7/A#bm7 G#m7/G#b ',
-	'F#M7 BbM7 A#m7/G#m7 G#bm7/C#b7 BbM7 BbM7/Eb7 A#bM7 A#bM7/D#b7 G#bM7 G#m7/C#7 A#m7/D#7 G#m7/C#7 ',
-	'F#M7 Fm7/A#7 D#m7/G#7 G#bM7/C#b7 BbM7 BbM7/Fb7 A#m7 A#bm7/D#b7 G#m7 C#7 A#m7/D#7 G#m7/C#7 ',
-	'F#M7 Fm7/A#7 D#m7/G#7 G#bM7/C#b7 CbM7 Cm7/F7 A#m7 A#bm7/D#b7 G#m7 C#7/Cb7 A#m7/D#7 G#m7/C#7 ',
-	'F##m7/C7 Fm7/A#7 D#m7/G#7 C#m7/F#7 CbM7 Cbm7/Fb7 A#bM7 A#bm7/D#b7 G#bM7 G#m7/C#7 A#m7/D#7 G#m7/C#7 ',
-	'F#M7 F##m7/C7 FM7 FbM7/D#bM7 CbM7 Cm7/F7 A#M7 A#m7/D#7 G#M7 G#bM7 F#M7/A#bM7 G#M7/G#b '
+	'F#M7 Fm7/A#7 D#m7/G#7 C#m7/F#7 Cb7 Cdim7 A#m7/D#7 AM7/D7 G#m7 Dm7/G7 F#7/D#7 G#m7/C#7 ',
+	'F#M7 FM7/Fbm7 D#m7/Dm7 C#m7/C7 BbM7 Bbm7 A#m7 Am7 G#m7 C#7 A#m7/A#dim7 G#m7/G6 ',
+	'F#M7 BbM7 A#m7/G#m7 Gm7/Cb7 BbM7 Bbm7 A#m7 Am7 G#m7 G7 F#M7/Am7 G#m7/G6 ',
+	'F#M7 BbM7 A#m7/G#m7 Gm7/C7 BbM7 BbM7/Eb7 AM7 AM7/D7 GM7 G#m7/C#7 A#m7/D#7 G#m7/C#7 ',
+	'F#M7 Fm7/A#7 D#m7/G#7 GM7/C7 BbM7 BbM7/Fb7 A#m7 Am7/D7 G#m7 C#7 A#m7/D#7 G#m7/C#7 ',
+	'F#M7 Fm7/A#7 D#m7/G#7 GM7/C7 CbM7 Cm7/F7 A#m7 Am7/D7 G#m7 C#7/Cb7 A#m7/D#7 G#m7/C#7 ',
+	'Gm7/C7 Fm7/A#7 D#m7/G#7 C#m7/F#7 CbM7 Cbm7/Fb7 AM7 Am7/D7 GM7 G#m7/C#7 A#m7/D#7 G#m7/C#7 ',
+	'F#M7 Gm7/C7 FM7 FbM7/DM7 CbM7 Cm7/F7 A#M7 A#m7/D#7 G#M7 GM7 F#M7/AM7 G#M7/G6 '
 	],
 
 	'Gb':[
@@ -11151,18 +11151,18 @@ blues_db = {
 	'Gb7 Bb7 Gb7 Gb7 Bb7 Bb7 Gb7 Gb7 Ab7 Db7 Gb7 Db7 ',
 	'Gb7 Bb7 Gb7 Gb7 Bb7 Bb7 Gb7 Eb7 Ab7 Db7 Gb7 Db7 ',
 	'Gb7 Bb7 Gb7 Gb7 Bb7 Bb7 Gb7 Eb7 Abm7 Db7 Gb7 Abm7/Db7 ',
-	'Gb7 Bb7 Gb7 Gb7 Bb7 Eb7 Gb7 Eb7 Ebb7 Db7 Gb7 Ebb7/Db7 ',
+	'Gb7 Bb7 Gb7 Gb7 Bb7 Eb7 Gb7 Eb7 D7 Db7 Gb7 D7/Db7 ',
 	'Gb7 Bb7 Gb7 Dbm7/Gb7 Bb7 Eb7 Gb7/Bbm7 Eb7 Abm7 Db7 Bbm7/Eb7 Abm7/Db7 ',
 	'Gb7 Bb7 Gb7 Dbm7/Gb7 Bb7 Eb7 Bbm7 Eb7 Abm7 Db7 Bbm7/Eb7 Abm7/Db7 ',
 	'Gb7 Cb7 Gb7 Dbm7/Gb7 Cb7 Cm7/F7 Gb7/Eb7 Fb7/Eb7 Abm7 Db7/Cb7 Bbm7/Eb7 Abm7/Db7 ',
-	'GbM7 Fm7/Bb7 Ebm7/Ab7 Dbm7/Gb7 Cb7 C°7 Bbm7/Eb7 BbbM7/Ebb7 Abm7 Ebbm7/Abb7 Gb7/Eb7 Abm7/Db7 ',
-	'GbM7 FM7/Fbm7 Ebm7/Ebbm7 Dbm7/Dbb7 BbM7 Bbm7 Bbm7 Bbbm7 Abm7 Db7 Bbm7/Bb°7 Abm7/Abb ',
-	'GbM7 BbM7 Bbm7/Abm7 Abbm7/Cb7 BbM7 Bbm7 Bbm7 Bbbm7 Abm7 Abb7 GbM7/Bbbm7 Abm7/Abb ',
-	'GbM7 BbM7 Bbm7/Abm7 Abbm7/Dbb7 BbM7 BbM7/Eb7 BbbM7 BbbM7/Ebb7 AbbM7 Abm7/Db7 Bbm7/Eb7 Abm7/Db7 ',
-	'GbM7 Fm7/Bb7 Ebm7/Ab7 AbbM7/Dbb7 BbM7 BbM7/Fb7 Bbm7 Bbbm7/Ebb7 Abm7 Db7 Bbm7/Eb7 Abm7/Db7 ',
-	'GbM7 Fm7/Bb7 Ebm7/Ab7 AbbM7/Dbb7 CbM7 Cm7/F7 Bbm7 Bbbm7/Ebb7 Abm7 Db7/Cb7 Bbm7/Eb7 Abm7/Db7 ',
-	'Gb#m7/C7 Fm7/Bb7 Ebm7/Ab7 Dbm7/Gb7 CbM7 Cbm7/Fb7 BbbM7 Bbbm7/Ebb7 AbbM7 Abm7/Db7 Bbm7/Eb7 Abm7/Db7 ',
-	'GbM7 Gb#m7/C7 FM7 FbM7/EbbM7 CbM7 Cm7/F7 BbM7 Bbm7/Eb7 AbM7 AbbM7 GbM7/BbbM7 AbM7/Abb '
+	'GbM7 Fm7/Bb7 Ebm7/Ab7 Dbm7/Gb7 Cb7 Cdim7 Bbm7/Eb7 AM7/D7 Abm7 Dm7/G7 Gb7/Eb7 Abm7/Db7 ',
+	'GbM7 FM7/Fbm7 Ebm7/Dm7 Dbm7/C7 BbM7 Bbm7 Bbm7 Am7 Abm7 Db7 Bbm7/Bbdim7 Abm7/G6 ',
+	'GbM7 BbM7 Bbm7/Abm7 Gm7/Cb7 BbM7 Bbm7 Bbm7 Am7 Abm7 G7 GbM7/Am7 Abm7/G6 ',
+	'GbM7 BbM7 Bbm7/Abm7 Gm7/C7 BbM7 BbM7/Eb7 AM7 AM7/D7 GM7 Abm7/Db7 Bbm7/Eb7 Abm7/Db7 ',
+	'GbM7 Fm7/Bb7 Ebm7/Ab7 GM7/C7 BbM7 BbM7/Fb7 Bbm7 Am7/D7 Abm7 Db7 Bbm7/Eb7 Abm7/Db7 ',
+	'GbM7 Fm7/Bb7 Ebm7/Ab7 GM7/C7 CbM7 Cm7/F7 Bbm7 Am7/D7 Abm7 Db7/Cb7 Bbm7/Eb7 Abm7/Db7 ',
+	'Gm7/C7 Fm7/Bb7 Ebm7/Ab7 Dbm7/Gb7 CbM7 Cbm7/Fb7 AM7 Am7/D7 GM7 Abm7/Db7 Bbm7/Eb7 Abm7/Db7 ',
+	'GbM7 Gm7/C7 FM7 FbM7/DM7 CbM7 Cm7/F7 BbM7 Bbm7/Eb7 AbM7 GM7 GbM7/AM7 AbM7/G6 '
 	],
 
 	'G':[
@@ -11174,15 +11174,15 @@ blues_db = {
 	'G7 Bb7 G7 G7 Bb7 Eb7 G7 E7 Eb7 D7 G7 Eb7/D7 ',
 	'G7 Bb7 G7 Dm7/G7 Bb7 Eb7 G7/Bm7 E7 Am7 D7 Bm7/E7 Am7/D7 ',
 	'G7 Bb7 G7 Dm7/G7 Bb7 Eb7 Bm7 E7 Am7 D7 Bm7/E7 Am7/D7 ',
-	'G7 C#b7 G7 Dm7/G7 C#b7 C#m7/F#7 G7/E7 F#b7/E7 Am7 D7/C#b7 Bm7/E7 Am7/D7 ',
-	'GM7 F#m7/B7 Em7/A7 Dm7/G7 C#b7 C#°7 Bm7/E7 BbM7/Eb7 Am7 Ebm7/Ab7 G7/E7 Am7/D7 ',
-	'GM7 F#M7/F#bm7 Em7/Ebm7 Dm7/Db7 BbM7 Bbm7 Bm7 Bbm7 Am7 D7 Bm7/B°7 Am7/Ab ',
-	'GM7 BbM7 Bm7/Am7 Abm7/Cb7 BbM7 Bbm7 Bm7 Bbm7 Am7 Ab7 GM7/Bbm7 Am7/Ab ',
+	'G7 C7 G7 Dm7/G7 C7 C#m7/F#7 G7/E7 F7/E7 Am7 D7/C7 Bm7/E7 Am7/D7 ',
+	'GM7 F#m7/B7 Em7/A7 Dm7/G7 C7 C#dim7 Bm7/E7 BbM7/Eb7 Am7 Ebm7/Ab7 G7/E7 Am7/D7 ',
+	'GM7 F#M7/Fm7 Em7/Ebm7 Dm7/Db7 BbM7 Bbm7 Bm7 Bbm7 Am7 D7 Bm7/Bdim7 Am7/Ab6 ',
+	'GM7 BbM7 Bm7/Am7 Abm7/Cb7 BbM7 Bbm7 Bm7 Bbm7 Am7 Ab7 GM7/Bbm7 Am7/Ab6 ',
 	'GM7 BbM7 Bm7/Am7 Abm7/Db7 BbM7 BbM7/Eb7 BbM7 BbM7/Eb7 AbM7 Am7/D7 Bm7/E7 Am7/D7 ',
-	'GM7 F#m7/B7 Em7/A7 AbM7/Db7 BbM7 BbM7/F#b7 Bm7 Bbm7/Eb7 Am7 D7 Bm7/E7 Am7/D7 ',
-	'GM7 F#m7/B7 Em7/A7 AbM7/Db7 C#bM7 C#m7/F#7 Bm7 Bbm7/Eb7 Am7 D7/C#b7 Bm7/E7 Am7/D7 ',
-	'G#m7/C#7 F#m7/B7 Em7/A7 Dm7/G7 C#bM7 C#bm7/F#b7 BbM7 Bbm7/Eb7 AbM7 Am7/D7 Bm7/E7 Am7/D7 ',
-	'GM7 G#m7/C#7 F#M7 F#bM7/EbM7 C#bM7 C#m7/F#7 BM7 Bm7/E7 AM7 AbM7 GM7/BbM7 AM7/Ab '
+	'GM7 F#m7/B7 Em7/A7 AbM7/Db7 BbM7 BbM7/F7 Bm7 Bbm7/Eb7 Am7 D7 Bm7/E7 Am7/D7 ',
+	'GM7 F#m7/B7 Em7/A7 AbM7/Db7 CM7 C#m7/F#7 Bm7 Bbm7/Eb7 Am7 D7/C7 Bm7/E7 Am7/D7 ',
+	'G#m7/C#7 F#m7/B7 Em7/A7 Dm7/G7 CM7 Cm7/F7 BbM7 Bbm7/Eb7 AbM7 Am7/D7 Bm7/E7 Am7/D7 ',
+	'GM7 G#m7/C#7 F#M7 FM7/EbM7 CM7 C#m7/F#7 BM7 Bm7/E7 AM7 AbM7 GM7/BbM7 AM7/Ab6 '
 	],
 
 	'G#':[
@@ -11195,14 +11195,14 @@ blues_db = {
 	'G#7 Bb7 G#7 D#m7/G#7 Bb7 Eb7 G#7/Cm7 F7 A#m7 D#7 Cm7/F7 A#m7/D#7 ',
 	'G#7 Bb7 G#7 D#m7/G#7 Bb7 Eb7 Cm7 F7 A#m7 D#7 Cm7/F7 A#m7/D#7 ',
 	'G#7 Db7 G#7 D#m7/G#7 Db7 Dm7/G7 G#7/F7 Gb7/F7 A#m7 D#7/Db7 Cm7/F7 A#m7/D#7 ',
-	'G#M7 Gm7/C7 Fm7/A#7 D#m7/G#7 Db7 D°7 Cm7/F7 CbM7/Fb7 A#m7 Fbm7/A#b7 G#7/F7 A#m7/D#7 ',
-	'G#M7 GM7/Gbm7 Fm7/Fbm7 D#m7/D#b7 BbM7 Bbm7 Cm7 Cbm7 A#m7 D#7 Cm7/C°7 A#m7/A#b ',
-	'G#M7 BbM7 Cm7/A#m7 A#bm7/Cb7 BbM7 Bbm7 Cm7 Cbm7 A#m7 A#b7 G#M7/Cbm7 A#m7/A#b ',
-	'G#M7 BbM7 Cm7/A#m7 A#bm7/D#b7 BbM7 BbM7/Eb7 CbM7 CbM7/Fb7 A#bM7 A#m7/D#7 Cm7/F7 A#m7/D#7 ',
-	'G#M7 Gm7/C7 Fm7/A#7 A#bM7/D#b7 BbM7 BbM7/Gb7 Cm7 Cbm7/Fb7 A#m7 D#7 Cm7/F7 A#m7/D#7 ',
-	'G#M7 Gm7/C7 Fm7/A#7 A#bM7/D#b7 DbM7 Dm7/G7 Cm7 Cbm7/Fb7 A#m7 D#7/Db7 Cm7/F7 A#m7/D#7 ',
-	'G##m7/D7 Gm7/C7 Fm7/A#7 D#m7/G#7 DbM7 Dbm7/Gb7 CbM7 Cbm7/Fb7 A#bM7 A#m7/D#7 Cm7/F7 A#m7/D#7 ',
-	'G#M7 G##m7/D7 GM7 GbM7/FbM7 DbM7 Dm7/G7 CM7 Cm7/F7 A#M7 A#bM7 G#M7/CbM7 A#M7/A#b '
+	'G#M7 Gm7/C7 Fm7/A#7 D#m7/G#7 Db7 Ddim7 Cm7/F7 CbM7/Fb7 A#m7 Fbm7/A7 G#7/F7 A#m7/D#7 ',
+	'G#M7 GM7/Gbm7 Fm7/Fbm7 D#m7/D7 BbM7 Bbm7 Cm7 Cbm7 A#m7 D#7 Cm7/Cdim7 A#m7/A6 ',
+	'G#M7 BbM7 Cm7/A#m7 Am7/Cb7 BbM7 Bbm7 Cm7 Cbm7 A#m7 A7 G#M7/Cbm7 A#m7/A6 ',
+	'G#M7 BbM7 Cm7/A#m7 Am7/D7 BbM7 BbM7/Eb7 CbM7 CbM7/Fb7 AM7 A#m7/D#7 Cm7/F7 A#m7/D#7 ',
+	'G#M7 Gm7/C7 Fm7/A#7 AM7/D7 BbM7 BbM7/Gb7 Cm7 Cbm7/Fb7 A#m7 D#7 Cm7/F7 A#m7/D#7 ',
+	'G#M7 Gm7/C7 Fm7/A#7 AM7/D7 DbM7 Dm7/G7 Cm7 Cbm7/Fb7 A#m7 D#7/Db7 Cm7/F7 A#m7/D#7 ',
+	'Am7/D7 Gm7/C7 Fm7/A#7 D#m7/G#7 DbM7 Dbm7/Gb7 CbM7 Cbm7/Fb7 AM7 A#m7/D#7 Cm7/F7 A#m7/D#7 ',
+	'G#M7 Am7/D7 GM7 GbM7/FbM7 DbM7 Dm7/G7 CM7 Cm7/F7 A#M7 AM7 G#M7/CbM7 A#M7/A6 '
 	],
 
 	'A':[
@@ -11211,18 +11211,18 @@ blues_db = {
 	'A7 Bb7 A7 A7 Bb7 Bb7 A7 A7 B7 E7 A7 E7 ',
 	'A7 Bb7 A7 A7 Bb7 Bb7 A7 F#7 B7 E7 A7 E7 ',
 	'A7 Bb7 A7 A7 Bb7 Bb7 A7 F#7 Bm7 E7 A7 Bm7/E7 ',
-	'A7 Bb7 A7 A7 Bb7 Eb7 A7 F#7 F#b7 E7 A7 F#b7/E7 ',
+	'A7 Bb7 A7 A7 Bb7 Eb7 A7 F#7 F7 E7 A7 F7/E7 ',
 	'A7 Bb7 A7 Em7/A7 Bb7 Eb7 A7/C#m7 F#7 Bm7 E7 C#m7/F#7 Bm7/E7 ',
 	'A7 Bb7 A7 Em7/A7 Bb7 Eb7 C#m7 F#7 Bm7 E7 C#m7/F#7 Bm7/E7 ',
-	'A7 D#b7 A7 Em7/A7 D#b7 D#m7/G#7 A7/F#7 G#b7/F#7 Bm7 E7/D#b7 C#m7/F#7 Bm7/E7 ',
-	'AM7 G#m7/C#7 F#m7/B7 Em7/A7 D#b7 D#°7 C#m7/F#7 C#bM7/F#b7 Bm7 F#bm7/Bb7 A7/F#7 Bm7/E7 ',
-	'AM7 G#M7/G#bm7 F#m7/F#bm7 Em7/Eb7 BbM7 Bbm7 C#m7 C#bm7 Bm7 E7 C#m7/C#°7 Bm7/Bb ',
-	'AM7 BbM7 C#m7/Bm7 Bbm7/Cb7 BbM7 Bbm7 C#m7 C#bm7 Bm7 Bb7 AM7/C#bm7 Bm7/Bb ',
-	'AM7 BbM7 C#m7/Bm7 Bbm7/Eb7 BbM7 BbM7/Eb7 C#bM7 C#bM7/F#b7 BbM7 Bm7/E7 C#m7/F#7 Bm7/E7 ',
-	'AM7 G#m7/C#7 F#m7/B7 BbM7/Eb7 BbM7 BbM7/G#b7 C#m7 C#bm7/F#b7 Bm7 E7 C#m7/F#7 Bm7/E7 ',
-	'AM7 G#m7/C#7 F#m7/B7 BbM7/Eb7 D#bM7 D#m7/G#7 C#m7 C#bm7/F#b7 Bm7 E7/D#b7 C#m7/F#7 Bm7/E7 ',
-	'A#m7/D#7 G#m7/C#7 F#m7/B7 Em7/A7 D#bM7 D#bm7/G#b7 C#bM7 C#bm7/F#b7 BbM7 Bm7/E7 C#m7/F#7 Bm7/E7 ',
-	'AM7 A#m7/D#7 G#M7 G#bM7/F#bM7 D#bM7 D#m7/G#7 C#M7 C#m7/F#7 BM7 BbM7 AM7/C#bM7 BM7/Bb '
+	'A7 D7 A7 Em7/A7 D7 D#m7/G#7 A7/F#7 G7/F#7 Bm7 E7/D7 C#m7/F#7 Bm7/E7 ',
+	'AM7 G#m7/C#7 F#m7/B7 Em7/A7 D7 D#dim7 C#m7/F#7 CM7/F7 Bm7 Fm7/Bb7 A7/F#7 Bm7/E7 ',
+	'AM7 G#M7/Gm7 F#m7/Fm7 Em7/Eb7 BbM7 Bbm7 C#m7 Cm7 Bm7 E7 C#m7/C#dim7 Bm7/Bb6 ',
+	'AM7 BbM7 C#m7/Bm7 Bbm7/Cb7 BbM7 Bbm7 C#m7 Cm7 Bm7 Bb7 AM7/Cm7 Bm7/Bb6 ',
+	'AM7 BbM7 C#m7/Bm7 Bbm7/Eb7 BbM7 BbM7/Eb7 CM7 CM7/F7 BbM7 Bm7/E7 C#m7/F#7 Bm7/E7 ',
+	'AM7 G#m7/C#7 F#m7/B7 BbM7/Eb7 BbM7 BbM7/G7 C#m7 Cm7/F7 Bm7 E7 C#m7/F#7 Bm7/E7 ',
+	'AM7 G#m7/C#7 F#m7/B7 BbM7/Eb7 DM7 D#m7/G#7 C#m7 Cm7/F7 Bm7 E7/D7 C#m7/F#7 Bm7/E7 ',
+	'A#m7/D#7 G#m7/C#7 F#m7/B7 Em7/A7 DM7 Dm7/G7 CM7 Cm7/F7 BbM7 Bm7/E7 C#m7/F#7 Bm7/E7 ',
+	'AM7 A#m7/D#7 G#M7 GM7/FM7 DM7 D#m7/G#7 C#M7 C#m7/F#7 BM7 BbM7 AM7/CM7 BM7/Bb6 '
 	],
 
 	'A#':[
@@ -11235,14 +11235,14 @@ blues_db = {
 	'A#7 Bb7 A#7 Fm7/A#7 Bb7 Eb7 A#7/Dm7 G7 Cm7 F7 Dm7/G7 Cm7/F7 ',
 	'A#7 Bb7 A#7 Fm7/A#7 Bb7 Eb7 Dm7 G7 Cm7 F7 Dm7/G7 Cm7/F7 ',
 	'A#7 Eb7 A#7 Fm7/A#7 Eb7 Em7/A7 A#7/G7 Ab7/G7 Cm7 F7/Eb7 Dm7/G7 Cm7/F7 ',
-	'A#M7 Am7/D7 Gm7/C7 Fm7/A#7 Eb7 E°7 Dm7/G7 DbM7/Gb7 Cm7 Gbm7/Cb7 A#7/G7 Cm7/F7 ',
-	'A#M7 AM7/Abm7 Gm7/Gbm7 Fm7/Fb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 F7 Dm7/D°7 Cm7/Cb ',
-	'A#M7 BbM7 Dm7/Cm7 Cbm7/Cb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 Cb7 A#M7/Dbm7 Cm7/Cb ',
+	'A#M7 Am7/D7 Gm7/C7 Fm7/A#7 Eb7 Edim7 Dm7/G7 DbM7/Gb7 Cm7 Gbm7/Cb7 A#7/G7 Cm7/F7 ',
+	'A#M7 AM7/Abm7 Gm7/Gbm7 Fm7/Fb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 F7 Dm7/Ddim7 Cm7/B6 ',
+	'A#M7 BbM7 Dm7/Cm7 Cbm7/Cb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 Cb7 A#M7/Dbm7 Cm7/B6 ',
 	'A#M7 BbM7 Dm7/Cm7 Cbm7/Fb7 BbM7 BbM7/Eb7 DbM7 DbM7/Gb7 CbM7 Cm7/F7 Dm7/G7 Cm7/F7 ',
 	'A#M7 Am7/D7 Gm7/C7 CbM7/Fb7 BbM7 BbM7/Ab7 Dm7 Dbm7/Gb7 Cm7 F7 Dm7/G7 Cm7/F7 ',
 	'A#M7 Am7/D7 Gm7/C7 CbM7/Fb7 EbM7 Em7/A7 Dm7 Dbm7/Gb7 Cm7 F7/Eb7 Dm7/G7 Cm7/F7 ',
-	'A##m7/E7 Am7/D7 Gm7/C7 Fm7/A#7 EbM7 Ebm7/Ab7 DbM7 Dbm7/Gb7 CbM7 Cm7/F7 Dm7/G7 Cm7/F7 ',
-	'A#M7 A##m7/E7 AM7 AbM7/GbM7 EbM7 Em7/A7 DM7 Dm7/G7 CM7 CbM7 A#M7/DbM7 CM7/Cb '
+	'Bm7/E7 Am7/D7 Gm7/C7 Fm7/A#7 EbM7 Ebm7/Ab7 DbM7 Dbm7/Gb7 CbM7 Cm7/F7 Dm7/G7 Cm7/F7 ',
+	'A#M7 Bm7/E7 AM7 AbM7/GbM7 EbM7 Em7/A7 DM7 Dm7/G7 CM7 CbM7 A#M7/DbM7 CM7/B6 '
 	],
 
 	'Bb':[
@@ -11255,14 +11255,14 @@ blues_db = {
 	'Bb7 Bb7 Bb7 Fm7/Bb7 Bb7 Eb7 Bb7/Dm7 G7 Cm7 F7 Dm7/G7 Cm7/F7 ',
 	'Bb7 Bb7 Bb7 Fm7/Bb7 Bb7 Eb7 Dm7 G7 Cm7 F7 Dm7/G7 Cm7/F7 ',
 	'Bb7 Eb7 Bb7 Fm7/Bb7 Eb7 Em7/A7 Bb7/G7 Ab7/G7 Cm7 F7/Eb7 Dm7/G7 Cm7/F7 ',
-	'BbM7 Am7/D7 Gm7/C7 Fm7/Bb7 Eb7 E°7 Dm7/G7 DbM7/Gb7 Cm7 Gbm7/Cb7 Bb7/G7 Cm7/F7 ',
-	'BbM7 AM7/Abm7 Gm7/Gbm7 Fm7/Fb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 F7 Dm7/D°7 Cm7/Cb ',
-	'BbM7 BbM7 Dm7/Cm7 Cbm7/Cb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 Cb7 BbM7/Dbm7 Cm7/Cb ',
+	'BbM7 Am7/D7 Gm7/C7 Fm7/Bb7 Eb7 Edim7 Dm7/G7 DbM7/Gb7 Cm7 Gbm7/Cb7 Bb7/G7 Cm7/F7 ',
+	'BbM7 AM7/Abm7 Gm7/Gbm7 Fm7/Fb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 F7 Dm7/Ddim7 Cm7/Cb6 ',
+	'BbM7 BbM7 Dm7/Cm7 Cbm7/Cb7 BbM7 Bbm7 Dm7 Dbm7 Cm7 Cb7 BbM7/Dbm7 Cm7/Cb6 ',
 	'BbM7 BbM7 Dm7/Cm7 Cbm7/Fb7 BbM7 BbM7/Eb7 DbM7 DbM7/Gb7 CbM7 Cm7/F7 Dm7/G7 Cm7/F7 ',
 	'BbM7 Am7/D7 Gm7/C7 CbM7/Fb7 BbM7 BbM7/Ab7 Dm7 Dbm7/Gb7 Cm7 F7 Dm7/G7 Cm7/F7 ',
 	'BbM7 Am7/D7 Gm7/C7 CbM7/Fb7 EbM7 Em7/A7 Dm7 Dbm7/Gb7 Cm7 F7/Eb7 Dm7/G7 Cm7/F7 ',
-	'Bb#m7/E7 Am7/D7 Gm7/C7 Fm7/Bb7 EbM7 Ebm7/Ab7 DbM7 Dbm7/Gb7 CbM7 Cm7/F7 Dm7/G7 Cm7/F7 ',
-	'BbM7 Bb#m7/E7 AM7 AbM7/GbM7 EbM7 Em7/A7 DM7 Dm7/G7 CM7 CbM7 BbM7/DbM7 CM7/Cb '
+	'Bm7/E7 Am7/D7 Gm7/C7 Fm7/Bb7 EbM7 Ebm7/Ab7 DbM7 Dbm7/Gb7 CbM7 Cm7/F7 Dm7/G7 Cm7/F7 ',
+	'BbM7 Bm7/E7 AM7 AbM7/GbM7 EbM7 Em7/A7 DM7 Dm7/G7 CM7 CbM7 BbM7/DbM7 CM7/Cb6 '
 	],
 
 	'B':[
@@ -11271,18 +11271,18 @@ blues_db = {
 	'B7 Bb7 B7 B7 Bb7 Bb7 B7 B7 C#7 F#7 B7 F#7 ',
 	'B7 Bb7 B7 B7 Bb7 Bb7 B7 G#7 C#7 F#7 B7 F#7 ',
 	'B7 Bb7 B7 B7 Bb7 Bb7 B7 G#7 C#m7 F#7 B7 C#m7/F#7 ',
-	'B7 Bb7 B7 B7 Bb7 Eb7 B7 G#7 G#b7 F#7 B7 G#b7/F#7 ',
+	'B7 Bb7 B7 B7 Bb7 Eb7 B7 G#7 G7 F#7 B7 G7/F#7 ',
 	'B7 Bb7 B7 F#m7/B7 Bb7 Eb7 B7/D#m7 G#7 C#m7 F#7 D#m7/G#7 C#m7/F#7 ',
 	'B7 Bb7 B7 F#m7/B7 Bb7 Eb7 D#m7 G#7 C#m7 F#7 D#m7/G#7 C#m7/F#7 ',
-	'B7 Fb7 B7 F#m7/B7 Fb7 Fm7/A#7 B7/G#7 A#b7/G#7 C#m7 F#7/Fb7 D#m7/G#7 C#m7/F#7 ',
-	'BM7 A#m7/D#7 G#m7/C#7 F#m7/B7 Fb7 F°7 D#m7/G#7 D#bM7/G#b7 C#m7 G#bm7/C#b7 B7/G#7 C#m7/F#7 ',
-	'BM7 A#M7/A#bm7 G#m7/G#bm7 F#m7/F#b7 BbM7 Bbm7 D#m7 D#bm7 C#m7 F#7 D#m7/D#°7 C#m7/C#b ',
-	'BM7 BbM7 D#m7/C#m7 C#bm7/Cb7 BbM7 Bbm7 D#m7 D#bm7 C#m7 C#b7 BM7/D#bm7 C#m7/C#b ',
-	'BM7 BbM7 D#m7/C#m7 C#bm7/F#b7 BbM7 BbM7/Eb7 D#bM7 D#bM7/G#b7 C#bM7 C#m7/F#7 D#m7/G#7 C#m7/F#7 ',
-	'BM7 A#m7/D#7 G#m7/C#7 C#bM7/F#b7 BbM7 BbM7/A#b7 D#m7 D#bm7/G#b7 C#m7 F#7 D#m7/G#7 C#m7/F#7 ',
-	'BM7 A#m7/D#7 G#m7/C#7 C#bM7/F#b7 FbM7 Fm7/A#7 D#m7 D#bm7/G#b7 C#m7 F#7/Fb7 D#m7/G#7 C#m7/F#7 ',
-	'B#m7/F7 A#m7/D#7 G#m7/C#7 F#m7/B7 FbM7 Fbm7/A#b7 D#bM7 D#bm7/G#b7 C#bM7 C#m7/F#7 D#m7/G#7 C#m7/F#7 ',
-	'BM7 B#m7/F7 A#M7 A#bM7/G#bM7 FbM7 Fm7/A#7 D#M7 D#m7/G#7 C#M7 C#bM7 BM7/D#bM7 C#M7/C#b '
+	'B7 Fb7 B7 F#m7/B7 Fb7 Fm7/A#7 B7/G#7 A7/G#7 C#m7 F#7/Fb7 D#m7/G#7 C#m7/F#7 ',
+	'BM7 A#m7/D#7 G#m7/C#7 F#m7/B7 Fb7 Fdim7 D#m7/G#7 DM7/G7 C#m7 Gm7/C7 B7/G#7 C#m7/F#7 ',
+	'BM7 A#M7/Am7 G#m7/Gm7 F#m7/F7 BbM7 Bbm7 D#m7 Dm7 C#m7 F#7 D#m7/D#dim7 C#m7/C6 ',
+	'BM7 BbM7 D#m7/C#m7 Cm7/Cb7 BbM7 Bbm7 D#m7 Dm7 C#m7 C7 BM7/Dm7 C#m7/C6 ',
+	'BM7 BbM7 D#m7/C#m7 Cm7/F7 BbM7 BbM7/Eb7 DM7 DM7/G7 CM7 C#m7/F#7 D#m7/G#7 C#m7/F#7 ',
+	'BM7 A#m7/D#7 G#m7/C#7 CM7/F7 BbM7 BbM7/A7 D#m7 Dm7/G7 C#m7 F#7 D#m7/G#7 C#m7/F#7 ',
+	'BM7 A#m7/D#7 G#m7/C#7 CM7/F7 FbM7 Fm7/A#7 D#m7 Dm7/G7 C#m7 F#7/Fb7 D#m7/G#7 C#m7/F#7 ',
+	'Cm7/F7 A#m7/D#7 G#m7/C#7 F#m7/B7 FbM7 Fbm7/A7 DM7 Dm7/G7 CM7 C#m7/F#7 D#m7/G#7 C#m7/F#7 ',
+	'BM7 m7/F7 A#M7 AM7/GM7 FbM7 Fm7/A#7 D#M7 D#m7/G#7 C#M7 CM7 BM7/DM7 C#M7/C6 '
 	]
 }
 
@@ -11297,20 +11297,26 @@ def BluesGenerator():
 			pattern = re.compile(r'(\S+\s\S+\s\S+\s\S+\s)')
 			bluesGen_results = re.sub(pattern,r'\1'+'<br><br>',blues_grid)
 			bluesGen_results = re.sub(' ','  |',bluesGen_results)
+			bluesGen_results = re.sub(r'((([A-G]#)|([A-G]b)|([A-G]))?(\b|7|6|dim7|M7|m7))','<a href="https://www.jazzreal.org/voiceGen?query='+r'\1'+'\" onclick=\"window.open(this.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'); return false;\">'+r'\1'+'</a>',bluesGen_results)
 			bluesGen_results = '<h2><pre>'+bluesGen_results+'</pre></h2>'
+			bluesGen_results = re.sub('<a href=\"https://www\.jazzreal\.org/voiceGen\?query=\" onclick=\"window.open\(this\.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'\); return false;\"></a>','',bluesGen_results)
 		else:
 			blues_grid = random.choice([blues_db['C'][0],blues_db['C'][1],blues_db['C'][2],blues_db['C'][3],blues_db['C'][4],blues_db['C'][5],blues_db['C'][6],blues_db['C'][7],blues_db['C'][8],blues_db['C'][9],blues_db['C'][10],blues_db['C'][11],blues_db['C'][12],blues_db['C'][13],blues_db['C'][14],blues_db['C'][15],blues_db['C'][16]])
 			pattern = re.compile(r'(\S+\s\S+\s\S+\s\S+\s)')
 			bluesGen_results = re.sub(pattern,r'\1'+'<br><br>',blues_grid)
 			bluesGen_results = re.sub(' ','  |',bluesGen_results)
+			bluesGen_results = re.sub(r'((([A-G]#)|([A-G]b)|([A-G]))?(\b|7|6|dim7|M7|m7))','<a href="https://www.jazzreal.org/voiceGen?query='+r'\1'+'\" onclick=\"window.open(this.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'); return false;\">'+r'\1'+'</a>',bluesGen_results)
 			bluesGen_results = '<h2><pre>'+bluesGen_results+'</pre></h2>'
-			
+			bluesGen_results = re.sub('<a href=\"https://www\.jazzreal\.org/voiceGen\?query=\" onclick=\"window.open\(this\.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'\); return false;\"></a>','',bluesGen_results)
+
 	except KeyError:
 		blues_grid = random.choice([blues_db['C'][0],blues_db['C'][1],blues_db['C'][2],blues_db['C'][3],blues_db['C'][4],blues_db['C'][5],blues_db['C'][6],blues_db['C'][7],blues_db['C'][8],blues_db['C'][9],blues_db['C'][10],blues_db['C'][11],blues_db['C'][12],blues_db['C'][13],blues_db['C'][14],blues_db['C'][15],blues_db['C'][16]])
 		pattern = re.compile(r'(\S+\s\S+\s\S+\s\S+\s)')
 		bluesGen_results = re.sub(pattern,r'\1'+'<br><br>',blues_grid)
 		bluesGen_results = re.sub(' ','  |',bluesGen_results)
+		bluesGen_results = re.sub(r'((([A-G]#)|([A-G]b)|([A-G]))?(\b|7|6|dim7|M7|m7))','<a href="https://www.jazzreal.org/voiceGen?query='+r'\1'+'\" onclick=\"window.open(this.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'); return false;\">'+r'\1'+'</a>',bluesGen_results)
 		bluesGen_results = '<h2><pre>'+bluesGen_results+'</pre></h2>'
+		bluesGen_results = re.sub('<a href=\"https://www\.jazzreal\.org/voiceGen\?query=\" onclick=\"window.open\(this\.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'\); return false;\"></a>','',bluesGen_results)
 
 	return render_template('view_bluesGen.html', bluesGen_results=bluesGen_results)
 
