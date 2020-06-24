@@ -10898,7 +10898,7 @@ def voiceGen():
 	query = re.sub('#','_',query)
 	query = re.findall(r'(C|F|Bb|Eb|Ab|Db|Gb|Cb|G|D|A|E|B|F_|C_)(6|7|M7|dim7|m6|m7\b|m7b5|mM7)',query)
 	
-	voiceGen_results += 'nb d\'accords ('+str(len(query))+'):'
+	voiceGen_results += 'Nb d\'accords = ('+str(len(query))+'):'
 	voiceGen_results += '<br>'
 
 	for i in range(len(query)):
@@ -10909,20 +10909,19 @@ def voiceGen():
 		#make cartesian product of list(chords)
 		chord_progressions = list(itertools.product(*chords))
 		
-		voiceGen_results += 'nb de progressions ('+str(len(chord_progressions))+')'
+		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
-		voiceGen_results += 'affichage = 18 max'
+		voiceGen_results += 'Affichage  = (4/'+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
-		voiceGen_results += 'rafraîchir la page afin de "générer" d\'autres résultats aléatoirement'
+		voiceGen_results += 'Rafraîchir la page afin de "générer" d\'autres résultats aléatoirement'
 		voiceGen_results += '<br>'
 		voiceGen_results += '<br>'
 		
-		if len(chord_progressions) < 18:
-			chord_progressions_display = chord_progressions
-		else:
-			for i in range(0,9):
-				chord_progressions_display += random.choice(chord_progressions) , random.choice(chord_progressions)
+		#random choice and constitution of progressions list
+		for i in range(0,2):
+			chord_progressions_display += random.choice(chord_progressions) , random.choice(chord_progressions)
 
+		#build results
 		for j in chord_progressions_display:
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\'] '
@@ -10972,7 +10971,7 @@ def voiceGen():
 	
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 
-#bluesGen -> blues Database in 16 keys
+#bluesGen : blues Database in 16 keys
 blues_db = {
 	'C':[
 	'C7 C7 C7 C7 Bb7 Bb7 C7 C7 G7 G7 C7 C7 ',
