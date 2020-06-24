@@ -10886,6 +10886,7 @@ def voiceGen():
 	chord_i = []
 	chords = []
 	chord_progressions = []
+	chord_progressions_display = []
 
 	
 	query = request.args.get('query','')
@@ -10910,9 +10911,19 @@ def voiceGen():
 		
 		voiceGen_results += 'nb de progressions ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
+		voiceGen_results += 'affichage = 18 max'
+		voiceGen_results += '<br>'
+		voiceGen_results += 'rafraîchir la page afin de "générer" d\'autres résultats aléatoirement'
+		voiceGen_results += '<br>'
 		voiceGen_results += '<br>'
 		
-		for j in chord_progressions:
+		if len(chord_progressions) < 18:
+			chord_progressions_display = chord_progressions
+		else:
+			for i in range(0,9):
+				chord_progressions_display += random.choice(chord_progressions) , random.choice(chord_progressions)
+
+		for j in chord_progressions_display:
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\'] '
 				
@@ -10955,9 +10966,7 @@ def voiceGen():
 			voiceGen_results += '</script>'
 	else:
 		voiceGen_results += 'nombre de possibilités de progressions trop élevé'
-		voiceGen_results += 'maximum = 4 accords'
-		voiceGen_results += 'nombre de possibilités de progressions trop élevé'
-		voiceGen_results += 'maximum = 4 accords'
+		voiceGen_results += 'maximum par requête = 4 accords'
 		pass
 	voiceGen_results += '</pre></h4>'
 	
