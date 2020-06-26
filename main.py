@@ -10915,7 +10915,7 @@ j = ()
 
 #create midi objects
 MyMIDI = MIDIFile(1)
-mid = MidiFile('/static/audioGen/temp.mid')
+mid = MidiFile('jazzreal/static/audioGen/temp.mid')
 
 @app.route('/voiceGen')
 def voiceGen():
@@ -10983,7 +10983,7 @@ def voiceGen():
 			k = k.replace('\'','')
 			k = k.replace('#','_')
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
-			voiceGen_results += '<audio controls><source src=\"/static/audioGen/'+k+'.wav\" type=\"audio/wav\"></audio>'
+			voiceGen_results += '<audio controls><source src=\"https://www.jazzreal/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
 			voiceGen_results += '</details>'
 			voiceGen_results += '<br>'
 			voiceGen_results += '<script>'
@@ -11035,7 +11035,7 @@ def voiceGen():
 	letters = string.ascii_lowercase
 	tmp = '_'
 	tmp += ''.join(random.choice(letters) for i in range(8))
-	output_file = open('/static/audioGen/'+k+'.mid', 'wb')
+	output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
 	MyMIDI.writeFile(output_file)
 	output_file.close()
 	
@@ -11043,7 +11043,7 @@ def voiceGen():
 	# wav gen
 	#
 
-	mid = MidiFile('/static/audioGen/'+k+'.mid')
+	mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
 	output = AudioSegment.silent(mid.length * 1000.0)
 	
 	for track in mid.tracks:
@@ -11073,7 +11073,7 @@ def voiceGen():
 
 				output = output.overlay(rendered, start_pos)
 
-	output.export('/static/audioGen/'+k+'.wav', format="wav")
+	output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
 	
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 
