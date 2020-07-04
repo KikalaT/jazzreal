@@ -10988,6 +10988,7 @@ def voiceGen():
 			k = k.replace(',','')
 			k = k.replace('\'','')
 			k = k.replace('#','_')
+
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
 			voiceGen_results += '<audio controls><source src=\"https://www.jazzreal.org/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
 			voiceGen_results += '</details>'
