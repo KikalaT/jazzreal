@@ -10508,6 +10508,8 @@ def view_theme():
 	results = []
 	for corpus in s.findAll('pre'):
 		results.append(corpus.text)
+	for humeurs in s.findAll('humeurs'):
+		results.append(humeurs.text)
 
 	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
 	
