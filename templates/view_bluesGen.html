@@ -98,7 +98,31 @@ body {
 
 <br>
 <br>
-
+<form action="/contribute/" method="post" enctype="multipart/form-data">
+<h3>Apportez votre contribution à Jazz Real:</h3>
+<ul class="form-style-1">
+    <li>
+        <label>Sujet</label>
+        <select name="Subject" class="field-select">
+		<option value="Error Report">Signaler une erreur</option>
+		<option value="Mood">Proposer des humeurs</option>
+		<option value="Improve">Proposer une amélioration</option>
+        <option value="Chord Grid Submit">Proposer une grille d'accord</option>
+        <option value="Transcript Submit">Proposer un relevé</option>
+        <option value="Artist Infos Submit">Proposer des informations sur un artiste</option>        
+        </select>
+    </li>
+    <li>
+        <label>Votre message <span class="required">*</span></label>
+        <textarea name="Message" id="field5" class="field-long field-textarea"></textarea>
+    </li>
+		<label>Attacher un fichier (pdf ou xml)</label>
+		<input name="file_upload" type="file" id="field6" class="field-long" accept=".pdf,.xml" />
+    <li>
+        <input type="submit" value="Submit" />
+    </li>
+</ul>
+</form>
 <footer align="right">
 <p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick" />
