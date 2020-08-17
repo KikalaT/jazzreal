@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import re
+import os
+import tempfile
 import random
 import string
 import itertools
@@ -10900,8 +10902,8 @@ def note_to_freq(note, concert_A=440.0):
 	return (2.0 ** ((note - 69) / 12.0)) * concert_A
 
 #convert midi ticks to ms for wav gen
-def ticks_to_ms(ticks):
-	tick_ms = (60000.0 / tempo) / mid.ticks_per_beat
+def ticks_to_ms(ticks,mid_file):
+	tick_ms = (60000.0 / tempo) / mid_file.ticks_per_beat
 	return ticks * tick_ms
 
 #corresponsdance table note/midi
@@ -10915,11 +10917,6 @@ duration001 = 4    # In beats
 tempo = 100   # In BPM
 volume = 100  # 0-127, as per the MIDI standard
 
-j = ()
-
-#create midi objects
-MyMIDI = MIDIFile(1)
-mid = MidiFile('jazzreal/static/audioGen/temp.mid')
 
 @app.route('/voiceGen')
 def voiceGen():
@@ -10968,7 +10965,7 @@ def voiceGen():
 		for i in range(0,2):
 			chord_progressions_display += random.choice(chord_progressions) , random.choice(chord_progressions)
 
-		#build results for html display
+		#build results for html display AND vexflow display AND audioGen
 		for j in chord_progressions_display:
 
 			for i in range(len(query)):
@@ -10990,7 +10987,8 @@ def voiceGen():
 			k = k.replace('#','_')
 
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
-			voiceGen_results += '<audio controls><source src=\"https://www.jazzreal.org/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
+
+			voiceGen_results += '<audio controls loop><source src=\"https://www.jazzreal.org/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
 			voiceGen_results += '</details>'
 			voiceGen_results += '<br>'
 			voiceGen_results += '<script>'
@@ -11014,8 +11012,10 @@ def voiceGen():
 				system.addConnector()
 				vf.draw();"""
 			voiceGen_results += '</script>'
+
 	else:
 		voiceGen_results += 'nombre de possibilités de progressions trop élevé'
+		voiceGen_results += '<br>'
 		voiceGen_results += 'maximum par requête = 4 accords'
 		pass
 	voiceGen_results += '</pre></h4>'
@@ -11027,60 +11027,75 @@ def voiceGen():
 	#
 	# midi gen
 	#
+	for j in chord_progressions_display:
 
-	#creation of midi object
-	MyMIDI.addTempo(track001, time, tempo)
+		#create midi objects
+		MyMIDI = MIDIFile(1)
+		MyMIDI.addTempo(track001, time, tempo)
 
-	#counter for separating chords in list
-	x = 0
-	for z in range(len(j)):
-		for i in range(0,4):
-			MyMIDI.addNote(track001,channel,int(note_to_midi[j[z][i]]),time+x,duration001,volume)
-		x += 4
+		k = str(j)
+		k = k.replace(' ','')
+		k = k.replace('(','')
+		k = k.replace(')','')
+		k = k.replace('[','')
+		k = k.replace(']','')
+		k = k.replace(',','')
+		k = k.replace('\'','')
+		k = k.replace('#','_')
+		#counter for separating chords in list
+		x = 0
 
-	#write midi file
-	letters = string.ascii_lowercase
-	tmp = '_'
-	tmp += ''.join(random.choice(letters) for i in range(8))
-	output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
-	MyMIDI.writeFile(output_file)
-	output_file.close()
+		for z in range(len(j)):
+			for i in range(0,4):
+				MyMIDI.addNote(track001,channel,int(note_to_midi[j[z][i]]),time+x,duration001,volume)
+			x += 4
 
-	#
-	# wav gen
-	#
+		#write midi file
+		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
+		MyMIDI.writeFile(output_file)
+		output_file.close()
 
-	mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
-	output = AudioSegment.silent(mid.length * 1000.0)
+		#
+		# wav gen
+		#
 
-	for track in mid.tracks:
-		# position of rendering in ms
-		current_pos = 0.0
+		mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
 
-		current_notes = defaultdict(dict)
-		# current_notes = {
-		#   channel: {
-		#     note: (start_time, message)
-		#   }
-		# }
+		output = AudioSegment.silent(mid.length * 1000.0)
 
-		for msg in track:
-			current_pos += ticks_to_ms(msg.time)
+		for track in mid.tracks:
+			# position of rendering in ms
+			current_pos = 0.0
 
-			if msg.type == 'note_on':
-			  current_notes[msg.channel][msg.note] = (current_pos, msg)
+			current_notes = defaultdict(dict)
+			# current_notes = {
+			#   channel: {
+			#     note: (start_time, message)
+			#   }
+			# }
 
-			if msg.type == 'note_off':
-				start_pos, start_msg = current_notes[msg.channel].pop(msg.note)
+			for msg in track:
+				current_pos += ticks_to_ms(msg.time,mid)
 
-				duration = current_pos - start_pos
+				if msg.type == 'note_on':
+				  current_notes[msg.channel][msg.note] = (current_pos, msg)
 
-				signal_generator = Sine(note_to_freq(msg.note))
-				rendered = signal_generator.to_audio_segment(duration=duration-50, volume=-20).fade_out(100).fade_in(30)
+				if msg.type == 'note_off':
+					start_pos, start_msg = current_notes[msg.channel].pop(msg.note)
 
-				output = output.overlay(rendered, start_pos)
+					duration = current_pos - start_pos
 
-	output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
+					signal_generator = Sine(note_to_freq(msg.note))
+					rendered = signal_generator.to_audio_segment(duration=duration-50, volume=-20).fade_out(100).fade_in(30)
+
+					output = output.overlay(rendered, start_pos)
+
+		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
+
+		os.remove('jazzreal/static/audioGen/_'+k+'.mid')
+		del output_file
+		del mid
+		del MyMIDI
 
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 
