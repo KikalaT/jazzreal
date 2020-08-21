@@ -1,6 +1,36 @@
 # -*- coding: utf-8 -*-
 
-album_dict = {'Charlie Parker':('\
+album_dict = {
+'Kenny Wheeler':(
+"Windmill Tilter--1968",
+"Humming Bird--1970",
+"Song For Someone--1973",
+"Gnu High--1975",
+"1976--1976",
+"Deer Wan--1978",
+"Around 6--1980",
+"Double--Double You--1984",
+"Flutter By--Butterfly--1988",
+"Music For Large & Small Ensembles--1990",
+"The Widow In The Window--1990",
+"Kayak--1992",
+"Blue Camel--1992",
+"Touché--1996",
+"All The More--1997",
+"Angel Song--1997",
+"Live at the Montreal Bistro--1998",
+"Siren's Song--1998",
+"A Long Time Ago--1999",
+"One More Time--2000",
+"Moon--2001",
+"G. Meets K.--2002",
+"Ordesa--2002",
+"Dream Sequence--2003",
+"Island--2003",
+"Where Do We Go From Here--2005",
+"What Now?--2005",
+"It Takes Two!--2006"),
+'Charlie Parker':('\
 Billies Bounce / Now\'s The Time--Savoy Records--1945','\
 Lover Man / Shaw \'Nuff--Guild Records (2)--1945','\
 Goin To Mintons / Half-Nelson--Savoy Records--1947','\
