@@ -11535,6 +11535,9 @@ def Hum_search():
 	mood_query = request.args.get('texte','')
 	
 	if mood_query:
+		viewHum_results = 'recherche:"'+str(mood_query)+'"'
+		viewHum_results += '<br>'
+		viewHum_results += '<br>'
 		rank = {}
 		for i in list_titles:
 			rank[i] = 0
