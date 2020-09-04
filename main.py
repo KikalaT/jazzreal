@@ -11517,7 +11517,7 @@ for title in list_titles:
 		for i in range(len(grille)-1):
 			corpus[title][grille[i][0]]=grille[i][1]
 	except AttributeError:
-		print(title)
+		pass
 
 def pattern_build(words_query):
 	moods_list = []
@@ -11548,7 +11548,8 @@ def Hum_search():
 	x = max(rank.values())
 	for i in list_titles:
 		if rank[i] == x:
-			print(i+':'+str(x))
+			#print(i+':'+str(x))
+			viewHum_results += i+':'+str(x)
 			try:
 				if corpus[i]['a']:
 					#print('>a:')
@@ -11563,7 +11564,8 @@ def Hum_search():
 	for j in list_titles:
 		try:
 			if rank[j] == y:
-				print(j+':'+str(y))
+				#print(j+':'+str(y))
+				viewHum_results += j+':'+str(y)
 				try:
 					if corpus[j]['a']:
 						#print('>a:')
