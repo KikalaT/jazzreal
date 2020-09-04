@@ -11528,7 +11528,7 @@ def pattern_build(words_query):
 	return moods_list
 
 @app.route('/Hum')
-def Hum_search(mood_query):
+def Hum_search():
 	
 	viewHum_results = ''
 	
