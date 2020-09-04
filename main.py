@@ -11527,17 +11527,17 @@ def pattern_build(words_query):
 		moods_list.append(words_tokenize[i])
 	return moods_list
 
-@app.route('/Hum')
-def Hum_search():
+@app.route('/Hume')
+def Hume_search():
 	
-	viewHum_results = ''
+	viewHume_results = ''
 	
 	mood_query = request.args.get('texte','')
 	
 	if mood_query:
-		viewHum_results = 'recherche:"'+str(mood_query)+'"'
-		viewHum_results += '<br>'
-		viewHum_results += '<br>'
+		viewHume_results = 'recherche:"'+str(mood_query)+'"'
+		viewHume_results += '<br>'
+		viewHume_results += '<br>'
 		rank = {}
 		for i in list_titles:
 			rank[i] = 0
@@ -11554,17 +11554,17 @@ def Hum_search():
 		for i in list_titles:
 			if rank[i] == x:
 				#print(i+':'+str(x))
-				viewHum_results += i+':'+str(x)
-				viewHum_results += '<br>'
+				viewHume_results += i+':'+str(x)
+				viewHume_results += '<br>'
 				
 				try:
 					if corpus[i]['a']:
 						#print('>a:')
-						viewHum_results += '>a:'
-						viewHum_results += '<br>'
+						viewHume_results += '>a:'
+						viewHume_results += '<br>'
 						#print(corpus[i]['a'])
-						viewHum_results += str(corpus[i]['a'])
-						viewHum_results += '<br>'
+						viewHume_results += str(corpus[i]['a'])
+						viewHume_results += '<br>'
 				except KeyError:
 					pass
 				rank.pop(i)
@@ -11574,26 +11574,26 @@ def Hum_search():
 			try:
 				if rank[j] == y:
 					#print(j+':'+str(y))
-					viewHum_results += j+':'+str(y)
-					viewHum_results += '<br>'
+					viewHume_results += j+':'+str(y)
+					viewHume_results += '<br>'
 					try:
 						if corpus[j]['a']:
 							#print('>a:')
-							viewHum_results += '>a:'
-							viewHum_results += '<br>'
+							viewHume_results += '>a:'
+							viewHume_results += '<br>'
 							#print(corpus[j]['a'])
-							viewHum_results += str(corpus[j]['a'])
-							viewHum_results += '<br>'
+							viewHume_results += str(corpus[j]['a'])
+							viewHume_results += '<br>'
 					except KeyError:
 						pass
 					rank.pop(j)
 			except KeyError:
 				pass
 	else:
-		viewHum_results = 'pas de résultats'
+		viewHume_results = 'pas de résultats'
 		
 	
-	return render_template('view_hum.html', viewHum_results=viewHum_results)
+	return render_template('view_hume.html', viewHume_results=viewHume_results)
 
 if __name__ == "__main__":
     app.run()
