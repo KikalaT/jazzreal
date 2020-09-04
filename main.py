@@ -10,6 +10,7 @@ import urllib.parse
 from flask import Flask, request, render_template
 from flask_mail import Mail, Message
 from bs4 import BeautifulSoup
+import xml.etree.ElementTree as ET
 
 from midiutil import MIDIFile
 from collections import defaultdict
@@ -497,7 +498,7 @@ list_titles.append('EVERYTHING I HAVE IS YOURS')
 list_titles.append('EVERYTHING I LOVE')
 list_titles.append('EVERYTHING I\'VE GOT BELONGS TO YOU')
 list_titles.append('EVIDENCE')
-list_titles.append('EVRYTIME WE SAY GOODBYE')
+list_titles.append('EVERYTIME WE SAY GOODBYE')
 list_titles.append('EXACTLY LIKE YOU')
 list_titles.append('FALL')
 list_titles.append('FALLING GRACE')
@@ -736,7 +737,7 @@ list_titles.append('I\'VE GOT MY LOVE TO KEEP ME WARM')
 list_titles.append('I\'VE GOT THE WORLD ON A STRING')
 list_titles.append('I\'VE GOT YOU UNDER MY SKIN')
 list_titles.append('I\'VE GROWN ACCUSTOMED TO HER FACE')
-list_titles.append('I\'VE HEAND THAT SONG BEFORE')
+list_titles.append('I\'VE HEARD THAT SONG BEFORE')
 list_titles.append('I\'VE NEVER BEEN IN LOVE BEFORE')
 list_titles.append('I\'VE TOLD EVERY LITTLE STAR')
 list_titles.append('I WANT TO BE HAPPY')
@@ -919,7 +920,7 @@ list_titles.append('MOVE')
 list_titles.append('MR PC')
 list_titles.append('MY FAVORITE THINGS')
 list_titles.append('MY FOOLISH HEART')
-list_titles.append('MYFUNNYVALENTINE')
+list_titles.append('MY FUNNY VALENTINE')
 list_titles.append('MY HEART BELONGS TO DADDY')
 list_titles.append('MY HEART STOOD STILL')
 list_titles.append('MY IDEAL')
@@ -11457,6 +11458,131 @@ def BluesGenerator():
 		bluesGen_results = re.sub('<a href=\"https://www\.jazzreal\.org/voiceGen\?query=\" onclick=\"window.open\(this\.href, \'Popup\', \'scrollbars=1,resizable=1,height=600,width=400\'\); return false;\"></a>','',bluesGen_results)
 
 	return render_template('view_bluesGen.html', bluesGen_results=bluesGen_results)
+
+###
+### Hum : app looking up tunes for moods
+###
+
+##BUILD DICT OF SYNONYMS
+# This method adds all given synonyms into the correct dictionary entry.
+def extendDictEntry(dict_syn, key, xmlSynonyms):
+	for child in xmlSynonyms:
+
+		childText = child.text
+
+		if (childText not in dict_syn[key]):
+			dict_syn[key].extend([childText])
+	return dict_syn
+
+# This method buils the synonyms dictionary from the WoNeF file.
+tree = ET.parse('jazzreal/static/wonef-coverage-0.1.xml')
+
+root = tree.getroot()
+dict_syn = {}
+
+# fill synonyms dictionary
+for synset in root:
+	for child in synset:
+		if child.tag == "SYNONYM":
+			for literal in child:
+				currLiteralText = literal.text
+
+				if currLiteralText in dict_syn:
+					# add all SYNONYM tags text into the correct entry of the map
+					extendDictEntry(dict_syn, currLiteralText, child)
+				else:
+					# create a new entry in the map
+					dict_syn[currLiteralText] = [currLiteralText]
+					extendDictEntry(dict_syn, currLiteralText, child)
+
+corpus = {}
+
+for title in list_titles:
+	try:
+		f = open('jazzreal/static/corpus-html/'+title+'.html', 'r')
+		TEXT = f.read()
+		title = re.search('<TITLE>(.*)</TITLE>', TEXT).group(1)
+		grille = re.findall('>(.*):\n-([\w\W][^>]*)', TEXT)
+		
+		humeurs_extended = []
+		humeurs = re.search('<humeurs>Humeurs=(.*)</humeurs>', TEXT).group(1)
+		humeurs = re.findall('[a-zA-Z0-9_êâéèÉ]+',humeurs)
+		humeurs = list(set(humeurs))
+
+		for x in humeurs:
+			if x != 'contribuer':
+				try:
+					humeurs_extended += dict_syn[x.lower()]
+				except KeyError:
+					pass
+			else:
+				pass
+				
+		corpus[title] = {'humeurs':''}
+		corpus[title]['humeurs'] = list(humeurs_extended)
+		for i in range(len(grille)-1):
+			corpus[title][grille[i][0]]=grille[i][1]
+	except AttributeError:
+		print(title)
+
+def pattern_build(words_query):
+	moods_list = []
+	words_tokenize = re.findall('[a-zA-Z0-9_êâéèÉ]+', words_query)
+	words_length = len(words_tokenize)
+	for i in range(words_length):
+		moods_list.append(words_tokenize[i])
+	return moods_list
+
+@app.route('/Hum')
+def Hum_search(mood_query):
+	
+	viewHum_results = ''
+	
+	mood_query = request.args.get('texte','')
+	rank = {}
+	for i in list_titles:
+		rank[i] = 0
+	moods_list = pattern_build(mood_query)
+	for word in moods_list:
+		regex = re.compile(word,re.IGNORECASE)
+		for i in list_titles:
+			selectobj = filter(regex.search, corpus[i]['humeurs'])
+			for val in selectobj:
+				rank[i] += 1
+	
+	###ranking method with scores (1st and 2nd)			
+	x = max(rank.values())
+	for i in list_titles:
+		if rank[i] == x:
+			print(i+':'+str(x))
+			try:
+				if corpus[i]['a']:
+					print('>a:')
+					viewHum_results += '>a:'
+					print(corpus[i]['a'])
+					viewHum_results += str(corpus[i]['a'])
+			except KeyError:
+				pass
+			rank.pop(i)
+			
+	y = max(rank.values())
+	for j in list_titles:
+		try:
+			if rank[j] == y:
+				print(j+':'+str(y))
+				try:
+					if corpus[j]['a']:
+						print('>a:')
+						viewHum_results += '>a:'
+						print(corpus[j]['a'])
+						viewHum_results += str(corpus[j]['a'])
+				except KeyError:
+					pass
+				rank.pop(j)
+		except KeyError:
+			pass
+	
+	return render_template('view_hum.html', viewHum_results=viewHum_results)
 
 if __name__ == "__main__":
     app.run()
