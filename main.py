@@ -11558,12 +11558,16 @@ def Hum_search():
 			if rank[i] == x:
 				#print(i+':'+str(x))
 				viewHum_results += i+':'+str(x)
+				viewHum_results += '<br>'
+				
 				try:
 					if corpus[i]['a']:
 						#print('>a:')
 						viewHum_results += '>a:'
+						viewHum_results += '<br>'
 						#print(corpus[i]['a'])
 						viewHum_results += str(corpus[i]['a'])
+						viewHum_results += '<br>'
 				except KeyError:
 					pass
 				rank.pop(i)
@@ -11574,12 +11578,15 @@ def Hum_search():
 				if rank[j] == y:
 					#print(j+':'+str(y))
 					viewHum_results += j+':'+str(y)
+					viewHum_results += '<br>'
 					try:
 						if corpus[j]['a']:
 							#print('>a:')
 							viewHum_results += '>a:'
+							viewHum_results += '<br>'
 							#print(corpus[j]['a'])
 							viewHum_results += str(corpus[j]['a'])
+							viewHum_results += '<br>'
 					except KeyError:
 						pass
 					rank.pop(j)
