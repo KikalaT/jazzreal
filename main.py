@@ -11551,9 +11551,9 @@ def Hum_search():
 			print(i+':'+str(x))
 			try:
 				if corpus[i]['a']:
-					print('>a:')
+					#print('>a:')
 					viewHum_results += '>a:'
-					print(corpus[i]['a'])
+					#print(corpus[i]['a'])
 					viewHum_results += str(corpus[i]['a'])
 			except KeyError:
 				pass
@@ -11566,9 +11566,9 @@ def Hum_search():
 				print(j+':'+str(y))
 				try:
 					if corpus[j]['a']:
-						print('>a:')
+						#print('>a:')
 						viewHum_results += '>a:'
-						print(corpus[j]['a'])
+						#print(corpus[j]['a'])
 						viewHum_results += str(corpus[j]['a'])
 				except KeyError:
 					pass
