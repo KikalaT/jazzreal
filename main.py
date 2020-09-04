@@ -11503,7 +11503,7 @@ for title in list_titles:
 		TEXT = f.read()
 		title = re.search('<TITLE>(.*)</TITLE>', TEXT).group(1)
 		grille = re.findall('>(.*):\n-([\w\W][^>]*)', TEXT)
-		
+
 		humeurs_extended = []
 		humeurs = re.search('<humeurs>Humeurs=(.*)</humeurs>', TEXT).group(1)
 		humeurs = re.findall('[a-zA-Z0-9_êâéèÉ]+',humeurs)
@@ -11517,7 +11517,7 @@ for title in list_titles:
 					pass
 			else:
 				pass
-				
+
 		corpus[title] = {'humeurs':''}
 		corpus[title]['humeurs'] = list(humeurs_extended)
 		for i in range(len(grille)-1):
@@ -11535,55 +11535,59 @@ def pattern_build(words_query):
 
 @app.route('/Hum')
 def Hum_search():
-	
+
 	viewHum_results = ''
-	
+
 	mood_query = request.args.get('texte','')
-	rank = {}
-	for i in list_titles:
-		rank[i] = 0
-	moods_list = pattern_build(mood_query)
-	for word in moods_list:
-		regex = re.compile(word,re.IGNORECASE)
-		for i in list_titles:
-			selectobj = filter(regex.search, corpus[i]['humeurs'])
-			for val in selectobj:
-				rank[i] += 1
-	
-	###ranking method with scores (1st and 2nd)			
-	x = max(rank.values())
-	for i in list_titles:
-		if rank[i] == x:
-			#print(i+':'+str(x))
-			viewHum_results += i+':'+str(x)
-			try:
-				if corpus[i]['a']:
-					#print('>a:')
-					viewHum_results += '>a:'
-					#print(corpus[i]['a'])
-					viewHum_results += str(corpus[i]['a'])
-			except KeyError:
-				pass
-			rank.pop(i)
-			
-	y = max(rank.values())
-	for j in list_titles:
-		try:
-			if rank[j] == y:
-				#print(j+':'+str(y))
-				viewHum_results += j+':'+str(y)
-				try:
-					if corpus[j]['a']:
-						#print('>a:')
-						viewHum_results += '>a:'
-						#print(corpus[j]['a'])
-						viewHum_results += str(corpus[j]['a'])
-				except KeyError:
-					pass
-				rank.pop(j)
-		except KeyError:
-			pass
-	
+
+	if mood_query:
+    	rank = {}
+    	for i in list_titles:
+    		rank[i] = 0
+    	moods_list = pattern_build(mood_query)
+    	for word in moods_list:
+    		regex = re.compile(word,re.IGNORECASE)
+    		for i in list_titles:
+    			selectobj = filter(regex.search, corpus[i]['humeurs'])
+    			for val in selectobj:
+    				rank[i] += 1
+
+    	###ranking method with scores (1st and 2nd)
+    	x = max(rank.values())
+    	for i in list_titles:
+    		if rank[i] == x:
+    			#print(i+':'+str(x))
+    			viewHum_results += i+':'+str(x)
+    			try:
+    				if corpus[i]['a']:
+    					#print('>a:')
+    					viewHum_results += '>a:'
+    					#print(corpus[i]['a'])
+    					viewHum_results += str(corpus[i]['a'])
+    			except KeyError:
+    				pass
+    			rank.pop(i)
+
+    	y = max(rank.values())
+    	for j in list_titles:
+    		try:
+    			if rank[j] == y:
+    				#print(j+':'+str(y))
+    				viewHum_results += j+':'+str(y)
+    				try:
+    					if corpus[j]['a']:
+    						#print('>a:')
+    						viewHum_results += '>a:'
+    						#print(corpus[j]['a'])
+    						viewHum_results += str(corpus[j]['a'])
+    				except KeyError:
+    					pass
+    				rank.pop(j)
+    		except KeyError:
+    			pass
+    else:
+        viewHum_results = 'pas de résultats'
+
 	return render_template('view_hum.html', viewHum_results=viewHum_results)
 
 if __name__ == "__main__":
