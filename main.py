@@ -11504,14 +11504,11 @@ for title in list_titles:
 		humeurs = list(set(humeurs))
 
 		for x in humeurs:
-			if x != 'contribuer':
-				try:
-					humeurs_extended += dict_syn[x.lower()]
-				except KeyError:
-					pass
-			else:
+			try:
+				humeurs_extended += dict_syn[x.lower()]
+			except KeyError:
 				pass
-				
+
 		corpus[title] = {'humeurs':''}
 		corpus[title]['humeurs'] = list(humeurs_extended)
 		for i in range(len(grille)-1):
@@ -11535,7 +11532,7 @@ def Hume_search():
 	mood_query = request.args.get('texte','')
 	
 	if mood_query:
-		viewHume_results = 'recherche:"'+str(mood_query)+'"'
+		viewHume_results = '<h4>recherche:"'+str(mood_query)+'"</h4>'
 		viewHume_results += '<br>'
 		viewHume_results += '<br>'
 		rank = {}
