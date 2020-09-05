@@ -11542,7 +11542,7 @@ def Hume_search():
 	mood_query = request.args.get('texte','')
 
 	if mood_query:
-		viewHume_results = 'recherche:"'+str(mood_query)+'"'
+		viewHume_results = '<h4>recherche:"'+str(mood_query)+'"</h4>'
 		viewHume_results += '<br>'
 		viewHume_results += '<br>'
 		rank = {}
