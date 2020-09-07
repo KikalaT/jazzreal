@@ -11510,12 +11510,9 @@ for title in list_titles:
 		humeurs = list(set(humeurs))
 
 		for x in humeurs:
-			if x != 'contribuer':
-				try:
-					humeurs_extended += dict_syn[x.lower()]
-				except KeyError:
-					pass
-			else:
+			try:
+				humeurs_extended += dict_syn[x.lower()]
+			except KeyError:
 				pass
 
 		corpus[title] = {'humeurs':''}
