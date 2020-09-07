@@ -1,6 +1,29 @@
 # -*- coding: utf-8 -*-
 
 album_dict = {
+'Barbara Carroll':(
+"Piano Panorama--Atlantic--1951",
+"Barbara Carroll Trio--Livingston Binaural 1081-BN--1953",
+"Barbara Carroll Trio--RCA Victor--1954",
+"Lullabies in Rhythm--RCA Victor--1955",
+"Have You Met Miss Carroll--RCA Victor--1956",
+"We Couldn't Just Say Goodbye--RCA Victor--1956",
+"It's a Wonderful World--RCA Victor--1957",
+"Funny Face--Verve--1957",
+"Barbara--Verve--1958",
+"Flower Drum Song--Kapp Records (en)--1958",
+"Why Not--SESAC (en)--1959",
+"Hello, Dolly--Warner Bros.--1964",
+"What Makes Sammy Run--Warner Bros.--1964",
+"At the Piano--Trend Records (en) / Discovery Records (en)--1981",
+"Live at the Carlyle--DRG Records--1991",
+"This Heart of Mine--DRG--1993",
+"Everything I Love--DRG--1995",
+"Live at Birdland--Harbinger--2003",
+"I Wished On the Moon--Venus Records (en)--2006",
+"Something to Live For--Harbinger--2008",
+"How Long Has This Been Going On--Harbinger--2010",
+"Barbara Carroll Plays at Birdland--Birdland--2016"),
 'Kenny Wheeler':(
 "Windmill Tilter--1968",
 "Humming Bird--1970",

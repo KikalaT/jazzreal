@@ -4775,6 +4775,11 @@ groups_dict = {
 'GAS (28)',
 'Althaus Schönhaus Express',
 ),
+'Barbara Carroll':\
+(
+'Barbara Carroll Trio', 
+'Eddie Shu Quintet',
+),
 'Barbara Long':\
 (
 'Hiroshima (3)',

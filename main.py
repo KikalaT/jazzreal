@@ -2062,6 +2062,7 @@ artist_list = [
 'Badi Assad',
 'Baikida Carroll',
 'Bänz Oester',
+'Barbara Carroll',
 'Barbara Long',
 'Barney Bigard',
 'Barney Kessel',
