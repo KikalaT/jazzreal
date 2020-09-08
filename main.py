@@ -10586,13 +10586,19 @@ def transpose_theme():
 	
 	f = open('jazzreal/static/corpus-html/'+tune+'.html')
 	plain = f.read()
-	occ = plain.find('Key of ')
-	key = plain[occ+7:occ+9].strip()
-	key = key.strip('m')
+	key = re.search('<key>(.*)</key>', plain).group(1)
+	key = str(key)
+	key = key.replace(' ','')
+	key = key.replace('m','')
+	
+	#key = plain[occ+7:occ+9].strip()
+	#key = key.strip('m')
 	
 	init_pitch = key
 	final_pitch = tone
-
+	
+	global diff
+	 
 	#enharmonic choice
 	if init_pitch in tone_flat:
 		if final_pitch in tone_flat:
@@ -11514,7 +11520,7 @@ for title in list_titles:
 
 		corpus[title] = {'humeurs':''}
 		corpus[title]['humeurs'] = list(humeurs_extended)
-		for i in range(len(grille)-1):
+		for i in range(len(grille)):
 			corpus[title][grille[i][0]]=grille[i][1]
 	except AttributeError:
 		pass
