@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
 
 tracks_dict = {
-
+"A Girl Met a Piano--EMARCY--1952":(\
+"Let's Fall In Love",
+'Darn That Dream',
+'Remember Me',
+'But Beautiful',
+'Stay As Sweet As You Are',
+'Love Is The Thing',
+'When A Woman Loves A Man',
+'You Better Go Now',
+),
 'If We Never Meet Again / Dipper Mouth--Decca--1936':(\
 '\'A\' \'If We Never Meet Again\'',
 '\'B\' \'Dipper Mouth\'',

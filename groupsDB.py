@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 
 groups_dict = {
-
+'Beryl Booker':\
+(
+'Beryl Booker Trio',
+'Terry Pollard Septet',
+),
 'Aage Tanggaard':\
 (
 'Fini Høstrup Trio',
