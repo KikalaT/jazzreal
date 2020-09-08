@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
 album_dict = {
+'Beryl Booker':(
+"A Girl Met a Piano--EMARCY--1952",
+"Beryl Booker Trio--Discovery--1954",
+"Don Byas avec Beryl Booker--Découverte--1954",
+"The Beryl Booker Trio--Cadence--1954"),
 'Barbara Carroll':(
 "Piano Panorama--Atlantic--1951",
 "Barbara Carroll Trio--Livingston Binaural 1081-BN--1953",

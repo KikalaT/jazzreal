@@ -1,6 +1,20 @@
 # -*- coding: utf-8 -*-
 
 members_dict = {
+'Beryl Booker Trio':(\
+'Beryl Booker',
+'Bonnie Wetzel',
+'Elaine Leighton',
+),
+'Terry Pollard Septet':(\
+'Beryl Booker',
+'Bonnie Wetzel',
+'Corky Hecht',
+'Elaine Leighton',
+'Mary Osborn',
+'Norma Carson', 
+'Terry Pollard',
+),
 'Louis Armstrong & His Hot Five':(\
 'Emmerich Weninger',
 ),
