@@ -2099,6 +2099,7 @@ artist_list = [
 'Beat Kappeler',
 'Beatrice Byers',
 'Beaver Harris',
+'Bebo Valdès'
 'Belton Evans',
 'Ben Allison',
 'Ben Aronov',
@@ -2202,6 +2203,7 @@ artist_list = [
 'Bertil Lövgren',
 'Bert Joris',
 'Bert Van Duynhoven',
+'Beryl Booker',
 'Beryl Bryden',
 'Bessie Smith',
 'Bette Midler',
