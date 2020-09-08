@@ -10597,6 +10597,8 @@ def transpose_theme():
 	init_pitch = key
 	final_pitch = tone
 
+	global diff
+
 	#enharmonic choice
 	if init_pitch in tone_flat:
 		if final_pitch in tone_flat:
@@ -11520,7 +11522,7 @@ for title in list_titles:
 
 		corpus[title] = {'humeurs':''}
 		corpus[title]['humeurs'] = list(humeurs_extended)
-		for i in range(len(grille)-1):
+		for i in range(len(grille)):
 			corpus[title][grille[i][0]]=grille[i][1]
 	except AttributeError:
 		pass
