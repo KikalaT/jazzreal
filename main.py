@@ -11634,45 +11634,48 @@ def Sequence_search():
 	viewSequence_results = ''
 	query = request.args.get('chords','')
 	
-	rank = {}
-	chord_query = re.findall(r'(?:[A-G]#|[A-G]b|[A-G])(?:6|7|maj7|Maj7|M7|m7\b|m7b5|mM7|mMaj7)', query)
-	chord_query = ' '.join(list(chord_query))
-	section = re.search('section:(.+)', query).group(1)
-	
-	for i in list_titles:
-		rank[i] = 0
-		try:
-			to_search = ' '.join(re.findall('[A-G].[^\s]*\)',corpus_sequence[i][section]))
-			to_search = re.sub('\(\d\)','',to_search)
-			res = re.findall(chord_query, to_search)
-			rank[i] += len(res)
-		except KeyError:
-			pass
-	
-	#print('recherche:['+query+']\n')
-	viewSequence_results += '<b>recherche:['+query+']</b><br>'
-	
-	###ranking method by max score
-	x = max(rank.values())
-	if x != 0:
+	if query:
+		rank = {}
+		chord_query = re.findall(r'(?:[A-G]#|[A-G]b|[A-G])(?:6|7|maj7|Maj7|M7|m7\b|m7b5|mM7|mMaj7)', query)
+		chord_query = ' '.join(list(chord_query))
+		section = re.search('section:(.+)', query).group(1)
+		
 		for i in list_titles:
+			rank[i] = 0
 			try:
-				if rank[i] == x:
-					#print(i+':'+str(x))
-					viewSequence_results = i+':'+str(x)
-					#print('('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')')
-					viewSequence_results += '('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')'
-					#print('>'+section+':')
-					viewSequence_results += '>'+section+':'
-					#print(corpus_sequence[i][section])
-					viewSequence_results += corpus_sequence[i][section]
+				to_search = ' '.join(re.findall('[A-G].[^\s]*\)',corpus_sequence[i][section]))
+				to_search = re.sub('\(\d\)','',to_search)
+				res = re.findall(chord_query, to_search)
+				rank[i] += len(res)
 			except KeyError:
 				pass
-			rank.pop(i)
-	else:
-		#print('pas de résultats')
+		
+		#print('recherche:['+query+']\n')
+		viewSequence_results += '<b>recherche:['+query+']</b><br>'
+		
+		###ranking method by max score
+		x = max(rank.values())
+		if x != 0:
+			for i in list_titles:
+				try:
+					if rank[i] == x:
+						#print(i+':'+str(x))
+						viewSequence_results = i+':'+str(x)
+						#print('('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')')
+						viewSequence_results += '('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')'
+						#print('>'+section+':')
+						viewSequence_results += '>'+section+':'
+						#print(corpus_sequence[i][section])
+						viewSequence_results += corpus_sequence[i][section]
+				except KeyError:
+					pass
+				rank.pop(i)
+		else:
+			#print('pas de résultats')
+			viewSequence_results += 'pas de résultats'
+	else: 
 		viewSequence_results += 'pas de résultats'
-	
+
 	return render_template('view_sequence.html', viewSequence_results=viewsequence_results)
 	
 if __name__ == "__main__":
