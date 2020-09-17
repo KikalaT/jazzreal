@@ -11630,16 +11630,16 @@ for title in list_titles:
 #this method search by sequence of chords in all song's sections and rank the results
 @app.route('/Sequence')
 def Sequence_search():
-	
+
 	viewSequence_results = ''
 	query = request.args.get('chords','')
-	
+
 	if query:
 		rank = {}
 		chord_query = re.findall(r'(?:[A-G]#|[A-G]b|[A-G])(?:6|7|maj7|Maj7|M7|m7\b|m7b5|mM7|mMaj7)', query)
 		chord_query = ' '.join(list(chord_query))
 		section = re.search('section:(.+)', query).group(1)
-		
+
 		for i in list_titles:
 			rank[i] = 0
 			try:
@@ -11649,10 +11649,10 @@ def Sequence_search():
 				rank[i] += len(res)
 			except KeyError:
 				pass
-		
+
 		#print('recherche:['+query+']\n')
 		viewSequence_results += '<b>recherche:['+query+']</b><br>'
-		
+
 		###ranking method by max score
 		x = max(rank.values())
 		if x != 0:
@@ -11673,10 +11673,10 @@ def Sequence_search():
 		else:
 			#print('pas de résultats')
 			viewSequence_results += 'pas de résultats'
-	else: 
+	else:
 		viewSequence_results += 'pas de résultats'
 
-	return render_template('view_sequence.html', viewSequence_results=viewsequence_results)
-	
+	return render_template('view_sequence.html', viewSequence_results=viewSequence_results)
+
 if __name__ == "__main__":
     app.run()
