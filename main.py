@@ -10590,9 +10590,14 @@ def transpose_theme():
 
 	f = open('jazzreal/static/corpus-html/'+tune+'.html')
 	plain = f.read()
-	occ = plain.find('Key of ')
-	key = plain[occ+7:occ+9].strip()
-	key = key.strip('m')
+
+	key = re.search('<key>(.*)</key>', plain).group(1)
+	key = str(key)
+	key = key.replace(' ','')
+	key = key.replace('m','')
+
+	#key = plain[occ+7:occ+9].strip()
+	#key = key.strip('m')
 
 	init_pitch = key
 	final_pitch = tone
