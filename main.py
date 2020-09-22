@@ -11661,12 +11661,16 @@ def Sequence_search():
 					if rank[i] == x:
 						#print(i+':'+str(x))
 						viewSequence_results = i+':'+str(x)
+						viewSequence_results += '<br>'
 						#print('('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')')
 						viewSequence_results += '('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')'
+						viewSequence_results += '<br>'
 						#print('>'+section+':')
 						viewSequence_results += '>'+section+':'
+						viewSequence_results += '<br>'
 						#print(corpus_sequence[i][section])
 						viewSequence_results += corpus_sequence[i][section]
+						viewSequence_results += '<br>'
 				except KeyError:
 					pass
 				rank.pop(i)
@@ -11674,7 +11678,9 @@ def Sequence_search():
 			#print('pas de résultats')
 			viewSequence_results += 'pas de résultats'
 	else:
+
 		viewSequence_results += 'pas de résultats'
+		viewSequence_results += '<br>'
 
 	return render_template('view_sequence.html', viewSequence_results=viewSequence_results)
 
