@@ -1,16 +1,27 @@
 # -*- coding: utf-8 -*-
 
-import re
+import base64
 import os
+import re
+import sys
 import tempfile
 import random
 import string
 import itertools
 import urllib.parse
+
 from flask import Flask, request, render_template
 from flask_mail import Mail, Message
 from bs4 import BeautifulSoup
+
 import xml.etree.ElementTree as ET
+
+from spacy.lang.fr import French
+from spacy.lang.fr.stop_words import STOP_WORDS
+
+from wordcloud import WordCloud
+
+import matplotlib.pyplot as plt
 
 from midiutil import MIDIFile
 from collections import defaultdict
@@ -11863,6 +11874,62 @@ def Sequence_search():
 		viewSequence_results += '<br>'
 
 	return render_template('view_sequence.html', viewSequence_results=viewSequence_results)
+
+@app.route('/nuage')
+def nuage_gen():
 	
+	viewSequence_results = ''
+	
+	query_text = request.args.get('text','')
+	
+	if query_text:
+		# Load English tokenizer, tagger, parser, NER and word vectors
+		nlp = French()
+
+		#  "nlp" Object is used to create documents with linguistic annotations.
+		my_doc = nlp(text)
+
+		# Create list of word tokens
+		token_list = []
+		for token in my_doc:
+			token_list.append(token.text)
+
+		from spacy.lang.fr.stop_words import STOP_WORDS
+
+		# Create list of word tokens after removing stopwords
+		filtered_sentence = '' 
+
+		for word in token_list:
+			lexeme = nlp.vocab[word]
+			if lexeme.is_stop == False:
+				filtered_sentence += word+' ' 
+
+		# Generate a word cloud image
+		wc = WordCloud(background_color="white", max_words=2000, contour_width=3, contour_color='steelblue')
+		wc.generate(filtered_sentence)
+
+
+		# store to file
+		filename = ''
+		x = random.sample('0123456789',5)
+		for i in x:
+			filename += i
+
+		wc.to_file('jazzreal/static/nuage/'+filename+'.png')
+		input_file = open('jazzreal/static/nuage/'+filename+'.png','rb').read()
+
+		png_encoded = str(base64.b64encode(input_file))
+		png_encoded = re.sub('b\'','', png_encoded)
+		png_encoded = re.sub('\'','', png_encoded)
+
+		viewSequence_results += '<img height="400" width="600" src="data:image/png;base64,'+png_encoded+'"><br>'
+		
+		os.remove('jazzreal/static/nuage/'+filename+'.png')
+		
+	else:
+		viewSequence_results = '<h3>pas de requête</h3><br>'
+		
+	return render_template('view_nuage.html', viewSequence_results=viewSequence_results)
+
 if __name__ == "__main__":
     app.run()
