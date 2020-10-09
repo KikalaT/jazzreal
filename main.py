@@ -11103,25 +11103,28 @@ for i,j in itertools.product(tone_sharp,chord_type):
 	i[j] = [[transpose(x,'C',k) for x in chord] for chord in C[j]]
 	exec(k+'[\''+j+'\']'+'='+str(i[j]))
 
+<<<<<<< HEAD
 ####################
 #voiceGen / audioGen
 ####################
 
+=======
+#audioGen module n°1
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 #convert note to freq for wav gen
 def note_to_freq(note, concert_A=440.0):
 	'''
 	from wikipedia: http://en.wikipedia.org/wiki/MIDI_Tuning_Standard#Frequency_values
 	'''
 	return (2.0 ** ((note - 69) / 12.0)) * concert_A
-
+	
+#audioGen module n°2
 #convert midi ticks to ms for wav gen
 def ticks_to_ms(ticks,mid_file):
 	tick_ms = (60000.0 / tempo) / mid_file.ticks_per_beat
 	return ticks * tick_ms
 
-#corresponsdance table note/midi
-note_to_midi = {'A0': '21', 'Bb0': '22', 'B0': '23', 'C1': '24', 'Db1': '25', 'D1': '26', 'Eb1': '27', 'E1': '28', 'F1': '29', 'Gb1': '30', 'G1': '31', 'Ab1': '32', 'A1': '33', 'Bb1': '34', 'B1': '35', 'C2': '36', 'Db2': '37', 'D2': '38', 'Eb2': '39', 'E2': '40', 'F2': '41', 'Gb2': '42', 'G2': '43', 'Ab2': '44', 'A2': '45', 'Bb2': '46', 'B2': '47', 'C3': '48', 'Db3': '49', 'D3': '50', 'Eb3': '51', 'E3': '52', 'F3': '53', 'Gb3': '54', 'G3': '55', 'Ab3': '56', 'A3': '57', 'Bb3': '58', 'B3': '59', 'C4': '60', 'Db4': '61', 'D4': '62', 'Eb4': '63', 'E4': '64', 'F4': '65', 'Gb4': '66', 'G4': '67', 'Ab4': '68', 'A4': '69', 'Bb4': '70', 'B4': '71', 'C5': '72', 'Db5': '73', 'D5': '74', 'Eb5': '75', 'E5': '76', 'F5': '77', 'Gb5': '78', 'G5': '79', 'Ab5': '80', 'A5': '81', 'Bb5': '82', 'B5': '83', 'C6': '84', 'Db6': '85', 'D6': '86', 'Eb6': '87', 'E6': '88', 'F6': '89', 'Gb6': '90', 'G6': '91', 'Ab6': '92', 'A6': '93', 'Bb6': '94', 'B6': '95', 'C7': '96', 'Db7': '97', 'D7': '98', 'Eb7': '99', 'E7': '100', 'F7': '101', 'Gb7': '102', 'G7': '103', 'Ab7': '104', 'A7': '105', 'Bb7': '106', 'B7': '107', 'C8': '108', 'A#0': '22', 'C#1': '25', 'D#1': '27', 'F#1': '30', 'G#1': '32', 'A#1': '34', 'C#2': '37', 'D#2': '39', 'F#2': '42', 'G#2': '44', 'A#2': '46', 'C#3': '49', 'D#3': '51', 'F#3': '54', 'G#3': '56', 'A#3': '58', 'C#4': '61', 'D#4': '63', 'F#4': '66', 'G#4': '68', 'A#4': '70', 'C#5': '73', 'D#5': '75', 'F#5': '78', 'G#5': '80', 'A#5': '82', 'C#6': '85', 'D#6': '87', 'F#6': '90', 'G#6': '92', 'A#6': '94', 'C#7': '97', 'D#7': '99', 'F#7': '102', 'G#7': '104', 'A#7': '106'}
-
+#audioGen
 #midi constant declaration
 track001 = 0
 channel  = 0
@@ -11130,6 +11133,10 @@ duration001 = 4    # In beats
 tempo = 100   # In BPM
 volume = 100  # 0-127, as per the MIDI standard
 
+#corresponsdance table note/midi
+note_to_midi = {
+	'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
+}
 
 @app.route('/voiceGen')
 def voiceGen():
@@ -11137,6 +11144,7 @@ def voiceGen():
 	#########
 	#voiceGen
 	#########
+<<<<<<< HEAD
 
 	voiceGen_results = ''
 
@@ -11149,6 +11157,18 @@ def voiceGen():
 	query = request.args.get('query','')
 
 	#build reusults
+=======
+	
+	#declare variables
+	voiceGen_results = ''
+	chords = []
+	chord_progressions = []
+	chord_progressions_display = []
+	query = request.args.get('query','')
+	open_chords = request.args.get('open_chords','')
+	
+	#build display header
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 	voiceGen_results += '<h4>'
 	voiceGen_results += '<pre>'
 
@@ -11157,22 +11177,70 @@ def voiceGen():
 
 	voiceGen_results += 'Nb d\'accords = ('+str(len(query))+'):'
 	voiceGen_results += '<br>'
-
-	for i in range(len(query)):
-		chords.append(eval(query[i][0]+'[\''+query[i][1]+'\']'))
-
+	
+	#build list of chords
+	chords = [eval(query[i][0]+'[\''+query[i][1]+'\']') for i in range(len(query))]
+		
 	if len(query) <= 4:
 
 		#make cartesian product of list(chords)
 		chord_progressions = list(itertools.product(*chords))
+<<<<<<< HEAD
 
+=======
+		
+		#corresponsdance table note/midi
+		note_to_midi = {
+			'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
+		}
+
+		#build chords' ranking score
+		chord_int = [[[k for k in range(4)] for j in range(len(query))] for x in range(len(chord_progressions))]
+		score = [0 for x in range(len(chord_progressions))]
+		score_percent = [0 for x in range(len(chord_progressions))]
+		
+		for i in range(len(chord_progressions)):
+			for j in range(len(query)):
+				for k in range(4):
+					chord_int[i][j][k] = note_to_midi[chord_progressions[i][j][k]]
+					
+		for i in range(len(chord_progressions)):
+			for j in range(len(query)-1):
+				score[i] = (abs(int(chord_int[i][j][0])-int(chord_int[i][j+1][0])) + abs(int(chord_int[i][j][1])-int(chord_int[i][j+1][1])) + abs(int(chord_int[i][j][2])-int(chord_int[i][j+1][2])) + abs(int(chord_int[i][j][3])-int(chord_int[i][j+1][3])))/4
+		
+		max_score = max(score)
+		try:
+			for i in range(len(chord_progressions)):
+				score_percent[i] = score[i]*100/float(max_score)
+		except ZeroDivisionError:
+			pass
+		
+		#build dict {progressions:score}
+		chord_score_dict = {str(chord_progressions[i]):score_percent[i] for i in range(len(chord_progressions))}
+		
+		#display results
+		voiceGen_results += '<br>'
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
-		voiceGen_results += 'Affichage  = (4/'+str(len(chord_progressions))+')'
+		voiceGen_results += '% d\'ouverture souhaité = '+open_chords+'%'
 		voiceGen_results += '<br>'
-		voiceGen_results += 'Rafraîchir la page afin de "générer" d\'autres résultats aléatoirement'
+
+		#create chord_progressions_display from (chord sequence + %OP)
+		if len(query) == 1:
+			chord_progressions_display = [eval(i) for i in chord_score_dict.keys()]
+
+		else:
+			try:
+				chord_progressions_display = [eval(i) for i in chord_score_dict.keys() if chord_score_dict[i] >= (float(open_chords) - 10) and chord_score_dict[i] <= (float(open_chords) + 10)]
+			except ValueError:
+				pass
+		
+		#print results count from filter by %OP
+		voiceGen_results += 'Affichage  = ('+str(len(chord_progressions_display))+'/'+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
 		voiceGen_results += '<br>'
+<<<<<<< HEAD
 
 		#random choice and constitution of progressions list
 		for i in range(0,2):
@@ -11185,6 +11253,17 @@ def voiceGen():
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\'] '
 
 
+=======
+		
+		#build results for html display AND vexflow display AND audioGen
+		for j in chord_progressions_display:
+
+			#display results
+			for i in range(len(query)):
+				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
+			
+			voiceGen_results += 'OP='+str(round(chord_score_dict[str(j)],1))+'%'
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 			voiceGen_results += '<details><summary>'
 			voiceGen_results += str(j)
 			voiceGen_results += '</summary>'
@@ -11200,10 +11279,16 @@ def voiceGen():
 			k = k.replace('#','_')
 
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
+<<<<<<< HEAD
 
 			voiceGen_results += '<audio controls loop><source src=\"https://www.jazzreal.org/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
+=======
+			voiceGen_results += '<audio controls loop><source src=\"static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 			voiceGen_results += '</details>'
 			voiceGen_results += '<br>'
+			
+			#VEXFLOW script start here
 			voiceGen_results += '<script>'
 			voiceGen_results += """const VF_"""+k+""" = Vex.Flow;
 					var vf = new VF_"""+k+""".Factory({renderer: {elementId: '"""+k+"""', height: 300}});
@@ -11264,7 +11349,7 @@ def voiceGen():
 			x += 4
 
 		#write midi file
-		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
+		output_file = open('static/audioGen/_'+k+'.mid', 'wb')
 		MyMIDI.writeFile(output_file)
 		output_file.close()
 
@@ -11272,7 +11357,7 @@ def voiceGen():
 		# wav gen
 		#
 
-		mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
+		mid = MidiFile('static/audioGen/_'+k+'.mid')
 
 		output = AudioSegment.silent(mid.length * 1000.0)
 
@@ -11302,6 +11387,7 @@ def voiceGen():
 					rendered = signal_generator.to_audio_segment(duration=duration-50, volume=-20).fade_out(100).fade_in(30)
 
 					output = output.overlay(rendered, start_pos)
+<<<<<<< HEAD
 
 		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
 
@@ -11310,6 +11396,16 @@ def voiceGen():
 		del mid
 		del MyMIDI
 
+=======
+					
+		output.export('static/audioGen/_'+k+'.wav', format="wav")
+		
+		os.remove('static/audioGen/_'+k+'.mid')
+		del output_file
+		del mid
+		del MyMIDI
+		
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 
 #bluesGen : blues Database in 16 keys
@@ -11886,9 +11982,15 @@ def Sequence_search():
 
 @app.route('/nuage')
 def nuage_gen():
+<<<<<<< HEAD
 
 	viewNuage_results = ''
 
+=======
+	
+	viewNuage_results = ''
+	
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 	query_text = request.args.get('text','')
 
 	if query_text:
@@ -11932,12 +12034,20 @@ def nuage_gen():
 		png_encoded = re.sub('\'','', png_encoded)
 
 		viewNuage_results += '<img height="400" width="600" src="data:image/png;base64,'+png_encoded+'"><br>'
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 		os.remove('jazzreal/static/nuage/'+filename+'.png')
 
 	else:
 		viewNuage_results = '<h3>pas de requête</h3><br>'
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 854a428e5ef3add64126489b72c9170fd2b0572c
 	return render_template('view_nuage.html', viewNuage_results=viewNuage_results)
 
 if __name__ == "__main__":
