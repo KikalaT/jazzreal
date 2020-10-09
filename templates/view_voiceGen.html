@@ -78,23 +78,28 @@ body {
 }
 </style>
 <div class="topnav">
-  <a class="active" href="/">Accueil</a>
-  <div class="search-container">
-     <form action="/voiceGen">
-      <input type="text" placeholder="Entrez une suite d'accords..." name="query">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-   </div>
+<a class="active" href="/">Accueil</a>
 </div>
 
 <h4>
 <pre>
 <li>choix de l'accord parmi {XM7, X7, Xm7, XmM7, Xm7b5, X6, Xm6, Xdim7}</li>
 <li>'X' pouvant prendre une valeur parmi {A,B,C,D,E,F,G} & { ,b,#}</li>
+<li>choisissez ensuite le % d'ouverture de la progression (%OP) [0%-100%]</li>
 </pre>
+<div class="search-container">
+<form action="/voiceGen">
+<input type="text" placeholder="Entrez une suite d'accords..." name="query">
+<div>
+<div class="search-container">
+<input type="range" id="ouverture" name="open_chords" min="0" max="100">
+<label for="ouverture">%OP</label>
+</div>
+<button type="submit"><i class="fa fa-search"></i></button>
+</form>
+</div>
 </h4>
 
-<br>
 <br>
 
 {{ voiceGen_results | safe}}

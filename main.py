@@ -11233,7 +11233,7 @@ def voiceGen():
 			k = k.replace('\'','')
 			k = k.replace('#','_')
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
-			voiceGen_results += '<audio controls loop><source src=\"static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
+			voiceGen_results += '<audio controls loop><source src=\"https://www.jazzreal.org/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
 			voiceGen_results += '</details>'
 			voiceGen_results += '<br>'
 			
@@ -11299,7 +11299,7 @@ def voiceGen():
 			x += 4
 
 		#write midi file
-		output_file = open('static/audioGen/_'+k+'.mid', 'wb')
+		output_file = open('https://www.jazzreal.org/static/audioGen/_'+k+'.mid', 'wb')
 		MyMIDI.writeFile(output_file)
 		output_file.close()
 		
@@ -11338,9 +11338,9 @@ def voiceGen():
 
 					output = output.overlay(rendered, start_pos)
 					
-		output.export('static/audioGen/_'+k+'.wav', format="wav")
+		output.export('https://www.jazzreal.org/static/audioGen/_'+k+'.wav', format="wav")
 		
-		os.remove('static/audioGen/_'+k+'.mid')
+		os.remove('https://www.jazzreal.org/static/audioGen/_'+k+'.mid')
 		del output_file
 		del mid
 		del MyMIDI
