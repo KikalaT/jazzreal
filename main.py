@@ -11299,7 +11299,7 @@ def voiceGen():
 			x += 4
 
 		#write midi file
-		output_file = open('static/audioGen/_'+k+'.mid', 'wb')
+		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
 		MyMIDI.writeFile(output_file)
 		output_file.close()
 
@@ -11307,7 +11307,7 @@ def voiceGen():
 		# wav gen
 		#
 
-		mid = MidiFile('static/audioGen/_'+k+'.mid')
+		mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
 
 		output = AudioSegment.silent(mid.length * 1000.0)
 
@@ -11341,6 +11341,7 @@ def voiceGen():
 		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
 
 		os.remove('jazzreal/static/audioGen/_'+k+'.mid')
+
 		del output_file
 		del mid
 		del MyMIDI
