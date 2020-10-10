@@ -11218,7 +11218,7 @@ def voiceGen():
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
 			
-			voiceGen_results += 'OP='+str(round(chord_score_dict[str(j)],1))+'%'
+			voiceGen_results += 'MV='+str(round(chord_score_dict[str(j)],1))+'%'
 			voiceGen_results += '<details><summary>'
 			voiceGen_results += str(j)
 			voiceGen_results += '</summary>'
