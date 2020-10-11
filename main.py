@@ -11193,7 +11193,7 @@ def voiceGen():
 		voiceGen_results += '<br>'
 		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
-		voiceGen_results += '% d\'ouverture souhaité = '+open_chords+'%'
+		voiceGen_results += '% de mouvement souhaité = '+open_chords+'%'
 		voiceGen_results += '<br>'
 
 		#create chord_progressions_display from (chord sequence + %OP)
