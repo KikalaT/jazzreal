@@ -11153,12 +11153,12 @@ def voiceGen():
 	voiceGen_results += '<br>'
 
 	#build list of chords
-	chords = [eval(query[i][0]+'[\''+query[i][1]+'\']') for i in range(len(query))]
+	chords = tuple(eval(query[i][0]+'[\''+query[i][1]+'\']') for i in range(len(query)))
 
 	if len(query) <= 4:
 
 		#make cartesian product of list(chords)
-		chord_progressions = list(itertools.product(*chords))
+		chord_progressions = tuple(itertools.product(*chords))
 
 		#corresponsdance table note/midi
 		note_to_midi = {
@@ -11186,8 +11186,9 @@ def voiceGen():
 		except ZeroDivisionError:
 			pass
 
-		#build dict {progressions:score}
-		chord_score_dict = {str(chord_progressions[i]):score_percent[i] for i in range(len(chord_progressions))}
+		#build dict {progressions:score}>
+		chord_score_dict = {score_percent[i]:chord_progressions[i] for i in range(len(chord_progressions))}
+		chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
 
 		#display results
 		voiceGen_results += '<br>'
@@ -11198,11 +11199,13 @@ def voiceGen():
 
 		#create chord_progressions_display from (chord sequence + %OP)
 		if len(query) == 1:
-			chord_progressions_display = [eval(i) for i in chord_score_dict.keys()]
+			chord_progressions_display = [i for i in chord_score_dict.values()]
 
 		else:
 			try:
-				chord_progressions_display = [eval(i) for i in chord_score_dict.keys() if chord_score_dict[i] >= (float(open_chords) - 10) and chord_score_dict[i] <= (float(open_chords) + 10)]
+				for x,y in chord_score_dict.items():
+					if x >= (float(open_chords) - 10) and x <= (float(open_chords) + 10):
+						chord_progressions_display.append(y)
 			except ValueError:
 				pass
 
@@ -11218,7 +11221,8 @@ def voiceGen():
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
 
-			voiceGen_results += 'MV='+str(round(chord_score_dict[str(j)],1))+'%'
+			voiceGen_results += 'MV='+str(round(chord_score_dict_inv[str(j)],1))+'%'
+
 			voiceGen_results += '<details><summary>'
 			voiceGen_results += str(j)
 			voiceGen_results += '</summary>'
@@ -11234,7 +11238,7 @@ def voiceGen():
 			k = k.replace('#','_')
 
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
-			voiceGen_results += '<audio controls loop><source src=\"https://www.jazzreal.org/static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
+			voiceGen_results += '<audio controls loop><source src=\"static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
 			voiceGen_results += '</details>'
 			voiceGen_results += '<br>'
 
@@ -11300,6 +11304,7 @@ def voiceGen():
 
 		#write midi file
 		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
+
 		MyMIDI.writeFile(output_file)
 		output_file.close()
 
