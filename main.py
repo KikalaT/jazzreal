@@ -11230,7 +11230,7 @@ def voiceGen():
 	if len(query) <= 4:
 		
 		#make cartesian product of list(chords)
-		chord_progressions = tuple(itertools.product(*chords))
+		chord_progressions = list(itertools.product(*chords))
 		
 		#corresponsdance table note/midi
 		note_to_midi = {
@@ -11258,13 +11258,40 @@ def voiceGen():
 			pass
 		try:
 			for i in range(len(chord_progressions)):
-				score_percent[i] = score[i]*100/float(max_score)
+				score_percent[i] = round(score[i]*100/float(max_score),0)
 		except ZeroDivisionError:
 			pass
 
 		#build dict {progressions:score}
 		chord_score_dict = {score_percent[i]:chord_progressions[i] for i in range(len(chord_progressions))}
 		chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
+		
+		#########################
+		#plot graph (y=occ / x=%)
+		#########################
+		plt.hist(score_percent, range = (0,100), bins = 100, color = 'grey', edgecolor = 'black')
+		plt.xlabel('%OCV')
+		plt.ylabel('Occurrences')
+		plt.title('Répartition des voicings (='+str(len(chord_progressions))+')')
+		
+		# store to file
+		filename_hist = ''
+		x = random.sample('0123456789',5)
+		for i in x:
+			filename_hist += i
+		plt.savefig('jazzreal/static/audioGen/'+filename_hist+'.png')
+		
+		# display hist as encoded png (base64)
+		input_file = open('jazzreal/static/audioGen/'+filename_hist+'.png','rb').read()
+
+		png_encoded = str(base64.b64encode(input_file))
+		png_encoded = re.sub('b\'','', png_encoded)
+		png_encoded = re.sub('\'','', png_encoded)
+
+		display_hist = '<img height="300" width="450" src="data:image/png;base64,'+png_encoded+'"><br>'
+		
+		os.remove('jazzreal/static/audioGen/'+filename_hist+'.png')
+		
 		
 		#create chord_progressions_display from (chord sequence + %MV)
 		if len(query) == 1:
@@ -11281,9 +11308,9 @@ def voiceGen():
 
 		#display results
 		voiceGen_results += '<br>'
-		voiceGen_results += '<br>'
 		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
+		voiceGen_results += display_hist+'<br>'
 		if len(query) != 1:
 			voiceGen_results += '% d\'ouverture souhaité = '+open_chords+'%'
 		else:
@@ -11303,7 +11330,7 @@ def voiceGen():
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
 
 			if len(query) != 1 :
-				voiceGen_results += 'OCV='+str(round(chord_score_dict_inv[str(j)],1))+'%'
+				voiceGen_results += 'OCV='+str(chord_score_dict_inv[str(j)])+'%'
 			else:
 				pass
 			voiceGen_results += '<details><summary>'
@@ -11386,7 +11413,7 @@ def voiceGen():
 			x += 4
 
 		#write midi file
-		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
+		output_file = open('static/audioGen/_'+k+'.mid', 'wb')
 		MyMIDI.writeFile(output_file)
 		output_file.close()
 		
@@ -11394,7 +11421,7 @@ def voiceGen():
 		# wav gen
 		#
 
-		mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
+		mid = MidiFile('static/audioGen/_'+k+'.mid')
 
 		output = AudioSegment.silent(mid.length * 1000.0)
 
@@ -11425,9 +11452,9 @@ def voiceGen():
 
 					output = output.overlay(rendered, start_pos)
 					
-		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
+		output.export('static/audioGen/_'+k+'.wav', format="wav")
 		
-		os.remove('jazzreal/static/audioGen/_'+k+'.mid')
+		os.remove('static/audioGen/_'+k+'.mid')
 		del output_file
 		del mid
 		del MyMIDI
