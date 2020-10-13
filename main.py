@@ -11150,10 +11150,6 @@ def transpose(chord,initkey,finalkey):
 	except KeyError:
 		chord_index = note_to_midi_flat[chord]
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 49a63969d9c00223ab0bb776d353a178065b9327
 	chord_transposed_index = int(chord_index) + diff
 
 	if finalkey in tone_flat:
@@ -11213,7 +11209,7 @@ def voiceGen():
 	chords = []
 	chord_progressions = []
 	chord_progressions_display = []
-	
+
 	query = request.args.get('query','')
 	open_chords = request.args.get('open_chords','')
 
@@ -11239,7 +11235,7 @@ def voiceGen():
 		note_to_midi = {
 			'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
 		}
-		
+
 		## %MV ##
 		#########
 		chord_int = [[[k for k in range(4)] for j in range(len(query))] for x in range(len(chord_progressions))]
@@ -11254,16 +11250,12 @@ def voiceGen():
 		for i in range(len(chord_progressions)):
 			for j in range(len(query)-1):
 				score[i] = (abs(int(chord_int[i][j][0])-int(chord_int[i][j+1][0])) + abs(int(chord_int[i][j][1])-int(chord_int[i][j+1][1])) + abs(int(chord_int[i][j][2])-int(chord_int[i][j+1][2])) + abs(int(chord_int[i][j][3])-int(chord_int[i][j+1][3])))/4
-<<<<<<< HEAD
 
-		max_score = max(score)
-=======
-		
 		try:
 			max_score = max(score)
 		except ValueError:
 			pass
->>>>>>> 49a63969d9c00223ab0bb776d353a178065b9327
+
 		try:
 			for i in range(len(chord_progressions)):
 				score_percent[i] = score[i]*100/float(max_score)
@@ -11273,20 +11265,12 @@ def voiceGen():
 		#build dict {progressions:score}
 		chord_score_dict = {score_percent[i]:chord_progressions[i] for i in range(len(chord_progressions))}
 		chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
-<<<<<<< HEAD
 
-		#display results
-		voiceGen_results += '<br>'
-		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
-		voiceGen_results += '<br>'
-		voiceGen_results += '% de mouvement de voix souhaité = '+open_chords+'%'
-		voiceGen_results += '<br>'
+		###
+		#create chord_progressions_display from chord sequence + %OCV
+		###
 
-		#create chord_progressions_display from (chord sequence + %OP)
-=======
-		
-		#create chord_progressions_display from (chord sequence + %MV)
->>>>>>> 49a63969d9c00223ab0bb776d353a178065b9327
+		# for 1 chord, there is no %OCV
 		if len(query) == 1:
 			for i in range(len(chord_progressions)):
 				chord_progressions_display.append(chord_progressions[i])
@@ -11322,15 +11306,11 @@ def voiceGen():
 			for i in range(len(query)):
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
 
-<<<<<<< HEAD
-			voiceGen_results += 'MV='+str(round(chord_score_dict_inv[str(j)],1))+'%'
-
-=======
 			if len(query) != 1 :
 				voiceGen_results += 'OCV='+str(round(chord_score_dict_inv[str(j)],1))+'%'
 			else:
 				pass
->>>>>>> 49a63969d9c00223ab0bb776d353a178065b9327
+
 			voiceGen_results += '<details><summary>'
 			voiceGen_results += str(j)
 			voiceGen_results += '</summary>'
@@ -11412,10 +11392,6 @@ def voiceGen():
 
 		#write midi file
 		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
-<<<<<<< HEAD
-
-=======
->>>>>>> 49a63969d9c00223ab0bb776d353a178065b9327
 		MyMIDI.writeFile(output_file)
 		output_file.close()
 
@@ -11453,18 +11429,11 @@ def voiceGen():
 					rendered = signal_generator.to_audio_segment(duration=duration-50, volume=-20).fade_out(100).fade_in(30)
 
 					output = output.overlay(rendered, start_pos)
-<<<<<<< HEAD
 
 		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
 
 		os.remove('jazzreal/static/audioGen/_'+k+'.mid')
 
-=======
-					
-		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
-		
-		os.remove('jazzreal/static/audioGen/_'+k+'.mid')
->>>>>>> 49a63969d9c00223ab0bb776d353a178065b9327
 		del output_file
 		del mid
 		del MyMIDI
