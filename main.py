@@ -11229,7 +11229,7 @@ def voiceGen():
 	if len(query) <= 4:
 
 		#make cartesian product of list(chords)
-		chord_progressions = tuple(itertools.product(*chords))
+		chord_progressions = list(itertools.product(*chords))
 
 		#corresponsdance table note/midi
 		note_to_midi = {
@@ -11258,7 +11258,7 @@ def voiceGen():
 
 		try:
 			for i in range(len(chord_progressions)):
-				score_percent[i] = score[i]*100/float(max_score)
+				score_percent[i] = round(score[i]*100/float(max_score),0)
 		except ZeroDivisionError:
 			pass
 
@@ -11266,11 +11266,39 @@ def voiceGen():
 		chord_score_dict = {score_percent[i]:chord_progressions[i] for i in range(len(chord_progressions))}
 		chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
 
+		#########################
+		#plot graph (y=occ / x=%)
+		#########################
+		plt.hist(score_percent, range = (0,100), bins = 100, color = 'grey', edgecolor = 'black')
+		plt.xlabel('%OCV')
+		plt.ylabel('Occurrences')
+		plt.title('Répartition des voicings (='+str(len(chord_progressions))+')')
+
+		# store to file
+		filename_hist = ''
+		x = random.sample('0123456789',5)
+		for i in x:
+			filename_hist += i
+		plt.savefig('jazzreal/static/audioGen/'+filename_hist+'.png')
+
+		# display hist as encoded png (base64)
+		input_file = open('jazzreal/static/audioGen/'+filename_hist+'.png','rb').read()
+
+		png_encoded = str(base64.b64encode(input_file))
+		png_encoded = re.sub('b\'','', png_encoded)
+		png_encoded = re.sub('\'','', png_encoded)
+
+		display_hist = '<img height="300" width="450" src="data:image/png;base64,'+png_encoded+'"><br>'
+
+		os.remove('jazzreal/static/audioGen/'+filename_hist+'.png')
+
+
 		###
 		#create chord_progressions_display from chord sequence + %OCV
 		###
 
 		# for 1 chord, there is no %OCV
+
 		if len(query) == 1:
 			for i in range(len(chord_progressions)):
 				chord_progressions_display.append(chord_progressions[i])
@@ -11285,9 +11313,9 @@ def voiceGen():
 
 		#display results
 		voiceGen_results += '<br>'
-		voiceGen_results += '<br>'
 		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
 		voiceGen_results += '<br>'
+		voiceGen_results += display_hist+'<br>'
 		if len(query) != 1:
 			voiceGen_results += '% d\'ouverture souhaité = '+open_chords+'%'
 		else:
@@ -11307,7 +11335,7 @@ def voiceGen():
 				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
 
 			if len(query) != 1 :
-				voiceGen_results += 'OCV='+str(round(chord_score_dict_inv[str(j)],1))+'%'
+				voiceGen_results += 'OCV='+str(chord_score_dict_inv[str(j)])+'%'
 			else:
 				pass
 
