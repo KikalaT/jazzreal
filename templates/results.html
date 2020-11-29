@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Administration</title>
+</head>
+<body>
+<form action="/quartier_rive_droite/sondage/reset">
+<button type="submit">Réinitialiser le sondage</button>
+</form>
+<h4>Résultats pour :</h4>
+{{ data.question1 }} 
+<ul>
+{% for e in votes1 %}
+<li>{{ e }} <b>({{ votes1[e] }})</b></li>
+{% endfor %}
+<li>Autres:</li>
+<ul>
+{% for i in text1 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question2 }} 
+<ul>
+{% for e in votes2 %}
+  <li>{{ e }} <b>({{ votes2[e] }})</b></li>
+{% endfor %}
+<li>Rive droite:</li>
+<ul>
+{% for i in text2_1 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+<li>Autre quartier:</li>
+<ul>
+{% for i in text2_2 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question3 }} 
+<ul>
+{% for e in votes3 %}
+  <li>{{ e }} <b>({{ votes3[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question4 }} 
+<ul>
+{% for e in votes4 %}
+  <li>{{ e }} <b>({{ votes4[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question5 }} 
+<ul>
+{% for e in votes5 %}
+  <li>{{ e }} <b>({{ votes5[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question6 }} 
+<ul>
+{% for e in votes6 %}
+  <li>{{ e }} <b>({{ votes6[e] }})</b></li>
+{% endfor %}
+<li>Autres:</li>
+<ul>
+{% for i in text6 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question7 }} 
+<ul>
+{% for e in votes7 %}
+  <li>{{ e }} <b>({{ votes7[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question8 }} 
+<ul>
+{% for e in votes8 %}
+  <li>{{ e }} <b>({{ votes8[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question9 }} 
+<ul>
+{% for e in votes9 %}
+  <li>{{ e }} <b>({{ votes9[e] }})</b></li>
+{% endfor %}
+</ul>
+<br>
+<li>Exprimez-vous:</li>
+<ul>
+{% for i in text9 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
