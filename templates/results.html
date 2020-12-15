@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Administration</title>
+</head>
+<body>
+<form action="/quartier_rive_droite/sondage/330c052c3d60aae25dd999396c60fdff">
+<button type="submit">Réinitialiser le sondage</button>
+</form>
+<h4>Résultats pour :</h4>
+{{ data.question1 }}
+<ul>
+{% for e in votes1 %}
+<li>{{ e }} <b>({{ votes1[e] }})</b></li>
+{% endfor %}
+<li>Autres:</li>
+<ul>
+{% for i in text1 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question2 }}
+<ul>
+{% for e in votes2 %}
+  <li>{{ e }} <b>({{ votes2[e] }})</b></li>
+{% endfor %}
+<li>Rive droite:</li>
+<ul>
+{% for i in text2_1 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+<li>Autre quartier:</li>
+<ul>
+{% for i in text2_2 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question3 }}
+<ul>
+{% for e in votes3 %}
+  <li>{{ e }} <b>({{ votes3[e] }})</b></li>
+{% endfor %}
+<li>Si non, pourquoi:</li>
+<ul>
+{% for i in text3 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question4 }}
+<ul>
+{% for e in votes4 %}
+  <li>{{ e }} <b>({{ votes4[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question5 }}
+<ul>
+{% for e in votes5 %}
+  <li>{{ e }} <b>({{ votes5[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question6 }}
+<ul>
+{% for e in votes6 %}
+  <li>{{ e }} <b>({{ votes6[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question7 }}
+<ul>
+{% for e in votes7 %}
+  <li>{{ e }} <b>({{ votes7[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question8 }}
+<ul>
+{% for e in votes8 %}
+  <li>{{ e }} <b>({{ votes8[e] }})</b></li>
+{% endfor %}
+<li>Autres:</li>
+<ul>
+{% for i in text8 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</ul>
+{{ data.question9 }}
+<ul>
+{% for e in votes9 %}
+  <li>{{ e }} <b>({{ votes9[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question10 }}
+<ul>
+{% for e in votes10 %}
+  <li>{{ e }} <b>({{ votes10[e] }})</b></li>
+{% endfor %}
+</ul>
+{{ data.question11 }}
+<ul>
+{% for e in votes11 %}
+  <li>{{ e }} <b>({{ votes11[e] }})</b></li>
+{% endfor %}
+</ul>
+<br>
+<li>Exprimez-vous:</li>
+<ul>
+{% for i in text11 %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>

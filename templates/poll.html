@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sondage</title>
+</head>
+<body style="background-color:#E8E8E8;">
+<h2>Sondage pour la création d’un groupement d’achats en circuit-court dans le quartier Rive Droite</h2>
+<br>
+Depuis juin, deux  rencontres d’habitants et de strutures du quartier Rive Droite ont fait émerger une intention collective d’organiser une filière courte et locale pour notre alimentation.
+<br>La volonté est forte de proposer des produits de qualité, de saison, accessibles à toutes et tous, tout en soutenant et valorisant les producteurs.trices dans une démarche de résilience alimentaire.
+<br>Afin de nous aider à structurer ce projet, nous avons besoin d’évaluer concretement nos ressourses et nos besoins dans le quartier, merci de prendre quelques instants pour répondre à ce sondage.
+<br>
+<h3><u>Vos habitudes de consommation</u></h3>
+<form action="/poll">
+<h3>{{ data.question1 }}</h3>
+{% for e in data.field1 %}
+<input type="radio" name="field1" value="{{ e }}"> {{ e }}<br>{% endfor %}
+Autres : <input type="text" name="text1"><br>
+
+<h3>{{ data.question2 }}</h3>
+{% for e in data.field2 %}
+<input type="radio" name="field2" value="{{ e }}"> {{ e }} <br>Si oui, laquelle : <input type="text" name="text_{{ e }}"><br>{% endfor %}
+
+<h3><u>Si un groupement d’achats se mettait en place dans le quartier :</u></h3>
+<h3>{{ data.question3 }}</h3>
+{% for e in data.field3 %}
+<input type="radio" name="field3" value="{{ e }}"> {{ e }}<br>{% endfor %}
+Si non, pourquoi : <input type="text" name="text3"><br>
+
+<h3>{{ data.question4 }}</h3>
+{% for e in data.field4 %}
+<input type="radio" name="field4" value="{{ e }}"> {{ e }}<br>{% endfor %}
+
+<h3>{{ data.question5 }}</h3>
+{% for e in data.field5 %}
+<input type="radio" name="field5" value="{{ e }}"> {{ e }}<br>{% endfor %}
+
+<h3>{{ data.question6 }}</h3>
+{% for e in data.field6 %}
+<input type="checkbox" name="field6" value="{{ e }}"> {{ e }}<br>{% endfor %}
+
+<h3>{{ data.question7 }}</h3>
+{% for e in data.field7 %}
+<input type="radio" name="field7" value="{{ e }}"> {{ e }}<br>{% endfor %}
+
+<h3>{{ data.question8 }}</h3>
+{% for e in data.field8 %}
+<input type="checkbox" name="field8" value="{{ e }}"> {{ e }}<br>{% endfor %}
+Autres : <input type="text" name="text8"><br>
+
+<h3>{{ data.question9 }}</h3>
+{% for e in data.field9 %}
+<input type="radio" name="field9" value="{{ e }}"> {{ e }}<br>{% endfor %}
+
+<h3>{{ data.question10 }}</h3>
+{% for e in data.field10 %}
+<input type="radio" name="field10" value="{{ e }}"> {{ e }}<br>{% endfor %}
+
+<h3>{{ data.question11 }}</h3>
+{% for e in data.field11 %}
+<input type="radio" name="field11" value="{{ e }}"> {{ e }}<br>{% endfor %}
+<br>
+Exprimez-vous : <input type="text" size="50" name="text11"><br>
+<br>
+<br><h4>...avez-vous bien répondu à toutes les questions...:-)</h4>
+<input type="submit" value="Vote" />
+</form>
+</div>
+</body>
+</html>

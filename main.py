@@ -7,7 +7,7 @@ import sys
 import tempfile
 import random
 import string
-import itertools
+import functools, itertools, operator
 import urllib.parse
 
 from flask import Flask, request, render_template
@@ -11215,12 +11215,13 @@ def voiceGen():
 	voiceGen_results += '<br>'
 
 	#build list of chords
-	chords = tuple(eval(query[i][0]+'[\''+query[i][1]+'\']') for i in range(len(query)))
+	chords = [eval(i[0]+"['"+i[1]+"']") for i in query]
 
 	if len(query) <= 4:
 
 		#make cartesian product of list(chords)
-		chord_progressions = list(itertools.product(*chords))
+		#chord_progressions = itertools.product(*chords)
+		len_chord_progressions = functools.reduce(operator.mul, map(len, chords), 1)
 
 		#corresponsdance table note/midi
 		note_to_midi = {
@@ -11229,16 +11230,16 @@ def voiceGen():
 
 		## %MV ##
 		#########
-		chord_int = [[[k for k in range(4)] for j in range(len(query))] for x in range(len(chord_progressions))]
-		score = [0 for x in range(len(chord_progressions))]
-		score_percent = [0 for x in range(len(chord_progressions))]
+		chord_int = [[[k for k in range(4)] for j in range(len(query))] for x in range(len_chord_progressions)]
+		score = [0 for x in range(len_chord_progressions)]
+		score_percent = [0 for x in range(len_chord_progressions)]
 
-		for i in range(len(chord_progressions)):
+		for n,chord_progressions in enumerate(itertools.product(*chords)):
 			for j in range(len(query)):
 				for k in range(4):
-					chord_int[i][j][k] = note_to_midi[chord_progressions[i][j][k]]
+					chord_int[n][j][k] = note_to_midi[chord_progressions[j][k]]
 
-		for i in range(len(chord_progressions)):
+		for i in range(len_chord_progressions):
 			for j in range(len(query)-1):
 				score[i] = (abs(int(chord_int[i][j][0])-int(chord_int[i][j+1][0])) + abs(int(chord_int[i][j][1])-int(chord_int[i][j+1][1])) + abs(int(chord_int[i][j][2])-int(chord_int[i][j+1][2])) + abs(int(chord_int[i][j][3])-int(chord_int[i][j+1][3])))/4
 
@@ -11248,13 +11249,13 @@ def voiceGen():
 			pass
 
 		try:
-			for i in range(len(chord_progressions)):
+			for i in range(len_chord_progressions):
 				score_percent[i] = round(score[i]*100/float(max_score),0)
 		except ZeroDivisionError:
 			pass
 
 		#build dict {progressions:score}
-		chord_score_dict = {score_percent[i]:chord_progressions[i] for i in range(len(chord_progressions))}
+		chord_score_dict = {score_percent[n]:i for n,i in enumerate(itertools.product(*chords))}
 		chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
 
 		#########################
@@ -11291,8 +11292,8 @@ def voiceGen():
 		# for 1 chord, there is no %OCV
 
 		if len(query) == 1:
-			for i in range(len(chord_progressions)):
-				chord_progressions_display.append(chord_progressions[i])
+			for chord_progressions in itertools.product(*chords):
+				chord_progressions_display.append(chord_progressions)
 
 		else:
 			try:
@@ -11304,7 +11305,7 @@ def voiceGen():
 
 		#display results
 		voiceGen_results += '<br>'
-		voiceGen_results += 'Nb de progressions = ('+str(len(chord_progressions))+')'
+		voiceGen_results += 'Nb de progressions = ('+str(len_chord_progressions)+')'
 		voiceGen_results += '<br>'
 		voiceGen_results += display_hist+'<br>'
 		if len(query) != 1:
@@ -11314,7 +11315,7 @@ def voiceGen():
 		voiceGen_results += '<br>'
 
 		#print results count from filter by  %MV
-		voiceGen_results += 'Affichage  = ('+str(len(chord_progressions_display))+'/'+str(len(chord_progressions))+')'
+		voiceGen_results += 'Affichage  = ('+str(len(chord_progressions_display))+'/'+str(len_chord_progressions)+')'
 		voiceGen_results += '<br>'
 		voiceGen_results += '<br>'
 
@@ -11345,7 +11346,7 @@ def voiceGen():
 			k = k.replace('#','_')
 
 			voiceGen_results += '<div id=\"'+k+'\"></div>'
-			voiceGen_results += '<audio controls loop><source src=\"static/audioGen/_'+k+'.wav\" type=\"audio/wav\"></audio>'
+			voiceGen_results += '<a href=/audioGen/'+k+'>Play Audio</a>'
 			voiceGen_results += '</details>'
 			voiceGen_results += '<br>'
 
@@ -11386,6 +11387,7 @@ def voiceGen():
 	#
 	# midi gen
 	#
+	"""
 	for j in chord_progressions_display:
 
 		#create midi objects
@@ -11456,167 +11458,9 @@ def voiceGen():
 		del output_file
 		del mid
 		del MyMIDI
-
+"""
 	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 
-
-###
-### Hum : app looking up tunes for moods
-###
-
-##BUILD DICT OF SYNONYMS
-# This method adds all given synonyms into the correct dictionary entry.
-def extendDictEntry(dict_syn, key, xmlSynonyms):
-	for child in xmlSynonyms:
-
-		childText = child.text
-
-		if (childText not in dict_syn[key]):
-			dict_syn[key].extend([childText])
-	return dict_syn
-
-# This method buils the synonyms dictionary from the WoNeF file.
-tree = ET.parse('jazzreal/static/wonef-coverage-0.1.xml')
-
-root = tree.getroot()
-dict_syn = {}
-
-# fill synonyms dictionary
-for synset in root:
-	for child in synset:
-		if child.tag == "SYNONYM":
-			for literal in child:
-				currLiteralText = literal.text
-
-				if currLiteralText in dict_syn:
-					# add all SYNONYM tags text into the correct entry of the map
-					extendDictEntry(dict_syn, currLiteralText, child)
-				else:
-					# create a new entry in the map
-					dict_syn[currLiteralText] = [currLiteralText]
-					extendDictEntry(dict_syn, currLiteralText, child)
-
-corpus = {}
-
-for title in list_titles:
-	try:
-		f = open('jazzreal/static/corpus-html/'+title+'.html', 'r')
-		TEXT = f.read()
-		title = re.search('<TITLE>(.*)</TITLE>', TEXT).group(1)
-		grille = re.findall('>(.*):\n-([\w\W][^>]*)', TEXT)
-
-		humeurs_extended = []
-		humeurs = re.search('<humeurs>Humeurs=(.*)</humeurs>', TEXT).group(1)
-		humeurs = re.findall('[a-zA-Z0-9_êâéèÉ]+',humeurs)
-		humeurs = list(set(humeurs))
-
-		for x in humeurs:
-			try:
-				humeurs_extended += dict_syn[x.lower()]
-			except KeyError:
-				pass
-
-		corpus[title] = {'humeurs':''}
-		corpus[title]['humeurs'] = list(humeurs_extended)
-		for i in range(len(grille)):
-			corpus[title][grille[i][0]]=grille[i][1]
-	except AttributeError:
-		pass
-
-def pattern_build(words_query):
-	moods_list = []
-	words_tokenize = re.findall('[a-zA-Z0-9_êâéèÉ]+', words_query)
-	words_length = len(words_tokenize)
-	for i in range(words_length):
-		moods_list.append(words_tokenize[i])
-	return moods_list
-
-
-@app.route('/Hume')
-def Hume_search():
-
-	viewHume_results = ''
-
-	mood_query = request.args.get('texte','')
-
-	if mood_query:
-		viewHume_results = '<h4>recherche:"'+str(mood_query)+'"</h4>'
-		viewHume_results += '<br>'
-		viewHume_results += '<br>'
-		rank = {}
-		for i in list_titles:
-			rank[i] = 0
-		moods_list = pattern_build(mood_query)
-		for word in moods_list:
-			regex = re.compile(word,re.IGNORECASE)
-			for i in list_titles:
-				selectobj = filter(regex.search, corpus[i]['humeurs'])
-				for val in selectobj:
-					rank[i] += 1
-
-		###ranking method with scores (1st and 2nd)
-		x = max(rank.values())
-		for i in list_titles:
-			if rank[i] == x:
-				#print(i+':'+str(x))
-				viewHume_results += i+':'+str(x)
-				viewHume_results += '<br>'
-
-				try:
-					if corpus[i]['a']:
-						#print('>a:')
-						viewHume_results += '>a:'
-						viewHume_results += '<br>'
-						#print(corpus[i]['a'])
-						viewHume_results += str(corpus[i]['a'])
-						viewHume_results += '<br>'
-				except KeyError:
-					pass
-				rank.pop(i)
-
-		y = max(rank.values())
-		for j in list_titles:
-			try:
-				if rank[j] == y:
-					#print(j+':'+str(y))
-					viewHume_results += j+':'+str(y)
-					viewHume_results += '<br>'
-					try:
-						if corpus[j]['a']:
-							#print('>a:')
-							viewHume_results += '>a:'
-							viewHume_results += '<br>'
-							#print(corpus[j]['a'])
-							viewHume_results += str(corpus[j]['a'])
-							viewHume_results += '<br>'
-					except KeyError:
-						pass
-					rank.pop(j)
-			except KeyError:
-				pass
-	else:
-
-		viewHume_results = 'pas de résultats'
-
-
-	return render_template('view_hume.html', viewHume_results=viewHume_results)
-
-corpus_sequence = {}
-
-for title in list_titles:
-	corpus_sequence[title] = {}
-	try:
-		f = open('jazzreal/static/corpus-html/'+title+'.html', 'r')
-		TEXT = f.read()
-		metric = re.search('<metric>(.*)</metric>', TEXT).group(1)
-		key = re.search('<key>(.*)</key>', TEXT).group(1)
-		grille = re.findall('>(.*):\n-([\w\W][^>]*)', TEXT)
-		for i in range(len(grille)):
-			corpus_sequence[title][grille[i][0]]=grille[i][1]
-		corpus_sequence[title]['key'] = key
-		corpus_sequence[title]['metric'] = metric
-	except AttributeError:
-		pass
 
 #this method search by sequence of chords in all song's sections and rank the results
 @app.route('/Sequence')
@@ -11674,6 +11518,198 @@ def Sequence_search():
 		viewSequence_results += '<br>'
 
 	return render_template('view_sequence.html', viewSequence_results=viewSequence_results)
+
+poll_data = {
+'question1' : '1. Actuellement, où faitez-vous vos courses alimentaires?',
+'field1' : ['Marché','Supermarché','Commerces de proximité','Circuit-court de producteurs'],
+
+'question2' : '2. Avez-vous déjà recours à une offre de circuit-court?',
+'field2' : ['Dans le quartier Rive Droite','Dans un autre quartier'],
+
+'question3' : '3. Souhaiteriez-vous y participer en tant que consommateur?',
+'field3' : ['Oui, je souhaite participer','Non, je ne souhaite pas participer'],
+
+'question4' : '4. Dans quelle mesure la question du tarif vous semblerait-t-elle importante?',
+'field4' : ['Pas importante','Peu importante','Importante','Déterminante'],
+
+'question5' : '5. Vous semblerait-il pertinent de prendre en compte le quotient famial dans le calcul du prix?',
+'field5' : ['Oui, cela me semble pertinent','Non, cela ne me semble par pertinent'],
+
+'question6' : '6. Souhaiteriez-vous commander des produits :',
+'field6' : ['Issus de l’agriculture biologique uniquement','Issus de l’agriculture raisonnée','Issus de producteurs en cours de conversion en bio'],
+
+'question7' : '7. Si oui, souhaiteriez vous commander uniquement des produits locaux (<75km)?',
+'field7' : ['Oui, certainement.','Non, pas du tout'],
+
+'question8' : '8. Cocher les produits que vous seriez prêts à acheter:',
+'field8' : ['Produits frais (Fromage, yaourt, crème)','Lait','Oeufs','Légumes','Fruits','Viandes','Poissons','Légumineuses','Jus de fruits','Crêpes','Miel','Huile','Farine','Savon','Bieres'],
+
+'question9' : '9. Quelle serait pour vous la fréquence idéale des livraisons?',
+'field9' : ['Hebdomadaire','Mensuelle','Trimestrielle'],
+
+'question10' : '10. Quels lieux et mode de livraisons vous conviendraient?',
+'field10' : ['Venir chercher à un point de livraison','Adhérer à un système de livraison à domicile'],
+
+'question11' : '11. Seriez-vous prets à:',
+'field11' : ['Réceptionner les livraisons','Assurer des permanences pour le retrait des commandes','Livrer chez l’habitant','assurer le lien avec un producteur']
+
+}
+filename = 'data.txt'
+filename2 = 'data2.txt'
+
+@app.route('/quartier_rive_droite/sondage')
+def root():
+    return render_template('poll.html', data=poll_data)
+
+@app.route('/poll')
+def poll():
+    vote1 = request.args.get('field1')
+    vote2 = request.args.get('field2')
+    vote3 = request.args.get('field3')
+    vote4 = request.args.get('field4')
+    vote5 = request.args.get('field5')
+    vote6 = request.args.getlist('field6')
+    vote7 = request.args.get('field7')
+    vote8 = request.args.getlist('field8')
+    vote9 = request.args.get('field9')
+    vote10 = request.args.get('field10')
+    vote11 = request.args.get('field11')
+
+    out = open(filename, 'a')
+    out.write( vote1 + '\n' )
+    out.write( vote2 + '\n' )
+    out.write( vote3 + '\n' )
+    out.write( vote4 + '\n' )
+    out.write( vote5 + '\n' )
+    out.write( ' '.join(vote6) + '\n' )
+    out.write( vote7 + '\n' )
+    out.write( ' '.join(vote8) + '\n' )
+    out.write( vote9 + '\n' )
+    out.write( vote10 + '\n' )
+    out.write( vote11 + '\n' )
+    out.close()
+
+    text1 = request.args.get('text1', default='')
+    text2_1 = request.args.get('text_Dans le quartier Rive Droite', default='')
+    text2_2 = request.args.get('text_Dans un autre quartier', default='')
+    text8 = request.args.get('text8', default='')
+    text11 = request.args.get('text11', default='')
+
+    out2 = open(filename2,'a')
+    out2.write(text1+',')
+    out2.write(text2_1+',')
+    out2.write(text2_2+',')
+    out2.write(text8+',')
+    out2.write(text11+',')
+    out2.write('\n')
+    out2.close()
+
+    return render_template('merci.html', data=poll_data)
+
+@app.route('/quartier_rive_droite/sondage/d645feaaefa4cd67929e126bfaaf7a9c')
+def show_results():
+    votes1 = {}
+    votes2 = {}
+    votes3 = {}
+    votes4 = {}
+    votes5 = {}
+    votes6 = {}
+    votes7 = {}
+    votes8 = {}
+    votes9 = {}
+    votes10 = {}
+    votes11 = {}
+
+    for f in poll_data['field1']:
+        votes1[f] = 0
+    for f in poll_data['field2']:
+        votes2[f] = 0
+    for f in poll_data['field3']:
+        votes3[f] = 0
+    for f in poll_data['field4']:
+        votes4[f] = 0
+    for f in poll_data['field5']:
+        votes5[f] = 0
+    for f in poll_data['field6']:
+        votes6[f] = 0
+    for f in poll_data['field7']:
+        votes7[f] = 0
+    for f in poll_data['field8']:
+        votes8[f] = 0
+    for f in poll_data['field9']:
+        votes9[f] = 0
+    for f in poll_data['field10']:
+        votes10[f] = 0
+    for f in poll_data['field11']:
+        votes11[f] = 0
+
+
+    f  = open(filename, 'r')
+
+    for line in f:
+        for i in poll_data['field1']:
+            if i in line:
+                votes1[i] +=1
+        for i in poll_data['field2']:
+            if i in line:
+                votes2[i] +=1
+        for i in poll_data['field3']:
+            if i in line:
+                votes3[i] +=1
+        for i in poll_data['field4']:
+            if i in line:
+                votes4[i] +=1
+        for i in poll_data['field5']:
+            if i in line:
+                votes5[i] +=1
+        for i in poll_data['field6']:
+            if i in line:
+                votes6[i] +=1
+        for i in poll_data['field7']:
+            if i in line:
+                votes7[i] +=1
+        for i in poll_data['field8']:
+            if i in line:
+                votes8[i] +=1
+        for i in poll_data['field9']:
+            if i in line:
+                votes9[i] +=1
+        for i in poll_data['field10']:
+            if i in line:
+                votes10[i] +=1
+        for i in poll_data['field11']:
+            if i in line:
+                votes11[i] +=1
+
+    g = open(filename2, 'r')
+
+    text1 = []
+    text2_1 = []
+    text2_2 = []
+    text8 = []
+    text11 = []
+
+    for line in g:
+        res = line.split(',')
+        text1.append(res[0])
+        text2_1.append(res[1])
+        text2_2.append(res[2])
+        text8.append(res[3])
+        text11.append(res[4])
+
+    return render_template('results.html', data=poll_data, text1=text1, text2_1=text2_1, text2_2=text2_2, text8=text8, text11=text11, votes1=votes1,votes2=votes2,votes3=votes3,votes4=votes4,votes5=votes5,votes6=votes6,votes7=votes7,votes8=votes8,votes9=votes9,votes10=votes10,votes11=votes11)
+
+@app.route('/quartier_rive_droite/sondage/330c052c3d60aae25dd999396c60fdff')
+def clear_poll():
+    f = open(filename,'w')
+    f.truncate()
+    f.close()
+
+    g = open(filename2,'w')
+    g.truncate()
+    g.close()
+
+    return render_template('reset.html')
 
 if __name__ == "__main__":
     app.run()
