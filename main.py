@@ -1,37 +1,64 @@
 # -*- coding: utf-8 -*-
 
-import base64
-import os
-import re
-import sys
-import tempfile
-import random
-import string
-import functools, itertools, operator
-import urllib.parse
 
-from flask import Flask, request, render_template
-from flask_mail import Mail, Message
+from bokeh.application.handlers import FunctionHandler
+from bokeh.application import Application
+from bokeh.embed import server_document
+from bokeh.io import curdoc, show, output_notebook
+from bokeh.layouts import row, column
+from bokeh.models import ColumnDataSource, Select, HoverTool
+from bokeh.palettes import Spectral3
+from bokeh.plotting import figure, show
+from bokeh.server.server import BaseServer
+from bokeh.server.server import Server
+from bokeh.server.tornado import BokehTornado
+from bokeh.server.util import bind_sockets
+from bokeh.tile_providers import get_provider, ESRI_IMAGERY, OSM
+
 from bs4 import BeautifulSoup
 
-import xml.etree.ElementTree as ET
-
-import matplotlib.pyplot as plt
-
-from midiutil import MIDIFile
 from collections import defaultdict
-from mido import MidiFile
-from pydub import AudioSegment
-from pydub.generators import Sine
 
-from jazzreal.versionsDB import versions_search
+from flask import Flask, render_template
+from flask import Flask, request, render_template
+from flask_mail import Mail, Message
+
 from jazzreal.albumDB import album
 from jazzreal.biographyDB import biography
+from jazzreal.creditsDB import credits_db
 from jazzreal.groupsDB import groups
-from jazzreal.tracksDB import tracks
 from jazzreal.membersDB import members
 from jazzreal.nbenies_articlesDB import articles
-from jazzreal.creditsDB import credits_db
+from jazzreal.tracksDB import tracks
+from jazzreal.versionsDB import versions_search
+
+from midiutil import MIDIFile
+from mido import MidiFile
+
+from pydub.generators import Sine
+from pydub import AudioSegment
+
+from threading import Thread
+
+from tornado.httpserver import HTTPServer
+from tornado.ioloop import IOLoop
+from tornado.ioloop import IOLoop
+
+import asyncio
+import base64
+import functools, itertools, operator
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import pandas as pd
+import random
+import re
+import string
+import sys
+import tempfile
+import urllib.parse
+import xml.etree.ElementTree as ET
+
 
 lists = []
 lists.append('I-#Idim-IIm7-#IIdim-IIIm7')
@@ -11545,7 +11572,7 @@ poll_data = {
 'question4' : '4. Si oui, souhaiteriez-vous commander uniquement des produits issus de l’agriculture biologique ?',
 'field4' : ['Oui, j\'ai un intérêt','Non, je n\'ai pas d\'intérêt'],
 
-'question5' : '5. Si oui, souhaiterez vous commander uniquement des produits locaux?',
+'question5' : '5. Si oui, souhaiteriez vous commander uniquement des produits locaux?',
 'field5' : ['Oui, certainement.','Non, pas du tout'],
 
 'question6' : '6. Cocher les produits que vous seriez prêts à acheter:',
@@ -11689,7 +11716,8 @@ def show_results():
         text9.append(res[4])
     
     return render_template('results.html', data=poll_data, text1=text1, text2_1=text2_1, text2_2=text2_2, text6=text6, text9=text9, votes1=votes1,votes2=votes2,votes3=votes3,votes4=votes5,votes6=votes6,votes7=votes7,votes8=votes8,votes9=votes9)
- 
+
+#Sondage Quartier Rive Droite 
 @app.route('/quartier_rive_droite/sondage/reset')
 def clear_poll():
     f = open(filename,'w')
@@ -11701,6 +11729,162 @@ def clear_poll():
     g.close()
 
     return render_template('reset.html')
+
+#Covid19 World Map
+def bkapp(doc):
+    #get data
+    abridged_url = "https://pomber.github.io/covid19/timeseries.json"
+    df = pd.read_json(abridged_url)
+
+    #create datetime index
+    dates = pd.to_datetime([(x['date']) for x in df['France']])
+
+    #create global dataframe
+    df_global = pd.Series(index=df.columns,dtype='object')
+
+    for country in df.columns:
+        confirmed = [x['confirmed'] for x in df[country]]
+        deaths = [x['deaths'] for x in df[country]]
+        recovered = [x['recovered'] for x in df[country]]
+        confirmed = pd.Series(confirmed, index=dates)
+        deaths = pd.Series(deaths, index=dates)
+        recovered = pd.Series(recovered, index=dates)
+        df_global[country] = pd.DataFrame({'confirmed': confirmed, 'recovered': recovered, 'deaths': deaths})
+
+    #create empty DataFrame for clearing purpose
+    empty_df = pd.DataFrame()
+    blank = pd.Series(index=dates, dtype='object')
+    df_global['BLANK'] = pd.DataFrame({'confirmed': blank, 'recovered': blank, 'deaths': blank})
+
+    #set source to empty DataFrame with ColumnDataSource model
+    source = ColumnDataSource(df_global['BLANK'])
+
+    #create and draw figure p
+    p = figure(x_axis_type='datetime')
+    p.line(x='index', y='confirmed', line_color=None, source=ColumnDataSource(df_global['BLANK']), legend_label='Confirmed')
+    p.line(x='index', y='recovered', line_color=None, source=ColumnDataSource(df_global['BLANK']), legend_label='Recovered')
+    p.line(x='index', y='deaths', line_color=None, source=ColumnDataSource(df_global['BLANK']), legend_label='Deaths')
+    p.yaxis.axis_label = 'COVID19 Cases'
+    p.legend.location = "top_left"
+
+    #create and draw figure p2 on worldmap
+    tile_provider = get_provider(OSM)
+    p2 = figure(x_range=(-2000000, 6000000), y_range=(-1000000, 7000000), x_axis_type="mercator", y_axis_type="mercator")
+    p2.add_tile(tile_provider)
+
+    #functions that converts lon/lat to MercatorX/Y
+    def mercX(lon):
+        k = 6378137
+        return lon * (k * np.pi/180.0)
+
+    def mercY(lat):
+        k = 6378137
+        return np.log(np.tan((90 + lat) * np.pi/360.0)) * k
+
+    #calculate max deaths from df_global
+    death_list = list()
+    for country in df_global.index:
+        death_list.append(df_global[country]['deaths'].max())
+    max_deaths = max(death_list)
+
+    #create Dataframe with (MercatorX/Y,deaths,deaths_circle)
+    df_coordinates = pd.read_csv('/home/jericho/CODE/countries_coordinates.csv')
+    df_coordinates.set_index('name', inplace=True)
+    for country in df_coordinates.index:
+        try:
+            df_coordinates.loc[country,'MercatorX'] = int(mercX(df_coordinates.loc[country,'longitude']))
+        except ValueError:
+            df_coordinates.loc[country,'MercatorX'] = 0
+        try:
+            df_coordinates.loc[country,'MercatorY'] = int(mercX(df_coordinates.loc[country,'latitude']))
+        except ValueError:
+            df_coordinates.loc[country,'MercatorY'] = 0
+        try:
+            df_coordinates.loc[country,'deaths'] = df_global[country]['deaths'].max()
+        except ValueError:
+            df_coordinates.loc[country,'deaths'] = 0
+        except KeyError:
+            pass
+        try:
+            df_coordinates.loc[country,'deaths_circle'] = (df_global[country]['deaths'].max()*200)/max_deaths
+        except KeyError:
+            pass
+
+    #draw circles by country's lat & lon
+    for country in df_coordinates.index:
+        try:
+            p2.circle(x='MercatorX', 
+                    y='MercatorY',
+                    size='deaths_circle',
+                    fill_color="dodgerblue", line_color="dodgerblue",
+                    fill_alpha=0.01,
+                    source=ColumnDataSource(df_coordinates)
+                    )
+        except ValueError:
+            p2.circle(x=0,y=0)
+        except KeyError:
+            p2.circle(x=0,y=0)
+
+    #update callback triggered by Select model
+    def update_country(attr, old, new):
+
+        doc.clear()
+
+        global p
+        global source
+
+        country = select_country.value
+        source = ColumnDataSource(df_global[country])
+        p = figure(x_axis_type='datetime')
+        p.line(x='index', y='confirmed', line_width=2, source=source, legend_label='Confirmed')
+        p.line(x='index', y='recovered', line_width=2, source=source, color=Spectral3[1], legend_label='Recovered')
+        p.line(x='index', y='deaths', line_width=2, source=source, color=Spectral3[2], legend_label='Deaths')
+        p.yaxis.axis_label = country +' COVID19 Cases'
+        p.legend.location = "top_left"
+        p.add_tools(p_hover)
+
+        doc.add_root(row(column(p,p2),select_country))
+
+    #create Select model and assign callback
+    select_country = Select(title="Country",  options=list(df.columns), value = '')
+    select_country.on_change('value', update_country)
+
+    #create HoverTool and add it to figure p
+    p_hover = HoverTool()
+    p_hover.tooltips = [('Confirmed', '@confirmed'),('Recovered', '@recovered'),('Deaths', '@deaths')]
+    p.add_tools(p_hover)
+
+    #create HoverTool and add it to figure p2
+    p2_hover = HoverTool()
+    p2_hover.tooltips = [('Country', '@name'),('Deaths', '@deaths')]
+    p2.add_tools(p2_hover)
+
+    #add models (row) to current document
+    doc.add_root(row(column(p,p2),select_country))
+
+# can't use shortcuts here, since we are passing to low level BokehTornado
+bkapp = Application(FunctionHandler(bkapp))
+
+# This is so that if this app is run using something like "gunicorn -w 4" then
+# each process will listen on its own port
+sockets, port = bind_sockets("localhost", 0)
+
+
+
+@app.route('/Covid19_WorldMap', methods=['GET'])
+def bkapp_page():
+    script = server_document('http://localhost:5006/bkapp')
+    return render_template("Covid19WorldMap.html", script=script, template="Flask")
+
+
+def bk_worker():
+    # Can't pass num_procs > 1 in this configuration. If you need to run multiple
+    # processes, see e.g. flask_gunicorn_embed.py
+    server = Server({'/bkapp': bkapp}, io_loop=IOLoop(), allow_websocket_origin=["127.0.0.1:8000"])
+    server.start()
+    server.io_loop.start()
+
+Thread(target=bk_worker).start()
 
 if __name__ == "__main__":
     app.run()
