@@ -1,37 +1,44 @@
 # -*- coding: utf-8 -*-
 
-import base64
-import os
-import re
-import sys
-import tempfile
-import random
-import string
-import functools, itertools, operator
-import urllib.parse
-
-from flask import Flask, request, render_template
-from flask_mail import Mail, Message
 from bs4 import BeautifulSoup
 
-import xml.etree.ElementTree as ET
-
-import matplotlib.pyplot as plt
-
-from midiutil import MIDIFile
 from collections import defaultdict
-from mido import MidiFile
-from pydub import AudioSegment
-from pydub.generators import Sine
 
-from jazzreal.versionsDB import versions_search
+from flask import Flask, render_template
+from flask import Flask, request, render_template
+from flask_mail import Mail, Message
+
 from jazzreal.albumDB import album
 from jazzreal.biographyDB import biography
+from jazzreal.creditsDB import credits_db
 from jazzreal.groupsDB import groups
-from jazzreal.tracksDB import tracks
 from jazzreal.membersDB import members
 from jazzreal.nbenies_articlesDB import articles
-from jazzreal.creditsDB import credits_db
+from jazzreal.tracksDB import tracks
+from jazzreal.versionsDB import versions_search
+
+from midiutil import MIDIFile
+from mido import MidiFile
+
+from pydub.generators import Sine
+from pydub import AudioSegment
+
+import asyncio
+import base64
+import functools, itertools, operator
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import pandas as pd
+import random
+import re
+import string
+import sys
+import tempfile
+import urllib.parse
+import xml.etree.ElementTree as ET
+
+import seaborn as sns
 
 lists = []
 lists.append('I-#Idim-IIm7-#IIdim-IIIm7')
@@ -1690,7 +1697,7 @@ artist_list = [
 'Alex Beller',
 'Alex Blake (2)',
 'Alex Caturegli',
-'Alex Cirin	Jr.',
+'Alex Cirin    Jr.',
 'Alex Cuozzo',
 'Alex Deutsch',
 'Alex Dmochowski',
@@ -10446,449 +10453,449 @@ mail = Mail(app)
 
 @app.route('/')
 def home_page():
-	return render_template('home_page.html')
+    return render_template('home_page.html')
 
 @app.route('/contribute/', methods=['POST'])
 def contribute():
-	#sending email
-	msg = Message('[Jazz Real] : '+request.form.get('Subject'), sender = 'feedback@jazzreal.org', recipients = ['feedback@jazzreal.org'])
-	#msg.body = 'Last Name : '+request.form.get('FirstName')+'\n'
-	#msg.body += 'First Name : '+request.form.get('LastName')+'\n'
-	#msg.body += 'Email : '+request.form.get('Email')+'\n'
-	#msg.body += 'Subject : '+request.form.get('Subject')+'\n'
-	msg.body = 'Message : '+request.form.get('Message')+'\n'
-	fp = request.files.get('file_upload')
-	if fp:
-		msg.attach(fp.filename,'application/octect-stream',fp.read())
-		mail.send(msg)
-	else:
-		mail.send(msg)
-	return render_template('contribute.html')
+    #sending email
+    msg = Message('[Jazz Real] : '+request.form.get('Subject'), sender = 'feedback@jazzreal.org', recipients = ['feedback@jazzreal.org'])
+    #msg.body = 'Last Name : '+request.form.get('FirstName')+'\n'
+    #msg.body += 'First Name : '+request.form.get('LastName')+'\n'
+    #msg.body += 'Email : '+request.form.get('Email')+'\n'
+    #msg.body += 'Subject : '+request.form.get('Subject')+'\n'
+    msg.body = 'Message : '+request.form.get('Message')+'\n'
+    fp = request.files.get('file_upload')
+    if fp:
+        msg.attach(fp.filename,'application/octect-stream',fp.read())
+        mail.send(msg)
+    else:
+        mail.send(msg)
+    return render_template('contribute.html')
 
 @app.route('/search')
 def search():
 #rechercher la grille d'un standard
-	search_title = request.args.get('title','')
-	if search_title:
-		regex = re.compile(r'.*'+search_title+'.*',re.IGNORECASE)
-		results_title = []
-		selectobj = filter(regex.search, list_titles)
-		for val in selectobj:
-			results_title.append(val)
-	else:
-		results_title = []
+    search_title = request.args.get('title','')
+    if search_title:
+        regex = re.compile(r'.*'+search_title+'.*',re.IGNORECASE)
+        results_title = []
+        selectobj = filter(regex.search, list_titles)
+        for val in selectobj:
+            results_title.append(val)
+    else:
+        results_title = []
 
 #rechercher un artiste
-	search_artist = request.args.get('artist','')
-	if search_artist:
-		results_artist = []
-		regex = re.compile(r'.*'+search_artist+'.*',re.IGNORECASE)
-		selectobj = filter(regex.search, artist_list)
-		for val in selectobj:
-			results_artist.append(val)
-	else:
-		results_artist = []
+    search_artist = request.args.get('artist','')
+    if search_artist:
+        results_artist = []
+        regex = re.compile(r'.*'+search_artist+'.*',re.IGNORECASE)
+        selectobj = filter(regex.search, artist_list)
+        for val in selectobj:
+            results_artist.append(val)
+    else:
+        results_artist = []
 
 #rechercher un relevé
-	search_transcript = request.args.get('transcript','')
-	if search_transcript:
-		results_transcript = []
-		regex = re.compile(r'.*'+search_transcript+'.*',re.IGNORECASE)
-		selectobj = filter(regex.search, list_transcript)
-		for val in selectobj:
-			results_transcript.append(val)
-	else:
-		results_transcript = []
+    search_transcript = request.args.get('transcript','')
+    if search_transcript:
+        results_transcript = []
+        regex = re.compile(r'.*'+search_transcript+'.*',re.IGNORECASE)
+        selectobj = filter(regex.search, list_transcript)
+        for val in selectobj:
+            results_transcript.append(val)
+    else:
+        results_transcript = []
 
 #rechercher les versions d\'un standard
-	search_versions = request.args.get('versions','')
-	s = versions_search()
-	s.init_versionsDB()
-	if search_versions:
-		results_versions = []
-		regex = re.compile(r'.*'+search_versions+'.*',re.IGNORECASE)
-		selectobj = filter(regex.search, s.DB.keys())
-		for val in selectobj:
-			results_versions.append(val)
-	else:
-		results_versions = []
+    search_versions = request.args.get('versions','')
+    s = versions_search()
+    s.init_versionsDB()
+    if search_versions:
+        results_versions = []
+        regex = re.compile(r'.*'+search_versions+'.*',re.IGNORECASE)
+        selectobj = filter(regex.search, s.DB.keys())
+        for val in selectobj:
+            results_versions.append(val)
+    else:
+        results_versions = []
 
 #rechercher une cadence
-	search_cadence = request.args.get('cadence','')
-	if search_cadence:
-		results_cadence = []
-		for x in list_cadence:
-			regex = re.compile(r'\b'+search_cadence,re.IGNORECASE)
-			y = re.findall(regex, x)
-			if y != []:
-				results_cadence += [(x,list_cadence.index(x)+1)]
-				list_name = lists[list_cadence.index(x)+1]
-	else:
-		results_cadence = []
+    search_cadence = request.args.get('cadence','')
+    if search_cadence:
+        results_cadence = []
+        for x in list_cadence:
+            regex = re.compile(r'\b'+search_cadence,re.IGNORECASE)
+            y = re.findall(regex, x)
+            if y != []:
+                results_cadence += [(x,list_cadence.index(x)+1)]
+                list_name = lists[list_cadence.index(x)+1]
+    else:
+        results_cadence = []
 
 #rechercher un pont
-	search_bridge = request.args.get('bridge','')
-	if search_bridge:
-		results_bridge = []
-		for x in list_bridge:
-			regex = re.compile(r'\b'+search_bridge,re.IGNORECASE)
-			y = re.findall(regex, x)
-			if y != []:
-				results_bridge += [(x,list_bridge.index(x)+121)]
-	else:
-		results_bridge = []
+    search_bridge = request.args.get('bridge','')
+    if search_bridge:
+        results_bridge = []
+        for x in list_bridge:
+            regex = re.compile(r'\b'+search_bridge,re.IGNORECASE)
+            y = re.findall(regex, x)
+            if y != []:
+                results_bridge += [(x,list_bridge.index(x)+121)]
+    else:
+        results_bridge = []
 
 #rechercher un article
-	search_article = request.args.get('article','')
-	if search_article:
-		art = articles()
-		art.init_articlesDB()
-		results_article = []
-		input_file = open('jazzreal/static/nbeniesDB.dict','r')
-		read_file = input_file.read()
-		regex = re.compile(r'{[^}]*'+search_article+'[^}]+}', re.IGNORECASE)
-		result = re.findall(regex,read_file)
-		regex2 = re.compile(r'\'titre\':([^\]]+\])')
-		for i in result:
-			result2 = re.findall(regex2,str(i))
-		for i in result2:
-			results_article += [(i,art.DB[i])]
-		input_file.close()
-	else:
-		results_article = []
-	return render_template('query_results.html', results_article=results_article, results_transcript=results_transcript, results_artist=results_artist, results_title=results_title, results_cadence=results_cadence, results_bridge=results_bridge, results_versions=results_versions)
+    search_article = request.args.get('article','')
+    if search_article:
+        art = articles()
+        art.init_articlesDB()
+        results_article = []
+        input_file = open('jazzreal/static/nbeniesDB.dict','r')
+        read_file = input_file.read()
+        regex = re.compile(r'{[^}]*'+search_article+'[^}]+}', re.IGNORECASE)
+        result = re.findall(regex,read_file)
+        regex2 = re.compile(r'\'titre\':([^\]]+\])')
+        for i in result:
+            result2 = re.findall(regex2,str(i))
+        for i in result2:
+            results_article += [(i,art.DB[i])]
+        input_file.close()
+    else:
+        results_article = []
+    return render_template('query_results.html', results_article=results_article, results_transcript=results_transcript, results_artist=results_artist, results_title=results_title, results_cadence=results_cadence, results_bridge=results_bridge, results_versions=results_versions)
 
 @app.route('/artist')
 def artist_search():
-	search_artist = request.args.get('')
+    search_artist = request.args.get('')
 
-	alb = album()
-	bio = biography()
-	grp = groups()
-	trk = tracks()
-	mb = members()
-	cred = credits_db()
+    alb = album()
+    bio = biography()
+    grp = groups()
+    trk = tracks()
+    mb = members()
+    cred = credits_db()
 
-	alb.init_albumDB()
-	bio.init_biographyDB()
-	grp.init_groupsDB()
-	trk.init_tracksDB()
-	mb.init_membersDB()
-	cred.init_credits_db()
+    alb.init_albumDB()
+    bio.init_biographyDB()
+    grp.init_groupsDB()
+    trk.init_tracksDB()
+    mb.init_membersDB()
+    cred.init_credits_db()
 
-	if bio.DB.get(search_artist):
-		bio_val = bio.DB.get(search_artist)
-	else:
-		bio_val = []
+    if bio.DB.get(search_artist):
+        bio_val = bio.DB.get(search_artist)
+    else:
+        bio_val = []
 
-	if grp.DB.get(search_artist):
-		grp_val = sorted(grp.DB.get(search_artist))
-	else:
-		grp_val = []
+    if grp.DB.get(search_artist):
+        grp_val = sorted(grp.DB.get(search_artist))
+    else:
+        grp_val = []
 
-	if alb.DB.get(search_artist):
-		alb_val = sorted(alb.DB.get(search_artist))
-	else:
-		alb_val = []
+    if alb.DB.get(search_artist):
+        alb_val = sorted(alb.DB.get(search_artist))
+    else:
+        alb_val = []
 
-	#tree:root
-	script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
+    #tree:root
+    script = 'var data = [{"id": 1,"name": "Artist","description": "'+search_artist+'"},'
 
-	#tree:level1 (biography + groups(root) + discography(root)
-	script += '{"id": 2,"parentId": 1,"name": "Biographie", "type": "link_biography","description": "'+str(bio_val)+'"},'
-	script += '{"id": 3,"parentId": 1,"name": "Groupes","description": "--ouvrir--"},'
-	script += '{"id": 4,"parentId": 1,"name": "Discographie","description": "--ouvrir--"},'
+    #tree:level1 (biography + groups(root) + discography(root)
+    script += '{"id": 2,"parentId": 1,"name": "Biographie", "type": "link_biography","description": "'+str(bio_val)+'"},'
+    script += '{"id": 3,"parentId": 1,"name": "Groupes","description": "--ouvrir--"},'
+    script += '{"id": 4,"parentId": 1,"name": "Discographie","description": "--ouvrir--"},'
 
-	#counter
-	i = 4
-	j = 4
+    #counter
+    i = 4
+    j = 4
 
-	#tree:level2->Groups
-	for val in grp_val:
-		i = j
-		i += 1
-		j = i+1
+    #tree:level2->Groups
+    for val in grp_val:
+        i = j
+        i += 1
+        j = i+1
 
-		script += '{"id": '+str(i)+',"parentId": 3,"name":"Groupe", "type":"link_group","description": "'+val+'"},'
+        script += '{"id": '+str(i)+',"parentId": 3,"name":"Groupe", "type":"link_group","description": "'+val+'"},'
 
-	#counter
-	j = i
+    #counter
+    j = i
 
-	#tree:level2->Discography
-	for val in alb_val:
-		i = j
-		i += 1
-		script += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
-		script += '{"id": '+str(i+1)+',"parentId": '+str(i)+',"name":"Pistes","description": "--ouvrir--"},'
-		script += '{"id": '+str(i+2)+',"parentId": '+str(i)+',"name":"Crédits","description": "--ouvrir--"},'
-		j = i + 3
-		#tree:level3->Tracks
-		try:
-			for val2 in trk.DB[val]:
-				script += '{"id": '+str(j)+',"parentId": '+str(i+1)+',"name":"Pistes","description": "'+val2+'"},'
-				j += 1
-		except KeyError:
-			pass
+    #tree:level2->Discography
+    for val in alb_val:
+        i = j
+        i += 1
+        script += '{"id": '+str(i)+',"parentId": 4,"name":"Album","description": "'+val+'"},'
+        script += '{"id": '+str(i+1)+',"parentId": '+str(i)+',"name":"Pistes","description": "--ouvrir--"},'
+        script += '{"id": '+str(i+2)+',"parentId": '+str(i)+',"name":"Crédits","description": "--ouvrir--"},'
+        j = i + 3
+        #tree:level3->Tracks
+        try:
+            for val2 in trk.DB[val]:
+                script += '{"id": '+str(j)+',"parentId": '+str(i+1)+',"name":"Pistes","description": "'+val2+'"},'
+                j += 1
+        except KeyError:
+            pass
 
-		#tree:level3->Credits
-		try:
-			for val3 in cred.DB[val]:
-				script += '{"id": '+str(j)+',"parentId": '+str(i+2)+',"name":"Crédits","description": "'+val3+'"},'
-				j += 1
-		except KeyError:
-			pass
+        #tree:level3->Credits
+        try:
+            for val3 in cred.DB[val]:
+                script += '{"id": '+str(j)+',"parentId": '+str(i+2)+',"name":"Crédits","description": "'+val3+'"},'
+                j += 1
+        except KeyError:
+            pass
 
-	script += '];'
+    script += '];'
 
-	#script:end
-	script += """
-				var treePlugin = new d3.mitchTree.boxedTree()
-				.getNodeSettings().setSizingMode('nodeSize').back()
-				.setIsFlatData(true)
-				.setData(data)
-				.setMinScale(0.5)
-				.setMaxScale(1)
-				.setHeightWithoutMargin(900)
-				.setElement(document.getElementById("visualisation"))
-				.setIdAccessor(function(data) {
-					return data.id;
-				})
-				.setParentIdAccessor(function(data) {
-					return data.parentId;
-				})
-				.setBodyDisplayTextAccessor(function(data) {
-					return data.description;
-				})
-				.setTitleDisplayTextAccessor(function(data) {
-					return data.name;
-				})
+    #script:end
+    script += """
+                var treePlugin = new d3.mitchTree.boxedTree()
+                .getNodeSettings().setSizingMode('nodeSize').back()
+                .setIsFlatData(true)
+                .setData(data)
+                .setMinScale(0.5)
+                .setMaxScale(1)
+                .setHeightWithoutMargin(900)
+                .setElement(document.getElementById("visualisation"))
+                .setIdAccessor(function(data) {
+                    return data.id;
+                })
+                .setParentIdAccessor(function(data) {
+                    return data.parentId;
+                })
+                .setBodyDisplayTextAccessor(function(data) {
+                    return data.description;
+                })
+                .setTitleDisplayTextAccessor(function(data) {
+                    return data.name;
+                })
 
-				.on("nodeClick", function(event) {
-					console.log(event);
-					if (event.data.type == "link_group")
-						window.location = "/group?="+event.data.description
-					if (event.data.type == "link_biography")
-						window.location = "/bio?="+event.data.description
-				})
-				.initialize();
-			"""
+                .on("nodeClick", function(event) {
+                    console.log(event);
+                    if (event.data.type == "link_group")
+                        window.location = "/group?="+event.data.description
+                    if (event.data.type == "link_biography")
+                        window.location = "/bio?="+event.data.description
+                })
+                .initialize();
+            """
 
 
-	return render_template('artist_results.html', script=script)
+    return render_template('artist_results.html', script=script)
 
 
 @app.route('/list')
 def view_list():
-	list_number = request.args.get('')
-	f = open('jazzreal/static/lists/list'+list_number+'.html', encoding='ISO 8859-1')
-	content = f.read()
-	s = BeautifulSoup(content,'html.parser')
-	title_list = []
-	for y in s.findAll('a', href=True):
-		g = open('jazzreal/static/corpus-list/'+y['href'], encoding='ISO 8859-1')
-		content2 = g.read()
-		t = BeautifulSoup(content2, 'html.parser')
-		title = t.find('h4')
-		if title:
-			title_list += [(title.text,y['href'])]
+    list_number = request.args.get('')
+    f = open('jazzreal/static/lists/list'+list_number+'.html', encoding='ISO 8859-1')
+    content = f.read()
+    s = BeautifulSoup(content,'html.parser')
+    title_list = []
+    for y in s.findAll('a', href=True):
+        g = open('jazzreal/static/corpus-list/'+y['href'], encoding='ISO 8859-1')
+        content2 = g.read()
+        t = BeautifulSoup(content2, 'html.parser')
+        title = t.find('h4')
+        if title:
+            title_list += [(title.text,y['href'])]
 
-	list_name=lists[int(re.findall(r'(\d+)',list_number)[0])-1]
+    list_name=lists[int(re.findall(r'(\d+)',list_number)[0])-1]
 
-	return render_template('list_results.html', title_list=title_list, list_name=list_name)
+    return render_template('list_results.html', title_list=title_list, list_name=list_name)
 
 @app.route('/view/')
 def view_theme():
 
 #afficher la grille
-	view_word = request.args.get('')
-	f = open('jazzreal/static/corpus-html/'+view_word+'.html')
-	plain = f.read()
-	s = BeautifulSoup(plain, 'html.parser')
-	title = s.find('h4').text
-	title_encoded = urllib.parse.quote(title)
-	results = []
-	for corpus in s.findAll('pre'):
-		results.append(corpus.text)
-	for humeurs in s.findAll('humeurs'):
-		results.append(humeurs.text)
+    view_word = request.args.get('')
+    f = open('jazzreal/static/corpus-html/'+view_word+'.html')
+    plain = f.read()
+    s = BeautifulSoup(plain, 'html.parser')
+    title = s.find('h4').text
+    title_encoded = urllib.parse.quote(title)
+    results = []
+    for corpus in s.findAll('pre'):
+        results.append(corpus.text)
+    for humeurs in s.findAll('humeurs'):
+        results.append(humeurs.text)
 
-	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
+    return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
 
 @app.route('/view_list/')
 def list_display():
-	view_link = request.args.get('')
-	f = open('jazzreal/static/corpus-list/'+view_link)
-	plain = f.read()
-	s = BeautifulSoup(plain, 'html.parser')
-	title = s.find('h4').text
-	title_encoded = urllib.parse.quote(title)
-	results = []
-	span_chords = []
+    view_link = request.args.get('')
+    f = open('jazzreal/static/corpus-list/'+view_link)
+    plain = f.read()
+    s = BeautifulSoup(plain, 'html.parser')
+    title = s.find('h4').text
+    title_encoded = urllib.parse.quote(title)
+    results = []
+    span_chords = []
 
-	for corpus in s.findAll('pre'):
-		results.append(corpus.text)
+    for corpus in s.findAll('pre'):
+        results.append(corpus.text)
 
-	span_chords = s.findAll('span')[0]
+    span_chords = s.findAll('span')[0]
 
-	list_name=lists[int(re.findall(r'(\d+)',view_link)[0])-1]
+    list_name=lists[int(re.findall(r'(\d+)',view_link)[0])-1]
 
-	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded, span_chords=span_chords, list_name=list_name)
+    return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded, span_chords=span_chords, list_name=list_name)
 
 @app.route('/versions')
 def versions():
-	versions_query = request.args.get('')
-	s = versions_search()
-	s.init_versionsDB()
-	rvtmp1 = s.DB.get(versions_query)
-	rvtmp2 = [x.replace('•','+') for x in rvtmp1]
-	results_versions = zip(rvtmp1,rvtmp2)
-	return render_template('view_versions.html',results_versions=results_versions)
+    versions_query = request.args.get('')
+    s = versions_search()
+    s.init_versionsDB()
+    rvtmp1 = s.DB.get(versions_query)
+    rvtmp2 = [x.replace('•','+') for x in rvtmp1]
+    results_versions = zip(rvtmp1,rvtmp2)
+    return render_template('view_versions.html',results_versions=results_versions)
 
 @app.route('/bio')
 def view_bio():
-	bio_query = request.args.get('')
+    bio_query = request.args.get('')
 
-	return render_template('view_bio.html', bio_query=bio_query)
+    return render_template('view_bio.html', bio_query=bio_query)
 
 @app.route('/group')
 def group_members():
-	group_query = request.args.get('')
-	mb = members()
-	mb.init_membersDB()
-	try:
-		results_group_members = sorted(mb.DB.get(group_query))
-	except TypeError:
-		results_group_members = ['No results']
-	return render_template('view_group_members.html', results_group_members = results_group_members)
+    group_query = request.args.get('')
+    mb = members()
+    mb.init_membersDB()
+    try:
+        results_group_members = sorted(mb.DB.get(group_query))
+    except TypeError:
+        results_group_members = ['No results']
+    return render_template('view_group_members.html', results_group_members = results_group_members)
 
 @app.route('/transpose')
 def transpose_theme():
 
-	results = []
+    results = []
 
-	tune_coded = request.args.get('tune','')
-	tune = urllib.parse.unquote(tune_coded)
-	tone = request.args.get('tone','')
+    tune_coded = request.args.get('tune','')
+    tune = urllib.parse.unquote(tune_coded)
+    tone = request.args.get('tone','')
 
 
-	pitch_flat = ('A','Bb','Cb','C','Db','D','Eb','E','F','Gb','G','Ab')
-	pitch_sharp = ('A','A#','B','C','C#','D','D#','E','F','F#','G','G#')
+    pitch_flat = ('A','Bb','Cb','C','Db','D','Eb','E','F','Gb','G','Ab')
+    pitch_sharp = ('A','A#','B','C','C#','D','D#','E','F','F#','G','G#')
 
-	tone_flat = ('C','F','Bb','Eb','Ab','Db','Gb','Cb')
-	tone_sharp = ('A#','D#','G#','C#','F#','B','E','A','D','G')
+    tone_flat = ('C','F','Bb','Eb','Ab','Db','Gb','Cb')
+    tone_sharp = ('A#','D#','G#','C#','F#','B','E','A','D','G')
 
-	f = open('jazzreal/static/corpus-html/'+tune+'.html')
+    f = open('jazzreal/static/corpus-html/'+tune+'.html')
 
-	f = open('jazzreal/static/corpus-html/'+tune+'.html')
-	plain = f.read()
+    f = open('jazzreal/static/corpus-html/'+tune+'.html')
+    plain = f.read()
 
-	key = re.search('<key>(.*)</key>', plain).group(1)
-	key = str(key)
-	key = key.replace(' ','')
-	key = key.replace('m','')
+    key = re.search('<key>(.*)</key>', plain).group(1)
+    key = str(key)
+    key = key.replace(' ','')
+    key = key.replace('m','')
 
-	#key = plain[occ+7:occ+9].strip()
-	#key = key.strip('m')
+    #key = plain[occ+7:occ+9].strip()
+    #key = key.strip('m')
 
-	init_pitch = key
-	final_pitch = tone
+    init_pitch = key
+    final_pitch = tone
 
-	global diff
+    global diff
 
-	#enharmonic choice
-	if init_pitch in tone_flat:
-		if final_pitch in tone_flat:
-			index_init = pitch_flat.index(init_pitch)
-			index_final = pitch_flat.index(final_pitch)
-			diff = index_final - index_init
-		elif final_pitch in tone_sharp:
-			index_init = pitch_flat.index(init_pitch)
-			index_final = pitch_sharp.index(final_pitch)
-			diff = index_final - index_init
-	elif init_pitch in tone_sharp:
-		if final_pitch in tone_flat:
-			index_init = pitch_sharp.index(init_pitch)
-			index_final = pitch_flat.index(final_pitch)
-			diff = index_final - index_init
-		elif final_pitch in tone_sharp:
-			index_init = pitch_sharp.index(init_pitch)
-			index_final = pitch_sharp.index(final_pitch)
-			diff = index_final - index_init
+    #enharmonic choice
+    if init_pitch in tone_flat:
+        if final_pitch in tone_flat:
+            index_init = pitch_flat.index(init_pitch)
+            index_final = pitch_flat.index(final_pitch)
+            diff = index_final - index_init
+        elif final_pitch in tone_sharp:
+            index_init = pitch_flat.index(init_pitch)
+            index_final = pitch_sharp.index(final_pitch)
+            diff = index_final - index_init
+    elif init_pitch in tone_sharp:
+        if final_pitch in tone_flat:
+            index_init = pitch_sharp.index(init_pitch)
+            index_final = pitch_flat.index(final_pitch)
+            diff = index_final - index_init
+        elif final_pitch in tone_sharp:
+            index_init = pitch_sharp.index(init_pitch)
+            index_final = pitch_sharp.index(final_pitch)
+            diff = index_final - index_init
 
-	corpus_list = []
-	view_word = request.args.get('')
-	f = open('jazzreal/static/corpus-html/'+tune+'.html')
-	plain = f.read()
-	s = BeautifulSoup(plain, 'html.parser')
-	title = s.find('h4').text
-	title_encoded = urllib.parse.quote(title)
-	for corpus in s.findAll('pre'):
-		corpus_list.append(corpus.text)
+    corpus_list = []
+    view_word = request.args.get('')
+    f = open('jazzreal/static/corpus-html/'+tune+'.html')
+    plain = f.read()
+    s = BeautifulSoup(plain, 'html.parser')
+    title = s.find('h4').text
+    title_encoded = urllib.parse.quote(title)
+    for corpus in s.findAll('pre'):
+        corpus_list.append(corpus.text)
 
-	chord_flat = set(re.findall(r'[ABCDEFG]b+', str(corpus_list)))
-	chord_sharp = set(re.findall(r'[ABCDEFG]#+', str(corpus_list)))
-	chord_none = set(re.findall(r'[ABCDEFG](?!b|#)+', str(corpus_list)))
+    chord_flat = set(re.findall(r'[ABCDEFG]b+', str(corpus_list)))
+    chord_sharp = set(re.findall(r'[ABCDEFG]#+', str(corpus_list)))
+    chord_none = set(re.findall(r'[ABCDEFG](?!b|#)+', str(corpus_list)))
 
-	if chord_flat:
-		for x in chord_flat:
-			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
-	if chord_sharp:
-		for x in chord_sharp:
-			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
-	if chord_none:
-		for x in chord_none:
-			corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
+    if chord_flat:
+        for x in chord_flat:
+            corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
+    if chord_sharp:
+        for x in chord_sharp:
+            corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
+    if chord_none:
+        for x in chord_none:
+            corpus_list = [y.replace(x,'*'+x) for y in corpus_list]
 
 #transposition
-	if chord_flat:
-		for x in chord_flat:
-			z = pitch_flat.index(x)
-			q = z + diff
-			pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
-			if q <= 11:
-				corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
-			else:
-				corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
+    if chord_flat:
+        for x in chord_flat:
+            z = pitch_flat.index(x)
+            q = z + diff
+            pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
+            if q <= 11:
+                corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
+            else:
+                corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
 
-	if chord_sharp:
-		for x in chord_sharp:
-			z = pitch_sharp.index(x)
-			q = z + diff
-			pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
-			if q <= 11:
-				corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
-			else:
-				corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
+    if chord_sharp:
+        for x in chord_sharp:
+            z = pitch_sharp.index(x)
+            q = z + diff
+            pattern = re.compile(r'(\*\*|\*)'+ re.escape(x))
+            if q <= 11:
+                corpus_list = [re.sub(pattern,pitch_flat[q],y) for y in corpus_list]
+            else:
+                corpus_list = [re.sub(pattern,pitch_flat[q-12],y) for y in corpus_list]
 
-	if chord_none:
-		for x in chord_none:
-			if final_pitch in tone_flat:
-				try:
-					z = pitch_flat.index(x)
-				except ValueError:
-					z = pitch_sharp.index(x)
-				q = z + diff
-				pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
-				if q <= 11:
-					corpus_list = [re.sub(pattern_none,pitch_flat[q],y) for y in corpus_list]
-				else:
-					corpus_list = [re.sub(pattern_none,pitch_flat[q-12],y) for y in corpus_list]
-			elif final_pitch in tone_sharp:
-				try:
-					z = pitch_sharp.index(x)
-				except ValueError:
-					z = pitch_flat.index(x)
-				q = z + diff
-				pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
-				if q <= 11:
-					corpus_list = [re.sub(pattern_none,pitch_sharp[q],y) for y in corpus_list]
-				else:
-					corpus_list = [re.sub(pattern_none,pitch_sharp[q-12],y) for y in corpus_list]
+    if chord_none:
+        for x in chord_none:
+            if final_pitch in tone_flat:
+                try:
+                    z = pitch_flat.index(x)
+                except ValueError:
+                    z = pitch_sharp.index(x)
+                q = z + diff
+                pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
+                if q <= 11:
+                    corpus_list = [re.sub(pattern_none,pitch_flat[q],y) for y in corpus_list]
+                else:
+                    corpus_list = [re.sub(pattern_none,pitch_flat[q-12],y) for y in corpus_list]
+            elif final_pitch in tone_sharp:
+                try:
+                    z = pitch_sharp.index(x)
+                except ValueError:
+                    z = pitch_flat.index(x)
+                q = z + diff
+                pattern_none = re.compile(r'\*'+re.escape(x)+'(?!b|#)+')
+                if q <= 11:
+                    corpus_list = [re.sub(pattern_none,pitch_sharp[q],y) for y in corpus_list]
+                else:
+                    corpus_list = [re.sub(pattern_none,pitch_sharp[q-12],y) for y in corpus_list]
 
-	for text_in_corpus in corpus_list:
-		results.append(text_in_corpus)
+    for text_in_corpus in corpus_list:
+        results.append(text_in_corpus)
 
-	return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
+    return render_template('view_theme.html', results=results, title=title, title_encoded=title_encoded)
 
 #voiceGen#
 
@@ -10917,266 +10924,266 @@ C_ = {}
 
 
 C['M7'] = [
-	['C3','B3','E4','G4'],
-	['C3','G3','B3','E4'],
-	['C3','G3','E4','B4'],
-	['C3','E3','B3','G4'],
-	['E3','B3','C4','G4'],
-	['E3','C4','G4','B4'],
-	['E3','G3','C4','B4'],
-	['G3','C4','E4','B4'],
-	['G3','B3','C4','E4'],
-	['C4','E4','G4','B4'],
-	['B3','E4','A4','D5'],
-	['Gb3','B3','A4','D5'],
-	['A3','E4','B4','Gb5'],
-	['D3','A3','E4','B4'],
-	['A3','B3','D4','E4'],
-	['C4','D4','G4','B4'],
-	['D4','E4','G4','B4'],
-	['E4','Gb4','A4','B4'],
-	['D4','E4','A4','B4'],
-	['C4','E4','Gb4','B4'],
-	['B3','C4','E4','Gb4'],
-	['A2','E3','B3','Gb4'],
-	['E3','B3','D4','G4'],
-	['D3','G3','C4','E4'],
-	['A3','B3','D4','G4'],
+    ['C3','B3','E4','G4'],
+    ['C3','G3','B3','E4'],
+    ['C3','G3','E4','B4'],
+    ['C3','E3','B3','G4'],
+    ['E3','B3','C4','G4'],
+    ['E3','C4','G4','B4'],
+    ['E3','G3','C4','B4'],
+    ['G3','C4','E4','B4'],
+    ['G3','B3','C4','E4'],
+    ['C4','E4','G4','B4'],
+    ['B3','E4','A4','D5'],
+    ['Gb3','B3','A4','D5'],
+    ['A3','E4','B4','Gb5'],
+    ['D3','A3','E4','B4'],
+    ['A3','B3','D4','E4'],
+    ['C4','D4','G4','B4'],
+    ['D4','E4','G4','B4'],
+    ['E4','Gb4','A4','B4'],
+    ['D4','E4','A4','B4'],
+    ['C4','E4','Gb4','B4'],
+    ['B3','C4','E4','Gb4'],
+    ['A2','E3','B3','Gb4'],
+    ['E3','B3','D4','G4'],
+    ['D3','G3','C4','E4'],
+    ['A3','B3','D4','G4'],
 ]
 
 C['6'] = [
-	['C3','A3','E4','G4'],
-	['C3','G3','A3','E4'],
-	['C3','G3','E4','A4'],
-	['C3','E3','A3','E4'],
-	['E3','A3','C4','G4'],
-	['E3','G3','C4','A4'],
-	['G3','A3','C4','E4'],
-	['E3','G3','A3','C4'],
-	['C4','E4','G4','A4'],
-	['E3','A3','D4','G4'],
-	['B2','E3','A3','D4'],
-	['Gb3','B3','E4','A4'],
-	['D3','A3','E4','B4'],
-	['D3','A3','E4','B4'],
-	['G3','D4','A4','E4'],
-	['G3','A3','D4','E4'],
-	['E3','Gb3','A3','B3'],
-	['A3','B3','E4','Gb4'],
-	['D3','E3','A3','C4'],
-	['D3','A3','C4','E4'],
-	['C3','E3','A3','D4'],
+    ['C3','A3','E4','G4'],
+    ['C3','G3','A3','E4'],
+    ['C3','G3','E4','A4'],
+    ['C3','E3','A3','E4'],
+    ['E3','A3','C4','G4'],
+    ['E3','G3','C4','A4'],
+    ['G3','A3','C4','E4'],
+    ['E3','G3','A3','C4'],
+    ['C4','E4','G4','A4'],
+    ['E3','A3','D4','G4'],
+    ['B2','E3','A3','D4'],
+    ['Gb3','B3','E4','A4'],
+    ['D3','A3','E4','B4'],
+    ['D3','A3','E4','B4'],
+    ['G3','D4','A4','E4'],
+    ['G3','A3','D4','E4'],
+    ['E3','Gb3','A3','B3'],
+    ['A3','B3','E4','Gb4'],
+    ['D3','E3','A3','C4'],
+    ['D3','A3','C4','E4'],
+    ['C3','E3','A3','D4'],
 ]
 
 C['m7b5'] = [
-	['C3','Bb3','Eb4','Gb4'],
-	['C3','Eb3','Bb3','Gb4'],
-	['C3','Gb3','Bb3','Eb4'],
-	['C3','Gb3','Eb4','Bb4'],
-	['C3','Eb4','Gb4','Bb4'],
-	['Eb3','Bb3','Gb4','C4'],
-	['Eb3','Bb3','C4','Gb4'],
-	['Eb3','Gb3','C4','Bb4'],
-	['Eb3','C4','Gb4','Bb4'],
-	['Gb3','C4','Eb4','Bb4'],
-	['Bb2','Gb3','Eb4','C5'],
-	['C4','Eb4','Gb4','Bb4'],
-	['Bb3','C4','Eb4','Gb4'],
-	['Gb3','Bb3','C4','Eb4'],
-	['Eb3','Gb3','Bb3','C4'],
-	['Gb3','C4','F4','Bb4'],
-	['C3','Gb3','Bb3','Eb4'],
-	['F3','Gb3','Bb3','C4'],
-	['Gb2','Eb3','C4','F4'],
-	['F3','Gb3','C4','Eb4'],
+    ['C3','Bb3','Eb4','Gb4'],
+    ['C3','Eb3','Bb3','Gb4'],
+    ['C3','Gb3','Bb3','Eb4'],
+    ['C3','Gb3','Eb4','Bb4'],
+    ['C3','Eb4','Gb4','Bb4'],
+    ['Eb3','Bb3','Gb4','C4'],
+    ['Eb3','Bb3','C4','Gb4'],
+    ['Eb3','Gb3','C4','Bb4'],
+    ['Eb3','C4','Gb4','Bb4'],
+    ['Gb3','C4','Eb4','Bb4'],
+    ['Bb2','Gb3','Eb4','C5'],
+    ['C4','Eb4','Gb4','Bb4'],
+    ['Bb3','C4','Eb4','Gb4'],
+    ['Gb3','Bb3','C4','Eb4'],
+    ['Eb3','Gb3','Bb3','C4'],
+    ['Gb3','C4','F4','Bb4'],
+    ['C3','Gb3','Bb3','Eb4'],
+    ['F3','Gb3','Bb3','C4'],
+    ['Gb2','Eb3','C4','F4'],
+    ['F3','Gb3','C4','Eb4'],
 ]
 
 C['dim7'] = [
-	['C3','A3','Eb4','Gb4'],
-	['C3','Gb3','Eb4','A4'],
-	['C3','Gb3','A3','Eb4'],
-	['C3','Eb3','A4','Gb4'],
-	['Eb3','C4','Gb4','A4'],
-	['Eb3','A4','C4','Gb4'],
-	['Eb3','A4','Gb4','C5'],
-	['Eb3','A4','C4','Gb4'],
-	['Gb3','C4','Eb4','A4'],
-	['Gb3','Eb4','A4','C5'],
-	['A2','Eb3','C4','Gb4'],
-	['A2','Eb3','Gb3','C4'],
-	['A4','Gb3','Eb4','C5'],
-	['A4','Gb3','C4','Eb4'],
-	['C4','Eb4','Gb4','A4'],
-	['A4','C4','Eb4','Gb4'],
-	['Gb3','A4','C4','Eb4'],
-	['Eb3','Gb3','A4','C4'],
-	['Eb3','A3','D4','Gb4'],
-	['Gb3','C4','F4','A4'],
-	['Gb3','C4','A4','F4'],
-	['Eb3','Gb3','A3','D4'],
-	['D4','Eb4','Gb4','A4'],
-	['D3','Eb3','A3','Gb4'],
-	['Eb3','Gb3','B3','D4'],
-	['D4','Eb4','Gb4','B4'],
+    ['C3','A3','Eb4','Gb4'],
+    ['C3','Gb3','Eb4','A4'],
+    ['C3','Gb3','A3','Eb4'],
+    ['C3','Eb3','A4','Gb4'],
+    ['Eb3','C4','Gb4','A4'],
+    ['Eb3','A4','C4','Gb4'],
+    ['Eb3','A4','Gb4','C5'],
+    ['Eb3','A4','C4','Gb4'],
+    ['Gb3','C4','Eb4','A4'],
+    ['Gb3','Eb4','A4','C5'],
+    ['A2','Eb3','C4','Gb4'],
+    ['A2','Eb3','Gb3','C4'],
+    ['A4','Gb3','Eb4','C5'],
+    ['A4','Gb3','C4','Eb4'],
+    ['C4','Eb4','Gb4','A4'],
+    ['A4','C4','Eb4','Gb4'],
+    ['Gb3','A4','C4','Eb4'],
+    ['Eb3','Gb3','A4','C4'],
+    ['Eb3','A3','D4','Gb4'],
+    ['Gb3','C4','F4','A4'],
+    ['Gb3','C4','A4','F4'],
+    ['Eb3','Gb3','A3','D4'],
+    ['D4','Eb4','Gb4','A4'],
+    ['D3','Eb3','A3','Gb4'],
+    ['Eb3','Gb3','B3','D4'],
+    ['D4','Eb4','Gb4','B4'],
 ]
 
 C['mM7'] = [
-	['C3','B3','Eb4','G4'],
-	['C3','G3','B3','Eb4'],
-	['C3','G3','Eb4','B4'],
-	['Eb3','B3','C4','G4'],
-	['Eb3','G3','C4','B4'],
-	['Eb3','C4','G4','B4'],
-	['G3','C4','Eb4','B4'],
-	['C4','Eb4','G4','B4'],
-	['B3','C4','Eb4','G4'],
-	['G3','B3','C4','Eb4'],
-	['B3','Eb4','G4','A4'],
-	['B2','Eb3','A3','D4'],
-	['A3','B3','Eb4','G4'],
-	['D4','Eb4','G4','B4'],
-	['Eb3','G3','B3','D4'],
+    ['C3','B3','Eb4','G4'],
+    ['C3','G3','B3','Eb4'],
+    ['C3','G3','Eb4','B4'],
+    ['Eb3','B3','C4','G4'],
+    ['Eb3','G3','C4','B4'],
+    ['Eb3','C4','G4','B4'],
+    ['G3','C4','Eb4','B4'],
+    ['C4','Eb4','G4','B4'],
+    ['B3','C4','Eb4','G4'],
+    ['G3','B3','C4','Eb4'],
+    ['B3','Eb4','G4','A4'],
+    ['B2','Eb3','A3','D4'],
+    ['A3','B3','Eb4','G4'],
+    ['D4','Eb4','G4','B4'],
+    ['Eb3','G3','B3','D4'],
 ]
 
 C['m7'] = [
-	['C3','Bb3','Eb4','G4'],
-	['C3','G3','Bb3','Eb4'],
-	['C3','G3','Eb4','Bb4'],
-	['C3','Eb3','Bb3','G4'],
-	['Eb3','Bb3','G4','C5'],
-	['Eb3','Bb3','C4','Bb3'],
-	['Eb3','G3','C4','Bb4'],
-	['Eb3','C4','G4','Bb4'],
-	['G3','C4','Eb4','Bb4'],
-	['Bb3','Eb4','G4','C5'],
-	['Bb2','G3','Eb4','C5'],
-	['C4','Eb4','G4','Bb4'],
-	['Bb3','C4','Eb4','G4'],
-	['G3','Bb3','C4','Eb4'],
-	['Eb3','G3','Bb3','C4'],
-	['C3','F3','Bb3','Eb4'],
-	['F3','Bb3','Eb4','G4'],
-	['G3','C4','F4','Bb4'],
-	['Eb3','Bb3','F4','C5'],
-	['Eb3','Bb3','C4','F4'],
-	['Bb2','F3','C4','G4'],
-	['D4','Eb4','G4','Bb4'],
-	['F3','G3','C4','Eb4'],
-	['G2','Eb3','Bb3','F4'],
+    ['C3','Bb3','Eb4','G4'],
+    ['C3','G3','Bb3','Eb4'],
+    ['C3','G3','Eb4','Bb4'],
+    ['C3','Eb3','Bb3','G4'],
+    ['Eb3','Bb3','G4','C5'],
+    ['Eb3','Bb3','C4','Bb3'],
+    ['Eb3','G3','C4','Bb4'],
+    ['Eb3','C4','G4','Bb4'],
+    ['G3','C4','Eb4','Bb4'],
+    ['Bb3','Eb4','G4','C5'],
+    ['Bb2','G3','Eb4','C5'],
+    ['C4','Eb4','G4','Bb4'],
+    ['Bb3','C4','Eb4','G4'],
+    ['G3','Bb3','C4','Eb4'],
+    ['Eb3','G3','Bb3','C4'],
+    ['C3','F3','Bb3','Eb4'],
+    ['F3','Bb3','Eb4','G4'],
+    ['G3','C4','F4','Bb4'],
+    ['Eb3','Bb3','F4','C5'],
+    ['Eb3','Bb3','C4','F4'],
+    ['Bb2','F3','C4','G4'],
+    ['D4','Eb4','G4','Bb4'],
+    ['F3','G3','C4','Eb4'],
+    ['G2','Eb3','Bb3','F4'],
 ]
 
 C['m6'] = [
-	['C3','A3','Eb4','G4'],
-	['C3','G3','A3','Eb4'],
-	['C3','G3','Eb4','A4'],
-	['C3','Eb3','A3','G4'],
-	['Eb3','C4','G4','A4'],
-	['G3','C4','Eb4','A4'],
-	['A2','G3','C4','Eb4'],
-	['C4','Eb4','G4','A4'],
-	['A3','C4','Eb4','G4'],
-	['G3','A3','C4','Eb4'],
-	['Eb3','G3','A3','C4'],
-	['Eb3','A3','D4','G4'],
-	['Bb2','Eb3','A3','D4'],
-	['A3','Eb3','C4','F4'],
-	['A3','Eb3','C4','G4'],
-	['D3','Eb3','G3','A3'],
-	['D4','Eb4','G4','A4'],
-	['Bb3','Eb4','A4','D5'],
+    ['C3','A3','Eb4','G4'],
+    ['C3','G3','A3','Eb4'],
+    ['C3','G3','Eb4','A4'],
+    ['C3','Eb3','A3','G4'],
+    ['Eb3','C4','G4','A4'],
+    ['G3','C4','Eb4','A4'],
+    ['A2','G3','C4','Eb4'],
+    ['C4','Eb4','G4','A4'],
+    ['A3','C4','Eb4','G4'],
+    ['G3','A3','C4','Eb4'],
+    ['Eb3','G3','A3','C4'],
+    ['Eb3','A3','D4','G4'],
+    ['Bb2','Eb3','A3','D4'],
+    ['A3','Eb3','C4','F4'],
+    ['A3','Eb3','C4','G4'],
+    ['D3','Eb3','G3','A3'],
+    ['D4','Eb4','G4','A4'],
+    ['Bb3','Eb4','A4','D5'],
 ]
 
 C['7'] = [
-	['C3','Bb3','E4','G4'],
-	['C3','G3','Bb3','E4'],
-	['C3','G3','E4','Bb4'],
-	['C3','E3','Bb3','G4'],
-	['E3','Bb3','G4','C5'],
-	['E3','Bb3','C4','G4'],
-	['E3','G3','C4','Bb4'],
-	['E3','C4','G4','Bb4'],
-	['G3','C4','E4','Bb4'],
-	['Bb3','C4','E4','C5'],
-	['Bb2','G3','E4','C5'],
-	['Bb2','E3','A3','D4'],
-	['E3','Bb3','D4','G4'],
-	['D3','G3','Bb3','E4'],
-	['E3','Bb3','G4','D4'],
-	['Bb3','E4','Gb4','A4'],
-	['Gb3','C4','E4','Bb4'],
-	['C3','Gb3','Bb3','D4'],
-	['C3','Gb3','Bb3','E4'],
-	['Bb3','E4','A4','D4'],
+    ['C3','Bb3','E4','G4'],
+    ['C3','G3','Bb3','E4'],
+    ['C3','G3','E4','Bb4'],
+    ['C3','E3','Bb3','G4'],
+    ['E3','Bb3','G4','C5'],
+    ['E3','Bb3','C4','G4'],
+    ['E3','G3','C4','Bb4'],
+    ['E3','C4','G4','Bb4'],
+    ['G3','C4','E4','Bb4'],
+    ['Bb3','C4','E4','C5'],
+    ['Bb2','G3','E4','C5'],
+    ['Bb2','E3','A3','D4'],
+    ['E3','Bb3','D4','G4'],
+    ['D3','G3','Bb3','E4'],
+    ['E3','Bb3','G4','D4'],
+    ['Bb3','E4','Gb4','A4'],
+    ['Gb3','C4','E4','Bb4'],
+    ['C3','Gb3','Bb3','D4'],
+    ['C3','Gb3','Bb3','E4'],
+    ['Bb3','E4','A4','D4'],
 ]
 
 def transpose(chord,initkey,finalkey):
 
-	note_to_midi_flat = {
-	'A0':'21','Bb0':'22','B0':'23','C1':'24','Db1':'25','D1':'26','Eb1':'27','E1':'28','F1':'29','Gb1':'30','G1':'31','Ab1':'32','A1':'33','Bb1':'34','B1':'35','C2':'36','Db2':'37','D2':'38','Eb2':'39','E2':'40','F2':'41','Gb2':'42','G2':'43','Ab2':'44','A2':'45','Bb2':'46','B2':'47','C3':'48','Db3':'49','D3':'50','Eb3':'51','E3':'52','F3':'53','Gb3':'54','G3':'55','Ab3':'56','A3':'57','Bb3':'58','B3':'59','C4':'60','Db4':'61','D4':'62','Eb4':'63','E4':'64','F4':'65','Gb4':'66','G4':'67','Ab4':'68','A4':'69','Bb4':'70','B4':'71','C5':'72','Db5':'73','D5':'74','Eb5':'75','E5':'76','F5':'77','Gb5':'78','G5':'79','Ab5':'80','A5':'81','Bb5':'82','B5':'83','C6':'84','Db6':'85','D6':'86','Eb6':'87','E6':'88','F6':'89','Gb6':'90','G6':'91','Ab6':'92','A6':'93','Bb6':'94','B6':'95','C7':'96','Db7':'97','D7':'98','Eb7':'99','E7':'100','F7':'101','Gb7':'102','G7':'103','Ab7':'104','A7':'105','Bb7':'106','B7':'107','C8':'108',
-	}
-	midi_to_note_flat = {v:k for k,v in note_to_midi_flat.items()}
+    note_to_midi_flat = {
+    'A0':'21','Bb0':'22','B0':'23','C1':'24','Db1':'25','D1':'26','Eb1':'27','E1':'28','F1':'29','Gb1':'30','G1':'31','Ab1':'32','A1':'33','Bb1':'34','B1':'35','C2':'36','Db2':'37','D2':'38','Eb2':'39','E2':'40','F2':'41','Gb2':'42','G2':'43','Ab2':'44','A2':'45','Bb2':'46','B2':'47','C3':'48','Db3':'49','D3':'50','Eb3':'51','E3':'52','F3':'53','Gb3':'54','G3':'55','Ab3':'56','A3':'57','Bb3':'58','B3':'59','C4':'60','Db4':'61','D4':'62','Eb4':'63','E4':'64','F4':'65','Gb4':'66','G4':'67','Ab4':'68','A4':'69','Bb4':'70','B4':'71','C5':'72','Db5':'73','D5':'74','Eb5':'75','E5':'76','F5':'77','Gb5':'78','G5':'79','Ab5':'80','A5':'81','Bb5':'82','B5':'83','C6':'84','Db6':'85','D6':'86','Eb6':'87','E6':'88','F6':'89','Gb6':'90','G6':'91','Ab6':'92','A6':'93','Bb6':'94','B6':'95','C7':'96','Db7':'97','D7':'98','Eb7':'99','E7':'100','F7':'101','Gb7':'102','G7':'103','Ab7':'104','A7':'105','Bb7':'106','B7':'107','C8':'108',
+    }
+    midi_to_note_flat = {v:k for k,v in note_to_midi_flat.items()}
 
-	note_to_midi_sharp = {
-	'A0':'21','A#0':'22','B0':'23','C1':'24','C#1':'25','D1':'26','D#1':'27','E1':'28','F1':'29','F#1':'30','G1':'31','G#1':'32','A1':'33','A#1':'34','B1':'35','C2':'36','C#2':'37','D2':'38','D#2':'39','E2':'40','F2':'41','F#2':'42','G2':'43','G#2':'44','A2':'45','A#2':'46','B2':'47','C3':'48','C#3':'49','D3':'50','D#3':'51','E3':'52','F3':'53','F#3':'54','G3':'55','G#3':'56','A3':'57','A#3':'58','B3':'59','C4':'60','C#4':'61','D4':'62','D#4':'63','E4':'64','F4':'65','F#4':'66','G4':'67','G#4':'68','A4':'69','A#4':'70','B4':'71','C5':'72','C#5':'73','D5':'74','D#5':'75','E5':'76','F5':'77','F#5':'78','G5':'79','G#5':'80','A5':'81','A#5':'82','B5':'83','C6':'84','C#6':'85','D6':'86','D#6':'87','E6':'88','F6':'89','F#6':'90','G6':'91','G#6':'92','A6':'93','A#6':'94','B6':'95','C7':'96','C#7':'97','D7':'98','D#7':'99','E7':'100','F7':'101','F#7':'102','G7':'103','G#7':'104','A7':'105','A#7':'106','B7':'107','C8':'108',
-	}
-	midi_to_note_sharp = {v:k for k,v in note_to_midi_sharp.items()}
+    note_to_midi_sharp = {
+    'A0':'21','A#0':'22','B0':'23','C1':'24','C#1':'25','D1':'26','D#1':'27','E1':'28','F1':'29','F#1':'30','G1':'31','G#1':'32','A1':'33','A#1':'34','B1':'35','C2':'36','C#2':'37','D2':'38','D#2':'39','E2':'40','F2':'41','F#2':'42','G2':'43','G#2':'44','A2':'45','A#2':'46','B2':'47','C3':'48','C#3':'49','D3':'50','D#3':'51','E3':'52','F3':'53','F#3':'54','G3':'55','G#3':'56','A3':'57','A#3':'58','B3':'59','C4':'60','C#4':'61','D4':'62','D#4':'63','E4':'64','F4':'65','F#4':'66','G4':'67','G#4':'68','A4':'69','A#4':'70','B4':'71','C5':'72','C#5':'73','D5':'74','D#5':'75','E5':'76','F5':'77','F#5':'78','G5':'79','G#5':'80','A5':'81','A#5':'82','B5':'83','C6':'84','C#6':'85','D6':'86','D#6':'87','E6':'88','F6':'89','F#6':'90','G6':'91','G#6':'92','A6':'93','A#6':'94','B6':'95','C7':'96','C#7':'97','D7':'98','D#7':'99','E7':'100','F7':'101','F#7':'102','G7':'103','G#7':'104','A7':'105','A#7':'106','B7':'107','C8':'108',
+    }
+    midi_to_note_sharp = {v:k for k,v in note_to_midi_sharp.items()}
 
-	if initkey in tone_flat:
-		init = pitch_flat.index(initkey)
-	else:
-		init = pitch_sharp.index(initkey)
+    if initkey in tone_flat:
+        init = pitch_flat.index(initkey)
+    else:
+        init = pitch_sharp.index(initkey)
 
-	if finalkey in tone_flat:
-		final = pitch_flat.index(finalkey)
-	else:
-		final = pitch_sharp.index(finalkey)
+    if finalkey in tone_flat:
+        final = pitch_flat.index(finalkey)
+    else:
+        final = pitch_sharp.index(finalkey)
 
-	diff = final - init
+    diff = final - init
 
-	try:
-		if finalkey in tone_flat:
-			chord_index = note_to_midi_flat[chord]
-		else:
-			chord_index = note_to_midi_sharp[chord]
-	except KeyError:
-		chord_index = note_to_midi_flat[chord]
+    try:
+        if finalkey in tone_flat:
+            chord_index = note_to_midi_flat[chord]
+        else:
+            chord_index = note_to_midi_sharp[chord]
+    except KeyError:
+        chord_index = note_to_midi_flat[chord]
 
-	chord_transposed_index = int(chord_index) + diff
+    chord_transposed_index = int(chord_index) + diff
 
-	if finalkey in tone_flat:
-		chord_transposed = midi_to_note_flat[str(chord_transposed_index)]
-	else:
-		chord_transposed = midi_to_note_sharp[str(chord_transposed_index)]
+    if finalkey in tone_flat:
+        chord_transposed = midi_to_note_flat[str(chord_transposed_index)]
+    else:
+        chord_transposed = midi_to_note_sharp[str(chord_transposed_index)]
 
-	return chord_transposed
+    return chord_transposed
 
 #generate all voiceGen chords
 k = ''
 for i,j in itertools.product(tone_flat,chord_type):
-	k = i
-	i = {j:''}
-	i[j] = [[transpose(x,'C',k) for x in chord] for chord in C[j]]
-	exec(k+'[\''+j+'\']'+'='+str(i[j]))
+    k = i
+    i = {j:''}
+    i[j] = [[transpose(x,'C',k) for x in chord] for chord in C[j]]
+    exec(k+'[\''+j+'\']'+'='+str(i[j]))
 
 for i,j in itertools.product(tone_sharp,chord_type):
-	k = i
-	i = {j:''}
-	i[j] = [[transpose(x,'C',k) for x in chord] for chord in C[j]]
-	exec(k+'[\''+j+'\']'+'='+str(i[j]))
+    k = i
+    i = {j:''}
+    i[j] = [[transpose(x,'C',k) for x in chord] for chord in C[j]]
+    exec(k+'[\''+j+'\']'+'='+str(i[j]))
 
 #audioGen module n°1
 #convert note to freq for wav gen
 def note_to_freq(note, concert_A=440.0):
-	'''
-	from wikipedia: http://en.wikipedia.org/wiki/MIDI_Tuning_Standard#Frequency_values
-	'''
-	return (2.0 ** ((note - 69) / 12.0)) * concert_A
+    '''
+    from wikipedia: http://en.wikipedia.org/wiki/MIDI_Tuning_Standard#Frequency_values
+    '''
+    return (2.0 ** ((note - 69) / 12.0)) * concert_A
 
 #audioGen module n°2
 #convert midi ticks to ms for wav gen
 def ticks_to_ms(ticks,mid_file):
-	tick_ms = (60000.0 / tempo) / mid_file.ticks_per_beat
-	return ticks * tick_ms
+    tick_ms = (60000.0 / tempo) / mid_file.ticks_per_beat
+    return ticks * tick_ms
 
 #audioGen
 #midi constant declaration
@@ -11189,527 +11196,337 @@ volume = 100  # 0-127, as per the MIDI standard
 
 #corresponsdance table note/midi
 note_to_midi = {
-	'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
+    'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
 }
 
 @app.route('/voiceGen')
 def voiceGen():
 
-	#declare variables
-	voiceGen_results = ''
-	chords = []
-	chord_progressions = []
-	chord_progressions_display = []
+    #declare variables
+    voiceGen_results = ''
+    chords = []
+    chord_progressions = []
+    chord_progressions_display = []
 
-	query = request.args.get('query','')
-	open_chords = request.args.get('open_chords','')
+    query = request.args.get('query','')
+    open_chords = request.args.get('open_chords','')
 
-	#build display header
-	voiceGen_results += '<h4>'
-	voiceGen_results += '<pre>'
+    #build display header
+    voiceGen_results += '<h4>'
+    voiceGen_results += '<pre>'
 
-	query = re.sub('#','_',query)
-	query = re.findall(r'(C|F|Bb|Eb|Ab|Db|Gb|Cb|G|D|A|E|B|F_|C_)(6|7|M7|dim7|m6|m7\b|m7b5|mM7)',query)
+    query = re.sub('#','_',query)
+    query = re.findall(r'(C|F|Bb|Eb|Ab|Db|Gb|Cb|G|D|A|E|B|F_|C_)(6|7|M7|dim7|m6|m7\b|m7b5|mM7)',query)
 
-	voiceGen_results += 'Nb d\'accords = ('+str(len(query))+'):'
-	voiceGen_results += '<br>'
+    voiceGen_results += '<center>Nb d\'accords = ('+str(len(query))+'):</center>'
+    voiceGen_results += '<br>'
 
-	#build list of chords
-	chords = [eval(i[0]+"['"+i[1]+"']") for i in query]
+    #build list of chords
+    chords = [eval(i[0]+"['"+i[1]+"']") for i in query]
 
-	if len(query) <= 4:
+    if len(query) <= 4:
 
-		#make cartesian product of list(chords)
-		#chord_progressions = itertools.product(*chords)
-		len_chord_progressions = functools.reduce(operator.mul, map(len, chords), 1)
+        #make cartesian product of list(chords)
+        #chord_progressions = itertools.product(*chords)
+        len_chord_progressions = functools.reduce(operator.mul, map(len, chords), 1)
 
-		#corresponsdance table note/midi
-		note_to_midi = {
-			'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
-		}
+        #corresponsdance table note/midi
+        note_to_midi = {
+            'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
+        }
 
-		## %MV ##
-		#########
-		chord_int = [[[k for k in range(4)] for j in range(len(query))] for x in range(len_chord_progressions)]
-		score = [0 for x in range(len_chord_progressions)]
-		score_percent = [0 for x in range(len_chord_progressions)]
+        ## %MV ##
+        #########
+        chord_int = [[[k for k in range(4)] for j in range(len(query))] for x in range(len_chord_progressions)]
+        score = [0 for x in range(len_chord_progressions)]
+        score_percent = [0 for x in range(len_chord_progressions)]
 
-		for n,chord_progressions in enumerate(itertools.product(*chords)):
-			for j in range(len(query)):
-				for k in range(4):
-					chord_int[n][j][k] = note_to_midi[chord_progressions[j][k]]
+        for n,chord_progressions in enumerate(itertools.product(*chords)):
+            for j in range(len(query)):
+                for k in range(4):
+                    chord_int[n][j][k] = note_to_midi[chord_progressions[j][k]]
 
-		for i in range(len_chord_progressions):
-			for j in range(len(query)-1):
-				score[i] = (abs(int(chord_int[i][j][0])-int(chord_int[i][j+1][0])) + abs(int(chord_int[i][j][1])-int(chord_int[i][j+1][1])) + abs(int(chord_int[i][j][2])-int(chord_int[i][j+1][2])) + abs(int(chord_int[i][j][3])-int(chord_int[i][j+1][3])))/4
+        for i in range(len_chord_progressions):
+            for j in range(len(query)-1):
+                score[i] = (abs(int(chord_int[i][j][0])-int(chord_int[i][j+1][0])) + abs(int(chord_int[i][j][1])-int(chord_int[i][j+1][1])) + abs(int(chord_int[i][j][2])-int(chord_int[i][j+1][2])) + abs(int(chord_int[i][j][3])-int(chord_int[i][j+1][3])))/4
 
-		try:
-			max_score = max(score)
-		except ValueError:
-			pass
+        try:
+            max_score = max(score)
+        except ValueError:
+            pass
 
-		try:
-			for i in range(len_chord_progressions):
-				score_percent[i] = round(score[i]*100/float(max_score),0)
-		except ZeroDivisionError:
-			pass
+        try:
+            for i in range(len_chord_progressions):
+                score_percent[i] = round(score[i]*100/float(max_score),0)
+        except ZeroDivisionError:
+            pass
 
-		#build dict {progressions:score}
-		chord_score_dict = {score_percent[n]:i for n,i in enumerate(itertools.product(*chords))}
-		chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
+        #build dict {progressions:score}
+        chord_score_dict = {score_percent[n]:i for n,i in enumerate(itertools.product(*chords))}
+        chord_score_dict_inv = {str(v):k for k,v in chord_score_dict.items()}
 
-		#########################
-		#plot graph (y=occ / x=%)
-		#########################
-		plt.hist(score_percent, range = (0,100), bins = 100, color = 'grey', edgecolor = 'black')
-		plt.xlabel('%OCV')
-		plt.ylabel('Occurrences')
-		plt.title('Répartition des voicings (='+str(len(chord_progressions))+')')
+        #########################
+        #plot graph (y=occ / x=%)
+        #########################
 
-		# store to file
-		filename_hist = ''
-		x = random.sample('0123456789',5)
-		for i in x:
-			filename_hist += i
-		plt.savefig('jazzreal/static/audioGen/'+filename_hist+'.png')
+        plt.hist(score_percent, range = (0,100), bins = 100, color = 'grey', edgecolor = 'black')
+        plt.grid(True, linewidth=0.5, color='blue', linestyle='-')
+        plt.xlabel('%OCV')
+        plt.ylabel('Occurrences')
+        plt.title('Répartition des voicings (='+str(len(chord_progressions))+')')
 
-		# display hist as encoded png (base64)
-		input_file = open('jazzreal/static/audioGen/'+filename_hist+'.png','rb').read()
+        # store to file
+        filename_hist = ''
+        x = random.sample('0123456789',5)
+        for i in x:
+            filename_hist += i
+        plt.savefig('jazzreal/static/audioGen/'+filename_hist+'.png')
 
-		png_encoded = str(base64.b64encode(input_file))
-		png_encoded = re.sub('b\'','', png_encoded)
-		png_encoded = re.sub('\'','', png_encoded)
+        # display hist as encoded png (base64)
+        input_file = open('jazzreal/static/audioGen/'+filename_hist+'.png','rb').read()
 
-		display_hist = '<img height="300" width="450" src="data:image/png;base64,'+png_encoded+'"><br>'
+        png_encoded = str(base64.b64encode(input_file))
+        png_encoded = re.sub('b\'','', png_encoded)
+        png_encoded = re.sub('\'','', png_encoded)
 
-		os.remove('jazzreal/static/audioGen/'+filename_hist+'.png')
+        display_hist = '<img height="300" width="450" src="data:image/png;base64,'+png_encoded+'"><br>'
+
+        os.remove('jazzreal/static/audioGen/'+filename_hist+'.png')
 
 
-		###
-		#create chord_progressions_display from chord sequence + %OCV
-		###
+        ###
+        #create chord_progressions_display from chord sequence + %OCV
+        ###
 
-		# for 1 chord, there is no %OCV
+        # for 1 chord, there is no %OCV
 
-		if len(query) == 1:
-			for chord_progressions in itertools.product(*chords):
-				chord_progressions_display.append(chord_progressions)
+        if len(query) == 1:
+            for chord_progressions in itertools.product(*chords):
+                chord_progressions_display.append(chord_progressions)
 
-		else:
-			try:
-				for x,y in chord_score_dict.items():
-					if x >= (float(open_chords) - 10) and x <= (float(open_chords) + 10):
-						chord_progressions_display.append(y)
-			except ValueError:
-				pass
+        else:
+            try:
+                for x,y in chord_score_dict.items():
+                    if x >= (float(open_chords) - 10) and x <= (float(open_chords) + 10):
+                        chord_progressions_display.append(y)
+            except ValueError:
+                pass
 
-		#display results
-		voiceGen_results += '<br>'
-		voiceGen_results += 'Nb de progressions = ('+str(len_chord_progressions)+')'
-		voiceGen_results += '<br>'
-		voiceGen_results += display_hist+'<br>'
-		if len(query) != 1:
-			voiceGen_results += '% d\'ouverture souhaité = '+open_chords+'%'
-		else:
-			pass
-		voiceGen_results += '<br>'
+        #display results
+        voiceGen_results += '<br>'
+        voiceGen_results += '<center>'
+        voiceGen_results += 'Nb de progressions = ('+str(len_chord_progressions)+')'
+        voiceGen_results += '<br>'
+        voiceGen_results += display_hist+'<br>'
+        if len(query) != 1:
+            voiceGen_results += '% d\'ouverture souhaité = '+open_chords+'%'
+        else:
+            pass
+        voiceGen_results += '<br>'
 
-		#print results count from filter by  %MV
-		voiceGen_results += 'Affichage  = ('+str(len(chord_progressions_display))+'/'+str(len_chord_progressions)+')'
-		voiceGen_results += '<br>'
-		voiceGen_results += '<br>'
+        #display slideshow container
+        voiceGen_results += '<div class="slideshow-container">'
+        #build results for html display AND vexflow display AND audioGen
+        for j in chord_progressions_display:
+            #display individual slide
+            voiceGen_results += '<div class="mySlides fade">'
+            #display VexFlow div
+            k = str(j)
+            k = k.replace(' ','')
+            k = k.replace('(','')
+            k = k.replace(')','')
+            k = k.replace('[','')
+            k = k.replace(']','')
+            k = k.replace(',','')
+            k = k.replace('\'','')
+            k = k.replace('#','_')
+            voiceGen_results += '<div id=\"'+k+'\"></div>'
 
-		#build results for html display AND vexflow display AND audioGen
-		for j in chord_progressions_display:
+            #display chord text
+            voiceGen_results += '<div class="text">'
+            voiceGen_results += str(j)+'<br>'
+            if len(query) != 1 :
+                voiceGen_results += '<br>OCV='+str(chord_score_dict_inv[str(j)])+'%'
+            else:
+                pass
+            #close div text
+            voiceGen_results += '</div>'
+            #close div individual slide
+            voiceGen_results += '</div>'
 
-			#display results
-			for i in range(len(query)):
-				voiceGen_results += query[i][0]+'[\''+query[i][1]+'\']  '
+            #VEXFLOW script start here
+            voiceGen_results += '<script>'
+            voiceGen_results += """const VF_"""+k+""" = Vex.Flow;
+                    var vf = new VF_"""+k+""".Factory({renderer: {elementId: '"""+k+"""', height: 300, width: 500}});
+                    var score = vf.EasyScore();
+                    score.set({ time: '5/4' });
+                    var system = vf.System();
+                    system.addStave({
+                    voices: [score.voice(score.notes('"""
+            for z in range(len(j)):
+                voiceGen_results += '('+str(j[z][2])+' '+str(j[z][3])+')/q ,'
+            voiceGen_results += """')).setStrict(false)]
+                    }).addClef('treble').addTimeSignature('4/4');
+                    system.addStave({
+                    voices: [score.voice(score.notes('"""
+            for z in range(len(j)):
+                voiceGen_results += '('+str(j[z][0])+' '+str(j[z][1])+')/q ,'
+            voiceGen_results += """',{clef: 'bass'})).setStrict(false)]
+                    }).addClef('bass').addTimeSignature('4/4');
+                system.addConnector()
+                vf.draw();"""
+            voiceGen_results += '</script>'
 
-			if len(query) != 1 :
-				voiceGen_results += 'OCV='+str(chord_score_dict_inv[str(j)])+'%'
-			else:
-				pass
+        voiceGen_results += '<!-- Next and previous buttons -->'
+        voiceGen_results += '<a class="prev" onclick="plusSlides(-1)">&#10094;</a>'
+        voiceGen_results += '<a class="next" onclick="plusSlides(1)">&#10095;</a>'
 
-			voiceGen_results += '<details><summary>'
-			voiceGen_results += str(j)
-			voiceGen_results += '</summary>'
+        #close global slideshow
+        voiceGen_results += '</div>'
 
-			k = str(j)
-			k = k.replace(' ','')
-			k = k.replace('(','')
-			k = k.replace(')','')
-			k = k.replace('[','')
-			k = k.replace(']','')
-			k = k.replace(',','')
-			k = k.replace('\'','')
-			k = k.replace('#','_')
+        #display dot/circles
+        voiceGen_results += '<!-- The dots/circles -->'
+        voiceGen_results += '<div style="text-align:center">'
+        for x in range(len(chord_progressions_display)):
+            voiceGen_results += '<span class="dot" onclick="currentSlide('+str(x+1)+')"></span>'
+        voiceGen_results += '</div>'
 
-			voiceGen_results += '<div id=\"'+k+'\"></div>'
-			voiceGen_results += '<a href=/audioGen/'+k+'>Play Audio</a>'
-			voiceGen_results += '</details>'
-			voiceGen_results += '<br>'
+    else:
+        voiceGen_results += 'nombre de possibilités de progressions trop élevé'
+        voiceGen_results += '<br>'
+        voiceGen_results += 'maximum par requête = 4 accords'
+        pass
 
-			#VEXFLOW script start here
-			voiceGen_results += '<script>'
-			voiceGen_results += """const VF_"""+k+""" = Vex.Flow;
-					var vf = new VF_"""+k+""".Factory({renderer: {elementId: '"""+k+"""', height: 300}});
-					var score = vf.EasyScore();
-					score.set({ time: '5/4' });
-					var system = vf.System();
-					system.addStave({
-					voices: [score.voice(score.notes('"""
-			for z in range(len(j)):
-				voiceGen_results += '('+str(j[z][2])+' '+str(j[z][3])+')/q ,'
-			voiceGen_results += """')).setStrict(false)]
-					}).addClef('treble').addTimeSignature('4/4');
-					system.addStave({
-					voices: [score.voice(score.notes('"""
-			for z in range(len(j)):
-				voiceGen_results += '('+str(j[z][0])+' '+str(j[z][1])+')/q ,'
-			voiceGen_results += """',{clef: 'bass'})).setStrict(false)]
-					}).addClef('bass').addTimeSignature('4/4');
-				system.addConnector()
-				vf.draw();"""
-			voiceGen_results += '</script>'
+    return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
 
-	else:
-		voiceGen_results += 'nombre de possibilités de progressions trop élevé'
-		voiceGen_results += '<br>'
-		voiceGen_results += 'maximum par requête = 4 accords'
-		pass
-	voiceGen_results += '</pre></h4>'
+@app.route('/audioGen')
+def audioGen():
+    #########
+    #audioGen
+    #########
 
-	#########
-	#audioGen
-	#########
+    #
+    # midi gen
+    #
+    #create midi objects
+    MyMIDI = MIDIFile(1)
+    MyMIDI.addTempo(track001, time, tempo)
 
-	#
-	# midi gen
-	#
-	"""
-	for j in chord_progressions_display:
+    k = request.args.get('chord_progression','')
+    #counter for separating chords in list
+    x = 0
 
-		#create midi objects
-		MyMIDI = MIDIFile(1)
-		MyMIDI.addTempo(track001, time, tempo)
+    for z in range(len(j)):
+        for i in range(0,4):
+            MyMIDI.addNote(track001,channel,int(note_to_midi[j[z][i]]),time+x,duration001,volume)
+        x += 4
 
-		k = str(j)
-		k = k.replace(' ','')
-		k = k.replace('(','')
-		k = k.replace(')','')
-		k = k.replace('[','')
-		k = k.replace(']','')
-		k = k.replace(',','')
-		k = k.replace('\'','')
-		k = k.replace('#','_')
-		#counter for separating chords in list
-		x = 0
+    #write midi file
+    output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
+    MyMIDI.writeFile(output_file)
+    output_file.close()
 
-		for z in range(len(j)):
-			for i in range(0,4):
-				MyMIDI.addNote(track001,channel,int(note_to_midi[j[z][i]]),time+x,duration001,volume)
-			x += 4
+    #
+    # wav gen
+    #
 
-		#write midi file
-		output_file = open('jazzreal/static/audioGen/_'+k+'.mid', 'wb')
-		MyMIDI.writeFile(output_file)
-		output_file.close()
+    mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
 
-		#
-		# wav gen
-		#
+    output = AudioSegment.silent(mid.length * 1000.0)
 
-		mid = MidiFile('jazzreal/static/audioGen/_'+k+'.mid')
+    for track in mid.tracks:
+        # position of rendering in ms
+        current_pos = 0.0
 
-		output = AudioSegment.silent(mid.length * 1000.0)
+        current_notes = defaultdict(dict)
+        # current_notes = {
+        #   channel: {
+        #     note: (start_time, message)
+        #   }
+        # }
 
-		for track in mid.tracks:
-			# position of rendering in ms
-			current_pos = 0.0
+        for msg in track:
+            current_pos += ticks_to_ms(msg.time,mid)
 
-			current_notes = defaultdict(dict)
-			# current_notes = {
-			#   channel: {
-			#     note: (start_time, message)
-			#   }
-			# }
+            if msg.type == 'note_on':
+              current_notes[msg.channel][msg.note] = (current_pos, msg)
 
-			for msg in track:
-				current_pos += ticks_to_ms(msg.time,mid)
+            if msg.type == 'note_off':
+                start_pos, start_msg = current_notes[msg.channel].pop(msg.note)
 
-				if msg.type == 'note_on':
-				  current_notes[msg.channel][msg.note] = (current_pos, msg)
+                duration = current_pos - start_pos
 
-				if msg.type == 'note_off':
-					start_pos, start_msg = current_notes[msg.channel].pop(msg.note)
+                signal_generator = Sine(note_to_freq(msg.note))
+                rendered = signal_generator.to_audio_segment(duration=duration-50, volume=-20).fade_out(100).fade_in(30)
 
-					duration = current_pos - start_pos
+                output = output.overlay(rendered, start_pos)
 
-					signal_generator = Sine(note_to_freq(msg.note))
-					rendered = signal_generator.to_audio_segment(duration=duration-50, volume=-20).fade_out(100).fade_in(30)
+    output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
 
-					output = output.overlay(rendered, start_pos)
+    os.remove('jazzreal/static/audioGen/_'+k+'.mid')
 
-		output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
+    del output_file
+    del mid
+    del MyMIDI
 
-		os.remove('jazzreal/static/audioGen/_'+k+'.mid')
-
-		del output_file
-		del mid
-		del MyMIDI
-"""
-	return render_template('view_voiceGen.html', voiceGen_results=voiceGen_results)
-
+    return render_template('view_audioGen.html', audioGen_results=audioGen_results)
 
 #this method search by sequence of chords in all song's sections and rank the results
 @app.route('/Sequence')
 def Sequence_search():
 
-	viewSequence_results = ''
-	query = request.args.get('chords','')
+    viewSequence_results = ''
+    query = request.args.get('chords','')
 
-	if query:
-		rank = {}
-		chord_query = re.findall(r'(?:[A-G]#|[A-G]b|[A-G])(?:6|7|maj7|Maj7|M7|m7\b|m7b5|mM7|mMaj7)', query)
-		chord_query = ' '.join(list(chord_query))
-		section = re.search('section:(.+)', query).group(1)
+    if query:
+        rank = {}
+        chord_query = re.findall(r'(?:[A-G]#|[A-G]b|[A-G])(?:6|7|maj7|Maj7|M7|m7\b|m7b5|mM7|mMaj7)', query)
+        chord_query = ' '.join(list(chord_query))
+        section = re.search('section:(.+)', query).group(1)
 
-		for i in list_titles:
-			rank[i] = 0
-			try:
-				to_search = ' '.join(re.findall('[A-G].[^\s]*\)',corpus_sequence[i][section]))
-				to_search = re.sub('\(\d\)','',to_search)
-				res = re.findall(chord_query, to_search)
-				rank[i] += len(res)
-			except KeyError:
-				pass
+        for i in list_titles:
+            rank[i] = 0
+            try:
+                to_search = ' '.join(re.findall('[A-G].[^\s]*\)',corpus_sequence[i][section]))
+                to_search = re.sub('\(\d\)','',to_search)
+                res = re.findall(chord_query, to_search)
+                rank[i] += len(res)
+            except KeyError:
+                pass
 
-		#print('recherche:['+query+']\n')
-		viewSequence_results += '<b>recherche:['+query+']</b><br>'
+        #print('recherche:['+query+']\n')
+        viewSequence_results += '<b>recherche:['+query+']</b><br>'
 
-		###ranking method by max score
-		x = max(rank.values())
-		if x != 0:
-			for i in list_titles:
-				try:
-					if rank[i] == x:
-						#print(i+':'+str(x))
-						viewSequence_results = i+':'+str(x)
-						viewSequence_results += '<br>'
-						#print('('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')')
-						viewSequence_results += '('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')'
-						viewSequence_results += '<br>'
-						#print('>'+section+':')
-						viewSequence_results += '>'+section+':'
-						viewSequence_results += '<br>'
-						#print(corpus_sequence[i][section])
-						viewSequence_results += corpus_sequence[i][section]
-						viewSequence_results += '<br>'
-				except KeyError:
-					pass
-				rank.pop(i)
-		else:
-			#print('pas de résultats')
-			viewSequence_results += 'pas de résultats'
-	else:
+        ###ranking method by max score
+        x = max(rank.values())
+        if x != 0:
+            for i in list_titles:
+                try:
+                    if rank[i] == x:
+                        #print(i+':'+str(x))
+                        viewSequence_results = i+':'+str(x)
+                        viewSequence_results += '<br>'
+                        #print('('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')')
+                        viewSequence_results += '('+corpus_sequence[i]['key']+corpus_sequence[i]['metric']+')'
+                        viewSequence_results += '<br>'
+                        #print('>'+section+':')
+                        viewSequence_results += '>'+section+':'
+                        viewSequence_results += '<br>'
+                        #print(corpus_sequence[i][section])
+                        viewSequence_results += corpus_sequence[i][section]
+                        viewSequence_results += '<br>'
+                except KeyError:
+                    pass
+                rank.pop(i)
+        else:
+            #print('pas de résultats')
+            viewSequence_results += 'pas de résultats'
+    else:
 
-		viewSequence_results += 'pas de résultats'
-		viewSequence_results += '<br>'
+        viewSequence_results += 'pas de résultats'
+        viewSequence_results += '<br>'
 
-	return render_template('view_sequence.html', viewSequence_results=viewSequence_results)
-
-poll_data = {
-'question1' : '1. Actuellement, où faitez-vous vos courses alimentaires?',
-'field1' : ['Marché','Supermarché','Commerces de proximité','Circuit-court de producteurs'],
-
-'question2' : '2. Avez-vous déjà recours à une offre de circuit-court?',
-'field2' : ['Dans le quartier Rive Droite','Dans un autre quartier'],
-
-'question3' : '3. Souhaiteriez-vous y participer en tant que consommateur?',
-'field3' : ['Oui, je souhaite participer','Non, je ne souhaite pas participer'],
-
-'question4' : '4. Dans quelle mesure la question du tarif vous semblerait-t-elle importante?',
-'field4' : ['Pas importante','Peu importante','Importante','Déterminante'],
-
-'question5' : '5. Vous semblerait-il pertinent de prendre en compte le quotient famial dans le calcul du prix?',
-'field5' : ['Oui, cela me semble pertinent','Non, cela ne me semble par pertinent'],
-
-'question6' : '6. Souhaiteriez-vous commander des produits :',
-'field6' : ['Issus de l’agriculture biologique uniquement','Issus de l’agriculture raisonnée','Issus de producteurs en cours de conversion en bio'],
-
-'question7' : '7. Si oui, souhaiteriez vous commander uniquement des produits locaux (<75km)?',
-'field7' : ['Oui, certainement.','Non, pas du tout'],
-
-'question8' : '8. Cocher les produits que vous seriez prêts à acheter:',
-'field8' : ['Produits frais (Fromage, yaourt, crème)','Lait','Oeufs','Légumes','Fruits','Viandes','Poissons','Légumineuses','Jus de fruits','Crêpes','Miel','Huile','Farine','Savon','Bieres'],
-
-'question9' : '9. Quelle serait pour vous la fréquence idéale des livraisons?',
-'field9' : ['Hebdomadaire','Mensuelle','Trimestrielle'],
-
-'question10' : '10. Quels lieux et mode de livraisons vous conviendraient?',
-'field10' : ['Venir chercher à un point de livraison','Adhérer à un système de livraison à domicile'],
-
-'question11' : '11. Seriez-vous prets à:',
-'field11' : ['Réceptionner les livraisons','Assurer des permanences pour le retrait des commandes','Livrer chez l’habitant','assurer le lien avec un producteur']
-
-}
-filename = 'data.txt'
-filename2 = 'data2.txt'
-
-@app.route('/quartier_rive_droite/sondage')
-def root():
-    return render_template('poll.html', data=poll_data)
-
-@app.route('/poll')
-def poll():
-    vote1 = request.args.get('field1')
-    vote2 = request.args.get('field2')
-    vote3 = request.args.get('field3')
-    vote4 = request.args.get('field4')
-    vote5 = request.args.get('field5')
-    vote6 = request.args.getlist('field6')
-    vote7 = request.args.get('field7')
-    vote8 = request.args.getlist('field8')
-    vote9 = request.args.get('field9')
-    vote10 = request.args.get('field10')
-    vote11 = request.args.get('field11')
-
-    out = open(filename, 'a')
-    out.write( vote1 + '\n' )
-    out.write( vote2 + '\n' )
-    out.write( vote3 + '\n' )
-    out.write( vote4 + '\n' )
-    out.write( vote5 + '\n' )
-    out.write( ' '.join(vote6) + '\n' )
-    out.write( vote7 + '\n' )
-    out.write( ' '.join(vote8) + '\n' )
-    out.write( vote9 + '\n' )
-    out.write( vote10 + '\n' )
-    out.write( vote11 + '\n' )
-    out.close()
-
-    text1 = request.args.get('text1', default='')
-    text2_1 = request.args.get('text_Dans le quartier Rive Droite', default='')
-    text2_2 = request.args.get('text_Dans un autre quartier', default='')
-    text8 = request.args.get('text8', default='')
-    text11 = request.args.get('text11', default='')
-
-    out2 = open(filename2,'a')
-    out2.write(text1+',')
-    out2.write(text2_1+',')
-    out2.write(text2_2+',')
-    out2.write(text8+',')
-    out2.write(text11+',')
-    out2.write('\n')
-    out2.close()
-
-    return render_template('merci.html', data=poll_data)
-
-@app.route('/quartier_rive_droite/sondage/d645feaaefa4cd67929e126bfaaf7a9c')
-def show_results():
-    votes1 = {}
-    votes2 = {}
-    votes3 = {}
-    votes4 = {}
-    votes5 = {}
-    votes6 = {}
-    votes7 = {}
-    votes8 = {}
-    votes9 = {}
-    votes10 = {}
-    votes11 = {}
-
-    for f in poll_data['field1']:
-        votes1[f] = 0
-    for f in poll_data['field2']:
-        votes2[f] = 0
-    for f in poll_data['field3']:
-        votes3[f] = 0
-    for f in poll_data['field4']:
-        votes4[f] = 0
-    for f in poll_data['field5']:
-        votes5[f] = 0
-    for f in poll_data['field6']:
-        votes6[f] = 0
-    for f in poll_data['field7']:
-        votes7[f] = 0
-    for f in poll_data['field8']:
-        votes8[f] = 0
-    for f in poll_data['field9']:
-        votes9[f] = 0
-    for f in poll_data['field10']:
-        votes10[f] = 0
-    for f in poll_data['field11']:
-        votes11[f] = 0
-
-
-    f  = open(filename, 'r')
-
-    for line in f:
-        for i in poll_data['field1']:
-            if i in line:
-                votes1[i] +=1
-        for i in poll_data['field2']:
-            if i in line:
-                votes2[i] +=1
-        for i in poll_data['field3']:
-            if i in line:
-                votes3[i] +=1
-        for i in poll_data['field4']:
-            if i in line:
-                votes4[i] +=1
-        for i in poll_data['field5']:
-            if i in line:
-                votes5[i] +=1
-        for i in poll_data['field6']:
-            if i in line:
-                votes6[i] +=1
-        for i in poll_data['field7']:
-            if i in line:
-                votes7[i] +=1
-        for i in poll_data['field8']:
-            if i in line:
-                votes8[i] +=1
-        for i in poll_data['field9']:
-            if i in line:
-                votes9[i] +=1
-        for i in poll_data['field10']:
-            if i in line:
-                votes10[i] +=1
-        for i in poll_data['field11']:
-            if i in line:
-                votes11[i] +=1
-
-    g = open(filename2, 'r')
-
-    text1 = []
-    text2_1 = []
-    text2_2 = []
-    text8 = []
-    text11 = []
-
-    for line in g:
-        res = line.split(',')
-        text1.append(res[0])
-        text2_1.append(res[1])
-        text2_2.append(res[2])
-        text8.append(res[3])
-        text11.append(res[4])
-
-    return render_template('results.html', data=poll_data, text1=text1, text2_1=text2_1, text2_2=text2_2, text8=text8, text11=text11, votes1=votes1,votes2=votes2,votes3=votes3,votes4=votes4,votes5=votes5,votes6=votes6,votes7=votes7,votes8=votes8,votes9=votes9,votes10=votes10,votes11=votes11)
-
-@app.route('/quartier_rive_droite/sondage/330c052c3d60aae25dd999396c60fdff')
-def clear_poll():
-    f = open(filename,'w')
-    f.truncate()
-    f.close()
-
-    g = open(filename2,'w')
-    g.truncate()
-    g.close()
-
-    return render_template('reset.html')
+    return render_template('view_sequence.html', viewSequence_results=viewSequence_results)
 
 if __name__ == "__main__":
     app.run()
