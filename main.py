@@ -11194,6 +11194,7 @@ duration001 = 4    # In beats
 tempo = 100   # In BPM
 volume = 100  # 0-127, as per the MIDI standard
 
+#audioGen
 #corresponsdance table note/midi
 note_to_midi = {
     'A0':'21','A#0':'22','A1':'33','A#1':'34','A2':'45','A#2':'46','A3':'57','A#3':'58','A4':'69','A#4':'70','A5':'81','A#5':'82','A6':'93','A#6':'94','A7':'105','A#7':'106','Ab1':'32','Ab2':'44','Ab3':'56','Ab4':'68','Ab5':'80','Ab6':'92','Ab7':'104','B0':'23','B1':'35','B2':'47','B3':'59','B4':'71','B5':'83','B6':'95','B7':'107','Bb0':'22','Bb1':'34','Bb2':'46','Bb3':'58','Bb4':'70','Bb5':'82','Bb6':'94','Bb7':'106','C1':'24','C#1':'25','C2':'36','C#2':'37','C3':'48','C#3':'49','C4':'60','C#4':'61','C5':'72','C#5':'73','C6':'84','C#6':'85','C7':'96','C#7':'97','C8':'108','D1':'26','D#1':'27','D2':'38','D#2':'39','D3':'50','D#3':'51','D4':'62','D#4':'63','D5':'74','D#5':'75','D6':'86','D#6':'87','D7':'98','D#7':'99','Db1':'25','Db2':'37','Db3':'49','Db4':'61','Db5':'73','Db6':'85','Db7':'97','E1':'28','E2':'40','E3':'52','E4':'64','E5':'76','E6':'88','E7':'100','Eb1':'27','Eb2':'39','Eb3':'51','Eb4':'63','Eb5':'75','Eb6':'87','Eb7':'99','F1':'29','F#1':'30','F2':'41','F#2':'42','F3':'53','F#3':'54','F4':'65','F#4':'66','F5':'77','F#5':'78','F6':'89','F#6':'90','F7':'101','F#7':'102','G1':'31','G#1':'32','G2':'43','G#2':'44','G3':'55','G#3':'56','G4':'67','G#4':'68','G5':'79','G#5':'80','G6':'91','G#6':'92','G7':'103','G#7':'104','Gb1':'30','Gb2':'42','Gb3':'54','Gb4':'66','Gb5':'78','Gb6':'90','Gb7':'102'
@@ -11269,8 +11270,19 @@ def voiceGen():
         #plot graph (y=occ / x=%)
         #########################
 
-        plt.hist(score_percent, range = (0,100), bins = 100, color = 'grey', edgecolor = 'black')
-        plt.grid(True, linewidth=0.5, color='blue', linestyle='-')
+        #plt.hist(score_percent, range = (0,100), bins = 100, color = 'grey', edgecolor = 'black')
+        #plt.grid(True, linewidth=0.5, color='blue', linestyle='-')
+
+        #construct Series from DataFrame from score_percent (list)
+        df = pd.Series(score_percent)
+        s = df.value_counts()
+        s_final = s.sort_index(ascending=False)
+
+        #display barplot
+        sns.set_theme(color_codes=True)
+
+        ax = sns.barplot(x=s_final.index, y=s_final.values, color='steelblue')
+        ax.set_xticks([0,10,20,30,40,50,60,70,80,90,100])
         plt.xlabel('%OCV')
         plt.ylabel('Occurrences')
         plt.title('Répartition des voicings (='+str(len(chord_progressions))+')')
@@ -11349,6 +11361,8 @@ def voiceGen():
                 voiceGen_results += '<br>OCV='+str(chord_score_dict_inv[str(j)])+'%'
             else:
                 pass
+            #display audioGen href
+            voiceGen_results += '   <a href="/audioGen?chord_progression='+str(j)+'" target="_blank">Play</a>'
             #close div text
             voiceGen_results += '</div>'
             #close div individual slide
@@ -11412,7 +11426,20 @@ def audioGen():
     MyMIDI = MIDIFile(1)
     MyMIDI.addTempo(track001, time, tempo)
 
-    k = request.args.get('chord_progression','')
+    j = request.args.get('chord_progression','')
+
+    j = j.replace("%27","'")
+    j = eval(j)
+
+    k = str(j)
+    k = k.replace(' ','')
+    k = k.replace('(','')
+    k = k.replace(')','')
+    k = k.replace('[','')
+    k = k.replace(']','')
+    k = k.replace(',','')
+    k = k.replace('\'','')
+    k = k.replace('#','_')
     #counter for separating chords in list
     x = 0
 
@@ -11462,14 +11489,33 @@ def audioGen():
                 output = output.overlay(rendered, start_pos)
 
     output.export('jazzreal/static/audioGen/_'+k+'.wav', format="wav")
-
     os.remove('jazzreal/static/audioGen/_'+k+'.mid')
+
+    audioGen_path = 'static/audioGen/_'+k+'.wav'
 
     del output_file
     del mid
     del MyMIDI
 
-    return render_template('view_audioGen.html', audioGen_results=audioGen_results)
+    return render_template('view_audioGen.html', audioGen_path=audioGen_path)
+
+
+corpus_sequence = {}
+
+for title in list_titles:
+    corpus_sequence[title] = {}
+    try:
+        f = open('jazzreal/static/corpus-html/'+title+'.html', 'r')
+        TEXT = f.read()
+        metric = re.search('<metric>(.*)</metric>', TEXT).group(1)
+        key = re.search('<key>(.*)</key>', TEXT).group(1)
+        grille = re.findall('>(.*):\n-([\w\W][^>]*)', TEXT)
+        for i in range(len(grille)):
+            corpus_sequence[title][grille[i][0]]=grille[i][1]
+        corpus_sequence[title]['key'] = key
+        corpus_sequence[title]['metric'] = metric
+    except AttributeError:
+        pass
 
 #this method search by sequence of chords in all song's sections and rank the results
 @app.route('/Sequence')
