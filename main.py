@@ -11276,13 +11276,13 @@ def voiceGen():
         #construct Series from DataFrame from score_percent (list)
         df = pd.Series(score_percent)
         s = df.value_counts()
-        s_final = s.sort_index(ascending=False)
+        s_final = s.sort_index(ascending=True)
 
         #display barplot
         sns.set_theme(color_codes=True)
 
-        ax = sns.barplot(x=s_final.index, y=s_final.values, color='steelblue')
-        ax.set_xticks([0,10,20,30,40,50,60,70,80,90,100])
+        ax = sns.barplot(x=list(s_final.index), y=s_final.values, color='steelblue')
+        ax.set_xticks([0,25,50,75,100])
         plt.xlabel('%OCV')
         plt.ylabel('Occurrences')
         plt.title('Répartition des voicings (='+str(len(chord_progressions))+')')
